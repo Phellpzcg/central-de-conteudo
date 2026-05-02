@@ -1043,4 +1043,21 @@ var baseDeConhecimento = [
     palavras_chave: ["baixar cnpj", "fechar", "encerramento", "fim empresa", "distrato", "cancelar cnpj"]
   }
 
+  {
+    id: 101, 
+    modulo: 11, 
+    moduloNome: "Resumo Sindicatos",
+    titulo: "Sind. Itaberaba e Região",
+    descricao: "Resumo da Convenção Coletiva (SINDCIR 26/28). Abrange: Itaberaba, Ipirá, Iaçu, Utinga, Wagner e região.",
+    url: "sindicatos/sind-itaberaba.html",
+    icone: '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path>',
+    palavras_chave: [
+      "sindicato", "convenção coletiva", "cct", "sindcir", "piso salarial", "reajuste", "comércio", "farmácia", 
+      "boa vista do tupim", "bonito", "iaçu", "ibiquera", "ipirá", "itaberaba", 
+      "itaetê", "itatim", "lajedinho", "marcionílio souza", "nova redenção", 
+      "utinga", "wagner"
+    ]
+  }
+
+
 ];
