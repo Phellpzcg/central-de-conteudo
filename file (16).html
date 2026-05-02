@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Domínio Farma Contabilidade — Central de Ajuda</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;overflow:hidden;}
+body{font-family:'Inter',sans-serif;background:var(--black);color:var(--white);}
+
+:root{
+--gold:#BFA469;--gold-light:#D4BC82;--gold-dark:#9A8355;
+--white:#F5F5F5;--white-soft:#D0D0D0;--gray:#8A8A8A;--gray-dark:#5A5A5A;
+--black:#0A0A0A;--black-card:#111111;--black-deep:#080808;
+--sidebar-w:300px;
+}
+
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+@keyframes pulse{0%,100%{opacity:.2;transform:translate(-50%,-50%) scale(1)}50%{opacity:.5;transform:translate(-50%,-50%) scale(1.04)}}
+@keyframes orbit{0%{transform:rotate(0deg) translateX(var(--r)) rotate(0deg)}100%{transform:rotate(360deg) translateX(var(--r)) rotate(-360deg)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+.gt{background:linear-gradient(135deg,var(--gold) 0%,var(--gold-light) 40%,var(--gold) 70%,var(--gold-dark) 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 5s linear infinite;}
+
+/* ===== APP SHELL ===== */
+.app{display:flex;height:100vh;width:100vw;}
+
+/* ===== SIDEBAR ===== */
+.sidebar{width:var(--sidebar-w);min-width:var(--sidebar-w);height:100vh;background:var(--black-card);border-right:1px solid rgba(255,255,255,.05);display:flex;flex-direction:column;position:relative;z-index:100;transition:transform .4s cubic-bezier(.22,1,.36,1);}
+
+.sidebar-header{padding:20px 22px 16px;border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:center;justify-content:space-between;min-height:64px;}
+.sidebar-header img{height:32px;opacity:.95;}
+.sidebar-close{display:none;background:none;border:none;color:var(--gray);cursor:pointer;padding:6px;border-radius:8px;transition:all .3s;}
+.sidebar-close:hover{color:var(--white);background:rgba(255,255,255,.05);}
+.sidebar-close svg{width:20px;height:20px;}
+
+.sidebar-nav{flex:1;overflow-y:auto;padding:12px 0;scrollbar-width:thin;scrollbar-color:rgba(191,164,105,.15) transparent;}
+.sidebar-nav::-webkit-scrollbar{width:4px;}
+.sidebar-nav::-webkit-scrollbar-track{background:transparent;}
+.sidebar-nav::-webkit-scrollbar-thumb{background:rgba(191,164,105,.15);border-radius:4px;}
+
+.mod{border-bottom:1px solid rgba(255,255,255,.03);}
+.mod-header{display:flex;align-items:center;gap:10px;padding:14px 20px;cursor:pointer;transition:all .3s;user-select:none;}
+.mod-header:hover{background:rgba(255,255,255,.03);}
+.mod-header.active{background:rgba(191,164,105,.04);}
+.mod-num{width:28px;height:28px;min-width:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:var(--gold);background:rgba(191,164,105,.08);border:1px solid rgba(191,164,105,.12);transition:all .3s;}
+.mod-header.active .mod-num{background:var(--gold);color:#000;border-color:var(--gold);}
+.mod-title{flex:1;font-size:13px;font-weight:600;color:var(--white-soft);line-height:1.3;transition:color .3s;}
+.mod-header.active .mod-title{color:var(--gold-light);}
+.mod-arrow{width:16px;height:16px;color:var(--gray-dark);transition:all .3s;flex-shrink:0;}
+.mod-header.active .mod-arrow{transform:rotate(180deg);color:var(--gold);}
+
+.mod-content{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.22,1,.36,1);}
+.mod-content.open{max-height:600px;}
+
+.mod-link{display:flex;align-items:center;gap:8px;padding:10px 20px 10px 58px;font-size:13px;color:var(--gray);text-decoration:none;transition:all .25s;line-height:1.4;position:relative;}
+.mod-link::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--gray-dark);flex-shrink:0;transition:all .25s;}
+.mod-link:hover{color:var(--white);background:rgba(255,255,255,.02);}
+.mod-link:hover::before{background:var(--gold);box-shadow:0 0 6px rgba(191,164,105,.4);}
+
+.sidebar-footer{padding:16px 20px;border-top:1px solid rgba(255,255,255,.04);text-align:center;}
+.sidebar-footer p{font-size:10px;color:var(--gray-dark);line-height:1.5;}
+.sidebar-footer a{color:var(--gold-dark);text-decoration:none;transition:color .3s;}
+.sidebar-footer a:hover{color:var(--gold);}
+
+/* ===== MAIN AREA ===== */
+.main{flex:1;height:100vh;display:flex;flex-direction:column;position:relative;overflow:hidden;}
+
+.main-topbar{display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:56px;min-height:56px;border-bottom:1px solid rgba(255,255,255,.04);background:rgba(10,10,10,.8);backdrop-filter:blur(12px);position:relative;z-index:10;}
+.main-topbar::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold-dark),var(--gold),var(--gold-dark),transparent);opacity:.3;}
+
+.hamburger{display:none;background:none;border:none;color:var(--white-soft);cursor:pointer;padding:6px;border-radius:8px;transition:all .3s;}
+.hamburger:hover{background:rgba(255,255,255,.05);}
+.hamburger svg{width:22px;height:22px;}
+
+.main-topbar-title{font-size:13px;font-weight:600;color:var(--gray);letter-spacing:.04em;display:flex;align-items:center;gap:8px;}
+.main-topbar-title svg{width:16px;height:16px;color:var(--gold-dark);}
+
+.main-topbar-right{display:flex;align-items:center;gap:10px;}
+.wpp-btn{display:flex;align-items:center;gap:6px;padding:7px 14px;border-radius:10px;background:rgba(191,164,105,.06);border:1px solid rgba(191,164,105,.15);color:var(--gold);font-size:12px;font-weight:600;text-decoration:none;transition:all .3s;}
+.wpp-btn:hover{background:rgba(191,164,105,.12);border-color:rgba(191,164,105,.3);}
+.wpp-btn svg{width:16px;height:16px;}
+
+.main-scroll{flex:1;overflow-y:auto;overflow-x:hidden;position:relative;scrollbar-width:thin;scrollbar-color:rgba(191,164,105,.1) transparent;}
+.main-scroll::-webkit-scrollbar{width:5px;}
+.main-scroll::-webkit-scrollbar-track{background:transparent;}
+.main-scroll::-webkit-scrollbar-thumb{background:rgba(191,164,105,.12);border-radius:4px;}
+
+/* ===== HERO / SEARCH CENTER ===== */
+.search-hero{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 24px;transition:all .6s cubic-bezier(.22,1,.36,1);min-height:calc(100vh - 56px);}
+.search-hero.moved{min-height:auto;padding:28px 24px 16px;justify-content:flex-start;}
+
+.orb-wrap{position:relative;width:200px;height:200px;margin-bottom:24px;transition:all .6s cubic-bezier(.22,1,.36,1);}
+.search-hero.moved .orb-wrap{width:0;height:0;margin:0;opacity:0;overflow:hidden;}
+.orb{position:absolute;width:200px;height:200px;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;}
+.orb .ring{position:absolute;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);border:1px solid rgba(191,164,105,.08);animation:pulse 5s ease-in-out infinite;}
+.orb .ring:nth-child(1){width:50px;height:50px;}
+.orb .ring:nth-child(2){width:100px;height:100px;animation-delay:.6s;border-color:rgba(255,255,255,.03);}
+.orb .ring:nth-child(3){width:150px;height:150px;animation-delay:1.2s;}
+.orb .ring:nth-child(4){width:200px;height:200px;animation-delay:1.8s;border-color:rgba(255,255,255,.02);}
+.onode{position:absolute;width:4px;height:4px;border-radius:50%;top:50%;left:50%;background:var(--gold);box-shadow:0 0 10px rgba(191,164,105,.5);animation:orbit 10s linear infinite;}
+.on2{--r:50px;animation-duration:13s!important;background:var(--white-soft)!important;box-shadow:0 0 8px rgba(255,255,255,.2)!important;}
+.on3{--r:75px;animation-duration:17s!important;animation-delay:-4s;}
+.on4{--r:100px;animation-duration:21s!important;background:var(--white-soft)!important;box-shadow:0 0 8px rgba(255,255,255,.2)!important;}
+
+.search-logo{height:36px;opacity:.9;margin-bottom:20px;transition:all .6s cubic-bezier(.22,1,.36,1);}
+.search-hero.moved .search-logo{height:0;opacity:0;margin:0;overflow:hidden;}
+
+.search-title{font-size:clamp(20px,3.5vw,30px);font-weight:800;letter-spacing:-.02em;color:var(--white);margin-bottom:8px;line-height:1.2;transition:all .6s cubic-bezier(.22,1,.36,1);}
+.search-hero.moved .search-title{font-size:0;height:0;margin:0;opacity:0;overflow:hidden;}
+
+.search-sub{font-size:15px;color:var(--gray);margin-bottom:28px;line-height:1.5;max-width:460px;transition:all .6s cubic-bezier(.22,1,.36,1);}
+.search-hero.moved .search-sub{font-size:0;height:0;margin:0;opacity:0;overflow:hidden;}
+
+.search-bar{width:100%;max-width:580px;position:relative;transition:max-width .5s ease;}
+.search-hero.moved .search-bar{max-width:680px;}
+
+.search-input-wrap{display:flex;align-items:center;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:0 6px 0 18px;transition:all .3s;overflow:hidden;}
+.search-input-wrap:focus-within{border-color:rgba(191,164,105,.3);background:rgba(255,255,255,.04);box-shadow:0 0 30px rgba(191,164,105,.06),0 8px 32px rgba(0,0,0,.3);}
+.search-icon{width:22px;height:22px;min-width:22px;color:var(--gray);transition:color .3s;}
+.search-input-wrap:focus-within .search-icon{color:var(--gold);}
+.search-input{flex:1;background:transparent;border:none;outline:none;color:var(--white);font-family:'Inter',sans-serif;font-size:15px;font-weight:500;padding:16px 12px;caret-color:var(--gold);}
+.search-input::placeholder{color:var(--gray-dark);font-weight:400;}
+.search-clear{display:none;background:none;border:none;color:var(--gray);cursor:pointer;padding:8px;border-radius:8px;transition:all .3s;}
+.search-clear.show{display:flex;}
+.search-clear:hover{color:var(--white);background:rgba(255,255,255,.05);}
+.search-clear svg{width:16px;height:16px;}
+
+.search-hint{margin-top:12px;font-size:12px;color:var(--gray-dark);transition:all .4s;display:flex;align-items:center;gap:6px;}
+.search-hint kbd{display:inline-block;padding:2px 7px;border-radius:5px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);font-family:'Inter',sans-serif;font-size:11px;color:var(--gray);}
+.search-hero.moved .search-hint{display:none;}
+
+/* ===== RESULTS AREA ===== */
+.results-area{display:none;padding:0 28px 40px;max-width:720px;margin:0 auto;width:100%;}
+.results-area.show{display:block;}
+
+.results-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-top:8px;}
+.results-count{font-size:13px;color:var(--gray);font-weight:500;}
+.results-count strong{color:var(--white);font-weight:700;}
+
+.results-grid{display:flex;flex-direction:column;gap:12px;}
+
+.content-card{display:flex;align-items:center;gap:16px;padding:20px 18px;border-radius:16px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);text-decoration:none;color:inherit;transition:all .35s ease;position:relative;overflow:hidden;animation:fadeUp .4s ease both;}
+.content-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(191,164,105,.03) 0%,transparent 60%);opacity:0;transition:opacity .35s ease;pointer-events:none;}
+.content-card:hover{border-color:rgba(191,164,105,.2);transform:translateY(-2px);box-shadow:0 14px 44px rgba(0,0,0,.4),0 0 20px rgba(191,164,105,.05);}
+.content-card:hover::before{opacity:1;}
+
+.card-icon{width:50px;height:50px;min-width:50px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:rgba(191,164,105,.07);border:1px solid rgba(191,164,105,.12);transition:all .35s ease;}
+.content-card:hover .card-icon{background:rgba(191,164,105,.12);border-color:rgba(191,164,105,.25);}
+.card-icon svg{width:24px;height:24px;color:var(--gold);}
+
+.card-info{flex:1;min-width:0;}
+.card-info h3{font-size:15px;font-weight:700;color:var(--white);margin-bottom:3px;line-height:1.3;}
+.card-info p{font-size:12px;color:var(--gray);line-height:1.45;margin:0;}
+.card-module{display:inline-block;margin-top:6px;padding:3px 8px;border-radius:5px;font-size:10px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;background:rgba(191,164,105,.06);color:var(--gold-dark);border:1px solid rgba(191,164,105,.1);}
+
+.card-arrow{display:flex;align-items:center;justify-content:center;width:34px;height:34px;min-width:34px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);transition:all .35s ease;}
+.card-arrow svg{width:16px;height:16px;color:var(--gray);transition:color .35s;}
+.content-card:hover .card-arrow{background:rgba(191,164,105,.1);border-color:rgba(191,164,105,.25);}
+.content-card:hover .card-arrow svg{color:var(--gold);}
+
+.no-results{text-align:center;padding:50px 24px;}
+.no-results span{font-size:40px;display:block;margin-bottom:14px;}
+.no-results p{font-size:15px;color:var(--gray);line-height:1.5;}
+.no-results strong{color:var(--white);}
+
+/* ===== OVERLAY (Mobile) ===== */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:90;backdrop-filter:blur(4px);opacity:0;transition:opacity .3s;}
+.overlay.show{display:block;opacity:1;}
+
+/* ===== DESKTOP ===== */
+@media(min-width:769px){
+  .sidebar-header{padding:22px 24px 18px;min-height:72px;}
+  .sidebar-header img{height:36px;}
+  .main-topbar{height:64px;min-height:64px;padding:0 36px;}
+  .search-input{font-size:16px;padding:18px 14px;}
+  .results-area{padding:0 36px 50px;max-width:760px;}
+  .content-card{padding:22px 20px;gap:18px;}
+  .card-icon{width:56px;height:56px;min-width:56px;border-radius:16px;}
+  .card-icon svg{width:26px;height:26px;}
+  .card-info h3{font-size:16px;}
+  .card-info p{font-size:13px;}
+  .search-hero{padding:50px 36px;}
+  .orb-wrap{width:260px;height:260px;}
+  .orb{width:260px;height:260px;}
+  .orb .ring:nth-child(1){width:65px;height:65px;}
+  .orb .ring:nth-child(2){width:130px;height:130px;}
+  .orb .ring:nth-child(3){width:195px;height:195px;}
+  .orb .ring:nth-child(4){width:260px;height:260px;}
+  .on2{--r:65px;}.on3{--r:97px;}.on4{--r:130px;}
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+  .sidebar{position:fixed;left:0;top:0;z-index:200;transform:translateX(-100%);width:280px;min-width:280px;box-shadow:20px 0 60px rgba(0,0,0,.5);}
+  .sidebar.open{transform:translateX(0);}
+  .sidebar-close{display:flex;}
+  .hamburger{display:flex;}
+  .main-topbar-title span{display:none;}
+  .search-hero{padding:30px 18px;min-height:calc(100vh - 56px);}
+  .results-area{padding:0 16px 30px;}
+  .search-bar{max-width:100%;}
+  .search-hero.moved .search-bar{max-width:100%;}
+  .content-card{padding:16px 14px;gap:12px;}
+  .card-icon{width:44px;height:44px;min-width:44px;border-radius:12px;}
+  .card-icon svg{width:20px;height:20px;}
+  .card-info h3{font-size:14px;}
+  .card-info p{font-size:11px;}
+  .card-arrow{width:30px;height:30px;min-width:30px;border-radius:8px;}
+  .wpp-btn span{display:none;}
+  .orb-wrap{width:160px;height:160px;}
+  .orb{width:160px;height:160px;}
+  .orb .ring:nth-child(1){width:40px;height:40px;}
+  .orb .ring:nth-child(2){width:80px;height:80px;}
+  .orb .ring:nth-child(3){width:120px;height:120px;}
+  .orb .ring:nth-child(4){width:160px;height:160px;}
+  .on2{--r:40px;}.on3{--r:60px;}.on4{--r:80px;}
+}
+@media(max-width:480px){
+  .search-title{font-size:20px;}
+  .search-sub{font-size:13px;margin-bottom:20px;}
+  .search-input{font-size:14px;padding:14px 10px;}
+}
+</style>
+</head>
+<body>
+
+<div class="overlay" id="overlay"></div>
+
+<div class="app">
+
+<!-- ================================================================
+     SIDEBAR — MENU LATERAL COM ACORDEÃO DE MÓDULOS
+     ================================================================
+     
+     O menu lateral serve para navegação direta aos conteúdos.
+     Cada módulo é uma "sanfona" que abre/fecha ao clicar.
+     Os links levam direto para a página HTML do conteúdo.
+
+     ================================================================
+     ESTRUTURA DE PASTAS DOS LINKS (href):
+     ================================================================
+     
+     Os links devem seguir o padrão:
+     
+       href="nome-da-pasta-do-modulo/nome-da-pagina.html"
+     
+     Exemplo:
+       href="o-inicio-da-jornada/o-que-e-contrato-social.html"
+     
+     REGRAS:
+     - Tudo em minúsculas
+     - Espaços viram hífens (-)
+     - Sem acentos
+     - O nome da pasta é o "slug" do nome do módulo
+
+     ================================================================ -->
+
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <img src="logo.png" alt="Domínio Farma Contabilidade">
+    <button class="sidebar-close" id="sidebarClose" aria-label="Fechar menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+
+  <nav class="sidebar-nav" id="sidebarNav">
+
+    <!-- ============================================================
+         MÓDULO 1 — O INÍCIO DA JORNADA
+         Pasta: o-inicio-da-jornada/
+         ============================================================ -->
+    <div class="mod">
+      <div class="mod-header" data-mod="1">
+        <div class="mod-num">01</div>
+        <span class="mod-title">O Início da Jornada</span>
+        <svg class="mod-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="mod-content" id="mod-1">
+        <a href="o-inicio-da-jornada/diferenca-entre-mei-me-e-epp.html" class="mod-link">Diferença entre MEI, ME e EPP</a>
+        <a href="o-inicio-da-jornada/o-que-e-contrato-social.html" class="mod-link">O que é Contrato Social</a>
+        <a href="o-inicio-da-jornada/empresa-de-um-dono-so-x-sociedade.html" class="mod-link">Empresa de um dono só x Sociedade</a>
+        <a href="o-inicio-da-jornada/como-escolher-o-cnae-correto.html" class="mod-link">Como escolher o CNAE correto</a>
+        <a href="o-inicio-da-jornada/inscricao-estadual-x-municipal.html" class="mod-link">Inscrição Estadual x Municipal</a>
+        <a href="o-inicio-da-jornada/alvara-de-funcionamento-e-bombeiros.html" class="mod-link">Alvará de Funcionamento e Bombeiros</a>
+        <a href="o-inicio-da-jornada/regras-da-anvisa-e-crf.html" class="mod-link">Regras da ANVISA e CRF</a>
+        <a href="o-inicio-da-jornada/quanto-custa-abrir-cnpj.html" class="mod-link">Quanto custa abrir CNPJ</a>
+        <a href="o-inicio-da-jornada/endereco-residencial-como-sede.html" class="mod-link">Endereço residencial como Sede</a>
+        <a href="o-inicio-da-jornada/passivos-ocultos-ao-comprar-empresa.html" class="mod-link">Passivos ocultos ao comprar empresa</a>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         MÓDULO 2 — DOMINANDO O RH
+         Pasta: dominando-o-rh/
+         ============================================================ -->
+    <div class="mod">
+      <div class="mod-header" data-mod="2">
+        <div class="mod-num">02</div>
+        <span class="mod-title">Dominando o RH</span>
+        <svg class="mod-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="mod-content" id="mod-2">
+        <a href="dominando-o-rh/clt-pj-ou-autonomo.html" class="mod-link">CLT, PJ ou Autônomo?</a>
+        <a href="dominando-o-rh/o-custo-real-de-um-funcionario.html" class="mod-link">O custo real de um funcionário</a>
+        <a href="dominando-o-rh/contrato-de-experiencia.html" class="mod-link">Contrato de experiência</a>
+        <a href="dominando-o-rh/exames-medicos-aso.html" class="mod-link">Exames médicos (ASO)</a>
+        <a href="dominando-o-rh/vale-transporte-e-vale-refeicao.html" class="mod-link">Vale-Transporte e Vale-Refeição</a>
+        <a href="dominando-o-rh/adicional-noturno.html" class="mod-link">Adicional Noturno</a>
+        <a href="dominando-o-rh/insalubridade-e-periculosidade.html" class="mod-link">Insalubridade e Periculosidade</a>
+        <a href="dominando-o-rh/controle-de-ponto-legalizado.html" class="mod-link">Controle de Ponto legalizado</a>
+        <a href="dominando-o-rh/sindicato-e-piso-salarial.html" class="mod-link">Sindicato e Piso Salarial</a>
+        <a href="dominando-o-rh/estagiario-e-jovem-aprendiz.html" class="mod-link">Estagiário e Jovem Aprendiz</a>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         MÓDULO 3 — ROTINAS TRABALHISTAS
+         Pasta: rotinas-trabalhistas/
+         ============================================================ -->
+    <div class="mod">
+      <div class="mod-header" data-mod="3">
+        <div class="mod-num">03</div>
+        <span class="mod-title">Rotinas Trabalhistas</span>
+        <svg class="mod-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="mod-content" id="mod-3">
+        <a href="rotinas-trabalhistas/calculo-e-regras-de-ferias.html" class="mod-link">Cálculo e regras de Férias</a>
+        <a href="rotinas-trabalhistas/regras-e-prazos-do-13-salario.html" class="mod-link">Regras e prazos do 13º Salário</a>
+        <a href="rotinas-trabalhistas/faltas-e-atestados-de-1-dia.html" class="mod-link">Faltas e atestados de 1 dia</a>
+        <a href="rotinas-trabalhistas/afastamentos-e-inss.html" class="mod-link">Afastamentos e INSS</a>
+        <a href="rotinas-trabalhistas/licenca-maternidade-e-quem-paga.html" class="mod-link">Licença-maternidade e quem paga</a>
+        <a href="rotinas-trabalhistas/advertencia-e-suspensao.html" class="mod-link">Advertência e Suspensão</a>
+        <a href="rotinas-trabalhistas/demissao-sem-justa-causa.html" class="mod-link">Demissão sem Justa Causa</a>
+        <a href="rotinas-trabalhistas/demissao-por-justa-causa.html" class="mod-link">Demissão por Justa Causa</a>
+        <a href="rotinas-trabalhistas/demissao-por-acordo.html" class="mod-link">Demissão por Acordo</a>
+        <a href="rotinas-trabalhistas/erros-que-geram-processos.html" class="mod-link">Erros que geram processos</a>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         MÓDULO 4 — IMPOSTOS E TRIBUTAÇÃO
+         Pasta: impostos-e-tributacao/
+         ============================================================ -->
+    <div class="mod">
+      <div class="mod-header" data-mod="4">
+        <div class="mod-num">04</div>
+        <span class="mod-title">Impostos e Tributação</span>
+        <svg class="mod-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="mod-content" id="mod-4">
+        <a href="impostos-e-tributacao/simples-nacional-x-lucro-presumido.html" class="mod-link">Simples Nacional x Lucro Presumido</a>
+        <a href="impostos-e-tributacao/tabela-do-simples-nacional.html" class="mod-link">Tabela do Simples Nacional</a>
+        <a href="impostos-e-tributacao/o-fator-r.html" class="mod-link">O Fator R</a>
+        <a href="impostos-e-tributacao/produtos-monofasicos.html" class="mod-link">Produtos Monofásicos</a>
+        <a href="impostos-e-tributacao/substituicao-tributaria-icms-st.html" class="mod-link">Substituição Tributária (ICMS-ST)</a>
+        <a href="impostos-e-tributacao/o-que-e-o-das.html" class="mod-link">O que é o DAS</a>
+        <a href="impostos-e-tributacao/diferencial-de-aliquota-difal.html" class="mod-link">Diferencial de Alíquota (DIFAL)</a>
+        <a href="impostos-e-tributacao/estouro-do-limite-do-simples.html" class="mod-link">Estouro do limite do Simples</a>
+        <a href="impostos-e-tributacao/recuperacao-de-impostos.html" class="mod-link">Recuperação de Impostos</a>
+        <a href="impostos-e-tributacao/exclusao-do-simples-nacional.html" class="mod-link">Exclusão do Simples Nacional</a>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         MÓDULO 5 — GESTÃO FINANCEIRA
+         Pasta: gestao-financeira/
+         ============================================================ -->
+    <div class="mod">
+      <div class="mod-header" data-mod="5">
+        <div class="mod-num">05</div>
+        <span class="mod-title">Gestão Financeira</span>
+        <svg class="mod-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="mod-content" id="mod-5">
+        <a href="gestao-financeira/nao-misture-conta-pf-com-pj.html" class="mod-link">Não misture Conta PF com PJ</a>
+        <a href="gestao-financeira/despesas-pessoais-na-empresa.html" class="mod-link">Despesas pessoais na empresa</a>
+        <a href="gestao-financeira/fluxo-de-caixa-basico.html" class="mod-link">Fluxo de Caixa básico</a>
+        <a href="gestao-financeira/conciliacao-bancaria.html" class="mod-link">Conciliação Bancária</a>
+        <a href="gestao-financeira/cruzamento-de-pix-e-maquininhas.html" class="mod-link">Cruzamento de PIX e Maquininhas</a>
+        <a href="gestao-financeira/emprestimos-na-conta-pj.html" class="mod-link">Empréstimos na conta PJ</a>
+        <a href="gestao-financeira/capital-de-giro.html" class="mod-link">Capital de Giro</a>
+        <a href="gestao-financeira/antecipacao-de-cartoes.html" class="mod-link">Antecipação de Cartões</a>
+        <a href="gestao-financeira/varias-maquininhas-no-balcao.html" class="mod-link">Várias maquininhas no balcão</a>
+        <a href="gestao-financeira/bpo-financeiro.html" class="mod-link">BPO Financeiro</a>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         MÓDULO 6 — O DINHEIRO DO DONO
+         Pasta: o-dinheiro-do-dono/
+         ============================================================ -->
+    <div class="mod">
+      <div class="mod-header" data-mod="6">
+        <div class="mod-num">06</div>
+        <span class="mod-title">O Dinheiro do Dono</span>
+        <svg class="mod-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="mod-content" id="mod-6">
+        <a href="o-dinheiro-do-dono/o-que-e-pro-labore.html" class="mod-link">O que é Pró-labore</a>
+        <a href="o-dinheiro-do-dono/pro-labore-x-distribuicao-de-lucros.html" class="mod-link">Pró-labore x Distribuição de Lucros</a>
+        <a href="o-dinheiro-do-dono/calculo-e-impostos-do-pro-labore.html" class="mod-link">Cálculo e impostos do Pró-labore</a>
+        <a href="o-dinheiro-do-dono/isencao-da-distribuicao-de-lucros.html" class="mod-link">Isenção da Distribuição de Lucros</a>
+        <a href="o-dinheiro-do-dono/distribuicao-com-impostos-atrasados.html" class="mod-link">Distribuição com impostos atrasados</a>
+        <a href="o-dinheiro-do-dono/divisao-de-lucros-desproporcional.html" class="mod-link">Divisão de lucros desproporcional</a>
+        <a href="o-dinheiro-do-dono/socio-investidor-x-administrador.html" class="mod-link">Sócio Investidor x Administrador</a>
+        <a href="o-dinheiro-do-dono/saida-de-socio-da-empresa.html" class="mod-link">Saída de Sócio da empresa</a>
+        <a href="o-dinheiro-do-dono/aposentadoria-do-empresario.html" class="mod-link">Aposentadoria do empresário</a>
+        <a href="o-dinheiro-do-dono/compra-de-bens-cpf-com-dinheiro-pj.html" class="mod-link">Compra de bens CPF com dinheiro PJ</a>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         MÓDULO 7 — NOTAS FISCAIS E FATURAMENTO
+         Pasta: notas-fiscais-e-faturamento/
+         ============================================================ -->
+    <div class="mod">
+      <div class="mod-header" data-mod="7">
+        <div class="mod-num">07</div>
+        <span class="mod-title">Notas Fiscais e Faturamento</span>
+        <svg class="mod-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="mod-content" id="mod-7">
+        <a href="notas-fiscais-e-faturamento/quando-emitir-nf.html" class="mod-link">Quando emitir NF</a>
+        <a href="notas-fiscais-e-faturamento/nf-e-x-nfs-e-x-nfc-e.html" class="mod-link">NF-e x NFS-e x NFC-e</a>
+        <a href="notas-fiscais-e-faturamento/ncm-correto.html" class="mod-link">NCM correto</a>
+        <a href="notas-fiscais-e-faturamento/cfop-correto.html" class="mod-link">CFOP correto</a>
+        <a href="notas-fiscais-e-faturamento/notas-de-devolucao.html" class="mod-link">Notas de Devolução</a>
+        <a href="notas-fiscais-e-faturamento/notas-de-brindes-e-amostras.html" class="mod-link">Notas de Brindes e Amostras</a>
+        <a href="notas-fiscais-e-faturamento/imposto-sobre-cliente-caloteiro.html" class="mod-link">Imposto sobre cliente caloteiro</a>
+        <a href="notas-fiscais-e-faturamento/cancelamento-de-nota-fiscal.html" class="mod-link">Cancelamento de Nota Fiscal</a>
+        <a href="notas-fiscais-e-faturamento/carta-de-correcao.html" class="mod-link">Carta de Correção</a>
+        <a href="notas-fiscais-e-faturamento/inutilizacao-de-numeracao.html" class="mod-link">Inutilização de numeração</a>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         MÓDULO 8 — FISCALIZAÇÃO E OBRIGAÇÕES
+         Pasta: fiscalizacao-e-obrigacoes/
+         ============================================================ -->
+    <div class="mod">
+      <div class="mod-header" data-mod="8">
+        <div class="mod-num">08</div>
+        <span class="mod-title">Fiscalização e Obrigações</span>
+        <svg class="mod-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="mod-content" id="mod-8">
+        <a href="fiscalizacao-e-obrigacoes/obrigacoes-acessorias-defis-sped.html" class="mod-link">Obrigações Acessórias (DEFIS, SPED)</a>
+        <a href="fiscalizacao-e-obrigacoes/impacto-do-esocial.html" class="mod-link">Impacto do eSocial</a>
+        <a href="fiscalizacao-e-obrigacoes/malha-fina-da-pj.html" class="mod-link">Malha Fina da PJ</a>
+        <a href="fiscalizacao-e-obrigacoes/sonegacao-e-caixa-2.html" class="mod-link">Sonegação e Caixa 2</a>
+        <a href="fiscalizacao-e-obrigacoes/certidoes-negativas-cnds.html" class="mod-link">Certidões Negativas (CNDs)</a>
+        <a href="fiscalizacao-e-obrigacoes/recebendo-fiscais-na-porta.html" class="mod-link">Recebendo Fiscais na porta</a>
+        <a href="fiscalizacao-e-obrigacoes/empresa-e-o-irpf-do-dono.html" class="mod-link">Empresa e o IRPF do dono</a>
+        <a href="fiscalizacao-e-obrigacoes/certificado-digital.html" class="mod-link">Certificado Digital</a>
+        <a href="fiscalizacao-e-obrigacoes/perigo-de-comprar-sem-nota.html" class="mod-link">Perigo de comprar sem nota</a>
+        <a href="fiscalizacao-e-obrigacoes/lgpd-para-pequenos-negocios.html" class="mod-link">LGPD para pequenos negócios</a>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         MÓDULO 9 — ESPECIAL COMÉRCIO E FARMÁCIA
+         Pasta: especial-comercio-e-farmacia/
+         ============================================================ -->
+    <div class="mod">
+      <div class="mod-header" data-mod="9">
+        <div class="mod-num">09</div>
+        <span class="mod-title">Especial Comércio e Farmácia</span>
+        <svg class="mod-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="mod-content" id="mod-9">
+        <a href="especial-comercio-e-farmacia/livro-de-inventario.html" class="mod-link">Livro de Inventário</a>
+        <a href="especial-comercio-e-farmacia/custos-fixos-x-variaveis.html" class="mod-link">Custos Fixos x Variáveis</a>
+        <a href="especial-comercio-e-farmacia/taxas-e-impostos-no-preco.html" class="mod-link">Taxas e impostos no preço</a>
+        <a href="especial-comercio-e-farmacia/margem-de-lucro-x-markup.html" class="mod-link">Margem de Lucro x Markup</a>
+        <a href="especial-comercio-e-farmacia/baixa-de-estoque.html" class="mod-link">Baixa de estoque</a>
+        <a href="especial-comercio-e-farmacia/como-ler-um-dre.html" class="mod-link">Como ler um DRE</a>
+        <a href="especial-comercio-e-farmacia/balanco-patrimonial.html" class="mod-link">Balanço Patrimonial</a>
+        <a href="especial-comercio-e-farmacia/giro-de-estoque-e-impostos.html" class="mod-link">Giro de estoque e impostos</a>
+        <a href="especial-comercio-e-farmacia/importancia-de-um-erp.html" class="mod-link">Importância de um ERP</a>
+        <a href="especial-comercio-e-farmacia/planejamento-tributario-anual.html" class="mod-link">Planejamento Tributário Anual</a>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         MÓDULO 10 — CRESCIMENTO E FUTURO
+         Pasta: crescimento-e-futuro/
+         ============================================================ -->
+    <div class="mod">
+      <div class="mod-header" data-mod="10">
+        <div class="mod-num">10</div>
+        <span class="mod-title">Crescimento e Futuro</span>
+        <svg class="mod-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="mod-content" id="mod-10">
+        <a href="crescimento-e-futuro/impactos-da-reforma-tributaria.html" class="mod-link">Impactos da Reforma Tributária</a>
+        <a href="crescimento-e-futuro/o-simples-vai-acabar.html" class="mod-link">O Simples vai acabar?</a>
+        <a href="crescimento-e-futuro/credito-e-pronampe.html" class="mod-link">Crédito e PRONAMPE</a>
+        <a href="crescimento-e-futuro/vendas-para-o-governo.html" class="mod-link">Vendas para o Governo</a>
+        <a href="crescimento-e-futuro/holding-familiar.html" class="mod-link">Holding Familiar</a>
+        <a href="crescimento-e-futuro/registro-de-marca-inpi.html" class="mod-link">Registro de Marca (INPI)</a>
+        <a href="crescimento-e-futuro/abertura-de-filial.html" class="mod-link">Abertura de Filial</a>
+        <a href="crescimento-e-futuro/vendas-online-e-delivery.html" class="mod-link">Vendas Online e Delivery</a>
+        <a href="crescimento-e-futuro/cpf-na-nota.html" class="mod-link">CPF na Nota</a>
+        <a href="crescimento-e-futuro/o-papel-do-contador-consultor.html" class="mod-link">O papel do Contador Consultor</a>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         ⬇️  COMO ADICIONAR UM NOVO MÓDULO  ⬇️
+         ============================================================
+         
+         1. Copie o bloco HTML abaixo (descomente-o).
+         2. Cole ANTES deste comentário.
+         3. Altere o número do módulo (data-mod, mod-num, id).
+         4. Altere o nome do módulo em mod-title.
+         5. Crie uma pasta no servidor com o nome em slug
+            (ex: "novo-modulo").
+         6. Adicione os links <a> com o href correto:
+            href="nome-da-pasta/nome-da-pagina.html"
+         7. Lembre-se de cadastrar cada conteúdo no arquivo
+            dados.js para que a busca funcione!
+
+         TEMPLATE PARA COPIAR:
+
+    <div class="mod">
+      <div class="mod-header" data-mod="11">
+        <div class="mod-num">11</div>
+        <span class="mod-title">Nome do Novo Módulo</span>
+        <svg class="mod-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="mod-content" id="mod-11">
+        <a href="nome-do-modulo/nome-da-pagina.html" class="mod-link">Título do Conteúdo</a>
+      </div>
+    </div>
+
+         ============================================================ -->
+
+  </nav>
+
+  <div class="sidebar-footer">
+    <p><a href="https://wa.me/5574999263592" target="_blank">(74) 99926-3592</a><br>Domínio Farma Contabilidade<br>Contabilidade 100% Digital</p>
+  </div>
+</aside>
+
+
+<!-- ================================================================
+     MAIN — ÁREA PRINCIPAL (BUSCA + RESULTADOS)
+     ================================================================ -->
+<div class="main">
+
+  <div class="main-topbar">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <div class="main-topbar-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+        <span>Central de Ajuda</span>
+      </div>
+    </div>
+    <div class="main-topbar-right">
+      <a href="https://wa.me/5574999263592?text=Ol%C3%A1%2C%20vim%20pela%20Central%20de%20Ajuda%20e%20gostaria%20de%20falar%20com%20um%20especialista." target="_blank" class="wpp-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+        <span>Falar com Especialista</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="main-scroll" id="mainScroll">
+
+    <!-- HERO + BARRA DE BUSCA -->
+    <div class="search-hero" id="searchHero">
+      <div class="orb-wrap">
+        <div class="orb">
+          <div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div>
+          <div class="onode" style="--r:25px"></div>
+          <div class="onode on2"></div>
+          <div class="onode on3"></div>
+          <div class="onode on4"></div>
+        </div>
+      </div>
+      <img src="logo.png" alt="Domínio Farma" class="search-logo">
+      <h1 class="search-title">Como podemos <span class="gt">ajudar</span> sua empresa hoje?</h1>
+      <p class="search-sub">Pesquise por qualquer tema: impostos, funcionários, notas fiscais, abertura de empresa e muito mais.</p>
+      <div class="search-bar">
+        <div class="search-input-wrap">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" class="search-input" id="searchInput" placeholder="Ex: licença maternidade, simples nacional, nota fiscal..." autocomplete="off">
+          <button class="search-clear" id="searchClear" aria-label="Limpar busca">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+        <div class="search-hint">
+          Pressione <kbd>Ctrl</kbd> + <kbd>K</kbd> para buscar rapidamente
+        </div>
+      </div>
+    </div>
+
+    <!-- RESULTADOS DA BUSCA -->
+    <div class="results-area" id="resultsArea">
+      <div class="results-header">
+        <span class="results-count" id="resultsCount"></span>
+      </div>
+      <div class="results-grid" id="resultsGrid"></div>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- /app -->
+
+
+<!-- ================================================================
+     SCRIPTS
+     ================================================================
+     1. dados.js  — Base de conhecimento (array de objetos)
+     2. Lógica JS — Motor de busca + Accordion da sidebar
+     ================================================================ -->
+<script src="dados.js"></script>
+<script>
+(function() {
+  'use strict';
+
+  /* ============================================================
+     ELEMENTOS DO DOM
+     ============================================================ */
+  var searchInput  = document.getElementById('searchInput');
+  var searchClear  = document.getElementById('searchClear');
+  var searchHero   = document.getElementById('searchHero');
+  var resultsArea  = document.getElementById('resultsArea');
+  var resultsGrid  = document.getElementById('resultsGrid');
+  var resultsCount = document.getElementById('resultsCount');
+  var mainScroll   = document.getElementById('mainScroll');
+  var sidebar      = document.getElementById('sidebar');
+  var overlay      = document.getElementById('overlay');
+  var debounceTimer;
+
+  /* ============================================================
+     MOTOR DE BUSCA
+     ============================================================ */
+  searchInput.addEventListener('input', function() {
+    clearTimeout(debounceTimer);
+    var q = this.value.trim();
+    searchClear.classList.toggle('show', q.length > 0);
+    debounceTimer = setTimeout(function() { executarBusca(q); }, 200);
+  });
+
+  searchClear.addEventListener('click', function() {
+    searchInput.value = '';
+    searchClear.classList.remove('show');
+    resetarParaInicio();
+    searchInput.focus();
+  });
+
+  function executarBusca(query) {
+    if (query.length < 2) {
+      resetarParaInicio();
+      return;
+    }
+
+    var termos = query.toLowerCase().split(/\s+/);
+    var resultados = baseDeConhecimento.filter(function(item) {
+      var alvo = (
+        item.titulo + ' ' +
+        item.descricao + ' ' +
+        item.palavras_chave.join(' ') + ' ' +
+        item.moduloNome
+      ).toLowerCase();
+      return termos.every(function(t) { return alvo.indexOf(t) !== -1; });
+    });
+
+    searchHero.classList.add('moved');
+    resultsArea.classList.add('show');
+
+    if (resultados.length === 0) {
+      resultsCount.innerHTML = '';
+      resultsGrid.innerHTML =
+        '<div class="no-results">' +
+          '<span>🔍</span>' +
+          '<p>Nenhum conteúdo encontrado para <strong>"' + escapeHtml(query) + '"</strong>.<br>' +
+          'Tente buscar com outras palavras ou navegue pelo menu lateral.</p>' +
+        '</div>';
+    } else {
+      resultsCount.innerHTML =
+        '<strong>' + resultados.length + '</strong> resultado' +
+        (resultados.length > 1 ? 's' : '') +
+        ' para "<strong>' + escapeHtml(query) + '</strong>"';
+      resultsGrid.innerHTML = resultados.map(function(item, i) {
+        return renderCard(item, i);
+      }).join('');
+    }
+
+    mainScroll.scrollTop = 0;
+  }
+
+  function resetarParaInicio() {
+    searchHero.classList.remove('moved');
+    resultsArea.classList.remove('show');
+    resultsGrid.innerHTML = '';
+    resultsCount.innerHTML = '';
+  }
+
+  function renderCard(item, index) {
+    return '<a href="' + item.url + '" class="content-card" style="animation-delay:' + (index * .06) + 's">' +
+      '<div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">' + item.icone + '</svg></div>' +
+      '<div class="card-info"><h3>' + item.titulo + '</h3><p>' + item.descricao + '</p>' +
+      '<span class="card-module">Módulo ' + item.modulo + ' · ' + item.moduloNome + '</span></div>' +
+      '<div class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div></a>';
+  }
+
+  function escapeHtml(t) {
+    var d = document.createElement('div');
+    d.appendChild(document.createTextNode(t));
+    return d.innerHTML;
+  }
+
+  /* Atalho Ctrl+K */
+  document.addEventListener('keydown', function(e) {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+      e.preventDefault();
+      searchInput.focus();
+      searchInput.select();
+    }
+    if (e.key === 'Escape' && document.activeElement === searchInput) {
+      searchInput.blur();
+      if (searchInput.value === '') resetarParaInicio();
+    }
+  });
+
+  /* ============================================================
+     SIDEBAR — ACCORDION (APENAS ABRIR/FECHAR SANFONA)
+     ============================================================
+     O clique no cabeçalho do módulo APENAS abre ou fecha
+     a lista de links dentro da própria sidebar.
+     NÃO altera nada na tela principal (Main).
+     ============================================================ */
+  var modHeaders = document.querySelectorAll('.mod-header');
+  modHeaders.forEach(function(header) {
+    header.addEventListener('click', function() {
+      var modId = this.getAttribute('data-mod');
+      var content = document.getElementById('mod-' + modId);
+      var isOpen = content.classList.contains('open');
+
+      // Fecha todos os módulos
+      document.querySelectorAll('.mod-content').forEach(function(c) {
+        c.classList.remove('open');
+      });
+      document.querySelectorAll('.mod-header').forEach(function(h) {
+        h.classList.remove('active');
+      });
+
+      // Se não estava aberto, abre este
+      if (!isOpen) {
+        content.classList.add('open');
+        this.classList.add('active');
+      }
+      // Se já estava aberto, o forEach acima já fechou — toggle natural
+    });
+  });
+
+  /* ============================================================
+     SIDEBAR MOBILE — ABRIR / FECHAR
+     ============================================================ */
+  document.getElementById('hamburger').addEventListener('click', openSidebar);
+  document.getElementById('sidebarClose').addEventListener('click', closeSidebar);
+  overlay.addEventListener('click', closeSidebar);
+
+  function openSidebar() {
+    sidebar.classList.add('open');
+    overlay.classList.add('show');
+  }
+  function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('show');
+  }
+
+  /* Touch swipe para fechar sidebar */
+  var touchStartX = 0;
+  sidebar.addEventListener('touchstart', function(e) {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+  sidebar.addEventListener('touchend', function(e) {
+    var diff = touchStartX - e.changedTouches[0].screenX;
+    if (diff > 60) closeSidebar();
+  });
+
+})();
+</script>
+</body>
+</html>
