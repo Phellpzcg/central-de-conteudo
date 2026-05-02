@@ -36,16 +36,9 @@ html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;colo
 
 /* ===== CORES ===== */
 :root{
-  --gold:#BFA469;
-  --gold-light:#D4BC82;
-  --gold-dark:#9A8355;
-  --white:#F5F5F5;
-  --white-soft:#D0D0D0;
-  --gray:#8A8A8A;
-  --gray-dark:#5A5A5A;
-  --black:#0A0A0A;
-  --black-card:#111111;
-  --black-deep:#080808;
+  --gold:#BFA469;--gold-light:#D4BC82;--gold-dark:#9A8355;
+  --white:#F5F5F5;--white-soft:#D0D0D0;--gray:#8A8A8A;--gray-dark:#5A5A5A;
+  --black:#0A0A0A;--black-card:#111111;--black-deep:#080808;
 }
 
 /* ===== GRADIENT TEXT ===== */
@@ -64,6 +57,15 @@ html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;colo
 .card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:18px;box-shadow:0 12px 40px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.03);padding:20px;backdrop-filter:blur(8px);}
 .cp{background:linear-gradient(145deg,rgba(17,17,17,.98) 0%,rgba(13,13,13,.99) 55%,rgba(10,10,10,1) 100%);border:1px solid rgba(191,164,105,.1);border-radius:18px;box-shadow:0 16px 48px rgba(0,0,0,.5),0 0 30px rgba(191,164,105,.04);padding:22px 20px;backdrop-filter:blur(10px);}
 
+/* ===== INFO CARD (SLIDE 1) ===== */
+.info-card{background:rgba(191,164,105,.03);border:1px solid rgba(191,164,105,.15);border-radius:16px;padding:18px 20px;margin-top:20px;text-align:left;max-width:400px;width:100%;display:inline-block;}
+.info-card-row{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid rgba(191,164,105,.06);}
+.info-card-row:last-child{border-bottom:none;padding-bottom:0;}
+.info-card-row:first-child{padding-top:0;}
+.info-card-row .icr-emoji{font-size:16px;min-width:22px;line-height:1.4;}
+.info-card-row .icr-label{font-size:12px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.04em;display:block;margin-bottom:2px;}
+.info-card-row .icr-text{font-size:13px;color:var(--white-soft);line-height:1.45;}
+
 /* ===== ICON CONTAINER ===== */
 .ic{width:48px;height:48px;border-radius:14px;margin-bottom:14px;display:flex;align-items:center;justify-content:center;background:rgba(191,164,105,.08);}
 .ic svg{width:24px;height:24px;color:var(--gold);}
@@ -77,26 +79,20 @@ html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;colo
 .tn.n1{background:linear-gradient(145deg,var(--gold),var(--gold-dark));}
 .tn.n2{background:linear-gradient(145deg,#3A3A3A,#222);}
 .tn.n3{background:linear-gradient(145deg,var(--gold-dark),#6B5A38);}
-.tn.n4{background:linear-gradient(145deg,#555,#333);}
 
-/* ===== SIMULATION ===== */
+/* ===== SIMULATION ROWS ===== */
 .sim-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04);}
 .sim-row:last-child{border-bottom:none;}
 .sim-row .lab{font-size:14px;color:var(--gray);font-weight:500;}
 .sim-row .val{font-size:16px;font-weight:800;color:var(--white);}
 .sim-row .val.gold{color:var(--gold);}
 .sim-row .val.green{color:#8FCE8F;}
-.sim-row .val.red{color:#CE8F8F;}
 
 /* ===== ALERT CARD ===== */
 .alert-card{background:rgba(191,164,105,.03);border:1px solid rgba(191,164,105,.12);border-radius:14px;padding:16px;display:flex;gap:12px;align-items:flex-start;margin-top:12px;}
 .alert-card svg{width:22px;height:22px;min-width:22px;color:var(--gold);margin-top:2px;}
 .alert-card p{font-size:14px;color:var(--white-soft);line-height:1.6;}
 .alert-card strong{color:var(--gold);}
-
-.alert-card.white-alert{background:rgba(255,255,255,.02);border-color:rgba(255,255,255,.08);}
-.alert-card.white-alert svg{color:var(--white-soft);}
-.alert-card.white-alert strong{color:var(--white);}
 
 /* ===== TIMELINE ===== */
 .tl-item{display:flex;gap:14px;padding-bottom:18px;position:relative;}
@@ -105,7 +101,6 @@ html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;colo
 .tl-dot.gold{background:linear-gradient(145deg,var(--gold),var(--gold-dark));}
 .tl-dot.dark{background:linear-gradient(145deg,#3A3A3A,#222);}
 .tl-dot.gold-soft{background:linear-gradient(145deg,var(--gold-dark),#6B5A38);}
-.tl-dot.light{background:linear-gradient(145deg,#555,#444);}
 .tl-content h4{font-size:15px;font-weight:700;color:var(--white);margin-bottom:4px;}
 .tl-content p{font-size:13px;color:var(--gray);line-height:1.5;}
 
@@ -121,7 +116,6 @@ html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;colo
 .contact-item{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.04);}
 .contact-item:last-child{border-bottom:none;}
 .contact-item svg{width:20px;height:20px;color:var(--gold);min-width:20px;}
-.contact-item span{font-size:14px;color:var(--white-soft);}
 .contact-item a{font-size:14px;color:var(--gold-light);text-decoration:none;}
 
 /* ===== LAYOUT HELPERS ===== */
@@ -134,6 +128,20 @@ html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;colo
 .sc-inner p{font-size:15px;line-height:1.65;color:var(--white-soft);margin-bottom:14px;}
 
 .big-emoji{font-size:42px;margin-bottom:14px;display:block;}
+
+/* ===== CTA BUTTONS (SLIDE 10) ===== */
+.cta-stack{display:flex;flex-direction:column;gap:12px;width:100%;max-width:400px;margin:0 auto;}
+.cta-btn{display:flex;align-items:center;justify-content:center;gap:12px;padding:18px 24px;border-radius:16px;font-family:'Inter',sans-serif;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;border:none;transition:all .4s ease;line-height:1.3;text-align:center;}
+.cta-btn svg{width:22px;height:22px;min-width:22px;}
+
+.cta-btn.cta-share{background:linear-gradient(145deg,rgba(191,164,105,.15),rgba(191,164,105,.06));border:1px solid rgba(191,164,105,.3);color:var(--gold-light);box-shadow:0 8px 32px rgba(191,164,105,.1);}
+.cta-btn.cta-share:hover{background:linear-gradient(145deg,rgba(191,164,105,.25),rgba(191,164,105,.12));border-color:rgba(191,164,105,.5);transform:translateY(-2px);box-shadow:0 12px 40px rgba(191,164,105,.18);}
+
+.cta-btn.cta-back{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);color:var(--white-soft);}
+.cta-btn.cta-back:hover{background:rgba(255,255,255,.06);border-color:rgba(191,164,105,.25);color:var(--white);transform:translateY(-2px);}
+
+.cta-footer{margin-top:20px;font-size:11px;color:var(--gray-dark);text-align:center;line-height:1.5;}
+.cta-footer a{color:var(--gold-dark);text-decoration:none;}
 
 /* ===== ORBITAL ===== */
 .orb{position:absolute;width:340px;height:340px;top:50%;left:50%;transform:translate(-50%,-50%);z-index:0;pointer-events:none;}
@@ -187,50 +195,39 @@ html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;colo
   .back-btn{height:60px;padding:0 24px;font-size:13px;}
   .wpp-share{bottom:80px;right:24px;width:52px;height:52px;}
   .wpp-share svg{width:26px;height:26px;}
-
   .slide{padding:80px 60px 100px 60px;}
-
   .s1{max-width:720px;}
   .s1 h1{font-size:clamp(44px,5vw,64px);}
   .s1 .tag{font-size:20px;max-width:520px;}
-
   .sc-inner{max-width:680px;}
   .sc-inner h2{font-size:clamp(28px,3.5vw,38px);}
   .sc-inner p{font-size:17px;}
-
   .card,.cp{padding:28px 26px;}
   .info-item{padding:22px 20px;}
   .info-item h4{font-size:17px;}
   .info-item p{font-size:15px;}
-
   .tl-content h4{font-size:17px;}
   .tl-content p{font-size:14px;}
-
   .sim-row .lab{font-size:16px;}
   .sim-row .val{font-size:18px;}
-
   .alert-card p{font-size:16px;}
-  .contact-item span,.contact-item a{font-size:16px;}
-
   .big-emoji{font-size:56px;}
-
   .orb{width:500px;height:500px;}
   .orb .ring:nth-child(1){width:120px;height:120px;}
   .orb .ring:nth-child(2){width:240px;height:240px;}
   .orb .ring:nth-child(3){width:360px;height:360px;}
   .orb .ring:nth-child(4){width:500px;height:500px;}
-  .on2{--r:120px;}
-  .on3{--r:180px;}
-  .on4{--r:250px;}
-
+  .on2{--r:120px;}.on3{--r:180px;}.on4{--r:250px;}
   .sc-count{bottom:20px;left:24px;font-size:13px;padding:10px 18px;}
   .ind{bottom:20px;padding:10px 16px;gap:6px;}
   .ind .dot{width:10px;height:10px;}
   .ind .dot.active{width:30px;}
   .nav-arr{bottom:16px;right:24px;gap:10px;}
   .nav-arr button{width:52px;height:52px;border-radius:14px;}
-
-  .info-grid.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .info-card{max-width:500px;padding:22px 26px;}
+  .info-card-row .icr-text{font-size:14px;}
+  .cta-btn{font-size:16px;padding:20px 28px;}
+  .cta-stack{max-width:480px;}
 }
 
 /* ===== MOBILE ===== */
@@ -251,8 +248,12 @@ html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;colo
   .alert-card p{font-size:13px;}
   .info-item h4{font-size:14px;}
   .info-item p{font-size:12px;}
-  .contact-item span,.contact-item a{font-size:13px;}
   .big-emoji{font-size:36px;}
+  .info-card{padding:14px 16px;}
+  .info-card-row .icr-text{font-size:12px;}
+  .info-card-row .icr-label{font-size:11px;}
+  .cta-btn{font-size:14px;padding:16px 18px;gap:10px;}
+  .cta-btn svg{width:20px;height:20px;min-width:20px;}
 }
 </style>
 </head>
@@ -295,8 +296,30 @@ html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;colo
       Guia de Abertura
     </div>
     <h1 class="au d2">Diferença entre <span class="gt">MEI, ME e EPP</span></h1>
-    <p class="tag au d3">Entenda os portes empresariais e descubra por que a escolha certa evita problemas com a Receita Federal e a Anvisa.</p>
-    <div class="au d4" style="margin-top:30px;display:flex;justify-content:center;gap:8px;align-items:center;">
+    <div class="info-card au d3">
+      <div class="info-card-row">
+        <span class="icr-emoji">⏱️</span>
+        <div>
+          <span class="icr-label">Tempo de leitura</span>
+          <span class="icr-text">2 minutos</span>
+        </div>
+      </div>
+      <div class="info-card-row">
+        <span class="icr-emoji">🎯</span>
+        <div>
+          <span class="icr-label">O que vai aprender</span>
+          <span class="icr-text">Como escolher o porte empresarial correto para a sua farmácia.</span>
+        </div>
+      </div>
+      <div class="info-card-row">
+        <span class="icr-emoji">💡</span>
+        <div>
+          <span class="icr-label">O que resolve</span>
+          <span class="icr-text">Evite pagar impostos a mais ou ter o CNPJ bloqueado na Anvisa por erros de abertura.</span>
+        </div>
+      </div>
+    </div>
+    <div class="au d4" style="margin-top:22px;display:flex;justify-content:center;gap:8px;align-items:center;">
       <div style="width:7px;height:7px;border-radius:50%;background:var(--gold);animation:pulse 2s ease-in-out infinite;"></div>
       <span style="font-size:13px;color:var(--gray);">Deslize para baixo ou use as setas</span>
     </div>
@@ -308,9 +331,9 @@ html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;colo
   <div class="sc-inner" style="text-align:center;">
     <span class="big-emoji au d1">✋</span>
     <h2 class="au d2" style="text-align:center;">Calma, <span class="gt">empreendedor!</span></h2>
-    <p class="au d3" style="text-align:center;font-size:16px;">É super normal se confundir com essas siglas no começo. Elas representam o <strong style="color:var(--white);">Porte da Empresa</strong>, que é definido basicamente pelo quanto o seu negócio <strong style="color:var(--white);">fatura por ano.</strong></p>
+    <p class="au d3" style="text-align:center;font-size:16px;">É super normal se confundir com essas siglas no começo. Elas representam o <strong style="color:var(--white);">Porte da Empresa</strong>, que é definido pelo quanto o seu negócio <strong style="color:var(--white);">fatura por ano.</strong></p>
     <div class="cp au d4" style="text-align:center;margin-top:18px;">
-      <p style="font-size:16px;color:var(--white);font-weight:600;margin:0;">A <span class="gt">Domínio Farma Contabilidade</span> preparou este guia rápido para você entender cada um deles e saber qual o <strong style="color:#8FCE8F;">melhor para a sua drogaria!</strong></p>
+      <p style="font-size:16px;color:var(--white);font-weight:600;margin:0;">A <span class="gt">Domínio Farma</span> preparou esta pílula de conhecimento rápida para você entender cada um deles!</p>
     </div>
   </div>
 </section>
@@ -320,7 +343,7 @@ html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;colo
   <div class="sc-inner">
     <div class="gl au d1"></div>
     <h2 class="au d1">O que afinal é o <span class="gt">Porte?</span></h2>
-    <p class="au d2">O porte empresarial é uma classificação do Governo baseada no <strong style="color:var(--white);">faturamento bruto anual</strong> da empresa, e não no lucro.</p>
+    <p class="au d2">O porte empresarial é uma classificação do Governo baseada no <strong style="color:var(--white);">faturamento bruto anual</strong>, e não no lucro.</p>
     <div class="info-grid" style="margin-top:10px;">
       <div class="card au d3" style="display:flex;gap:14px;align-items:flex-start;">
         <div class="ic" style="min-width:48px;margin:0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
@@ -342,7 +365,7 @@ html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;colo
   <div class="sc-inner">
     <div class="gl au d1"></div>
     <h2 class="au d1">O famoso <span class="gt">MEI</span></h2>
-    <p class="au d2" style="font-size:15px;">Microempreendedor Individual. Feito para autônomos e pequenos negócios iniciais. Tem <strong style="color:var(--white);">imposto fixo</strong> e pouca burocracia.</p>
+    <p class="au d2" style="font-size:15px;">Feito para pequenos negócios iniciais. Tem <strong style="color:var(--white);">imposto fixo</strong> e pouca burocracia.</p>
     <div class="cp au d3" style="margin-top:10px;">
       <div class="sim-row">
         <span class="lab">Faturamento máximo</span>
@@ -353,35 +376,31 @@ html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;colo
         <span class="val">R$ 6.750 / mês</span>
       </div>
       <div class="sim-row" style="border-bottom:none;">
-        <span class="lab">Funcionários permitidos</span>
-        <span class="val">Apenas 1 (um)</span>
+        <span class="lab">Funcionários</span>
+        <span class="val">Apenas 1</span>
       </div>
-    </div>
-    <div class="alert-card au d4">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      <p>A maioria das atividades comerciais simples pode ser MEI, mas <strong>e as farmácias?</strong> Veja no próximo slide por que isso é quase impossível na prática!</p>
     </div>
   </div>
 </section>
 
-<!-- ==================== SLIDE 5 — FARMÁCIA PODE SER MEI? ==================== -->
+<!-- ==================== SLIDE 5 — FARMÁCIA E MEI ==================== -->
 <section class="slide">
   <div class="sc-inner" style="text-align:center;">
     <span class="big-emoji au d1">⚠️</span>
-    <h2 class="au d2" style="text-align:center;">Afinal, Farmácia pode ser <span class="gt">MEI?</span></h2>
-    <p class="au d3" style="text-align:center;font-size:15px;">Na teoria, o CNAE de comércio de medicamentos até existe no MEI, mas <strong style="color:var(--white);">na prática é inviável!</strong></p>
+    <h2 class="au d2" style="text-align:center;">Farmácia pode ser <span class="gt">MEI?</span></h2>
+    <p class="au d3" style="text-align:center;font-size:15px;">Na teoria sim, mas <strong style="color:var(--white);">na prática é quase impossível.</strong></p>
     <div class="info-grid" style="margin-top:14px;text-align:left;">
       <div class="info-item au d4">
         <div class="ii-icon" style="background:rgba(206,143,143,.1);"><svg viewBox="0 0 24 24" fill="none" stroke="#CE8F8F" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="17" y1="11" x2="23" y2="11"/></svg></div>
-        <div><h4>Farmacêutico RT obrigatório</h4><p>O MEI só permite <strong style="color:var(--gold);">1 funcionário</strong> ganhando salário mínimo ou o piso. O piso do farmacêutico é <strong style="color:#CE8F8F;">incompatível</strong> com essa regra.</p></div>
+        <div><h4>Farmacêutico RT</h4><p>O piso salarial do farmacêutico é <strong style="color:#CE8F8F;">incompatível</strong> com a regra de 1 funcionário ganhando o mínimo.</p></div>
       </div>
       <div class="info-item au d5">
         <div class="ii-icon" style="background:rgba(206,143,143,.1);"><svg viewBox="0 0 24 24" fill="none" stroke="#CE8F8F" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
-        <div><h4>Faturamento insuficiente</h4><p>R$ 6.750/mês <strong style="color:#CE8F8F;">não cobre</strong> os altos custos de compra de medicamentos, distribuidor e estoque mínimo.</p></div>
+        <div><h4>Custos elevados</h4><p>R$ 6.750/mês <strong style="color:#CE8F8F;">não cobre</strong> o alto custo de compra de medicamentos e estoque.</p></div>
       </div>
       <div class="info-item au d6">
         <div class="ii-icon" style="background:rgba(206,143,143,.1);"><svg viewBox="0 0 24 24" fill="none" stroke="#CE8F8F" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <div><h4>Licenças inviáveis</h4><p>As licenças <strong style="color:var(--gold);">Anvisa, Covisa e SNGPC</strong> exigem uma estrutura que o MEI simplesmente não comporta.</p></div>
+        <div><h4>Estrutura inviável</h4><p>As exigências da <strong style="color:var(--gold);">Vigilância Sanitária e SNGPC</strong> são pesadas demais para o modelo MEI.</p></div>
       </div>
     </div>
   </div>
@@ -391,7 +410,7 @@ html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;colo
 <section class="slide">
   <div class="sc-inner">
     <div class="gl au d1"></div>
-    <h2 class="au d1"><span class="gt">ME</span> (Microempresa): O Ponto de Partida</h2>
+    <h2 class="au d1"><span class="gt">ME</span> (Microempresa)</h2>
     <p class="au d2" style="font-size:16px;">É aqui que <strong style="color:var(--white);">99% das farmácias e drogarias</strong> começam de verdade.</p>
     <div class="cp au d3" style="margin-top:12px;">
       <div class="sim-row">
@@ -403,13 +422,13 @@ html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;colo
         <span class="val">R$ 30.000 / mês</span>
       </div>
       <div class="sim-row" style="border-bottom:none;">
-        <span class="lab">Funcionários permitidos</span>
+        <span class="lab">Funcionários</span>
         <span class="val green">Sem limite ✓</span>
       </div>
     </div>
     <div class="alert-card au d4">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-      <p>Na ME, você já pode aderir ao <strong>Simples Nacional</strong> e pagar o imposto apenas sobre o que vender, com emissão de notas fiscais ilimitada.</p>
+      <p>Você já pode aderir ao <strong>Simples Nacional</strong> e emitir notas fiscais ilimitadas.</p>
     </div>
   </div>
 </section>
@@ -418,8 +437,8 @@ html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;colo
 <section class="slide">
   <div class="sc-inner">
     <div class="gl au d1"></div>
-    <h2 class="au d1"><span class="gt">EPP</span>: Para quem já está crescendo</h2>
-    <p class="au d2" style="font-size:16px;">Se a sua farmácia começou a vender muito e estourou o limite de R$ 360 mil, ela vira automaticamente uma <strong style="color:var(--white);">EPP.</strong></p>
+    <h2 class="au d1"><span class="gt">EPP</span> (Empresa de Pequeno Porte)</h2>
+    <p class="au d2" style="font-size:16px;">Para quem já está crescendo e <strong style="color:var(--white);">faturando alto.</strong></p>
     <div class="cp au d3" style="margin-top:12px;">
       <div class="sim-row">
         <span class="lab">Faturamento mínimo</span>
@@ -436,7 +455,7 @@ html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;colo
     </div>
     <div class="alert-card au d4">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-      <p>A EPP <strong>continua podendo aproveitar</strong> os benefícios do Simples Nacional! O imposto só vai subindo em tabelas (anexos) de forma progressiva.</p>
+      <p>A EPP <strong>continua podendo aproveitar</strong> o Simples Nacional! O imposto sobe de forma progressiva.</p>
     </div>
   </div>
 </section>
@@ -445,8 +464,8 @@ html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;colo
 <section class="slide">
   <div class="sc-inner">
     <div class="gl au d1"></div>
-    <h2 class="au d1">E quando o <span class="gt">faturamento cresce?</span></h2>
-    <p class="au d2" style="font-size:16px;">Ocorre o chamado <strong style="color:var(--white);">Desenquadramento.</strong> É um processo natural e um ótimo sinal de que sua farmácia está faturando bem!</p>
+    <h2 class="au d1">E o <span class="gt">Desenquadramento?</span></h2>
+    <p class="au d2" style="font-size:16px;">Ocorre quando a empresa cresce! É um <strong style="color:#8FCE8F;">ótimo sinal.</strong></p>
     <div class="cp au d3" style="margin-top:10px;">
       <div class="tl-item">
         <div class="tl-dot gold">1</div>
@@ -463,7 +482,7 @@ html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;colo
     </div>
     <div class="alert-card au d4">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      <p><strong>Fique atento!</strong> O desenquadramento tem prazos e regras. A Domínio Farma Contabilidade cuida de todo o processo para você não ter surpresas.</p>
+      <p><strong>Fique atento!</strong> O desenquadramento tem prazos e regras. A Domínio Farma cuida de todo o processo.</p>
     </div>
   </div>
 </section>
@@ -472,54 +491,47 @@ html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;colo
 <section class="slide">
   <div class="sc-inner" style="text-align:center;">
     <div class="gl ce au d1"></div>
-    <h2 class="au d1" style="text-align:center;">E como ficam os <span class="gt">Impostos?</span></h2>
-    <p class="au d2" style="text-align:center;font-size:16px;">A maioria das ME e EPP do setor de farmácias é enquadrada no <strong style="color:var(--white);">Simples Nacional (Anexo I — Comércio).</strong></p>
-    <div class="cp au d3" style="text-align:center;margin-top:16px;">
-      <div style="display:flex;gap:14px;align-items:center;justify-content:center;margin-bottom:14px;">
-        <div class="tn n1" style="font-size:22px;">%</div>
-        <div style="text-align:left;">
-          <h4 style="font-size:16px;font-weight:700;color:var(--white);margin-bottom:4px;">Começa em ~4%</h4>
-          <p style="font-size:15px;color:var(--white-soft);margin:0;line-height:1.5;">Sobre o faturamento bruto mensal. À medida que as vendas aumentam, o percentual sobe <strong style="color:var(--gold);">gradativamente.</strong></p>
+    <h2 class="au d1" style="text-align:center;">A Dica de Ouro dos <span class="gt">Impostos</span></h2>
+    <p class="au d2" style="text-align:center;font-size:16px;">A maioria (ME e EPP) fica no <strong style="color:var(--white);">Simples Nacional</strong>, pagando a partir de <strong style="color:var(--gold);">~4%</strong> sobre a venda.</p>
+    <div class="cp au d3" style="text-align:left;margin-top:16px;">
+      <div style="display:flex;gap:14px;align-items:flex-start;">
+        <div class="ic gold-dark" style="min-width:48px;margin:0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div>
+        <div>
+          <h4 style="font-size:15px;font-weight:700;color:var(--gold);margin-bottom:6px;">💡 Dica Domínio Farma</h4>
+          <p style="font-size:15px;color:var(--white-soft);margin:0;line-height:1.6;">Produtos de perfumaria e certos remédios são <strong style="color:var(--white);">"Monofásicos"</strong>. Separando as vendas corretamente, nós conseguimos <strong style="color:#8FCE8F;">REDUZIR o seu imposto</strong> no Simples Nacional de forma 100% legal!</p>
         </div>
-      </div>
-      <div style="padding:14px 0 0;border-top:1px solid rgba(191,164,105,.15);text-align:left;">
-        <p style="font-size:14px;color:var(--gray);margin:0;line-height:1.6;">Quanto mais você vende, mais sobe de faixa — mas o crescimento do imposto é <strong style="color:var(--white);">proporcional e previsível.</strong></p>
       </div>
     </div>
     <div class="alert-card au d4" style="text-align:left;">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-      <p>Vendendo produtos <strong>Monofásicos</strong> (perfumaria, certos remédios), a Domínio Farma consegue <strong>reduzir ainda mais</strong> essa alíquota no Simples! Recupere impostos! 🤩</p>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+      <p>Muitas farmácias pagam imposto <strong>a mais sem saber</strong>. A Domínio Farma faz a revisão e recupera os valores! 🤩</p>
     </div>
   </div>
 </section>
 
-<!-- ==================== SLIDE 10 — ENCERRAMENTO ==================== -->
+<!-- ==================== SLIDE 10 — CTA FINAL ==================== -->
 <section class="slide">
   <div class="orb-sm">
     <div class="ring"></div><div class="ring"></div><div class="ring"></div>
   </div>
   <div class="s1">
-    <div class="badge au d1">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg>
-      Assessoria Completa
+    <div class="gl ce au d1"></div>
+    <h2 class="au d2" style="font-size:clamp(24px,6vw,36px);font-weight:900;letter-spacing:-.03em;line-height:1.1;margin-bottom:10px;"><span class="gt">Próximos Passos</span></h2>
+    <p class="tag au d3" style="margin-bottom:26px;font-size:15px;">Essa pílula de conhecimento te ajudou? Compartilhe ou continue explorando!</p>
+    <div class="cta-stack au d4">
+      <a class="cta-btn cta-share" id="ctaShare" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Compartilhe com um amigo
+      </a>
+      <a href="../index.html" class="cta-btn cta-back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        Deseja fazer outra pesquisa? Voltar ao início
+      </a>
     </div>
-    <h2 class="au d2" style="font-size:clamp(24px,6vw,36px);font-weight:900;letter-spacing:-.03em;line-height:1.1;margin-bottom:14px;">Conte com a<br><span class="gt">Domínio Farma Contabilidade</span></h2>
-    <p class="tag au d3" style="margin-bottom:22px;font-size:15px;">Nós analisamos o seu capital, fazemos o enquadramento correto do seu CNPJ e garantimos que sua farmácia nasça 100% regularizada na Anvisa e CRF!</p>
-    <div class="cp au d4" style="text-align:left;max-width:380px;margin:0 auto;">
-      <div class="contact-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
-        <a href="https://wa.me/5574999263592?text=Ol%C3%A1%2C%20vim%20pelo%20guia%20sobre%20MEI%2C%20ME%20e%20EPP%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" style="font-weight:600;">(74) 99926-3592 — WhatsApp</a>
-      </div>
-      <div class="contact-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        <a href="mailto:contato@dominiofarma.com">contato@dominiofarma.com</a>
-      </div>
-      <div class="contact-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-        <a href="https://www.dominiofarma.com" target="_blank">www.dominiofarma.com</a>
-      </div>
+    <div class="cta-footer au d5">
+      <strong style="color:var(--white-soft);">Domínio Farma Contabilidade</strong><br>
+      <a href="https://wa.me/5574999263592" target="_blank">(74) 99926-3592</a> · Contabilidade 100% Digital
     </div>
-    <p class="au d5" style="font-size:11px;color:var(--gray-dark);margin-top:18px;">Contabilidade 100% Digital · Especializada no Segmento Farma</p>
   </div>
 </section>
 
@@ -573,13 +585,15 @@ document.addEventListener('touchend',function(e){var d=ty-e.changedTouches[0].sc
 upd();
 
 /* ============================================================
-   BOTÃO COMPARTILHAR WHATSAPP
+   COMPARTILHAR WHATSAPP
    ============================================================ */
-(function(){
-  var btn=document.getElementById('wppShare');
+function getShareUrl(){
   var msg=encodeURIComponent('Dá uma olhada nesse guia sobre a diferença de MEI, ME e EPP para farmácias: '+window.location.href);
-  btn.href='https://wa.me/?text='+msg;
-})();
+  return 'https://wa.me/?text='+msg;
+}
+
+document.getElementById('wppShare').href=getShareUrl();
+document.getElementById('ctaShare').href=getShareUrl();
 </script>
 </body>
 </html>
