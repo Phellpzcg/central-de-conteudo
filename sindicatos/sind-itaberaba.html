@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Sindicato SINDCIR Itaberaba — Domínio Farma Contabilidade</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;color:#F5F5F5;-webkit-tap-highlight-color:transparent;user-select:none;}
+
+/* ===== TOPBAR ===== */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:1100;background:#000;display:flex;align-items:center;justify-content:center;padding:10px 20px;border-bottom:1px solid rgba(255,255,255,.06);height:52px;}
+.topbar img{height:30px;opacity:.95;}
+
+/* ===== BOTÃO VOLTAR ===== */
+.back-btn{position:fixed;top:0;left:0;z-index:1200;height:52px;display:flex;align-items:center;padding:0 16px;gap:6px;background:none;border:none;color:var(--gray);font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.03em;cursor:pointer;text-decoration:none;transition:all .3s;}
+.back-btn:hover{color:var(--gold);}
+.back-btn svg{width:18px;height:18px;transition:transform .3s;}
+.back-btn:hover svg{transform:translateX(-3px);}
+
+/* ===== BOTÃO WHATSAPP FLUTUANTE ===== */
+.wpp-share{position:fixed;bottom:72px;right:14px;z-index:999;width:48px;height:48px;border-radius:50%;background:linear-gradient(145deg,var(--gold),var(--gold-dark));display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(191,164,105,.25);cursor:pointer;border:none;transition:all .3s ease;text-decoration:none;}
+.wpp-share:hover{transform:scale(1.1);box-shadow:0 8px 30px rgba(191,164,105,.35);}
+.wpp-share svg{width:24px;height:24px;color:#fff;}
+
+/* ===== PRESENTATION ===== */
+.presentation{width:100vw;height:100vh;overflow:hidden;position:relative;}
+.slides{display:flex;flex-direction:column;transition:transform .7s cubic-bezier(.22,1,.36,1);}
+
+.slide{width:100vw;height:100vh;flex-shrink:0;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:68px 20px 80px 20px;}
+
+.slide::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(800px 400px at 70% 15%,rgba(191,164,105,.08) 0%,transparent 45%),radial-gradient(600px 350px at 30% 20%,rgba(255,255,255,.03) 0%,transparent 40%),linear-gradient(180deg,#0D0D0D 0%,#0A0A0A 50%,#080808 100%);}
+.slide::after{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.18;background-image:radial-gradient(rgba(255,255,255,.04) .8px,transparent .8px);background-size:24px 24px;}
+.slide>*{position:relative;z-index:1;}
+
+/* ===== CORES ===== */
+:root{
+  --gold:#BFA469;--gold-light:#D4BC82;--gold-dark:#9A8355;
+  --white:#F5F5F5;--white-soft:#D0D0D0;--gray:#8A8A8A;--gray-dark:#5A5A5A;
+  --black:#0A0A0A;--black-card:#111111;--black-deep:#080808;
+}
+
+/* ===== GRADIENT TEXT ===== */
+.gt{background:linear-gradient(135deg,var(--gold) 0%,var(--gold-light) 40%,var(--gold) 70%,var(--gold-dark) 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 5s linear infinite;}
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+
+/* ===== GRADIENT LINE ===== */
+.gl{width:60px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--gold),var(--gold-light),var(--gold));margin-bottom:18px;animation:lineG .8s ease both;transform-origin:left;}
+.gl.ce{margin:0 auto 18px auto;transform-origin:center;}
+@keyframes lineG{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+/* ===== BADGE ===== */
+.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:999px;margin-bottom:22px;background:rgba(191,164,105,.06);border:1px solid rgba(191,164,105,.2);font-size:12px;font-weight:600;color:var(--gold);letter-spacing:.05em;text-transform:uppercase;}
+
+/* ===== CARDS ===== */
+.card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:18px;box-shadow:0 12px 40px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.03);padding:20px;backdrop-filter:blur(8px);}
+.cp{background:linear-gradient(145deg,rgba(17,17,17,.98) 0%,rgba(13,13,13,.99) 55%,rgba(10,10,10,1) 100%);border:1px solid rgba(191,164,105,.1);border-radius:18px;box-shadow:0 16px 48px rgba(0,0,0,.5),0 0 30px rgba(191,164,105,.04);padding:22px 20px;backdrop-filter:blur(10px);}
+
+/* ===== INFO CARD (SLIDE 1) ===== */
+.info-card{background:rgba(191,164,105,.03);border:1px solid rgba(191,164,105,.15);border-radius:16px;padding:18px 20px;margin-top:20px;text-align:left;max-width:400px;width:100%;display:inline-block;}
+.info-card-row{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid rgba(191,164,105,.06);}
+.info-card-row:last-child{border-bottom:none;padding-bottom:0;}
+.info-card-row:first-child{padding-top:0;}
+.info-card-row .icr-emoji{font-size:16px;min-width:22px;line-height:1.4;}
+.info-card-row .icr-label{font-size:12px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.04em;display:block;margin-bottom:2px;}
+.info-card-row .icr-text{font-size:13px;color:var(--white-soft);line-height:1.45;}
+
+/* ===== ICON CONTAINER ===== */
+.ic{width:48px;height:48px;border-radius:14px;margin-bottom:14px;display:flex;align-items:center;justify-content:center;background:rgba(191,164,105,.08);}
+.ic svg{width:24px;height:24px;color:var(--gold);}
+.ic.gold-dark{background:rgba(191,164,105,.12);}
+.ic.gold-dark svg{color:var(--gold-light);}
+
+/* ===== SIMULATION ROWS ===== */
+.sim-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04);}
+.sim-row:last-child{border-bottom:none;}
+.sim-row .lab{font-size:14px;color:var(--gray);font-weight:500;}
+.sim-row .val{font-size:16px;font-weight:800;color:var(--white);}
+.sim-row .val.gold{color:var(--gold);}
+.sim-row .val.green{color:#8FCE8F;}
+
+/* ===== ALERT CARD ===== */
+.alert-card{background:rgba(191,164,105,.03);border:1px solid rgba(191,164,105,.12);border-radius:14px;padding:16px;display:flex;gap:12px;align-items:flex-start;margin-top:12px;}
+.alert-card svg{width:22px;height:22px;min-width:22px;color:var(--gold);margin-top:2px;}
+.alert-card p{font-size:14px;color:var(--white-soft);line-height:1.6;}
+.alert-card strong{color:var(--gold);}
+
+/* ===== INFO GRID ===== */
+.info-grid{display:flex;flex-direction:column;gap:10px;width:100%;}
+.info-item{display:flex;gap:14px;align-items:flex-start;padding:16px;border-radius:16px;background:rgba(255,255,255,.015);border:1px solid rgba(255,255,255,.04);}
+.info-item .ii-icon{width:40px;height:40px;min-width:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;}
+.info-item .ii-icon svg{width:20px;height:20px;}
+.info-item h4{font-size:15px;font-weight:700;color:var(--white);margin-bottom:4px;}
+.info-item p{font-size:13px;color:var(--gray);line-height:1.5;}
+
+/* ===== LAYOUT HELPERS ===== */
+.s1{text-align:center;max-width:440px;width:100%;padding:0 8px;}
+.s1 h1{font-size:clamp(30px,7.5vw,44px);margin-bottom:16px;font-weight:900;letter-spacing:-.03em;line-height:1.08;color:var(--white);}
+.s1 .tag{font-size:16px;color:var(--white-soft);max-width:360px;margin:0 auto;line-height:1.55;}
+
+.sc-inner{max-width:440px;width:100%;padding:0 6px;}
+.sc-inner h2{font-size:clamp(22px,5.5vw,28px);font-weight:800;letter-spacing:-.025em;line-height:1.12;color:var(--white);margin-bottom:12px;}
+.sc-inner p{font-size:15px;line-height:1.65;color:var(--white-soft);margin-bottom:14px;}
+
+.big-emoji{font-size:42px;margin-bottom:14px;display:block;}
+
+/* ===== CTA BUTTONS (SLIDE 10) ===== */
+.cta-stack{display:flex;flex-direction:column;gap:12px;width:100%;max-width:400px;margin:0 auto;}
+.cta-btn{display:flex;align-items:center;justify-content:center;gap:12px;padding:18px 24px;border-radius:16px;font-family:'Inter',sans-serif;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;border:none;transition:all .4s ease;line-height:1.3;text-align:center;}
+.cta-btn svg{width:22px;height:22px;min-width:22px;}
+
+.cta-btn.cta-share{background:rgba(255,255,255,.03);border:1px solid rgba(191,164,105,.3);color:var(--gold-light);box-shadow:0 8px 32px rgba(0,0,0,.3);}
+.cta-btn.cta-share:hover{background:rgba(191,164,105,.1);border-color:rgba(191,164,105,.5);transform:translateY(-2px);box-shadow:0 12px 40px rgba(191,164,105,.12);}
+
+.cta-btn.cta-back{background:linear-gradient(145deg,var(--gold),var(--gold-dark));border:1px solid var(--gold-light);color:#0A0A0A;box-shadow:0 8px 32px rgba(191,164,105,.2);}
+.cta-btn.cta-back:hover{transform:translateY(-2px);box-shadow:0 14px 44px rgba(191,164,105,.3);filter:brightness(1.08);}
+
+.cta-footer{margin-top:20px;font-size:11px;color:var(--gray-dark);text-align:center;line-height:1.5;}
+.cta-footer a{color:var(--gold-dark);text-decoration:none;}
+
+/* ===== ORBITAL ===== */
+.orb{position:absolute;width:340px;height:340px;top:50%;left:50%;transform:translate(-50%,-50%);z-index:0;pointer-events:none;}
+.orb .ring{position:absolute;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);border:1px solid rgba(191,164,105,.1);animation:pulse 5s ease-in-out infinite;}
+.orb .ring:nth-child(1){width:80px;height:80px;}
+.orb .ring:nth-child(2){width:160px;height:160px;animation-delay:.6s;border-color:rgba(255,255,255,.04);}
+.orb .ring:nth-child(3){width:240px;height:240px;animation-delay:1.2s;}
+.orb .ring:nth-child(4){width:340px;height:340px;animation-delay:1.8s;border-color:rgba(255,255,255,.03);}
+.onode{position:absolute;width:6px;height:6px;border-radius:50%;top:50%;left:50%;background:var(--gold);box-shadow:0 0 14px rgba(191,164,105,.6);animation:orbit 10s linear infinite;}
+.on2{--r:80px;animation-duration:12s!important;background:var(--white-soft)!important;box-shadow:0 0 12px rgba(255,255,255,.3)!important;}
+.on3{--r:120px;animation-duration:16s!important;animation-delay:-4s;}
+.on4{--r:170px;animation-duration:20s!important;background:var(--white-soft)!important;box-shadow:0 0 12px rgba(255,255,255,.3)!important;}
+@keyframes pulse{0%,100%{opacity:.2;transform:translate(-50%,-50%) scale(1)}50%{opacity:.55;transform:translate(-50%,-50%) scale(1.04)}}
+@keyframes orbit{0%{transform:rotate(0deg) translateX(var(--r)) rotate(0deg)}100%{transform:rotate(360deg) translateX(var(--r)) rotate(-360deg)}}
+
+.orb-sm{position:absolute;width:200px;height:200px;top:50%;left:50%;transform:translate(-50%,-50%);z-index:0;pointer-events:none;}
+.orb-sm .ring{position:absolute;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);border:1px solid rgba(191,164,105,.06);animation:pulse 5s ease-in-out infinite;}
+.orb-sm .ring:nth-child(1){width:60px;height:60px;}
+.orb-sm .ring:nth-child(2){width:130px;height:130px;animation-delay:.6s;border-color:rgba(255,255,255,.03);}
+.orb-sm .ring:nth-child(3){width:200px;height:200px;animation-delay:1.2s;}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp{from{opacity:0;transform:translateY(35px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeScale{from{opacity:0;transform:scale(.88)}to{opacity:1;transform:scale(1)}}
+.slide.active .au{animation:fadeUp .7s ease both;}
+.slide.active .as{animation:fadeScale .7s ease both;}
+.d1{animation-delay:.1s!important}.d2{animation-delay:.22s!important}.d3{animation-delay:.34s!important}.d4{animation-delay:.46s!important}.d5{animation-delay:.58s!important}.d6{animation-delay:.7s!important}.d7{animation-delay:.82s!important}
+
+/* ===== PROGRESS ===== */
+.progress{position:fixed;top:52px;left:0;height:2px;z-index:1101;background:linear-gradient(90deg,var(--gold-dark),var(--gold),var(--gold-light),var(--gold));background-size:200% auto;animation:shimmer 4s linear infinite;transition:width .6s ease;}
+
+/* ===== SLIDE COUNTER ===== */
+.sc-count{position:fixed;bottom:14px;left:14px;z-index:998;color:var(--gray);font-size:12px;font-weight:600;letter-spacing:.05em;background:rgba(0,0,0,.6);padding:8px 14px;border-radius:10px;backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.04);}
+.sc-count .cn{color:var(--gold);font-weight:800;}
+
+/* ===== INDICATORS ===== */
+.ind{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);z-index:998;display:flex;gap:5px;background:rgba(0,0,0,.6);padding:8px 12px;border-radius:20px;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.04);}
+.ind .dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.12);transition:all .4s ease;cursor:pointer;}
+.ind .dot.active{background:var(--gold);box-shadow:0 0 12px rgba(191,164,105,.5);width:24px;border-radius:4px;}
+
+/* ===== NAV ARROWS ===== */
+.nav-arr{position:fixed;bottom:10px;right:14px;z-index:998;display:flex;gap:8px;}
+.nav-arr button{width:46px;height:46px;border-radius:13px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:var(--white-soft);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s ease;backdrop-filter:blur(6px);}
+.nav-arr button:hover,.nav-arr button:active{background:rgba(191,164,105,.15);border-color:rgba(191,164,105,.3);color:var(--gold);}
+
+/* ===== DESKTOP ===== */
+@media(min-width:769px){
+  .topbar{padding:12px 40px;height:60px;}
+  .topbar img{height:38px;}
+  .progress{top:60px;}
+  .back-btn{height:60px;padding:0 24px;font-size:13px;}
+  .wpp-share{bottom:80px;right:24px;width:52px;height:52px;}
+  .wpp-share svg{width:26px;height:26px;}
+  .slide{padding:80px 60px 100px 60px;}
+  .s1{max-width:720px;}
+  .s1 h1{font-size:clamp(44px,5vw,64px);}
+  .s1 .tag{font-size:20px;max-width:520px;}
+  .sc-inner{max-width:680px;}
+  .sc-inner h2{font-size:clamp(28px,3.5vw,38px);}
+  .sc-inner p{font-size:17px;}
+  .card,.cp{padding:28px 26px;}
+  .info-item{padding:22px 20px;}
+  .info-item h4{font-size:17px;}
+  .info-item p{font-size:15px;}
+  .sim-row .lab{font-size:16px;}
+  .sim-row .val{font-size:18px;}
+  .alert-card p{font-size:16px;}
+  .big-emoji{font-size:56px;}
+  .orb{width:500px;height:500px;}
+  .orb .ring:nth-child(1){width:120px;height:120px;}
+  .orb .ring:nth-child(2){width:240px;height:240px;}
+  .orb .ring:nth-child(3){width:360px;height:360px;}
+  .orb .ring:nth-child(4){width:500px;height:500px;}
+  .on2{--r:120px;}.on3{--r:180px;}.on4{--r:250px;}
+  .sc-count{bottom:20px;left:24px;font-size:13px;padding:10px 18px;}
+  .ind{bottom:20px;padding:10px 16px;gap:6px;}
+  .ind .dot{width:10px;height:10px;}
+  .ind .dot.active{width:30px;}
+  .nav-arr{bottom:16px;right:24px;gap:10px;}
+  .nav-arr button{width:52px;height:52px;border-radius:14px;}
+  .info-card{max-width:500px;padding:22px 26px;}
+  .info-card-row .icr-text{font-size:14px;}
+  .cta-btn{font-size:16px;padding:20px 28px;}
+  .cta-stack{max-width:480px;}
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:480px){
+  .topbar{height:48px;padding:8px 16px;}
+  .topbar img{height:26px;}
+  .progress{top:48px;}
+  .back-btn{height:48px;padding:0 12px;font-size:11px;gap:4px;}
+  .back-btn svg{width:16px;height:16px;}
+  .wpp-share{bottom:66px;right:10px;width:42px;height:42px;}
+  .wpp-share svg{width:20px;height:20px;}
+  .slide{padding:62px 14px 76px 14px;}
+  .sc-inner h2{font-size:20px;}
+  .s1 h1{font-size:26px;}
+  .s1 .tag{font-size:14px;}
+  .sc-inner p{font-size:14px;}
+  .card,.cp{padding:16px 14px;}
+  .alert-card p{font-size:13px;}
+  .info-item h4{font-size:14px;}
+  .info-item p{font-size:12px;}
+  .big-emoji{font-size:36px;}
+  .info-card{padding:14px 16px;}
+  .info-card-row .icr-text{font-size:12px;}
+  .info-card-row .icr-label{font-size:11px;}
+  .cta-btn{font-size:14px;padding:16px 18px;gap:10px;}
+  .cta-btn svg{width:20px;height:20px;min-width:20px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== TOPBAR ===== -->
+<div class="topbar">
+  <img src="../../logo.png" alt="Domínio Farma Contabilidade">
+</div>
+
+<!-- ===== BOTÃO VOLTAR ===== -->
+<a href="../../index.html" class="back-btn" aria-label="Voltar para a Central de Ajuda">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+  Voltar
+</a>
+
+<!-- ===== BARRA DE PROGRESSO ===== -->
+<div class="progress" id="prog" style="width:10%"></div>
+
+<!-- ===== BOTÃO COMPARTILHAR WHATSAPP ===== -->
+<a class="wpp-share" id="wppShare" aria-label="Compartilhar no WhatsApp" target="_blank">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<div class="presentation">
+<div class="slides" id="sw">
+
+<!-- ==================== SLIDE 1 — CAPA ==================== -->
+<section class="slide active">
+  <div class="orb">
+    <div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div>
+    <div class="onode" style="--r:40px"></div>
+    <div class="onode on2"></div>
+    <div class="onode on3"></div>
+    <div class="onode on4"></div>
+  </div>
+  <div class="s1">
+    <div class="badge au d1">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      Convenção Coletiva (2026/2028)
+    </div>
+    <h1 class="au d2">Regras do Sindicato <span class="gt">SINDCIR Itaberaba</span></h1>
+    <div class="info-card au d3">
+      <div class="info-card-row">
+        <span class="icr-emoji">⏱️</span>
+        <div>
+          <span class="icr-label">Tempo de leitura</span>
+          <span class="icr-text">2 minutos</span>
+        </div>
+      </div>
+      <div class="info-card-row">
+        <span class="icr-emoji">🎯</span>
+        <div>
+          <span class="icr-label">O que vai aprender</span>
+          <span class="icr-text">Os novos salários, taxas e regras da convenção 2026/2028.</span>
+        </div>
+      </div>
+      <div class="info-card-row">
+        <span class="icr-emoji">💡</span>
+        <div>
+          <span class="icr-label">O que resolve</span>
+          <span class="icr-text">Evita multas sindicais gravíssimas e passivos trabalhistas ocultos.</span>
+        </div>
+      </div>
+    </div>
+    <div class="au d4" style="margin-top:22px;display:flex;justify-content:center;gap:8px;align-items:center;">
+      <div style="width:7px;height:7px;border-radius:50%;background:var(--gold);animation:pulse 2s ease-in-out infinite;"></div>
+      <span style="font-size:13px;color:var(--gray);">Deslize para baixo ou use as setas</span>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 2 — CALMA ==================== -->
+<section class="slide">
+  <div class="sc-inner" style="text-align:center;">
+    <span class="big-emoji au d1">✋</span>
+    <h2 class="au d2" style="text-align:center;">Calma, <span class="gt">empreendedor!</span></h2>
+    <p class="au d3" style="text-align:center;font-size:16px;">Nós sabemos que ler uma Convenção Coletiva de dezenas de páginas cheias de <strong style="color:var(--white);">termos jurídicos</strong> é desgastante.</p>
+    <div class="cp au d4" style="text-align:center;margin-top:18px;">
+      <p style="font-size:16px;color:var(--white);font-weight:600;margin:0;">A <span class="gt">Domínio Farma</span> destrinchou o SINDCIR 2026/2028 e separou apenas o que vai <strong style="color:#8FCE8F;">impactar o seu bolso</strong> e a rotina do seu comércio. Vamos lá?</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 3 — PISO E BENEFÍCIO ==================== -->
+<section class="slide">
+  <div class="sc-inner">
+    <div class="gl au d1"></div>
+    <h2 class="au d1">Piso Salarial e <span class="gt">Benefício Social</span></h2>
+    <p class="au d2">Estes são os valores básicos que toda empresa da região deve seguir:</p>
+    <div class="cp au d3" style="margin-top:10px;">
+      <div class="sim-row">
+        <span class="lab">Piso Salarial</span>
+        <span class="val gold">R$ 1.661,00</span>
+      </div>
+      <div class="sim-row">
+        <span class="lab">Reajuste (acima do piso)</span>
+        <span class="val">6,79%</span>
+      </div>
+      <div class="sim-row" style="border-bottom:none;">
+        <span class="lab">Benefício Social (BEM)</span>
+        <span class="val gold">R$ 29,95 /mês</span>
+      </div>
+    </div>
+    <div class="alert-card au d4">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <p>O valor do Benefício Social é <strong>pago pela empresa</strong>. É proibido descontar esse valor do salário do trabalhador!</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 4 — ADICIONAIS ==================== -->
+<section class="slide">
+  <div class="sc-inner">
+    <div class="gl au d1"></div>
+    <h2 class="au d1">Cuidado com os <span class="gt">Adicionais</span></h2>
+    <p class="au d2">O sindicato exige pagamentos extras dependendo do <strong style="color:var(--white);">tempo de casa</strong> ou da <strong style="color:var(--white);">função</strong> do empregado:</p>
+    <div class="info-grid" style="margin-top:10px;">
+      <div class="card au d3" style="display:flex;gap:14px;align-items:flex-start;">
+        <div class="ic" style="min-width:48px;margin:0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div>
+          <h4 style="font-size:15px;font-weight:700;color:var(--white);margin-bottom:4px;">Triênio</h4>
+          <p style="font-size:14px;color:var(--gray);margin:0;line-height:1.5;">A cada <strong style="color:var(--gold);">3 anos</strong> na mesma empresa, o funcionário ganha <strong style="color:var(--gold);">3% a mais</strong> no salário-base.</p>
+        </div>
+      </div>
+      <div class="card au d4" style="display:flex;gap:14px;align-items:flex-start;">
+        <div class="ic gold-dark" style="min-width:48px;margin:0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
+        <div>
+          <h4 style="font-size:15px;font-weight:700;color:var(--white);margin-bottom:4px;">Quebra de Caixa</h4>
+          <p style="font-size:14px;color:var(--gray);margin:0;line-height:1.5;">Operadores de caixa têm direito a <strong style="color:var(--gold);">5% do piso salarial</strong> mensalmente. Isento se a empresa não descontar faltas do caixa.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 5 — FARMÁCIAS ==================== -->
+<section class="slide">
+  <div class="sc-inner" style="text-align:center;">
+    <span class="big-emoji au d1">⚠️</span>
+    <h2 class="au d2" style="text-align:center;">Atenção total: <span class="gt">Farmácias!</span></h2>
+    <p class="au d3" style="text-align:center;font-size:15px;">O trabalho aos <strong style="color:var(--white);">Domingos e Feriados</strong> tem regras rigorosas para o setor de farmácias!</p>
+    <div class="info-grid" style="margin-top:14px;text-align:left;">
+      <div class="info-item au d4">
+        <div class="ii-icon" style="background:rgba(206,143,143,.1);"><svg viewBox="0 0 24 24" fill="none" stroke="#CE8F8F" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div>
+          <h4>Regras para Farmácias</h4>
+          <p>Jornada máxima de <strong style="color:var(--gold);">6h ininterruptas</strong>. Bônus de <strong style="color:var(--gold);">R$ 85,00 por dia</strong> trabalhado (pago no salário). Folga compensatória obrigatória na semana (seg-sex) e <strong style="color:#CE8F8F;">proibido trabalhar dois domingos seguidos!</strong></p>
+        </div>
+      </div>
+    </div>
+    <div class="alert-card au d5" style="text-align:left;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+      <p>A <strong>Domínio Farma</strong> já configura a folha para calcular o bônus e a escala corretamente. Sem surpresas!</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 6 — CONTRIBUIÇÃO ASSISTENCIAL ==================== -->
+<section class="slide">
+  <div class="sc-inner">
+    <div class="gl au d1"></div>
+    <h2 class="au d1">A polêmica <span class="gt">Contribuição Assistencial</span></h2>
+    <p class="au d2">A empresa deve descontar dos empregados <strong style="color:var(--white);">não sindicalizados</strong> a taxa de <strong style="color:var(--gold);">R$ 120,00</strong> (dividido em 3x de R$ 40,00 em março, abril e maio).</p>
+    <div class="cp au d3" style="margin-top:10px;">
+      <div class="sim-row">
+        <span class="lab">Parcela 1 — Março/2026</span>
+        <span class="val">R$ 40,00</span>
+      </div>
+      <div class="sim-row">
+        <span class="lab">Parcela 2 — Abril/2026</span>
+        <span class="val">R$ 40,00</span>
+      </div>
+      <div class="sim-row" style="border-bottom:none;">
+        <span class="lab">Parcela 3 — Maio/2026</span>
+        <span class="val">R$ 40,00</span>
+      </div>
+    </div>
+    <div class="alert-card au d4">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <p><strong>O funcionário pode se opor?</strong> Sim! Mas ele deve ir pessoalmente ao sindicato até o dia <strong>02/03/2026</strong> (ou 10 dias após a admissão).</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 7 — ENTREGAS ==================== -->
+<section class="slide">
+  <div class="sc-inner" style="text-align:center;">
+    <div class="gl ce au d1"></div>
+    <h2 class="au d1" style="text-align:center;">Faz <span class="gt">entregas?</span></h2>
+    <p class="au d2" style="text-align:center;font-size:16px;">Se o seu comércio utiliza <strong style="color:var(--white);">motociclistas próprios</strong> para delivery, a lei é clara:</p>
+    <div class="cp au d3" style="text-align:left;margin-top:16px;">
+      <div style="display:flex;gap:14px;align-items:flex-start;">
+        <div class="ic" style="min-width:48px;margin:0;background:rgba(206,143,143,.12);"><svg viewBox="0 0 24 24" fill="none" stroke="#CE8F8F" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+        <div>
+          <h4 style="font-size:16px;font-weight:700;color:#CE8F8F;margin-bottom:6px;">Adicional de Periculosidade</h4>
+          <p style="font-size:15px;color:var(--white-soft);margin:0;line-height:1.6;">É obrigatório pagar <strong style="color:var(--gold);">30% a mais</strong> sobre o salário-base do entregador motociclista. Evite um processo trabalhista gigantesco!</p>
+        </div>
+      </div>
+    </div>
+    <div class="alert-card au d4" style="text-align:left;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+      <p>A <strong>Domínio Farma</strong> calcula o adicional correto e já inclui na folha de pagamento automaticamente.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 8 — RESCISÃO ==================== -->
+<section class="slide">
+  <div class="sc-inner">
+    <div class="gl au d1"></div>
+    <h2 class="au d1">Fique de olho na <span class="gt">Rescisão</span></h2>
+    <p class="au d2">Na hora de demitir, o sindicato estipula duas regras que pegam muita gente <strong style="color:var(--white);">de surpresa:</strong></p>
+    <div class="info-grid" style="margin-top:10px;">
+      <div class="info-item au d3">
+        <div class="ii-icon" style="background:rgba(206,143,143,.1);"><svg viewBox="0 0 24 24" fill="none" stroke="#CE8F8F" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div>
+          <h4>Estabilidades</h4>
+          <p>Preste atenção se a pessoa está <strong style="color:var(--gold);">pré-aposentada</strong> (12 meses de estabilidade) ou voltando de <strong style="color:var(--gold);">auxílio-doença</strong> (30 dias de estabilidade).</p>
+        </div>
+      </div>
+      <div class="info-item au d4">
+        <div class="ii-icon" style="background:rgba(191,164,105,.1);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div>
+          <h4>Aviso Prévio Ampliado</h4>
+          <p>Funcionários <strong style="color:var(--gold);">acima de 45 anos</strong> e com mais de <strong style="color:var(--gold);">4 anos</strong> de empresa ganham <strong style="color:#CE8F8F;">60 dias</strong> de aviso prévio!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 9 — DICA DE OURO ==================== -->
+<section class="slide">
+  <div class="sc-inner" style="text-align:center;">
+    <div class="gl ce au d1"></div>
+    <h2 class="au d1" style="text-align:center;">A Dica de Ouro da <span class="gt">Domínio Farma</span></h2>
+    <p class="au d2" style="text-align:center;font-size:16px;">Ignorar a convenção sai muito caro! A multa por descumprimento é equivalente a <strong style="color:#CE8F8F;">2 Pisos Salariais por empregado</strong> envolvido!</p>
+    <div class="cp au d3" style="text-align:left;margin-top:16px;">
+      <div style="display:flex;gap:14px;align-items:flex-start;">
+        <div class="ic" style="min-width:48px;margin:0;background:rgba(191,164,105,.12);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div>
+          <h4 style="font-size:15px;font-weight:700;color:var(--gold);margin-bottom:6px;">🛡️ Fique tranquilo</h4>
+          <p style="font-size:15px;color:var(--white-soft);margin:0;line-height:1.6;">Você não precisa decorar nada disso! Tendo a <strong style="color:var(--white);">Domínio Farma Contabilidade</strong> como parceira, nossa equipe de RH monitora as CCTs, faz os cálculos e gera as guias <strong style="color:#8FCE8F;">antes de vencerem.</strong> Seu único trabalho é focar em vender mais!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 10 — CTA FINAL ==================== -->
+<section class="slide">
+  <div class="orb-sm">
+    <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+  </div>
+  <div class="s1">
+    <div class="gl ce au d1"></div>
+    <h2 class="au d2" style="font-size:clamp(24px,6vw,36px);font-weight:900;letter-spacing:-.03em;line-height:1.1;margin-bottom:10px;"><span class="gt">Próximos Passos</span></h2>
+    <p class="tag au d3" style="margin-bottom:26px;font-size:15px;">Essa pílula de conhecimento te ajudou? Compartilhe ou continue explorando!</p>
+    <div class="cta-stack au d4">
+      <a class="cta-btn cta-share" id="ctaShare" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="width:22px;height:22px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Compartilhe com outro empreendedor
+      </a>
+      <a href="../../index.html" class="cta-btn cta-back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        Deseja fazer outra pesquisa? Voltar ao Início
+      </a>
+    </div>
+    <div class="cta-footer au d5">
+      <strong style="color:var(--white-soft);">Domínio Farma Contabilidade</strong><br>
+      <a href="https://wa.me/5574999263592" target="_blank">(74) 99926-3592</a> · Contabilidade 100% Digital
+    </div>
+  </div>
+</section>
+
+</div>
+</div>
+
+<!-- ===== CONTROLES FIXOS ===== -->
+<div class="sc-count"><span class="cn" id="cn">1</span> / 10</div>
+<div class="ind" id="ind"></div>
+<div class="nav-arr">
+  <button onclick="prev()" aria-label="Anterior">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+  <button onclick="next()" aria-label="Próximo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="6 9 12 15 18 9"/></svg>
+  </button>
+</div>
+
+<script>
+/* ============================================================
+   NAVEGAÇÃO DOS SLIDES
+   ============================================================ */
+const T=10;let C=0;
+const W=document.getElementById('sw');
+const CN=document.getElementById('cn');
+const P=document.getElementById('prog');
+const I=document.getElementById('ind');
+
+for(let i=0;i<T;i++){const d=document.createElement('div');d.classList.add('dot');if(i===0)d.classList.add('active');d.onclick=()=>go(i);I.appendChild(d);}
+
+function upd(){
+  I.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===C));
+  CN.textContent=C+1;
+  P.style.width=((C+1)/T*100)+'%';
+  document.querySelectorAll('.slide').forEach((s,i)=>s.classList.toggle('active',i===C));
+}
+
+function go(i){if(i<0||i>=T)return;C=i;W.style.transform='translateY(-'+C*100+'vh)';upd();}
+function next(){if(C<T-1)go(C+1);}
+function prev(){if(C>0)go(C-1);}
+
+document.addEventListener('keydown',function(e){
+  if(e.key==='ArrowDown'||e.key==='ArrowRight'||e.key===' '){e.preventDefault();next();}
+  if(e.key==='ArrowUp'||e.key==='ArrowLeft'){e.preventDefault();prev();}
+});
+
+var ty=0;
+document.addEventListener('touchstart',function(e){ty=e.changedTouches[0].screenY;},{passive:true});
+document.addEventListener('touchend',function(e){var d=ty-e.changedTouches[0].screenY;if(Math.abs(d)>50){d>0?next():prev();}});
+
+upd();
+
+/* ============================================================
+   COMPARTILHAR WHATSAPP
+   ============================================================ */
+function getShareUrl(){
+  var msg=encodeURIComponent('Dá uma olhada nesse resumo sobre as regras do Sindicato SINDCIR Itaberaba (Convenção 2026/2028) para comércio e farmácias: '+window.location.href);
+  return 'https://wa.me/?text='+msg;
+}
+
+document.getElementById('wppShare').href=getShareUrl();
+document.getElementById('ctaShare').href=getShareUrl();
+</script>
+</body>
+</html>
+
