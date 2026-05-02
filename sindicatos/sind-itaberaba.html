@@ -72,6 +72,14 @@ html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;colo
 .ic.gold-dark{background:rgba(191,164,105,.12);}
 .ic.gold-dark svg{color:var(--gold-light);}
 
+/* ===== CITY GRID ===== */
+.city-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;width:100%;margin-top:10px;}
+.city-tag{display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);transition:all .3s ease;}
+.city-tag .ct-dot{width:6px;height:6px;min-width:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px rgba(191,164,105,.4);}
+.city-tag span{font-size:13px;font-weight:600;color:var(--white-soft);line-height:1.3;}
+.city-tag.highlight{background:rgba(191,164,105,.06);border-color:rgba(191,164,105,.18);}
+.city-tag.highlight span{color:var(--white);font-weight:700;}
+
 /* ===== SIMULATION ROWS ===== */
 .sim-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04);}
 .sim-row:last-child{border-bottom:none;}
@@ -105,7 +113,7 @@ html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;colo
 
 .big-emoji{font-size:42px;margin-bottom:14px;display:block;}
 
-/* ===== CTA BUTTONS (SLIDE 10) ===== */
+/* ===== CTA BUTTONS (SLIDE 11) ===== */
 .cta-stack{display:flex;flex-direction:column;gap:12px;width:100%;max-width:400px;margin:0 auto;}
 .cta-btn{display:flex;align-items:center;justify-content:center;gap:12px;padding:18px 24px;border-radius:16px;font-family:'Inter',sans-serif;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;border:none;transition:all .4s ease;line-height:1.3;text-align:center;}
 .cta-btn svg{width:22px;height:22px;min-width:22px;}
@@ -186,6 +194,9 @@ html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;colo
   .sim-row .val{font-size:18px;}
   .alert-card p{font-size:16px;}
   .big-emoji{font-size:56px;}
+  .city-grid{grid-template-columns:1fr 1fr 1fr;gap:8px;}
+  .city-tag{padding:12px 16px;}
+  .city-tag span{font-size:14px;}
   .orb{width:500px;height:500px;}
   .orb .ring:nth-child(1){width:120px;height:120px;}
   .orb .ring:nth-child(2){width:240px;height:240px;}
@@ -228,6 +239,9 @@ html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;colo
   .info-card-row .icr-label{font-size:11px;}
   .cta-btn{font-size:14px;padding:16px 18px;gap:10px;}
   .cta-btn svg{width:20px;height:20px;min-width:20px;}
+  .city-tag{padding:8px 10px;}
+  .city-tag span{font-size:12px;}
+  .city-tag .ct-dot{width:5px;height:5px;min-width:5px;}
 }
 </style>
 </head>
@@ -245,7 +259,7 @@ html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;colo
 </a>
 
 <!-- ===== BARRA DE PROGRESSO ===== -->
-<div class="progress" id="prog" style="width:10%"></div>
+<div class="progress" id="prog" style="width:9.09%"></div>
 
 <!-- ===== BOTÃO COMPARTILHAR WHATSAPP ===== -->
 <a class="wpp-share" id="wppShare" aria-label="Compartilhar no WhatsApp" target="_blank">
@@ -312,7 +326,35 @@ html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;colo
   </div>
 </section>
 
-<!-- ==================== SLIDE 3 — PISO E BENEFÍCIO ==================== -->
+<!-- ==================== SLIDE 3 — CIDADES ABRANGIDAS ==================== -->
+<section class="slide">
+  <div class="sc-inner">
+    <div class="gl au d1"></div>
+    <h2 class="au d1">Onde essa regra <span class="gt">se aplica?</span></h2>
+    <p class="au d2">A convenção do SINDCIR 2026/2028 é obrigatória para o comércio de várias cidades da nossa região, e não apenas Itaberaba!</p>
+    <div class="city-grid au d3">
+      <div class="city-tag"><div class="ct-dot"></div><span>Boa Vista do Tupim</span></div>
+      <div class="city-tag"><div class="ct-dot"></div><span>Bonito</span></div>
+      <div class="city-tag"><div class="ct-dot"></div><span>Iaçu</span></div>
+      <div class="city-tag"><div class="ct-dot"></div><span>Ibiquera</span></div>
+      <div class="city-tag highlight"><div class="ct-dot"></div><span>Ipirá</span></div>
+      <div class="city-tag highlight"><div class="ct-dot"></div><span>Itaberaba</span></div>
+      <div class="city-tag"><div class="ct-dot"></div><span>Itaetê</span></div>
+      <div class="city-tag"><div class="ct-dot"></div><span>Itatim</span></div>
+      <div class="city-tag"><div class="ct-dot"></div><span>Lajedinho</span></div>
+      <div class="city-tag"><div class="ct-dot"></div><span>Marcionílio Souza</span></div>
+      <div class="city-tag"><div class="ct-dot"></div><span>Nova Redenção</span></div>
+      <div class="city-tag"><div class="ct-dot"></div><span>Utinga</span></div>
+      <div class="city-tag"><div class="ct-dot"></div><span>Wagner</span></div>
+    </div>
+    <div class="alert-card au d4">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <p>Se a sua empresa (ou alguma filial) está localizada em <strong>qualquer um desses municípios</strong>, preste muita atenção: as regras e multas a seguir <strong>valem para você!</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 4 — PISO E BENEFÍCIO ==================== -->
 <section class="slide">
   <div class="sc-inner">
     <div class="gl au d1"></div>
@@ -339,7 +381,7 @@ html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;colo
   </div>
 </section>
 
-<!-- ==================== SLIDE 4 — ADICIONAIS ==================== -->
+<!-- ==================== SLIDE 5 — ADICIONAIS ==================== -->
 <section class="slide">
   <div class="sc-inner">
     <div class="gl au d1"></div>
@@ -364,7 +406,7 @@ html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;colo
   </div>
 </section>
 
-<!-- ==================== SLIDE 5 — FARMÁCIAS ==================== -->
+<!-- ==================== SLIDE 6 — FARMÁCIAS ==================== -->
 <section class="slide">
   <div class="sc-inner" style="text-align:center;">
     <span class="big-emoji au d1">⚠️</span>
@@ -386,7 +428,7 @@ html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;colo
   </div>
 </section>
 
-<!-- ==================== SLIDE 6 — CONTRIBUIÇÃO ASSISTENCIAL ==================== -->
+<!-- ==================== SLIDE 7 — CONTRIBUIÇÃO ASSISTENCIAL ==================== -->
 <section class="slide">
   <div class="sc-inner">
     <div class="gl au d1"></div>
@@ -413,7 +455,7 @@ html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;colo
   </div>
 </section>
 
-<!-- ==================== SLIDE 7 — ENTREGAS ==================== -->
+<!-- ==================== SLIDE 8 — ENTREGAS ==================== -->
 <section class="slide">
   <div class="sc-inner" style="text-align:center;">
     <div class="gl ce au d1"></div>
@@ -435,7 +477,7 @@ html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;colo
   </div>
 </section>
 
-<!-- ==================== SLIDE 8 — RESCISÃO ==================== -->
+<!-- ==================== SLIDE 9 — RESCISÃO ==================== -->
 <section class="slide">
   <div class="sc-inner">
     <div class="gl au d1"></div>
@@ -460,7 +502,7 @@ html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;colo
   </div>
 </section>
 
-<!-- ==================== SLIDE 9 — DICA DE OURO ==================== -->
+<!-- ==================== SLIDE 10 — DICA DE OURO ==================== -->
 <section class="slide">
   <div class="sc-inner" style="text-align:center;">
     <div class="gl ce au d1"></div>
@@ -478,7 +520,7 @@ html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;colo
   </div>
 </section>
 
-<!-- ==================== SLIDE 10 — CTA FINAL ==================== -->
+<!-- ==================== SLIDE 11 — CTA FINAL ==================== -->
 <section class="slide">
   <div class="orb-sm">
     <div class="ring"></div><div class="ring"></div><div class="ring"></div>
@@ -508,7 +550,7 @@ html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;colo
 </div>
 
 <!-- ===== CONTROLES FIXOS ===== -->
-<div class="sc-count"><span class="cn" id="cn">1</span> / 10</div>
+<div class="sc-count"><span class="cn" id="cn">1</span> / 11</div>
 <div class="ind" id="ind"></div>
 <div class="nav-arr">
   <button onclick="prev()" aria-label="Anterior">
@@ -523,7 +565,7 @@ html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;colo
 /* ============================================================
    NAVEGAÇÃO DOS SLIDES
    ============================================================ */
-const T=10;let C=0;
+const T=11;let C=0;
 const W=document.getElementById('sw');
 const CN=document.getElementById('cn');
 const P=document.getElementById('prog');
@@ -566,4 +608,3 @@ document.getElementById('ctaShare').href=getShareUrl();
 </script>
 </body>
 </html>
-
