@@ -3,61 +3,49 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Sindicato SINDCIR Itaberaba — Domínio Farma Contabilidade</title>
+<title>CCT SINCOFARMA 2026/2028 — Domínio Farma Contabilidade</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;color:#F5F5F5;-webkit-tap-highlight-color:transparent;user-select:none;}
 
-/* ===== TOPBAR ===== */
+:root{
+--gold:#BFA469;--gold-light:#D4BC82;--gold-dark:#9A8355;
+--white:#F5F5F5;--white-soft:#D0D0D0;--gray:#8A8A8A;--gray-dark:#5A5A5A;
+--black:#0A0A0A;--black-card:#111111;--black-deep:#080808;
+--green:#8FCE8F;--red:#CE8F8F;--blue:#7EAAFF;
+}
+
 .topbar{position:fixed;top:0;left:0;right:0;z-index:1100;background:#000;display:flex;align-items:center;justify-content:center;padding:10px 20px;border-bottom:1px solid rgba(255,255,255,.06);height:52px;}
 .topbar img{height:30px;opacity:.95;}
-
-/* ===== BOTÃO VOLTAR ===== */
 .back-btn{position:fixed;top:0;left:0;z-index:1200;height:52px;display:flex;align-items:center;padding:0 16px;gap:6px;background:none;border:none;color:var(--gray);font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.03em;cursor:pointer;text-decoration:none;transition:all .3s;}
 .back-btn:hover{color:var(--gold);}
 .back-btn svg{width:18px;height:18px;transition:transform .3s;}
 .back-btn:hover svg{transform:translateX(-3px);}
 
-/* ===== BOTÃO WHATSAPP FLUTUANTE ===== */
 .wpp-share{position:fixed;bottom:72px;right:14px;z-index:999;width:48px;height:48px;border-radius:50%;background:linear-gradient(145deg,var(--gold),var(--gold-dark));display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(191,164,105,.25);cursor:pointer;border:none;transition:all .3s ease;text-decoration:none;}
 .wpp-share:hover{transform:scale(1.1);box-shadow:0 8px 30px rgba(191,164,105,.35);}
 .wpp-share svg{width:24px;height:24px;color:#fff;}
 
-/* ===== PRESENTATION ===== */
 .presentation{width:100vw;height:100vh;overflow:hidden;position:relative;}
 .slides{display:flex;flex-direction:column;transition:transform .7s cubic-bezier(.22,1,.36,1);}
-
-.slide{width:100vw;height:100vh;flex-shrink:0;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:68px 20px 80px 20px;}
-
+.slide{width:100vw;height:100vh;flex-shrink:0;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;overflow-y:auto;padding:68px 20px 80px 20px;}
 .slide::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(800px 400px at 70% 15%,rgba(191,164,105,.08) 0%,transparent 45%),radial-gradient(600px 350px at 30% 20%,rgba(255,255,255,.03) 0%,transparent 40%),linear-gradient(180deg,#0D0D0D 0%,#0A0A0A 50%,#080808 100%);}
 .slide::after{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.18;background-image:radial-gradient(rgba(255,255,255,.04) .8px,transparent .8px);background-size:24px 24px;}
 .slide>*{position:relative;z-index:1;}
 
-/* ===== CORES ===== */
-:root{
-  --gold:#BFA469;--gold-light:#D4BC82;--gold-dark:#9A8355;
-  --white:#F5F5F5;--white-soft:#D0D0D0;--gray:#8A8A8A;--gray-dark:#5A5A5A;
-  --black:#0A0A0A;--black-card:#111111;--black-deep:#080808;
-}
-
-/* ===== GRADIENT TEXT ===== */
 .gt{background:linear-gradient(135deg,var(--gold) 0%,var(--gold-light) 40%,var(--gold) 70%,var(--gold-dark) 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 5s linear infinite;}
 @keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
 
-/* ===== GRADIENT LINE ===== */
 .gl{width:60px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--gold),var(--gold-light),var(--gold));margin-bottom:18px;animation:lineG .8s ease both;transform-origin:left;}
 .gl.ce{margin:0 auto 18px auto;transform-origin:center;}
 @keyframes lineG{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 
-/* ===== BADGE ===== */
 .badge{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:999px;margin-bottom:22px;background:rgba(191,164,105,.06);border:1px solid rgba(191,164,105,.2);font-size:12px;font-weight:600;color:var(--gold);letter-spacing:.05em;text-transform:uppercase;}
 
-/* ===== CARDS ===== */
 .card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:18px;box-shadow:0 12px 40px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.03);padding:20px;backdrop-filter:blur(8px);}
 .cp{background:linear-gradient(145deg,rgba(17,17,17,.98) 0%,rgba(13,13,13,.99) 55%,rgba(10,10,10,1) 100%);border:1px solid rgba(191,164,105,.1);border-radius:18px;box-shadow:0 16px 48px rgba(0,0,0,.5),0 0 30px rgba(191,164,105,.04);padding:22px 20px;backdrop-filter:blur(10px);}
 
-/* ===== INFO CARD (SLIDE 1) ===== */
 .info-card{background:rgba(191,164,105,.03);border:1px solid rgba(191,164,105,.15);border-radius:16px;padding:18px 20px;margin-top:20px;text-align:left;max-width:400px;width:100%;display:inline-block;}
 .info-card-row{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid rgba(191,164,105,.06);}
 .info-card-row:last-child{border-bottom:none;padding-bottom:0;}
@@ -66,68 +54,88 @@ html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;colo
 .info-card-row .icr-label{font-size:12px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.04em;display:block;margin-bottom:2px;}
 .info-card-row .icr-text{font-size:13px;color:var(--white-soft);line-height:1.45;}
 
-/* ===== ICON CONTAINER ===== */
 .ic{width:48px;height:48px;border-radius:14px;margin-bottom:14px;display:flex;align-items:center;justify-content:center;background:rgba(191,164,105,.08);}
 .ic svg{width:24px;height:24px;color:var(--gold);}
-.ic.gold-dark{background:rgba(191,164,105,.12);}
-.ic.gold-dark svg{color:var(--gold-light);}
+.ic.gold-dark{background:rgba(191,164,105,.12);}.ic.gold-dark svg{color:var(--gold-light);}
+.ic.green{background:rgba(143,206,143,.1);}.ic.green svg{color:var(--green);}
+.ic.red{background:rgba(206,143,143,.1);}.ic.red svg{color:var(--red);}
+.ic.blue{background:rgba(126,170,255,.1);}.ic.blue svg{color:var(--blue);}
 
-/* ===== CITY GRID ===== */
-.city-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;width:100%;margin-top:10px;}
-.city-tag{display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);transition:all .3s ease;}
-.city-tag .ct-dot{width:6px;height:6px;min-width:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px rgba(191,164,105,.4);}
-.city-tag span{font-size:13px;font-weight:600;color:var(--white-soft);line-height:1.3;}
-.city-tag.highlight{background:rgba(191,164,105,.06);border-color:rgba(191,164,105,.18);}
-.city-tag.highlight span{color:var(--white);font-weight:700;}
-
-/* ===== SIMULATION ROWS ===== */
-.sim-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04);}
-.sim-row:last-child{border-bottom:none;}
-.sim-row .lab{font-size:14px;color:var(--gray);font-weight:500;}
-.sim-row .val{font-size:16px;font-weight:800;color:var(--white);}
-.sim-row .val.gold{color:var(--gold);}
-.sim-row .val.green{color:#8FCE8F;}
-
-/* ===== ALERT CARD ===== */
 .alert-card{background:rgba(191,164,105,.03);border:1px solid rgba(191,164,105,.12);border-radius:14px;padding:16px;display:flex;gap:12px;align-items:flex-start;margin-top:12px;}
+.alert-card.red{background:rgba(206,143,143,.03);border-color:rgba(206,143,143,.15);}
+.alert-card.green{background:rgba(143,206,143,.03);border-color:rgba(143,206,143,.15);}
 .alert-card svg{width:22px;height:22px;min-width:22px;color:var(--gold);margin-top:2px;}
-.alert-card p{font-size:14px;color:var(--white-soft);line-height:1.6;}
+.alert-card.red svg{color:var(--red);}
+.alert-card.green svg{color:var(--green);}
+.alert-card p{font-size:14px;color:var(--white-soft);line-height:1.6;margin:0;}
 .alert-card strong{color:var(--gold);}
+.alert-card.red strong{color:var(--red);}
 
-/* ===== INFO GRID ===== */
 .info-grid{display:flex;flex-direction:column;gap:10px;width:100%;}
 .info-item{display:flex;gap:14px;align-items:flex-start;padding:16px;border-radius:16px;background:rgba(255,255,255,.015);border:1px solid rgba(255,255,255,.04);}
 .info-item .ii-icon{width:40px;height:40px;min-width:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;}
 .info-item .ii-icon svg{width:20px;height:20px;}
 .info-item h4{font-size:15px;font-weight:700;color:var(--white);margin-bottom:4px;}
-.info-item p{font-size:13px;color:var(--gray);line-height:1.5;}
+.info-item p{font-size:13px;color:var(--gray);line-height:1.5;margin:0;}
 
-/* ===== LAYOUT HELPERS ===== */
+.sim-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04);}
+.sim-row:last-child{border-bottom:none;}
+.sim-row .lab{font-size:14px;color:var(--gray);font-weight:500;}
+.sim-row .val{font-size:16px;font-weight:800;color:var(--white);}
+.sim-row .val.gold{color:var(--gold);}
+.sim-row .val.green{color:var(--green);}
+.sim-row .val.red{color:var(--red);}
+
+.city-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;width:100%;margin-top:10px;}
+.city-tag{display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);}
+.city-tag .ct-dot{width:6px;height:6px;min-width:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px rgba(191,164,105,.4);}
+.city-tag span{font-size:13px;font-weight:600;color:var(--white-soft);line-height:1.3;}
+.city-tag.highlight{background:rgba(191,164,105,.06);border-color:rgba(191,164,105,.18);}
+.city-tag.highlight span{color:var(--white);font-weight:700;}
+
+.checklist{display:flex;flex-direction:column;gap:8px;margin-top:10px;}
+.check-item{display:flex;align-items:flex-start;gap:12px;padding:12px 16px;border-radius:14px;background:rgba(255,255,255,.015);border:1px solid rgba(255,255,255,.04);}
+.check-item .ci-num{width:30px;height:30px;min-width:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#fff;background:linear-gradient(145deg,var(--gold),var(--gold-dark));}
+.check-item p{font-size:14px;color:var(--white-soft);line-height:1.5;margin:0;}
+.check-item strong{color:var(--gold);}
+
+/* Table-like rows */
+.tbl{width:100%;margin-top:10px;}
+.tbl-row{display:flex;justify-content:space-between;align-items:flex-start;padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.04);gap:10px;}
+.tbl-row:last-child{border-bottom:none;}
+.tbl-row:nth-child(odd){background:rgba(255,255,255,.01);border-radius:8px;}
+.tbl-row .tl{font-size:13px;color:var(--white-soft);font-weight:600;flex:1;}
+.tbl-row .tv{font-size:13px;color:var(--gold);font-weight:700;text-align:right;flex:1;}
+
+/* Benefit mini cards */
+.ben-grid{display:grid;grid-template-columns:1fr;gap:8px;margin-top:10px;width:100%;}
+.ben-item{display:flex;gap:12px;align-items:flex-start;padding:14px;border-radius:14px;background:rgba(255,255,255,.015);border:1px solid rgba(255,255,255,.04);}
+.ben-item .be{font-size:20px;min-width:28px;text-align:center;line-height:1.4;}
+.ben-item h5{font-size:13px;font-weight:700;color:var(--white);margin-bottom:2px;}
+.ben-item p{font-size:12px;color:var(--gray);line-height:1.4;margin:0;}
+.ben-item .bv{font-size:11px;font-weight:700;color:var(--gold);margin-top:3px;display:block;}
+
 .s1{text-align:center;max-width:440px;width:100%;padding:0 8px;}
-.s1 h1{font-size:clamp(30px,7.5vw,44px);margin-bottom:16px;font-weight:900;letter-spacing:-.03em;line-height:1.08;color:var(--white);}
+.s1 h1{font-size:clamp(26px,7vw,40px);margin-bottom:16px;font-weight:900;letter-spacing:-.03em;line-height:1.08;color:var(--white);}
 .s1 .tag{font-size:16px;color:var(--white-soft);max-width:360px;margin:0 auto;line-height:1.55;}
 
 .sc-inner{max-width:440px;width:100%;padding:0 6px;}
-.sc-inner h2{font-size:clamp(22px,5.5vw,28px);font-weight:800;letter-spacing:-.025em;line-height:1.12;color:var(--white);margin-bottom:12px;}
-.sc-inner p{font-size:15px;line-height:1.65;color:var(--white-soft);margin-bottom:14px;}
+.sc-inner h2{font-size:clamp(20px,5.5vw,26px);font-weight:800;letter-spacing:-.025em;line-height:1.12;color:var(--white);margin-bottom:12px;}
+.sc-inner h3{font-size:16px;font-weight:700;color:var(--gold);margin-bottom:8px;margin-top:14px;}
+.sc-inner p{font-size:14px;line-height:1.6;color:var(--white-soft);margin-bottom:12px;}
 
 .big-emoji{font-size:42px;margin-bottom:14px;display:block;}
 
-/* ===== CTA BUTTONS (SLIDE 11) ===== */
 .cta-stack{display:flex;flex-direction:column;gap:12px;width:100%;max-width:400px;margin:0 auto;}
 .cta-btn{display:flex;align-items:center;justify-content:center;gap:12px;padding:18px 24px;border-radius:16px;font-family:'Inter',sans-serif;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;border:none;transition:all .4s ease;line-height:1.3;text-align:center;}
 .cta-btn svg{width:22px;height:22px;min-width:22px;}
-
 .cta-btn.cta-share{background:rgba(255,255,255,.03);border:1px solid rgba(191,164,105,.3);color:var(--gold-light);box-shadow:0 8px 32px rgba(0,0,0,.3);}
-.cta-btn.cta-share:hover{background:rgba(191,164,105,.1);border-color:rgba(191,164,105,.5);transform:translateY(-2px);box-shadow:0 12px 40px rgba(191,164,105,.12);}
-
+.cta-btn.cta-share:hover{background:rgba(191,164,105,.1);border-color:rgba(191,164,105,.5);transform:translateY(-2px);}
 .cta-btn.cta-back{background:linear-gradient(145deg,var(--gold),var(--gold-dark));border:1px solid var(--gold-light);color:#0A0A0A;box-shadow:0 8px 32px rgba(191,164,105,.2);}
 .cta-btn.cta-back:hover{transform:translateY(-2px);box-shadow:0 14px 44px rgba(191,164,105,.3);filter:brightness(1.08);}
-
 .cta-footer{margin-top:20px;font-size:11px;color:var(--gray-dark);text-align:center;line-height:1.5;}
 .cta-footer a{color:var(--gold-dark);text-decoration:none;}
 
-/* ===== ORBITAL ===== */
 .orb{position:absolute;width:340px;height:340px;top:50%;left:50%;transform:translate(-50%,-50%);z-index:0;pointer-events:none;}
 .orb .ring{position:absolute;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);border:1px solid rgba(191,164,105,.1);animation:pulse 5s ease-in-out infinite;}
 .orb .ring:nth-child(1){width:80px;height:80px;}
@@ -147,462 +155,521 @@ html,body{overflow:hidden;font-family:'Inter',sans-serif;background:#0A0A0A;colo
 .orb-sm .ring:nth-child(2){width:130px;height:130px;animation-delay:.6s;border-color:rgba(255,255,255,.03);}
 .orb-sm .ring:nth-child(3){width:200px;height:200px;animation-delay:1.2s;}
 
-/* ===== ANIMATIONS ===== */
 @keyframes fadeUp{from{opacity:0;transform:translateY(35px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeScale{from{opacity:0;transform:scale(.88)}to{opacity:1;transform:scale(1)}}
 .slide.active .au{animation:fadeUp .7s ease both;}
 .slide.active .as{animation:fadeScale .7s ease both;}
 .d1{animation-delay:.1s!important}.d2{animation-delay:.22s!important}.d3{animation-delay:.34s!important}.d4{animation-delay:.46s!important}.d5{animation-delay:.58s!important}.d6{animation-delay:.7s!important}.d7{animation-delay:.82s!important}
 
-/* ===== PROGRESS ===== */
 .progress{position:fixed;top:52px;left:0;height:2px;z-index:1101;background:linear-gradient(90deg,var(--gold-dark),var(--gold),var(--gold-light),var(--gold));background-size:200% auto;animation:shimmer 4s linear infinite;transition:width .6s ease;}
 
-/* ===== SLIDE COUNTER ===== */
 .sc-count{position:fixed;bottom:14px;left:14px;z-index:998;color:var(--gray);font-size:12px;font-weight:600;letter-spacing:.05em;background:rgba(0,0,0,.6);padding:8px 14px;border-radius:10px;backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.04);}
 .sc-count .cn{color:var(--gold);font-weight:800;}
 
-/* ===== INDICATORS ===== */
-.ind{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);z-index:998;display:flex;gap:5px;background:rgba(0,0,0,.6);padding:8px 12px;border-radius:20px;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.04);}
-.ind .dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.12);transition:all .4s ease;cursor:pointer;}
-.ind .dot.active{background:var(--gold);box-shadow:0 0 12px rgba(191,164,105,.5);width:24px;border-radius:4px;}
+.ind{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);z-index:998;display:flex;gap:3px;background:rgba(0,0,0,.6);padding:7px 10px;border-radius:20px;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.04);}
+.ind .dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.12);transition:all .4s ease;cursor:pointer;}
+.ind .dot.active{background:var(--gold);box-shadow:0 0 10px rgba(191,164,105,.5);width:18px;border-radius:3px;}
 
-/* ===== NAV ARROWS ===== */
 .nav-arr{position:fixed;bottom:10px;right:14px;z-index:998;display:flex;gap:8px;}
 .nav-arr button{width:46px;height:46px;border-radius:13px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:var(--white-soft);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s ease;backdrop-filter:blur(6px);}
 .nav-arr button:hover,.nav-arr button:active{background:rgba(191,164,105,.15);border-color:rgba(191,164,105,.3);color:var(--gold);}
 
-/* ===== DESKTOP ===== */
 @media(min-width:769px){
-  .topbar{padding:12px 40px;height:60px;}
-  .topbar img{height:38px;}
-  .progress{top:60px;}
-  .back-btn{height:60px;padding:0 24px;font-size:13px;}
-  .wpp-share{bottom:80px;right:24px;width:52px;height:52px;}
-  .wpp-share svg{width:26px;height:26px;}
-  .slide{padding:80px 60px 100px 60px;}
-  .s1{max-width:720px;}
-  .s1 h1{font-size:clamp(44px,5vw,64px);}
-  .s1 .tag{font-size:20px;max-width:520px;}
-  .sc-inner{max-width:680px;}
-  .sc-inner h2{font-size:clamp(28px,3.5vw,38px);}
-  .sc-inner p{font-size:17px;}
-  .card,.cp{padding:28px 26px;}
-  .info-item{padding:22px 20px;}
-  .info-item h4{font-size:17px;}
-  .info-item p{font-size:15px;}
-  .sim-row .lab{font-size:16px;}
-  .sim-row .val{font-size:18px;}
-  .alert-card p{font-size:16px;}
-  .big-emoji{font-size:56px;}
-  .city-grid{grid-template-columns:1fr 1fr 1fr;gap:8px;}
-  .city-tag{padding:12px 16px;}
-  .city-tag span{font-size:14px;}
-  .orb{width:500px;height:500px;}
-  .orb .ring:nth-child(1){width:120px;height:120px;}
-  .orb .ring:nth-child(2){width:240px;height:240px;}
-  .orb .ring:nth-child(3){width:360px;height:360px;}
-  .orb .ring:nth-child(4){width:500px;height:500px;}
-  .on2{--r:120px;}.on3{--r:180px;}.on4{--r:250px;}
-  .sc-count{bottom:20px;left:24px;font-size:13px;padding:10px 18px;}
-  .ind{bottom:20px;padding:10px 16px;gap:6px;}
-  .ind .dot{width:10px;height:10px;}
-  .ind .dot.active{width:30px;}
-  .nav-arr{bottom:16px;right:24px;gap:10px;}
-  .nav-arr button{width:52px;height:52px;border-radius:14px;}
-  .info-card{max-width:500px;padding:22px 26px;}
-  .info-card-row .icr-text{font-size:14px;}
-  .cta-btn{font-size:16px;padding:20px 28px;}
-  .cta-stack{max-width:480px;}
+.topbar{padding:12px 40px;height:60px;}.topbar img{height:38px;}.progress{top:60px;}.back-btn{height:60px;padding:0 24px;font-size:13px;}
+.wpp-share{bottom:80px;right:24px;width:52px;height:52px;}.wpp-share svg{width:26px;height:26px;}
+.slide{padding:80px 60px 100px 60px;}
+.s1{max-width:720px;}.s1 h1{font-size:clamp(38px,5vw,54px);}.s1 .tag{font-size:20px;max-width:520px;}
+.sc-inner{max-width:680px;}.sc-inner h2{font-size:clamp(26px,3.5vw,34px);}.sc-inner p{font-size:16px;}
+.card,.cp{padding:28px 26px;}.info-item{padding:22px 20px;}.info-item h4{font-size:17px;}.info-item p{font-size:14px;}
+.sim-row .lab{font-size:15px;}.sim-row .val{font-size:17px;}.alert-card p{font-size:15px;}.big-emoji{font-size:56px;}
+.city-grid{grid-template-columns:1fr 1fr 1fr;gap:8px;}.city-tag{padding:12px 16px;}.city-tag span{font-size:14px;}
+.orb{width:500px;height:500px;}.orb .ring:nth-child(1){width:120px;height:120px;}.orb .ring:nth-child(2){width:240px;height:240px;}.orb .ring:nth-child(3){width:360px;height:360px;}.orb .ring:nth-child(4){width:500px;height:500px;}
+.on2{--r:120px;}.on3{--r:180px;}.on4{--r:250px;}
+.sc-count{bottom:20px;left:24px;font-size:13px;padding:10px 18px;}
+.ind{bottom:20px;padding:9px 14px;gap:4px;}.ind .dot{width:8px;height:8px;}.ind .dot.active{width:22px;}
+.nav-arr{bottom:16px;right:24px;gap:10px;}.nav-arr button{width:52px;height:52px;border-radius:14px;}
+.info-card{max-width:500px;padding:22px 26px;}.info-card-row .icr-text{font-size:14px;}
+.cta-btn{font-size:16px;padding:20px 28px;}.cta-stack{max-width:480px;}
+.ben-grid{grid-template-columns:1fr 1fr;}.ben-item{padding:16px;}
+.tbl-row .tl,.tbl-row .tv{font-size:14px;}
+.check-item p{font-size:15px;}
 }
 
-/* ===== MOBILE ===== */
 @media(max-width:480px){
-  .topbar{height:48px;padding:8px 16px;}
-  .topbar img{height:26px;}
-  .progress{top:48px;}
-  .back-btn{height:48px;padding:0 12px;font-size:11px;gap:4px;}
-  .back-btn svg{width:16px;height:16px;}
-  .wpp-share{bottom:66px;right:10px;width:42px;height:42px;}
-  .wpp-share svg{width:20px;height:20px;}
-  .slide{padding:62px 14px 76px 14px;}
-  .sc-inner h2{font-size:20px;}
-  .s1 h1{font-size:26px;}
-  .s1 .tag{font-size:14px;}
-  .sc-inner p{font-size:14px;}
-  .card,.cp{padding:16px 14px;}
-  .alert-card p{font-size:13px;}
-  .info-item h4{font-size:14px;}
-  .info-item p{font-size:12px;}
-  .big-emoji{font-size:36px;}
-  .info-card{padding:14px 16px;}
-  .info-card-row .icr-text{font-size:12px;}
-  .info-card-row .icr-label{font-size:11px;}
-  .cta-btn{font-size:14px;padding:16px 18px;gap:10px;}
-  .cta-btn svg{width:20px;height:20px;min-width:20px;}
-  .city-tag{padding:8px 10px;}
-  .city-tag span{font-size:12px;}
-  .city-tag .ct-dot{width:5px;height:5px;min-width:5px;}
+.topbar{height:48px;padding:8px 16px;}.topbar img{height:26px;}.progress{top:48px;}.back-btn{height:48px;padding:0 12px;font-size:11px;gap:4px;}.back-btn svg{width:16px;height:16px;}
+.wpp-share{bottom:66px;right:10px;width:42px;height:42px;}.wpp-share svg{width:20px;height:20px;}
+.slide{padding:58px 12px 74px 12px;}
+.sc-inner h2{font-size:19px;}.s1 h1{font-size:24px;}.s1 .tag{font-size:13px;}.sc-inner p{font-size:13px;}
+.card,.cp{padding:14px 12px;}.alert-card{padding:12px;}.alert-card p{font-size:12px;}.info-item{padding:12px;}.info-item h4{font-size:13px;}.info-item p{font-size:11px;}.big-emoji{font-size:34px;}
+.info-card{padding:12px 14px;}.info-card-row .icr-text{font-size:11px;}.info-card-row .icr-label{font-size:10px;}
+.cta-btn{font-size:13px;padding:14px 16px;gap:8px;}.cta-btn svg{width:18px;height:18px;min-width:18px;}
+.city-tag{padding:7px 10px;}.city-tag span{font-size:11px;}.city-tag .ct-dot{width:5px;height:5px;min-width:5px;}
+.check-item{padding:10px 12px;}.check-item p{font-size:12px;}.check-item .ci-num{width:24px;height:24px;min-width:24px;font-size:10px;}
+.ind{padding:5px 7px;gap:2px;}.ind .dot{width:5px;height:5px;}.ind .dot.active{width:14px;}
+.sim-row .lab{font-size:12px;}.sim-row .val{font-size:13px;}
+.ben-item{padding:10px;}.ben-item h5{font-size:12px;}.ben-item p{font-size:11px;}.ben-item .be{font-size:18px;min-width:24px;}
+.tbl-row{padding:8px 10px;}.tbl-row .tl,.tbl-row .tv{font-size:11px;}
+.sc-inner h3{font-size:14px;}
 }
 </style>
 </head>
 <body>
 
-<!-- ===== TOPBAR ===== -->
-<div class="topbar">
-  <img src="../../logo.png" alt="Domínio Farma Contabilidade">
-</div>
-
-<!-- ===== BOTÃO VOLTAR ===== -->
-<a href="../../index.html" class="back-btn" aria-label="Voltar para a Central de Ajuda">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-  Voltar
-</a>
-
-<!-- ===== BARRA DE PROGRESSO ===== -->
-<div class="progress" id="prog" style="width:9.09%"></div>
-
-<!-- ===== BOTÃO COMPARTILHAR WHATSAPP ===== -->
-<a class="wpp-share" id="wppShare" aria-label="Compartilhar no WhatsApp" target="_blank">
-  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
+<div class="topbar"><img src="../logo.png" alt="Domínio Farma Contabilidade"></div>
+<a href="../index.html" class="back-btn" aria-label="Voltar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>Voltar</a>
+<div class="progress" id="prog" style="width:4.76%"></div>
+<a class="wpp-share" id="wppShare" aria-label="Compartilhar no WhatsApp" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
 
 <div class="presentation">
 <div class="slides" id="sw">
 
-<!-- ==================== SLIDE 1 — CAPA ==================== -->
+<!-- ===== SLIDE 1 — CAPA ===== -->
 <section class="slide active">
-  <div class="orb">
-    <div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div>
-    <div class="onode" style="--r:40px"></div>
-    <div class="onode on2"></div>
-    <div class="onode on3"></div>
-    <div class="onode on4"></div>
+<div class="orb"><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="onode" style="--r:40px"></div><div class="onode on2"></div><div class="onode on3"></div><div class="onode on4"></div></div>
+<div class="s1">
+  <div class="badge au d1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>CCT SINCOFARMA · 2026/2028</div>
+  <h1 class="au d2">Convenção Coletiva <span class="gt">Farmácias</span> 💊</h1>
+  <p class="tag au d3" style="margin-bottom:0;">Tudo que sua farmácia precisa saber sobre a CCT SINCOFARMA — Itaberaba e Região</p>
+  <div class="info-card au d4">
+    <div class="info-card-row"><span class="icr-emoji">⏱️</span><div><span class="icr-label">Tempo de leitura</span><span class="icr-text">8 minutos</span></div></div>
+    <div class="info-card-row"><span class="icr-emoji">🎯</span><div><span class="icr-label">O que vai aprender</span><span class="icr-text">Pisos salariais, benefícios obrigatórios, jornada, contribuições sindicais e multas.</span></div></div>
+    <div class="info-card-row"><span class="icr-emoji">💡</span><div><span class="icr-label">O que evita</span><span class="icr-text">Multas de R$ 3.322,00 por empregado, passivos trabalhistas e autuações sindicais.</span></div></div>
   </div>
-  <div class="s1">
-    <div class="badge au d1">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-      Convenção Coletiva (2026/2028)
-    </div>
-    <h1 class="au d2">Regras do Sindicato <span class="gt">SINDCIR Itaberaba</span></h1>
-    <div class="info-card au d3">
-      <div class="info-card-row">
-        <span class="icr-emoji">⏱️</span>
-        <div>
-          <span class="icr-label">Tempo de leitura</span>
-          <span class="icr-text">2 minutos</span>
-        </div>
-      </div>
-      <div class="info-card-row">
-        <span class="icr-emoji">🎯</span>
-        <div>
-          <span class="icr-label">O que vai aprender</span>
-          <span class="icr-text">Os novos salários, taxas e regras da convenção 2026/2028.</span>
-        </div>
-      </div>
-      <div class="info-card-row">
-        <span class="icr-emoji">💡</span>
-        <div>
-          <span class="icr-label">O que resolve</span>
-          <span class="icr-text">Evita multas sindicais gravíssimas e passivos trabalhistas ocultos.</span>
-        </div>
-      </div>
-    </div>
-    <div class="au d4" style="margin-top:22px;display:flex;justify-content:center;gap:8px;align-items:center;">
-      <div style="width:7px;height:7px;border-radius:50%;background:var(--gold);animation:pulse 2s ease-in-out infinite;"></div>
-      <span style="font-size:13px;color:var(--gray);">Deslize para baixo ou use as setas</span>
-    </div>
-  </div>
+  <div class="au d5" style="margin-top:22px;display:flex;justify-content:center;gap:8px;align-items:center;"><div style="width:7px;height:7px;border-radius:50%;background:var(--gold);animation:pulse 2s ease-in-out infinite;"></div><span style="font-size:13px;color:var(--gray);">Deslize para baixo ou use as setas</span></div>
+</div>
 </section>
 
-<!-- ==================== SLIDE 2 — CALMA ==================== -->
+<!-- ===== SLIDE 2 — ABRANGÊNCIA ===== -->
 <section class="slide">
-  <div class="sc-inner" style="text-align:center;">
-    <span class="big-emoji au d1">✋</span>
-    <h2 class="au d2" style="text-align:center;">Calma, <span class="gt">empreendedor!</span></h2>
-    <p class="au d3" style="text-align:center;font-size:16px;">Nós sabemos que ler uma Convenção Coletiva de dezenas de páginas cheias de <strong style="color:var(--white);">termos jurídicos</strong> é desgastante.</p>
-    <div class="cp au d4" style="text-align:center;margin-top:18px;">
-      <p style="font-size:16px;color:var(--white);font-weight:600;margin:0;">A <span class="gt">Domínio Farma</span> destrinchou o SINDCIR 2026/2028 e separou apenas o que vai <strong style="color:#8FCE8F;">impactar o seu bolso</strong> e a rotina do seu comércio. Vamos lá?</p>
-    </div>
+<div class="sc-inner">
+  <div class="gl au d1"></div>
+  <h2 class="au d1">📍 Onde essa CCT <span class="gt">se aplica?</span></h2>
+  <p class="au d2">A convenção vale para todo o <strong style="color:var(--white);">comércio varejista de produtos farmacêuticos</strong> nos 13 municípios abaixo:</p>
+  <div class="city-grid au d3">
+    <div class="city-tag"><div class="ct-dot"></div><span>Boa Vista do Tupim</span></div>
+    <div class="city-tag"><div class="ct-dot"></div><span>Bonito</span></div>
+    <div class="city-tag"><div class="ct-dot"></div><span>Iaçu</span></div>
+    <div class="city-tag"><div class="ct-dot"></div><span>Ibiquera</span></div>
+    <div class="city-tag highlight"><div class="ct-dot"></div><span>Ipirá</span></div>
+    <div class="city-tag highlight"><div class="ct-dot"></div><span>Itaberaba</span></div>
+    <div class="city-tag"><div class="ct-dot"></div><span>Itaetê</span></div>
+    <div class="city-tag"><div class="ct-dot"></div><span>Itatim</span></div>
+    <div class="city-tag"><div class="ct-dot"></div><span>Lajedinho</span></div>
+    <div class="city-tag"><div class="ct-dot"></div><span>Marcionílio Souza</span></div>
+    <div class="city-tag"><div class="ct-dot"></div><span>Nova Redenção</span></div>
+    <div class="city-tag"><div class="ct-dot"></div><span>Utinga</span></div>
+    <div class="city-tag"><div class="ct-dot"></div><span>Wagner</span></div>
   </div>
+  <div class="alert-card au d4">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <p><strong>Vigência:</strong> 01/03/2026 a 31/01/2028 · <strong>Data-base:</strong> 01 de janeiro</p>
+  </div>
+</div>
 </section>
 
-<!-- ==================== SLIDE 3 — CIDADES ABRANGIDAS ==================== -->
+<!-- ===== SLIDE 3 — ENTIDADES ===== -->
 <section class="slide">
-  <div class="sc-inner">
-    <div class="gl au d1"></div>
-    <h2 class="au d1">Onde essa regra <span class="gt">se aplica?</span></h2>
-    <p class="au d2">A convenção do SINDCIR 2026/2028 é obrigatória para o comércio de várias cidades da nossa região, e não apenas Itaberaba!</p>
-    <div class="city-grid au d3">
-      <div class="city-tag"><div class="ct-dot"></div><span>Boa Vista do Tupim</span></div>
-      <div class="city-tag"><div class="ct-dot"></div><span>Bonito</span></div>
-      <div class="city-tag"><div class="ct-dot"></div><span>Iaçu</span></div>
-      <div class="city-tag"><div class="ct-dot"></div><span>Ibiquera</span></div>
-      <div class="city-tag highlight"><div class="ct-dot"></div><span>Ipirá</span></div>
-      <div class="city-tag highlight"><div class="ct-dot"></div><span>Itaberaba</span></div>
-      <div class="city-tag"><div class="ct-dot"></div><span>Itaetê</span></div>
-      <div class="city-tag"><div class="ct-dot"></div><span>Itatim</span></div>
-      <div class="city-tag"><div class="ct-dot"></div><span>Lajedinho</span></div>
-      <div class="city-tag"><div class="ct-dot"></div><span>Marcionílio Souza</span></div>
-      <div class="city-tag"><div class="ct-dot"></div><span>Nova Redenção</span></div>
-      <div class="city-tag"><div class="ct-dot"></div><span>Utinga</span></div>
-      <div class="city-tag"><div class="ct-dot"></div><span>Wagner</span></div>
+<div class="sc-inner" style="text-align:center;">
+  <span class="big-emoji au d1">🤝</span>
+  <h2 class="au d2" style="text-align:center;">Quem <span class="gt">assina</span> essa CCT?</h2>
+  <div class="info-grid au d3" style="text-align:left;">
+    <div class="info-item">
+      <div class="ii-icon" style="background:rgba(191,164,105,.1);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M3 21l1.65-3.8a9 9 0 1112.7 0L19 21l-3.8-1.65a9 9 0 01-8.4 0L3 21z"/></svg></div>
+      <div><h4>SINCOFARMA</h4><p>Sindicato Intermunicipal do Comércio Varejista de Produtos Farmacêuticos da Bahia<br><strong style="color:var(--gold);">CNPJ: 51.847.489/0001-72</strong></p></div>
     </div>
-    <div class="alert-card au d4">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      <p>Se a sua empresa (ou alguma filial) está localizada em <strong>qualquer um desses municípios</strong>, preste muita atenção: as regras e multas a seguir <strong>valem para você!</strong></p>
+    <div class="info-item">
+      <div class="ii-icon" style="background:rgba(126,170,255,.1);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+      <div><h4>Sindicato dos Empregados</h4><p>Comércio Atacadista, Varejista e Serviços (Itaberaba e Região)<br><strong style="color:var(--gold);">CNPJ: 12.475.667/0001-20</strong></p></div>
     </div>
   </div>
+</div>
 </section>
 
-<!-- ==================== SLIDE 4 — PISO E BENEFÍCIO ==================== -->
+<!-- ===== SLIDE 4 — PISO + REAJUSTE ===== -->
 <section class="slide">
-  <div class="sc-inner">
-    <div class="gl au d1"></div>
-    <h2 class="au d1">Piso Salarial e <span class="gt">Benefício Social</span></h2>
-    <p class="au d2">Estes são os valores básicos que toda empresa da região deve seguir:</p>
-    <div class="cp au d3" style="margin-top:10px;">
-      <div class="sim-row">
-        <span class="lab">Piso Salarial</span>
-        <span class="val gold">R$ 1.661,00</span>
-      </div>
-      <div class="sim-row">
-        <span class="lab">Reajuste (acima do piso)</span>
-        <span class="val">6,79%</span>
-      </div>
-      <div class="sim-row" style="border-bottom:none;">
-        <span class="lab">Benefício Social (BEM)</span>
-        <span class="val gold">R$ 29,95 /mês</span>
-      </div>
-    </div>
-    <div class="alert-card au d4">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      <p>O valor do Benefício Social é <strong>pago pela empresa</strong>. É proibido descontar esse valor do salário do trabalhador!</p>
-    </div>
+<div class="sc-inner">
+  <div class="gl au d1"></div>
+  <h2 class="au d1">💰 Piso Salarial e <span class="gt">Reajuste</span></h2>
+  <p class="au d2">Valores obrigatórios a partir de <strong style="color:var(--white);">01/03/2026:</strong></p>
+  <div class="cp au d3">
+    <div class="sim-row"><span class="lab">Piso Salarial</span><span class="val gold">R$ 1.661,00</span></div>
+    <div class="sim-row"><span class="lab">Reajuste (acima do piso)</span><span class="val">6,79%</span></div>
+    <div class="sim-row" style="border-bottom:none;"><span class="lab">Compensação</span><span class="val" style="font-size:13px;color:var(--gray);">Descontar antecipações desde mar/2026</span></div>
   </div>
+  <div class="alert-card au d4">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <p>O piso se aplica a <strong>todos os empregados</strong> abrangidos pela CCT, independente da função.</p>
+  </div>
+</div>
 </section>
 
-<!-- ==================== SLIDE 5 — ADICIONAIS ==================== -->
+<!-- ===== SLIDE 5 — TRIÊNIO + QUEBRA ===== -->
 <section class="slide">
-  <div class="sc-inner">
-    <div class="gl au d1"></div>
-    <h2 class="au d1">Cuidado com os <span class="gt">Adicionais</span></h2>
-    <p class="au d2">O sindicato exige pagamentos extras dependendo do <strong style="color:var(--white);">tempo de casa</strong> ou da <strong style="color:var(--white);">função</strong> do empregado:</p>
-    <div class="info-grid" style="margin-top:10px;">
-      <div class="card au d3" style="display:flex;gap:14px;align-items:flex-start;">
-        <div class="ic" style="min-width:48px;margin:0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-        <div>
-          <h4 style="font-size:15px;font-weight:700;color:var(--white);margin-bottom:4px;">Triênio</h4>
-          <p style="font-size:14px;color:var(--gray);margin:0;line-height:1.5;">A cada <strong style="color:var(--gold);">3 anos</strong> na mesma empresa, o funcionário ganha <strong style="color:var(--gold);">3% a mais</strong> no salário-base.</p>
-        </div>
+<div class="sc-inner">
+  <div class="gl au d1"></div>
+  <h2 class="au d1">Triênio e <span class="gt">Quebra de Caixa</span></h2>
+  <p class="au d2">Adicionais obrigatórios conforme tempo de casa e função:</p>
+  <div class="info-grid">
+    <div class="card au d3" style="display:flex;gap:14px;align-items:flex-start;">
+      <div class="ic" style="min-width:48px;margin:0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+      <div>
+        <h4 style="font-size:15px;font-weight:700;color:var(--white);margin-bottom:4px;">Triênio</h4>
+        <p style="font-size:13px;color:var(--gray);margin:0;line-height:1.5;"><strong style="color:var(--gold);">3%</strong> do salário a cada 3 anos de efetivo serviço. Limitação: totalidade não ultrapassa o piso (R$ 1.661,00).</p>
       </div>
-      <div class="card au d4" style="display:flex;gap:14px;align-items:flex-start;">
-        <div class="ic gold-dark" style="min-width:48px;margin:0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
-        <div>
-          <h4 style="font-size:15px;font-weight:700;color:var(--white);margin-bottom:4px;">Quebra de Caixa</h4>
-          <p style="font-size:14px;color:var(--gray);margin:0;line-height:1.5;">Operadores de caixa têm direito a <strong style="color:var(--gold);">5% do piso salarial</strong> mensalmente. Isento se a empresa não descontar faltas do caixa.</p>
-        </div>
+    </div>
+    <div class="card au d4" style="display:flex;gap:14px;align-items:flex-start;">
+      <div class="ic gold-dark" style="min-width:48px;margin:0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
+      <div>
+        <h4 style="font-size:15px;font-weight:700;color:var(--white);margin-bottom:4px;">Quebra de Caixa</h4>
+        <p style="font-size:13px;color:var(--gray);margin:0;line-height:1.5;"><strong style="color:var(--gold);">5% do piso = R$ 83,05/mês</strong> para operadores de caixa (mín. 3 meses na empresa). Dispensado se empresa não desconta diferenças.</p>
       </div>
     </div>
   </div>
+  <div class="alert-card au d5">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    <p>Caixas são <strong>isentos de responsabilidade</strong> se não presenciarem conferência. Proibido descontar cheques sustados!</p>
+  </div>
+</div>
 </section>
 
-<!-- ==================== SLIDE 6 — FARMÁCIAS ==================== -->
+<!-- ===== SLIDE 6 — COMISSIONADOS ===== -->
 <section class="slide">
-  <div class="sc-inner" style="text-align:center;">
-    <span class="big-emoji au d1">⚠️</span>
-    <h2 class="au d2" style="text-align:center;">Atenção total: <span class="gt">Farmácias!</span></h2>
-    <p class="au d3" style="text-align:center;font-size:15px;">O trabalho aos <strong style="color:var(--white);">Domingos e Feriados</strong> tem regras rigorosas para o setor de farmácias!</p>
-    <div class="info-grid" style="margin-top:14px;text-align:left;">
-      <div class="info-item au d4">
-        <div class="ii-icon" style="background:rgba(206,143,143,.1);"><svg viewBox="0 0 24 24" fill="none" stroke="#CE8F8F" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <div>
-          <h4>Regras para Farmácias</h4>
-          <p>Jornada máxima de <strong style="color:var(--gold);">6h ininterruptas</strong>. Bônus de <strong style="color:var(--gold);">R$ 85,00 por dia</strong> trabalhado (pago no salário). Folga compensatória obrigatória na semana (seg-sex) e <strong style="color:#CE8F8F;">proibido trabalhar dois domingos seguidos!</strong></p>
-        </div>
-      </div>
-    </div>
-    <div class="alert-card au d5" style="text-align:left;">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-      <p>A <strong>Domínio Farma</strong> já configura a folha para calcular o bônus e a escala corretamente. Sem surpresas!</p>
-    </div>
+<div class="sc-inner">
+  <div class="gl au d1"></div>
+  <h2 class="au d1">Empregados <span class="gt">Comissionados</span> 💵</h2>
+  <p class="au d2">Regras específicas para quem trabalha com comissão:</p>
+  <div class="checklist au d3">
+    <div class="check-item"><div class="ci-num">1</div><p><strong>CTPS:</strong> Percentual de comissão deve constar na carteira.</p></div>
+    <div class="check-item"><div class="ci-num">2</div><p><strong>Férias, 13º, maternidade:</strong> Somatório dos últimos 12 meses ÷ 12.</p></div>
+    <div class="check-item"><div class="ci-num">3</div><p><strong>Remuneração mínima:</strong> Piso (R$ 1.661,00) + repouso remunerado garantido.</p></div>
+    <div class="check-item"><div class="ci-num">4</div><p><strong>Proteção:</strong> Sem responsabilidade por inadimplência em vendas a prazo.</p></div>
+    <div class="check-item"><div class="ci-num">5</div><p><strong>Triênio e Quebra de Caixa:</strong> Calculados sobre salário base <strong>+ comissão.</strong></p></div>
   </div>
+</div>
 </section>
 
-<!-- ==================== SLIDE 7 — CONTRIBUIÇÃO ASSISTENCIAL ==================== -->
+<!-- ===== SLIDE 7 — BSF INTRO ===== -->
 <section class="slide">
-  <div class="sc-inner">
-    <div class="gl au d1"></div>
-    <h2 class="au d1">A polêmica <span class="gt">Contribuição Assistencial</span></h2>
-    <p class="au d2">A empresa deve descontar dos empregados <strong style="color:var(--white);">não sindicalizados</strong> a taxa de <strong style="color:var(--gold);">R$ 120,00</strong> (dividido em 3x de R$ 40,00 em março, abril e maio).</p>
-    <div class="cp au d3" style="margin-top:10px;">
-      <div class="sim-row">
-        <span class="lab">Parcela 1 — Março/2026</span>
-        <span class="val">R$ 40,00</span>
-      </div>
-      <div class="sim-row">
-        <span class="lab">Parcela 2 — Abril/2026</span>
-        <span class="val">R$ 40,00</span>
-      </div>
-      <div class="sim-row" style="border-bottom:none;">
-        <span class="lab">Parcela 3 — Maio/2026</span>
-        <span class="val">R$ 40,00</span>
-      </div>
-    </div>
-    <div class="alert-card au d4">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      <p><strong>O funcionário pode se opor?</strong> Sim! Mas ele deve ir pessoalmente ao sindicato até o dia <strong>02/03/2026</strong> (ou 10 dias após a admissão).</p>
-    </div>
+<div class="sc-inner" style="text-align:center;">
+  <span class="big-emoji au d1">🎁</span>
+  <h2 class="au d2" style="text-align:center;">Benefício Social <span class="gt">Familiar (BSF)</span></h2>
+  <p class="au d3" style="text-align:center;">Plano de benefícios sociais, assistenciais e emergenciais para trabalhadores e suas famílias.</p>
+  <div class="cp au d4" style="text-align:left;">
+    <div class="sim-row"><span class="lab">Custo mensal por empregado</span><span class="val gold">R$ 29,95</span></div>
+    <div class="sim-row"><span class="lab">Quem paga</span><span class="val" style="font-size:14px;">Empresa (proibido descontar)</span></div>
+    <div class="sim-row"><span class="lab">Vencimento</span><span class="val" style="font-size:14px;">Até dia 10 de cada mês</span></div>
+    <div class="sim-row" style="border-bottom:none;"><span class="lab">Início</span><span class="val" style="font-size:14px;">Março/2026</span></div>
   </div>
+  <div class="alert-card red au d5" style="text-align:left;">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+    <p><strong>Multa por atraso:</strong> 10% + 1% juros/mês + atualização. Pode ir para SPC e cartório de protesto!</p>
+  </div>
+</div>
 </section>
 
-<!-- ==================== SLIDE 8 — ENTREGAS ==================== -->
+<!-- ===== SLIDE 8 — BSF BENEFÍCIOS TRABALHADORES ===== -->
 <section class="slide">
-  <div class="sc-inner" style="text-align:center;">
-    <div class="gl ce au d1"></div>
-    <h2 class="au d1" style="text-align:center;">Faz <span class="gt">entregas?</span></h2>
-    <p class="au d2" style="text-align:center;font-size:16px;">Se o seu comércio utiliza <strong style="color:var(--white);">motociclistas próprios</strong> para delivery, a lei é clara:</p>
-    <div class="cp au d3" style="text-align:left;margin-top:16px;">
-      <div style="display:flex;gap:14px;align-items:flex-start;">
-        <div class="ic" style="min-width:48px;margin:0;background:rgba(206,143,143,.12);"><svg viewBox="0 0 24 24" fill="none" stroke="#CE8F8F" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
-        <div>
-          <h4 style="font-size:16px;font-weight:700;color:#CE8F8F;margin-bottom:6px;">Adicional de Periculosidade</h4>
-          <p style="font-size:15px;color:var(--white-soft);margin:0;line-height:1.6;">É obrigatório pagar <strong style="color:var(--gold);">30% a mais</strong> sobre o salário-base do entregador motociclista. Evite um processo trabalhista gigantesco!</p>
-        </div>
-      </div>
-    </div>
-    <div class="alert-card au d4" style="text-align:left;">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-      <p>A <strong>Domínio Farma</strong> calcula o adicional correto e já inclui na folha de pagamento automaticamente.</p>
-    </div>
+<div class="sc-inner">
+  <div class="gl au d1"></div>
+  <h2 class="au d1">BSF: Benefícios para <span class="gt">Trabalhadores</span></h2>
+  <p class="au d2">Principais coberturas incluídas no plano:</p>
+  <div class="ben-grid au d3">
+    <div class="ben-item"><span class="be">👶</span><div><h5>Natalidade</h5><p>Cartão débito para conforto do recém-nascido</p><span class="bv">R$ 700,00</span></div></div>
+    <div class="ben-item"><span class="be">💊</span><div><h5>Farmácia Natalidade</h5><p>Cartão para medicamentos em farmácias credenciadas</p><span class="bv">R$ 200,00</span></div></div>
+    <div class="ben-item"><span class="be">🎓</span><div><h5>Capacitação</h5><p>Cursos profissionais (falecimento/incapacitação)</p><span class="bv">R$ 2.000,00</span></div></div>
+    <div class="ben-item"><span class="be">🏠</span><div><h5>Manutenção Renda</h5><p>Cartão débito por 6 meses (incapacitação/falecimento)</p><span class="bv">6x R$ 800,00</span></div></div>
+    <div class="ben-item"><span class="be">🍎</span><div><h5>Benefício Alimentar</h5><p>Alimentos entregues em domicílio por 6 meses</p><span class="bv">6x R$ 440,00</span></div></div>
+    <div class="ben-item"><span class="be">⚱️</span><div><h5>Serviço Funeral</h5><p>Agente acompanha procedimentos ou saldo à família</p><span class="bv">R$ 4.000,00</span></div></div>
   </div>
+</div>
 </section>
 
-<!-- ==================== SLIDE 9 — RESCISÃO ==================== -->
+<!-- ===== SLIDE 9 — BSF SERVIÇOS ===== -->
 <section class="slide">
-  <div class="sc-inner">
-    <div class="gl au d1"></div>
-    <h2 class="au d1">Fique de olho na <span class="gt">Rescisão</span></h2>
-    <p class="au d2">Na hora de demitir, o sindicato estipula duas regras que pegam muita gente <strong style="color:var(--white);">de surpresa:</strong></p>
-    <div class="info-grid" style="margin-top:10px;">
-      <div class="info-item au d3">
-        <div class="ii-icon" style="background:rgba(206,143,143,.1);"><svg viewBox="0 0 24 24" fill="none" stroke="#CE8F8F" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <div>
-          <h4>Estabilidades</h4>
-          <p>Preste atenção se a pessoa está <strong style="color:var(--gold);">pré-aposentada</strong> (12 meses de estabilidade) ou voltando de <strong style="color:var(--gold);">auxílio-doença</strong> (30 dias de estabilidade).</p>
-        </div>
-      </div>
-      <div class="info-item au d4">
-        <div class="ii-icon" style="background:rgba(191,164,105,.1);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-        <div>
-          <h4>Aviso Prévio Ampliado</h4>
-          <p>Funcionários <strong style="color:var(--gold);">acima de 45 anos</strong> e com mais de <strong style="color:var(--gold);">4 anos</strong> de empresa ganham <strong style="color:#CE8F8F;">60 dias</strong> de aviso prévio!</p>
-        </div>
-      </div>
-    </div>
+<div class="sc-inner">
+  <div class="gl au d1"></div>
+  <h2 class="au d1">BSF: Serviços <span class="gt">Inclusos</span> 🩺</h2>
+  <p class="au d2">Sem custo adicional para trabalhadores e familiares:</p>
+  <div class="ben-grid au d3">
+    <div class="ben-item"><span class="be">👩‍⚕️</span><div><h5>Consulta Médica On-line</h5><p>Clínico geral para trabalhador, família e contatos. Laboratórios com desconto.</p><span class="bv">Sem custo</span></div></div>
+    <div class="ben-item"><span class="be">🧠</span><div><h5>Apoio Psicológico</h5><p>Até 5 consultas on-line a cada 12 meses com psicólogos clínicos.</p><span class="bv">Até 5 sessões</span></div></div>
+    <div class="ben-item"><span class="be">🥗</span><div><h5>Apoio Nutricional</h5><p>Atendimento on-line com nutricionistas capacitados.</p><span class="bv">Sem custo</span></div></div>
+    <div class="ben-item"><span class="be">💼</span><div><h5>Recolocação</h5><p>App com vagas de emprego sem consumo de dados móveis.</p><span class="bv">Acesso gratuito</span></div></div>
+    <div class="ben-item"><span class="be">🤰</span><div><h5>Gestantes (Especial)</h5><p>Médico especialista, psicólogo e nutricionista da gestação até 1 ano pós-parto.</p><span class="bv">Sem custo</span></div></div>
+    <div class="ben-item"><span class="be">💳</span><div><h5>Conta Virtual + Vale</h5><p>App para gerenciamento financeiro e antecipação salarial emergencial.</p><span class="bv">Taxas reduzidas</span></div></div>
   </div>
+</div>
 </section>
 
-<!-- ==================== SLIDE 10 — DICA DE OURO ==================== -->
+<!-- ===== SLIDE 10 — BSF EMPRESAS ===== -->
 <section class="slide">
-  <div class="sc-inner" style="text-align:center;">
-    <div class="gl ce au d1"></div>
-    <h2 class="au d1" style="text-align:center;">A Dica de Ouro da <span class="gt">Domínio Farma</span></h2>
-    <p class="au d2" style="text-align:center;font-size:16px;">Ignorar a convenção sai muito caro! A multa por descumprimento é equivalente a <strong style="color:#CE8F8F;">2 Pisos Salariais por empregado</strong> envolvido!</p>
-    <div class="cp au d3" style="text-align:left;margin-top:16px;">
-      <div style="display:flex;gap:14px;align-items:flex-start;">
-        <div class="ic" style="min-width:48px;margin:0;background:rgba(191,164,105,.12);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <div>
-          <h4 style="font-size:15px;font-weight:700;color:var(--gold);margin-bottom:6px;">🛡️ Fique tranquilo</h4>
-          <p style="font-size:15px;color:var(--white-soft);margin:0;line-height:1.6;">Você não precisa decorar nada disso! Tendo a <strong style="color:var(--white);">Domínio Farma Contabilidade</strong> como parceira, nossa equipe de RH monitora as CCTs, faz os cálculos e gera as guias <strong style="color:#8FCE8F;">antes de vencerem.</strong> Seu único trabalho é focar em vender mais!</p>
-        </div>
+<div class="sc-inner">
+  <div class="gl au d1"></div>
+  <h2 class="au d1">BSF: Benefícios para <span class="gt">Empresas</span> 🏢</h2>
+  <p class="au d2">O plano também oferece vantagens ao empregador:</p>
+  <div class="ben-grid au d3">
+    <div class="ben-item"><span class="be">💰</span><div><h5>Reembolso Rescisão</h5><p>R$ 2.000 por incapacitação/falecimento de trabalhador.</p><span class="bv">R$ 2.000,00</span></div></div>
+    <div class="ben-item"><span class="be">🏥</span><div><h5>Medicina Ocupacional</h5><p>Descontos significativos em serviços de medicina e segurança.</p><span class="bv">Desconto</span></div></div>
+    <div class="ben-item"><span class="be">📱</span><div><h5>Conecta Empresa</h5><p>App para contato rápido e seguro com trabalhadores.</p><span class="bv">Sem franquia</span></div></div>
+    <div class="ben-item"><span class="be">📋</span><div><h5>Folha Virtual</h5><p>Sistema on-line integrado para agilizar remunerações.</p><span class="bv">Incluso</span></div></div>
+    <div class="ben-item"><span class="be">🔑</span><div><h5>Certificação Digital</h5><p>Certificados digitais sem custo para empregadores.</p><span class="bv">Gratuito</span></div></div>
+    <div class="ben-item"><span class="be">⚡</span><div><h5>Energia Sustentável</h5><p>Desconto ≥18% em energia para despesas >R$ 4.000/mês.</p><span class="bv">≥18% desconto</span></div></div>
+  </div>
+</div>
+</section>
+
+<!-- ===== SLIDE 11 — ESTABILIDADES ===== -->
+<section class="slide">
+<div class="sc-inner">
+  <div class="gl au d1"></div>
+  <h2 class="au d1">🛡️ Estabilidades e <span class="gt">Proteções</span></h2>
+  <p class="au d2">Demissão SEM justa causa é <strong style="color:var(--red);">proibida</strong> nos seguintes casos:</p>
+  <div class="cp au d3">
+    <div class="sim-row"><span class="lab">Pré-aposentado</span><span class="val" style="font-size:14px;">12 meses antes da aposentadoria</span></div>
+    <div class="sim-row"><span class="lab">Auxílio-doença</span><span class="val" style="font-size:14px;">30 dias após alta médica</span></div>
+    <div class="sim-row"><span class="lab">Aborto espontâneo</span><span class="val" style="font-size:14px;">30 dias (com atestado)</span></div>
+    <div class="sim-row" style="border-bottom:none;"><span class="lab">Gestante</span><span class="val" style="font-size:14px;">Até 6 meses pós-parto</span></div>
+  </div>
+  <div class="alert-card red au d4">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+    <p>Demitir nessas situações gera <strong>reintegração obrigatória</strong> ou indenização! Cuidado!</p>
+  </div>
+</div>
+</section>
+
+<!-- ===== SLIDE 12 — JORNADA ===== -->
+<section class="slide">
+<div class="sc-inner">
+  <div class="gl au d1"></div>
+  <h2 class="au d1">⏰ Jornada e <span class="gt">Horas Extras</span></h2>
+  <p class="au d2">Regras gerais de duração do trabalho:</p>
+  <div class="cp au d3">
+    <div class="sim-row"><span class="lab">Jornada regular</span><span class="val">44h/sem · 8h/dia</span></div>
+    <div class="sim-row"><span class="lab">1ª e 2ª hora extra</span><span class="val gold">+50%</span></div>
+    <div class="sim-row"><span class="lab">Demais horas extras</span><span class="val red">+100%</span></div>
+    <div class="sim-row"><span class="lab">Adicional noturno (22h-5h)</span><span class="val gold">+50%</span></div>
+    <div class="sim-row" style="border-bottom:none;"><span class="lab">Lanche grátis</span><span class="val" style="font-size:13px;color:var(--gray);">Se extra &gt; 2h</span></div>
+  </div>
+  <div class="alert-card au d4">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+    <p>Empresa deve exibir <strong>extrato mensal</strong> de horas trabalhadas/compensadas ao funcionário.</p>
+  </div>
+</div>
+</section>
+
+<!-- ===== SLIDE 13 — DOMINGOS E FERIADOS ===== -->
+<section class="slide">
+<div class="sc-inner" style="text-align:center;">
+  <span class="big-emoji au d1">⚠️</span>
+  <h2 class="au d2" style="text-align:center;">Domingos e <span class="gt">Feriados</span></h2>
+  <p class="au d3" style="text-align:center;">Regras rigorosas para farmácias que funcionam nesses dias:</p>
+  <div class="cp au d4" style="text-align:left;">
+    <div class="sim-row"><span class="lab">Jornada máxima</span><span class="val">6h ininterruptas</span></div>
+    <div class="sim-row"><span class="lab">Bônus por dia trabalhado</span><span class="val gold">R$ 85,00</span></div>
+    <div class="sim-row"><span class="lab">Folga compensatória</span><span class="val" style="font-size:13px;">Obrigatória (seg-sex)</span></div>
+    <div class="sim-row"><span class="lab">Dois domingos seguidos</span><span class="val red">PROIBIDO</span></div>
+    <div class="sim-row" style="border-bottom:none;"><span class="lab">Escala comunicada</span><span class="val" style="font-size:13px;">48h antes</span></div>
+  </div>
+  <div class="alert-card au d5" style="text-align:left;">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <p>Se ultrapassar 6h: adicional de <strong>100%</strong> nas excedentes! · <strong>30 de outubro</strong> (Dia do Comerciário) é feriado com folga.</p>
+  </div>
+</div>
+</section>
+
+<!-- ===== SLIDE 14 — CASOS ESPECIAIS ===== -->
+<section class="slide">
+<div class="sc-inner">
+  <div class="gl au d1"></div>
+  <h2 class="au d1">👥 Casos Especiais e <span class="gt">Proteções</span></h2>
+  <p class="au d2">Direitos que muitos empregadores desconhecem:</p>
+  <div class="info-grid au d3">
+    <div class="info-item">
+      <div class="ii-icon" style="background:rgba(126,170,255,.1);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></div>
+      <div><h4>Empregado Estudante</h4><p>Jornada não pode prejudicar aulas. Faltas justificadas para provas e vestibulares (comprovação 72h antes).</p></div>
+    </div>
+    <div class="info-item">
+      <div class="ii-icon" style="background:rgba(191,164,105,.1);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+      <div><h4>Aviso Prévio Ampliado</h4><p>Funcionários <strong style="color:var(--gold);">&gt;45 anos</strong> com <strong style="color:var(--gold);">4+ anos</strong> na empresa: <strong style="color:var(--red);">60 dias</strong> de aviso prévio!</p></div>
+    </div>
+    <div class="info-item">
+      <div class="ii-icon" style="background:rgba(143,206,143,.1);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg></div>
+      <div><h4>Readmissão (até 12 meses)</h4><p>Mesma função = não pode receber menos que antes.</p></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===== SLIDE 15 — MOTOCICLETA + AMBIENTE ===== -->
+<section class="slide">
+<div class="sc-inner">
+  <div class="gl au d1"></div>
+  <h2 class="au d1">🏍️ Entregas e <span class="gt">Ambiente</span></h2>
+  <p class="au d2">Obrigações para delivery e condições de trabalho:</p>
+  <div class="info-grid">
+    <div class="card au d3" style="display:flex;gap:14px;align-items:flex-start;">
+      <div class="ic red" style="min-width:48px;margin:0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+      <div>
+        <h4 style="font-size:15px;font-weight:700;color:var(--red);margin-bottom:4px;">Adicional de Periculosidade</h4>
+        <p style="font-size:13px;color:var(--gray);margin:0;line-height:1.5;">Entregadores de motocicleta: <strong style="color:var(--gold);">+30% sobre o salário-base</strong> (Lei 12.997/2014).</p>
+      </div>
+    </div>
+    <div class="card au d4" style="display:flex;gap:14px;align-items:flex-start;">
+      <div class="ic green" style="min-width:48px;margin:0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+      <div>
+        <h4 style="font-size:15px;font-weight:700;color:var(--white);margin-bottom:4px;">Ambiente Saudável</h4>
+        <p style="font-size:13px;color:var(--gray);margin:0;line-height:1.5;">Assentos, pausas, sanitários M/F, bebedouro com água refrigerada, <strong style="color:var(--gold);">2 uniformes gratuitos/ano</strong> e carta de referência obrigatória.</p>
       </div>
     </div>
   </div>
+</div>
 </section>
 
-<!-- ==================== SLIDE 11 — CTA FINAL ==================== -->
+<!-- ===== SLIDE 16 — CONTRIBUIÇÃO ASSISTENCIAL ===== -->
 <section class="slide">
-  <div class="orb-sm">
-    <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+<div class="sc-inner">
+  <div class="gl au d1"></div>
+  <h2 class="au d1">Contribuição <span class="gt">Assistencial</span></h2>
+  <p class="au d2">Desconto obrigatório dos empregados <strong style="color:var(--white);">não filiados</strong> ao sindicato:</p>
+  <div class="cp au d3">
+    <div class="sim-row"><span class="lab">Valor total</span><span class="val gold">R$ 120,00/ano</span></div>
+    <div class="sim-row"><span class="lab">1ª parcela (até 30/03)</span><span class="val">R$ 40,00</span></div>
+    <div class="sim-row"><span class="lab">2ª parcela (até 30/04)</span><span class="val">R$ 40,00</span></div>
+    <div class="sim-row" style="border-bottom:none;"><span class="lab">3ª parcela (até 30/05)</span><span class="val">R$ 40,00</span></div>
   </div>
-  <div class="s1">
-    <div class="gl ce au d1"></div>
-    <h2 class="au d2" style="font-size:clamp(24px,6vw,36px);font-weight:900;letter-spacing:-.03em;line-height:1.1;margin-bottom:10px;"><span class="gt">Próximos Passos</span></h2>
-    <p class="tag au d3" style="margin-bottom:26px;font-size:15px;">Essa pílula de conhecimento te ajudou? Compartilhe ou continue explorando!</p>
-    <div class="cta-stack au d4">
-      <a class="cta-btn cta-share" id="ctaShare" target="_blank">
-        <svg viewBox="0 0 24 24" fill="currentColor" style="width:22px;height:22px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Compartilhe com outro empreendedor
-      </a>
-      <a href="../../index.html" class="cta-btn cta-back">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        Deseja fazer outra pesquisa? Voltar ao Início
-      </a>
+  <div class="alert-card au d4">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <p><strong>Oposição:</strong> Até <strong>02/03/2026</strong>, presencialmente no sindicato (Av. Barão do Rio Branco, 33 — Itaberaba). Novo admitido: 10 dias após admissão. Multa por atraso: 2% + atualização.</p>
+  </div>
+</div>
+</section>
+
+<!-- ===== SLIDE 17 — CONTRIBUIÇÃO PATRONAL ===== -->
+<section class="slide">
+<div class="sc-inner">
+  <div class="gl au d1"></div>
+  <h2 class="au d1">Contribuições <span class="gt">Patronais</span></h2>
+  <p class="au d2">Valores que a <strong style="color:var(--white);">empresa</strong> paga diretamente:</p>
+  <div class="info-grid">
+    <div class="card au d3" style="display:flex;gap:14px;align-items:flex-start;">
+      <div class="ic" style="min-width:48px;margin:0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
+      <div>
+        <h4 style="font-size:15px;font-weight:700;color:var(--white);margin-bottom:4px;">SICOMERCIO</h4>
+        <p style="font-size:13px;color:var(--gray);margin:0;line-height:1.5;"><strong style="color:var(--gold);">R$ 50,00/mês</strong> por empresa (custeio de negociações coletivas). Vencimento: dia 10. Oposição: 10 dias após homologação via e-mail.</p>
+      </div>
     </div>
-    <div class="cta-footer au d5">
-      <strong style="color:var(--white-soft);">Domínio Farma Contabilidade</strong><br>
-      <a href="https://wa.me/5574999263592" target="_blank">(74) 99926-3592</a> · Contabilidade 100% Digital
+    <div class="card au d4" style="display:flex;gap:14px;align-items:flex-start;">
+      <div class="ic gold-dark" style="min-width:48px;margin:0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+      <div>
+        <h4 style="font-size:15px;font-weight:700;color:var(--white);margin-bottom:4px;">Mensalidade Sindical (Filiados)</h4>
+        <p style="font-size:13px;color:var(--gray);margin:0;line-height:1.5;"><strong style="color:var(--gold);">1% do piso ≈ R$ 16,61/mês</strong> dos empregados filiados (com autorização assinada). Filiados são isentos da Contribuição Assistencial.</p>
+      </div>
     </div>
   </div>
+</div>
+</section>
+
+<!-- ===== SLIDE 18 — MULTAS ===== -->
+<section class="slide">
+<div class="sc-inner" style="text-align:center;">
+  <span class="big-emoji au d1">⚖️</span>
+  <h2 class="au d2" style="text-align:center;">Multas e <span class="gt">Compliance</span></h2>
+  <p class="au d3" style="text-align:center;">O descumprimento de qualquer cláusula gera penalidades severas:</p>
+  <div class="cp au d4" style="text-align:left;">
+    <div class="sim-row"><span class="lab">Multa por empregado envolvido</span><span class="val red" style="font-size:18px;">R$ 3.322,00</span></div>
+    <div class="sim-row" style="border-bottom:none;"><span class="lab">Equivale a</span><span class="val" style="font-size:14px;">2x o piso salarial</span></div>
+  </div>
+  <div class="alert-card red au d5" style="text-align:left;">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+    <p>Distribuição: <strong>50% ao empregado + 50% ao sindicato laboral.</strong> Se você tem 10 funcionários = até <strong>R$ 33.220,00</strong> em multas!</p>
+  </div>
+</div>
+</section>
+
+<!-- ===== SLIDE 19 — OBRIGAÇÕES ===== -->
+<section class="slide">
+<div class="sc-inner">
+  <div class="gl au d1"></div>
+  <h2 class="au d1">📋 Obrigações <span class="gt">Gerais</span></h2>
+  <p class="au d2">Checklist que sua farmácia deve cumprir:</p>
+  <div class="checklist au d3">
+    <div class="check-item"><div class="ci-num">✓</div><p>Fornecer <strong>cópias de todos os documentos</strong> assinados ao trabalhador.</p></div>
+    <div class="check-item"><div class="ci-num">✓</div><p>Enviar <strong>RAIS atualizada</strong> ao sindicato.</p></div>
+    <div class="check-item"><div class="ci-num">✓</div><p><strong>Assistência jurídica</strong> para vigias em atos de defesa patrimonial.</p></div>
+    <div class="check-item"><div class="ci-num">✓</div><p>Proibido manter prestadores ou fornecedores <strong>sem registro (CTPS)</strong> e sem piso.</p></div>
+    <div class="check-item"><div class="ci-num">✓</div><p>Substituto não-eventual recebe <strong>mesma remuneração</strong> desde o 1º dia.</p></div>
+    <div class="check-item"><div class="ci-num">✓</div><p>Boleto BSF via <strong>www.gestar.srv.br</strong> · PIX da assistencial: <strong>12.475.667/0001-20</strong></p></div>
+  </div>
+</div>
+</section>
+
+<!-- ===== SLIDE 20 — DICA DE OURO ===== -->
+<section class="slide">
+<div class="sc-inner" style="text-align:center;">
+  <div class="gl ce au d1"></div>
+  <h2 class="au d1" style="text-align:center;">A Dica de Ouro da <span class="gt">Domínio Farma</span> ✨</h2>
+  <p class="au d2" style="text-align:center;">Cumprir a CCT pode parecer complicado, mas com a contabilidade certa é <strong style="color:var(--green);">automático.</strong></p>
+  <div class="cp au d3" style="text-align:left;">
+    <div style="display:flex;gap:14px;align-items:flex-start;">
+      <div class="ic" style="min-width:48px;margin:0;background:rgba(191,164,105,.12);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div>
+        <h4 style="font-size:15px;font-weight:700;color:var(--gold);margin-bottom:6px;">🛡️ Fique tranquilo</h4>
+        <p style="font-size:14px;color:var(--white-soft);margin:0;line-height:1.6;">Você não precisa decorar nada disso! Com a <strong style="color:var(--white);">Domínio Farma Contabilidade</strong>, nossa equipe de RH monitora a CCT, calcula pisos, triênios, BSF e gera as guias <strong style="color:var(--green);">antes do vencimento.</strong> Seu trabalho é focar em <strong style="color:var(--gold);">vender mais!</strong></p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===== SLIDE 21 — CTA ===== -->
+<section class="slide">
+<div class="orb-sm"><div class="ring"></div><div class="ring"></div><div class="ring"></div></div>
+<div class="s1">
+  <div class="gl ce au d1"></div>
+  <h2 class="au d2" style="font-size:clamp(24px,6vw,36px);font-weight:900;letter-spacing:-.03em;line-height:1.1;margin-bottom:10px;"><span class="gt">Próximos Passos</span> 🚀</h2>
+  <p class="tag au d3" style="margin-bottom:26px;font-size:15px;">Essa pílula de conhecimento te ajudou? Compartilhe ou fale conosco!</p>
+  <div class="cta-stack au d4">
+    <a class="cta-btn cta-share" id="ctaShare" target="_blank">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Compartilhe com outro empreendedor
+    </a>
+    <a href="../index.html" class="cta-btn cta-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      Deseja fazer outra pesquisa? Voltar ao Início
+    </a>
+  </div>
+  <div class="cta-footer au d5">
+    <strong style="color:var(--white-soft);">Domínio Farma Contabilidade</strong><br>
+    <a href="https://wa.me/5574999263592" target="_blank">(74) 99926-3592</a> · Contabilidade 100% Digital
+  </div>
+</div>
 </section>
 
 </div>
 </div>
 
-<!-- ===== CONTROLES FIXOS ===== -->
-<div class="sc-count"><span class="cn" id="cn">1</span> / 11</div>
+<div class="sc-count"><span class="cn" id="cn">1</span> / 21</div>
 <div class="ind" id="ind"></div>
 <div class="nav-arr">
-  <button onclick="prev()" aria-label="Anterior">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="18 15 12 9 6 15"/></svg>
-  </button>
-  <button onclick="next()" aria-label="Próximo">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="6 9 12 15 18 9"/></svg>
-  </button>
+  <button onclick="prev()" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="18 15 12 9 6 15"/></svg></button>
+  <button onclick="next()" aria-label="Próximo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="6 9 12 15 18 9"/></svg></button>
 </div>
 
 <script>
-/* ============================================================
-   NAVEGAÇÃO DOS SLIDES
-   ============================================================ */
-const T=11;let C=0;
-const W=document.getElementById('sw');
-const CN=document.getElementById('cn');
-const P=document.getElementById('prog');
-const I=document.getElementById('ind');
-
+const T=21;let C=0;
+const W=document.getElementById('sw'),CN=document.getElementById('cn'),P=document.getElementById('prog'),I=document.getElementById('ind');
 for(let i=0;i<T;i++){const d=document.createElement('div');d.classList.add('dot');if(i===0)d.classList.add('active');d.onclick=()=>go(i);I.appendChild(d);}
-
-function upd(){
-  I.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===C));
-  CN.textContent=C+1;
-  P.style.width=((C+1)/T*100)+'%';
-  document.querySelectorAll('.slide').forEach((s,i)=>s.classList.toggle('active',i===C));
-}
-
+function upd(){I.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===C));CN.textContent=C+1;P.style.width=((C+1)/T*100)+'%';document.querySelectorAll('.slide').forEach((s,i)=>{s.classList.toggle('active',i===C);if(i===C)s.scrollTop=0;});}
 function go(i){if(i<0||i>=T)return;C=i;W.style.transform='translateY(-'+C*100+'vh)';upd();}
 function next(){if(C<T-1)go(C+1);}
 function prev(){if(C>0)go(C-1);}
-
-document.addEventListener('keydown',function(e){
-  if(e.key==='ArrowDown'||e.key==='ArrowRight'||e.key===' '){e.preventDefault();next();}
-  if(e.key==='ArrowUp'||e.key==='ArrowLeft'){e.preventDefault();prev();}
-});
-
-var ty=0;
-document.addEventListener('touchstart',function(e){ty=e.changedTouches[0].screenY;},{passive:true});
-document.addEventListener('touchend',function(e){var d=ty-e.changedTouches[0].screenY;if(Math.abs(d)>50){d>0?next():prev();}});
-
+document.addEventListener('keydown',function(e){if(e.key==='ArrowDown'||e.key==='ArrowRight'||e.key===' '){e.preventDefault();next();}if(e.key==='ArrowUp'||e.key==='ArrowLeft'){e.preventDefault();prev();}});
+let ty=0,scrolling=false;
+document.addEventListener('touchstart',function(e){ty=e.changedTouches[0].screenY;scrolling=false;},{passive:true});
+document.addEventListener('touchmove',function(e){const slide=document.querySelectorAll('.slide')[C];if(slide&&slide.scrollHeight>slide.clientHeight){const atTop=slide.scrollTop<=0;const atBottom=slide.scrollTop+slide.clientHeight>=slide.scrollHeight-2;const dy=ty-e.changedTouches[0].screenY;if((dy>0&&!atBottom)||(dy<0&&!atTop)){scrolling=true;}}},{passive:true});
+document.addEventListener('touchend',function(e){if(scrolling)return;const d=ty-e.changedTouches[0].screenY;if(Math.abs(d)>50){d>0?next():prev();}});
 upd();
-
-/* ============================================================
-   COMPARTILHAR WHATSAPP
-   ============================================================ */
-function getShareUrl(){
-  var msg=encodeURIComponent('Dá uma olhada nesse resumo sobre as regras do Sindicato SINDCIR Itaberaba (Convenção 2026/2028) para comércio e farmácias: '+window.location.href);
-  return 'https://wa.me/?text='+msg;
-}
-
+function getShareUrl(){return'https://wa.me/?text='+encodeURIComponent('Confira o resumo completo da CCT SINCOFARMA 2026/2028 para farmácias de Itaberaba e região: '+window.location.href);}
 document.getElementById('wppShare').href=getShareUrl();
 document.getElementById('ctaShare').href=getShareUrl();
 </script>
