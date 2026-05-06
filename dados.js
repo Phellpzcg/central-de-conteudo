@@ -223,6 +223,17 @@ var baseDeConhecimento = [
     palavras_chave: ["noturno", "madrugada", "adicional", "20%", "22h", "plantão", "noturna"]
   },
 
+
+    },
+  {
+    id: 102, modulo: 2, moduloNome: "Dominando o RH",
+    titulo: "Adicional Noturno",
+    descricao: "Processo Demissional",
+    url: "dominando-o-rh/processo-demissional.html",
+    icone: '<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>',
+    palavras_chave: ["demissão", "demissional", "demissao"]
+  },
+
   /* ==========================================================
      MÓDULO 3 — ROTINAS TRABALHISTAS
      Pasta: rotinas-trabalhistas/
