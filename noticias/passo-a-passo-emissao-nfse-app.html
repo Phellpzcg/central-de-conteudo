@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="theme-color" content="#F7F5F0"/>
+<meta property="og:title" content="Como emitir NFS-e pelo APP: passo a passo completo"/>
+<meta property="og:description" content="Aprenda a emitir sua nota fiscal de serviços eletrônica diretamente pelo aplicativo Domínio Farma Cliente. Guia da Domínio Farma Contabilidade."/>
+<meta property="og:type" content="article"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<title>Emissão de NFS-e pelo APP — Domínio Farma Contabilidade</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #F7F5F0; --bg-alt: #EFEDE6; --bg-card: #FFFFFF;
+  --text: #1C1A17; --text-soft: #5A5650; --text-muted: #8C8880;
+  --gold: #A67C3B; --gold-light: #C9A96E; --gold-bg: #FBF4E8; --gold-border: #E8D5B0;
+  --green: #2E7D52; --green-bg: #EBF5EF; --green-border: #A8D5BC;
+  --red: #C0392B; --red-bg: #FDECEA; --red-border: #F1A9A0;
+  --blue: #1A5C8A; --blue-bg: #EAF2FA; --blue-border: #A8C8E8;
+  --purple: #6B3FA0; --purple-bg: #F3EEFB; --purple-border: #C9AAEC;
+  --shadow-sm: 0 1px 4px rgba(28, 26, 23, 0.08); --shadow-md: 0 4px 16px rgba(28, 26, 23, 0.10);
+  --radius-sm: 8px; --radius-md: 14px; --radius-lg: 20px;
+  --font-serif: 'Playfair Display', Georgia, serif; --font-sans: 'Inter', system-ui, sans-serif;
+  --max-w: 680px;
+}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── PROGRESS BAR ── */
+#progress-bar {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  z-index: 1000; transition: width .1s linear;
+}
+
+/* ── TOPBAR ── */
+.topbar {
+  position: sticky; top: 0; background: rgba(10,10,10,0.97);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(166,124,59,.30);
+  z-index: 100; padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+.topbar-brand {
+  display: flex; align-items: center; gap: 10px;
+}
+.topbar-logo {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: linear-gradient(145deg, var(--gold), #9A6B2A);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; font-weight: 900; color: #fff; font-family: var(--font-serif);
+  flex-shrink: 0;
+}
+.topbar-name {
+  font-size: 13px; font-weight: 700; color: rgba(255,255,255,.9); letter-spacing: .02em;
+}
+.topbar-tag {
+  font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  background: rgba(166,124,59,.15); border: 1px solid rgba(166,124,59,.3);
+  color: var(--gold-light); padding: 3px 10px; border-radius: 20px;
+}
+
+/* WPP Floating Button */
+.wpp-float {
+  position: fixed; bottom: 24px; right: 16px; z-index: 999;
+  width: 50px; height: 50px; border-radius: 50%;
+  background: linear-gradient(145deg, var(--gold), #8A6520);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 24px rgba(166,124,59,.35);
+  cursor: pointer; border: none; transition: all .3s ease; text-decoration: none;
+}
+.wpp-float:hover { transform: scale(1.1); box-shadow: 0 8px 30px rgba(166,124,59,.45); }
+.wpp-float svg { width: 26px; height: 26px; fill: #fff; }
+
+/* ── ARTIGO ── */
+.article { max-width: var(--max-w); margin: 0 auto; padding: 0 20px 80px; }
+
+/* HERO */
+.hero {
+  padding: 48px 0 40px; border-bottom: 1px solid var(--gold-border); margin-bottom: 48px;
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--gold-bg); border: 1px solid var(--gold-border);
+  color: var(--gold); font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  padding: 4px 12px; border-radius: 20px; margin-bottom: 20px;
+}
+.hero-tag svg { width: 12px; height: 12px; stroke: var(--gold); fill: none; stroke-width: 2; }
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 7vw, 44px);
+  font-weight: 900; line-height: 1.15; color: var(--text);
+  margin-bottom: 16px; letter-spacing: -.02em;
+}
+.hero-title em { font-style: italic; color: var(--gold); }
+.hero-subtitle {
+  font-size: 17px; color: var(--text-soft);
+  line-height: 1.65; margin-bottom: 24px; max-width: 560px;
+}
+.hero-meta {
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+}
+.hero-meta-item {
+  display: flex; align-items: center; gap: 5px; font-size: 13px; color: var(--text-muted);
+}
+.hero-meta-item svg { width: 14px; height: 14px; stroke: var(--text-muted); fill: none; stroke-width: 2; }
+.hero-meta-sep { width: 3px; height: 3px; background: var(--text-muted); border-radius: 50%; }
+
+/* Aviso destaque */
+.urgency-banner {
+  background: var(--text); border-radius: var(--radius-md); padding: 18px 20px; margin-bottom: 40px;
+  display: flex; align-items: flex-start; gap: 14px; border-left: 4px solid var(--gold-light);
+}
+.urgency-banner-icon { font-size: 28px; line-height: 1; flex-shrink: 0; margin-top: 2px; }
+.urgency-banner-body { display: flex; flex-direction: column; gap: 4px; }
+.urgency-banner-title { font-size: 14px; font-weight: 700; color: var(--gold-light); letter-spacing: .03em; }
+.urgency-banner-text { font-size: 13px; color: rgba(255,255,255,.75); line-height: 1.6; }
+.urgency-banner-text strong { color: #fff; }
+
+/* Sumário */
+.summary {
+  background: var(--bg-card); border: 1px solid var(--gold-border); border-left: 4px solid var(--gold);
+  border-radius: var(--radius-md); padding: 24px; margin-bottom: 56px; box-shadow: var(--shadow-sm);
+}
+.summary-title {
+  font-family: var(--font-serif); font-size: 14px; font-weight: 700; color: var(--text-muted);
+  letter-spacing: .06em; text-transform: uppercase; margin-bottom: 14px;
+}
+.summary-list {
+  list-style: none; display: flex; flex-direction: column; gap: 8px;
+}
+.summary-list li a {
+  display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text-soft);
+  font-size: 14px; font-weight: 500; transition: color .2s;
+}
+.summary-list li a:hover { color: var(--gold); }
+.summary-num {
+  width: 22px; height: 22px; background: var(--gold-bg); border: 1px solid var(--gold-border);
+  border-radius: 50%; font-size: 11px; font-weight: 700; color: var(--gold);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.summary-badge {
+  margin-left: auto; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px;
+  letter-spacing: .04em; text-transform: uppercase;
+}
+.badge-blue   { background: var(--blue-bg);   color: var(--blue);   border: 1px solid var(--blue-border); }
+.badge-green  { background: var(--green-bg);  color: var(--green);  border: 1px solid var(--green-border); }
+.badge-gold   { background: var(--gold-bg);   color: var(--gold);   border: 1px solid var(--gold-border); }
+.badge-red    { background: var(--red-bg);    color: var(--red);    border: 1px solid var(--red-border); }
+.badge-purple { background: var(--purple-bg); color: var(--purple); border: 1px solid var(--purple-border); }
+
+/* Capítulos */
+.chapter-header {
+  display: flex; align-items: center; gap: 14px; background: var(--text);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0; padding: 22px 24px;
+}
+.chapter-emoji { font-size: 32px; line-height: 1; }
+.chapter-header-text { display: flex; flex-direction: column; gap: 3px; }
+.chapter-eyebrow {
+  font-size: 10px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--gold-light);
+}
+.chapter-title {
+  font-family: var(--font-serif);
+  font-size: clamp(20px, 5vw, 28px);
+  font-weight: 900; color: #fff; line-height: 1.2;
+}
+.chapter-body {
+  background: var(--bg-card);
+  border: 1px solid rgba(28,26,23,.08);
+  border-top: none;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  padding: 28px 24px; margin-bottom: 48px;
+  box-shadow: var(--shadow-md);
+}
+
+/* Seções */
+.section-label {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 10px;
+}
+.section-label::before {
+  content: ''; display: block; width: 20px; height: 2px; background: var(--gold); border-radius: 2px;
+}
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(18px, 4vw, 24px);
+  font-weight: 700; line-height: 1.2; color: var(--text); margin-bottom: 12px;
+}
+.section-title em { font-style: italic; color: var(--gold); }
+.section-body {
+  font-size: 15px; color: var(--text-soft); line-height: 1.75; margin-bottom: 16px;
+}
+.section-body strong { color: var(--text); font-weight: 600; }
+
+/* Steps */
+.step-list { display: flex; flex-direction: column; gap: 0; margin: 16px 0; position: relative; }
+.step-list::before {
+  content: ''; position: absolute; left: 19px; top: 32px; bottom: 32px; width: 2px;
+  background: linear-gradient(180deg, var(--gold-border), transparent); z-index: 0;
+}
+.step-item { display: flex; gap: 14px; padding: 12px 0; position: relative; z-index: 1; }
+.step-dot {
+  width: 40px; height: 40px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 800; flex-shrink: 0; border: 2px solid transparent;
+}
+.step-dot.s1 { background: var(--gold-bg);   color: var(--gold);   border-color: var(--gold-border); }
+.step-dot.s2 { background: var(--blue-bg);   color: var(--blue);   border-color: var(--blue-border); }
+.step-dot.s3 { background: var(--green-bg);  color: var(--green);  border-color: var(--green-border); }
+.step-dot.s4 { background: var(--purple-bg); color: var(--purple); border-color: var(--purple-border); }
+.step-dot.s5 { background: var(--red-bg);    color: var(--red);    border-color: var(--red-border); }
+.step-dot.s6 { background: var(--blue-bg);   color: var(--blue);   border-color: var(--blue-border); }
+.step-dot.s7 { background: var(--green-bg);  color: var(--green);  border-color: var(--green-border); }
+.step-body { padding-top: 8px; flex: 1; }
+.step-title { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px; line-height: 1.3; }
+.step-desc { font-size: 13px; color: var(--text-soft); line-height: 1.65; }
+.step-desc strong { font-weight: 600; color: var(--text); }
+.step-tag {
+  display: inline-flex; align-items: center; gap: 4px; margin-top: 8px;
+  font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 20px;
+}
+.step-tag.gold   { background: var(--gold-bg);   color: var(--gold);   border: 1px solid var(--gold-border); }
+.step-tag.green  { background: var(--green-bg);  color: var(--green);  border: 1px solid var(--green-border); }
+.step-tag.red    { background: var(--red-bg);    color: var(--red);    border: 1px solid var(--red-border); }
+.step-tag.blue   { background: var(--blue-bg);   color: var(--blue);   border: 1px solid var(--blue-border); }
+.step-tag.purple { background: var(--purple-bg); color: var(--purple); border: 1px solid var(--purple-border); }
+
+/* Alertas */
+.alert {
+  display: flex; gap: 12px; padding: 14px 16px; border-radius: var(--radius-sm);
+  margin: 16px 0; font-size: 14px; line-height: 1.6;
+}
+.alert svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; fill: none; stroke-width: 2; }
+.alert strong { font-weight: 700; }
+.alert.warn    { background: var(--gold-bg);  border: 1px solid var(--gold-border);  color: #7A5C1E; }
+.alert.danger  { background: var(--red-bg);   border: 1px solid var(--red-border);   color: #8B2020; }
+.alert.success { background: var(--green-bg); border: 1px solid var(--green-border); color: #1D5E3A; }
+.alert.info    { background: var(--blue-bg);  border: 1px solid var(--blue-border);  color: #12446A; }
+
+/* Cards de opção */
+.option-grid { display: flex; flex-direction: column; gap: 10px; margin: 16px 0; }
+.option-card {
+  display: flex; align-items: flex-start; gap: 14px;
+  background: var(--bg); border: 1px solid rgba(28,26,23,.08);
+  border-radius: var(--radius-sm); padding: 14px 16px;
+}
+.option-num {
+  width: 32px; height: 32px; border-radius: 10px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 800;
+}
+.option-num.gold   { background: var(--gold-bg);   color: var(--gold);   border: 1px solid var(--gold-border); }
+.option-num.blue   { background: var(--blue-bg);   color: var(--blue);   border: 1px solid var(--blue-border); }
+.option-num.green  { background: var(--green-bg);  color: var(--green);  border: 1px solid var(--green-border); }
+.option-text { display: flex; flex-direction: column; gap: 3px; }
+.option-title { font-size: 14px; font-weight: 700; color: var(--text); line-height: 1.3; }
+.option-desc  { font-size: 13px; color: var(--text-muted); line-height: 1.55; }
+
+/* Status tags de nota */
+.status-grid { display: flex; gap: 12px; flex-wrap: wrap; margin: 16px 0; }
+.status-badge {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 16px; border-radius: var(--radius-sm); flex: 1; min-width: 140px;
+}
+.status-badge.processing { background: var(--gold-bg); border: 1px solid var(--gold-border); }
+.status-badge.emitida    { background: var(--green-bg); border: 1px solid var(--green-border); }
+.status-badge.negada     { background: var(--red-bg);  border: 1px solid var(--red-border); }
+.status-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.status-dot.processing { background: var(--gold); }
+.status-dot.emitida    { background: var(--green); }
+.status-dot.negada     { background: var(--red); }
+.status-info { display: flex; flex-direction: column; gap: 2px; }
+.status-label { font-size: 12px; font-weight: 700; }
+.status-label.processing { color: var(--gold); }
+.status-label.emitida    { color: var(--green); }
+.status-label.negada     { color: var(--red); }
+.status-desc { font-size: 11px; color: var(--text-muted); }
+
+/* Download PDF Box */
+.pdf-download-box {
+  background: var(--text); border-radius: var(--radius-lg);
+  padding: 28px 24px; margin: 28px 0; position: relative; overflow: hidden;
+}
+.pdf-download-box::before {
+  content: ''; position: absolute; top: -40px; right: -40px;
+  width: 160px; height: 160px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(166,124,59,.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+.pdf-eyebrow {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(166,124,59,.12); border: 1px solid rgba(166,124,59,.3);
+  color: var(--gold-light); font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  padding: 4px 12px; border-radius: 20px; margin-bottom: 14px;
+}
+.pdf-title {
+  font-family: var(--font-serif);
+  font-size: clamp(18px, 5vw, 24px);
+  font-weight: 900; color: #fff; line-height: 1.2; margin-bottom: 10px;
+}
+.pdf-title em { font-style: italic; color: var(--gold-light); }
+.pdf-sub {
+  font-size: 14px; color: rgba(255,255,255,.65);
+  line-height: 1.65; margin-bottom: 22px;
+}
+.pdf-sub strong { color: #fff; }
+.pdf-divider { height: 1px; background: rgba(166,124,59,.2); margin: 18px 0; }
+.pdf-link-card {
+  display: flex; align-items: center; gap: 14px;
+  background: rgba(166,124,59,.08); border: 1px solid rgba(166,124,59,.25);
+  border-radius: var(--radius-md); padding: 16px;
+  text-decoration: none; transition: all .25s ease;
+}
+.pdf-link-card:hover {
+  background: rgba(166,124,59,.18); border-color: rgba(166,124,59,.5);
+  transform: translateY(-2px);
+}
+.pdf-link-icon {
+  width: 48px; height: 48px; border-radius: 12px;
+  background: linear-gradient(145deg, var(--gold), #9A6520);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px; flex-shrink: 0;
+}
+.pdf-link-info { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.pdf-link-name { font-size: 14px; font-weight: 700; color: #fff; }
+.pdf-link-desc { font-size: 12px; color: rgba(255,255,255,.5); }
+.pdf-link-arrow {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.pdf-link-arrow svg { width: 14px; height: 14px; stroke: var(--gold-light); fill: none; stroke-width: 2.5; }
+
+/* Contato Box */
+.contato-box {
+  background: var(--bg-card); border: 1px solid var(--gold-border);
+  border-radius: var(--radius-lg); padding: 28px 24px; margin-top: 12px;
+  text-align: center; box-shadow: var(--shadow-sm);
+}
+.contato-emoji { font-size: 42px; margin-bottom: 12px; }
+.contato-title {
+  font-family: var(--font-serif); font-size: 22px; font-weight: 900;
+  color: var(--text); margin-bottom: 8px;
+}
+.contato-sub { font-size: 14px; color: var(--text-soft); line-height: 1.65; margin-bottom: 20px; }
+.contato-sub strong { color: var(--text); }
+.contato-phone {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--text); color: var(--gold-light);
+  font-size: 18px; font-weight: 700; font-family: var(--font-serif);
+  padding: 12px 28px; border-radius: var(--radius-md);
+  text-decoration: none; letter-spacing: .04em;
+  box-shadow: 0 4px 16px rgba(28,26,23,.15); transition: all .25s;
+}
+.contato-phone:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(28,26,23,.2); }
+.contato-opcao {
+  margin-top: 12px; font-size: 13px; color: var(--text-muted);
+}
+.contato-opcao strong { color: var(--gold); font-weight: 700; }
+
+/* Divisor de seção */
+.section-divider { height: 1px; background: var(--gold-border); margin: 24px 0; }
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<!-- TOPBAR -->
+<nav class="topbar">
+  <div class="topbar-brand">
+    <div class="topbar-logo">D</div>
+    <span class="topbar-name">Domínio Farma Contabilidade</span>
+  </div>
+  <span class="topbar-tag">Guia Prático</span>
+</nav>
+
+<!-- WPP FLOAT -->
+<a class="wpp-float" href="https://wa.me/5574999263592" target="_blank" rel="noopener" title="Falar com o escritório">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.859L.057 23.625a.563.563 0 0 0 .692.693l5.854-1.476A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.875 9.875 0 0 1-5.042-1.381l-.36-.214-3.733.942.98-3.645-.235-.374A9.878 9.878 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118S21.882 6.533 21.882 12 17.467 21.882 12 21.882z"/>
+  </svg>
+</a>
+
+<!-- ARTIGO -->
+<main class="article">
+
+  <!-- HERO -->
+  <header class="hero" id="topo">
+    <div class="hero-tag">
+      <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      Rotinas Fiscais
+    </div>
+    <h1 class="hero-title">Como emitir sua <em>NFS-e</em> diretamente pelo APP</h1>
+    <p class="hero-subtitle">
+      Passo a passo completo para emitir sua Nota Fiscal de Serviços Eletrônica pelo aplicativo
+      <strong>Domínio Farma Cliente</strong> — de forma rápida, segura e sem complicação.
+    </p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Leitura: ~5 min
+      </div>
+      <div class="hero-meta-sep"></div>
+      <div class="hero-meta-item">
+        <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        Disponível para Android e iOS
+      </div>
+      <div class="hero-meta-sep"></div>
+      <div class="hero-meta-item">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        14 passos
+      </div>
+    </div>
+  </header>
+
+  <!-- BANNER DE DESTAQUE -->
+  <div class="urgency-banner">
+    <div class="urgency-banner-icon">📲</div>
+    <div class="urgency-banner-body">
+      <div class="urgency-banner-title">Emita sua NFS-e de qualquer lugar!</div>
+      <div class="urgency-banner-text">
+        Com o aplicativo <strong>Domínio Farma Cliente</strong>, você não precisa acessar o computador para emitir suas notas fiscais de serviço.
+        Basta ter o celular na mão e seguir este guia.
+      </div>
+    </div>
+  </div>
+
+  <!-- SUMÁRIO -->
+  <nav class="summary" aria-label="Sumário">
+    <div class="summary-title">📋 Sumário do Guia</div>
+    <ul class="summary-list">
+      <li>
+        <a href="#cap1">
+          <span class="summary-num">1</span>
+          Instalação e acesso ao aplicativo
+          <span class="summary-badge badge-blue">Início</span>
+        </a>
+      </li>
+      <li>
+        <a href="#cap2">
+          <span class="summary-num">2</span>
+          Acessando a emissão de NFS-e
+          <span class="summary-badge badge-gold">Essencial</span>
+        </a>
+      </li>
+      <li>
+        <a href="#cap3">
+          <span class="summary-num">3</span>
+          Escolhendo o tipo de nota e o cliente
+          <span class="summary-badge badge-gold">Essencial</span>
+        </a>
+      </li>
+      <li>
+        <a href="#cap4">
+          <span class="summary-num">4</span>
+          Preenchendo e emitindo a nota
+          <span class="summary-badge badge-green">Emissão</span>
+        </a>
+      </li>
+      <li>
+        <a href="#cap5">
+          <span class="summary-num">5</span>
+          Acompanhando o status e baixando o PDF
+          <span class="summary-badge badge-green">Conclusão</span>
+        </a>
+      </li>
+      <li>
+        <a href="#cap6">
+          <span class="summary-num">6</span>
+          Passo a passo com imagens + Contato
+          <span class="summary-badge badge-purple">Extra</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- CAPÍTULO 1 — INSTALAÇÃO E ACESSO          -->
+  <!-- ══════════════════════════════════════════ -->
+  <section id="cap1">
+    <div class="chapter-header">
+      <div class="chapter-emoji">📱</div>
+      <div class="chapter-header-text">
+        <span class="chapter-eyebrow">Capítulo 1</span>
+        <h2 class="chapter-title">Instalação e acesso ao aplicativo</h2>
+      </div>
+    </div>
+    <div class="chapter-body">
+
+      <div class="section-label">Primeiros passos</div>
+      <h3 class="section-title">Antes de começar, você precisa ter o <em>app instalado</em></h3>
+      <p class="section-body">
+        O aplicativo <strong>Domínio Farma Cliente</strong> está disponível gratuitamente nas principais lojas de aplicativos.
+        Se você ainda não instalou, procure pelo nome na loja do seu celular — Android ou iOS — e faça o download.
+      </p>
+
+      <div class="alert info">
+        <svg viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <span><strong>Dica:</strong> Procure por <strong>"Dominio Farma - Cliente"</strong> na Google Play (Android) ou na App Store (iOS) para encontrar o aplicativo correto.</span>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <div class="section-label">Passos 1 ao 4</div>
+      <h3 class="section-title">Abrindo o app e fazendo o <em>login</em></h3>
+      <p class="section-body">Siga os passos abaixo para acessar sua conta pela primeira vez:</p>
+
+      <div class="step-list">
+        <div class="step-item">
+          <div class="step-dot s1">1</div>
+          <div class="step-body">
+            <div class="step-title">Abra o aplicativo Domínio Farma Cliente</div>
+            <div class="step-desc">Localize o ícone do app na tela inicial do seu celular e toque para abrir.</div>
+            <span class="step-tag gold">📱 Passo 1</span>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-dot s2">2</div>
+          <div class="step-body">
+            <div class="step-title">Clique em "Fazer o login"</div>
+            <div class="step-desc">Na tela inicial do app, toque no botão de login para iniciar o acesso. <strong>Se já tiver feito login anteriormente, esta tela não irá aparecer.</strong></div>
+            <span class="step-tag blue">🔐 Passo 2</span>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-dot s3">3</div>
+          <div class="step-body">
+            <div class="step-title">Informe seu e-mail</div>
+            <div class="step-desc">Digite o e-mail cadastrado junto ao escritório. <strong>Caso já tenha feito login anteriormente, esta tela não irá aparecer.</strong></div>
+            <span class="step-tag green">📧 Passo 3</span>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-dot s4">4</div>
+          <div class="step-body">
+            <div class="step-title">Informe a senha e clique em "Entrar"</div>
+            <div class="step-desc">Digite sua senha e confirme o acesso. <strong>Caso já tenha feito login anteriormente, esta tela não irá aparecer.</strong></div>
+            <span class="step-tag purple">🔑 Passo 4</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="alert warn">
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <span><strong>Não tem acesso?</strong> Entre em contato com o escritório pelo <strong>(74) 99926-3592</strong> e solicite suas credenciais de acesso ao aplicativo.</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- CAPÍTULO 2 — ACESSANDO A EMISSÃO          -->
+  <!-- ══════════════════════════════════════════ -->
+  <section id="cap2">
+    <div class="chapter-header">
+      <div class="chapter-emoji">🧭</div>
+      <div class="chapter-header-text">
+        <span class="chapter-eyebrow">Capítulo 2</span>
+        <h2 class="chapter-title">Acessando a emissão de NFS-e</h2>
+      </div>
+    </div>
+    <div class="chapter-body">
+
+      <div class="section-label">Passos 5 e 6</div>
+      <h3 class="section-title">Navegando até a <em>área de notas fiscais</em></h3>
+      <p class="section-body">
+        Após fazer o login, você estará na tela inicial do aplicativo. É a partir daí que iniciamos o processo de emissão.
+      </p>
+
+      <div class="step-list">
+        <div class="step-item">
+          <div class="step-dot s1">5</div>
+          <div class="step-body">
+            <div class="step-title">Na tela inicial, clique em "Emissão de NFS-e"</div>
+            <div class="step-desc">
+              Localize e toque no botão <strong>Emissão de NFS-e</strong>, que fica na parte superior da tela inicial do aplicativo.
+            </div>
+            <span class="step-tag gold">📄 Passo 5</span>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-dot s2">6</div>
+          <div class="step-body">
+            <div class="step-title">Clique no ícone "+" no canto inferior</div>
+            <div class="step-desc">
+              Na lista de notas, toque no <strong>ícone de "+" localizado no canto inferior da tela</strong> para iniciar a emissão de uma nova nota fiscal.
+            </div>
+            <span class="step-tag blue">➕ Passo 6</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- CAPÍTULO 3 — TIPO DE NOTA E CLIENTE       -->
+  <!-- ══════════════════════════════════════════ -->
+  <section id="cap3">
+    <div class="chapter-header">
+      <div class="chapter-emoji">🗂️</div>
+      <div class="chapter-header-text">
+        <span class="chapter-eyebrow">Capítulo 3</span>
+        <h2 class="chapter-title">Escolhendo o tipo de nota e o cliente</h2>
+      </div>
+    </div>
+    <div class="chapter-body">
+
+      <div class="section-label">Passo 7</div>
+      <h3 class="section-title">Selecione como deseja <em>criar a nota</em></h3>
+      <p class="section-body">
+        O app oferece <strong>3 formas diferentes</strong> de criar uma nova NFS-e, facilitando o processo caso você já tenha emitido notas anteriormente:
+      </p>
+
+      <div class="option-grid">
+        <div class="option-card">
+          <div class="option-num gold">1</div>
+          <div class="option-text">
+            <div class="option-title">Nova Nota</div>
+            <div class="option-desc">Preencha todas as informações do zero. Indicado para novos clientes ou serviços diferentes.</div>
+          </div>
+        </div>
+        <div class="option-card">
+          <div class="option-num blue">2</div>
+          <div class="option-text">
+            <div class="option-title">Última Nota Emitida</div>
+            <div class="option-desc">Copia os dados da última nota emitida. Útil quando o tomador é o mesmo da nota anterior.</div>
+          </div>
+        </div>
+        <div class="option-card">
+          <div class="option-num green">3</div>
+          <div class="option-text">
+            <div class="option-title">Última Nota por Cliente</div>
+            <div class="option-desc">Igual à opção 2, mas permite escolher de qual cliente copiar a última nota emitida.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="alert success">
+        <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg>
+        <span><strong>Dica de produtividade:</strong> Se você emite notas mensais para os mesmos clientes, use as opções <strong>2</strong> ou <strong>3</strong> para economizar tempo.</span>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <div class="section-label">Passo 8</div>
+      <h3 class="section-title">Selecione o <em>cliente (tomador)</em></h3>
+      <p class="section-body">
+        Após escolher o tipo de nota, o app pedirá que você selecione o cliente para quem a nota será emitida.
+      </p>
+
+      <div class="step-list">
+        <div class="step-item">
+          <div class="step-dot s1">8</div>
+          <div class="step-body">
+            <div class="step-title">Selecione o cliente na lista ou cadastre um novo</div>
+            <div class="step-desc">
+              Se o cliente já estiver cadastrado, basta tocar sobre o nome dele na lista.
+              Caso seja um <strong>cliente novo</strong>, toque em <strong>"+ Novo Cliente"</strong> e preencha os dados (nome, CPF/CNPJ, endereço etc.).
+            </div>
+            <span class="step-tag gold">👤 Passo 8</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- CAPÍTULO 4 — PREENCHENDO E EMITINDO       -->
+  <!-- ══════════════════════════════════════════ -->
+  <section id="cap4">
+    <div class="chapter-header">
+      <div class="chapter-emoji">✍️</div>
+      <div class="chapter-header-text">
+        <span class="chapter-eyebrow">Capítulo 4</span>
+        <h2 class="chapter-title">Preenchendo e emitindo a nota</h2>
+      </div>
+    </div>
+    <div class="chapter-body">
+
+      <div class="section-label">Passos 9 ao 10.1</div>
+      <h3 class="section-title">Informe os valores e <em>confirme os dados</em></h3>
+      <p class="section-body">
+        Com o cliente selecionado, é hora de preencher os dados da nota e revisar tudo antes de emitir.
+      </p>
+
+      <div class="step-list">
+        <div class="step-item">
+          <div class="step-dot s1">9</div>
+          <div class="step-body">
+            <div class="step-title">Informe o valor da nota fiscal e clique em "Continuar"</div>
+            <div class="step-desc">
+              Digite o <strong>valor total do serviço prestado</strong> e toque em <strong>Continuar</strong> para avançar para a tela de resumo.
+            </div>
+            <span class="step-tag gold">💰 Passo 9</span>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-dot s2">10</div>
+          <div class="step-body">
+            <div class="step-title">Resumo da nota: confira os dados e clique em "Emitir"</div>
+            <div class="step-desc">
+              O app exibirá um <strong>resumo completo da nota fiscal</strong>. Verifique se todos os dados estão corretos e, caso esteja tudo certo, toque em <strong>Emitir</strong>.
+              Para alterar a descrição do serviço, acesse <strong>"Detalhes da nota"</strong> antes de emitir.
+            </div>
+            <span class="step-tag blue">📋 Passo 10</span>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-dot s3">11</div>
+          <div class="step-body">
+            <div class="step-title">Detalhes da nota: ajuste a discriminação do serviço</div>
+            <div class="step-desc">
+              Em <strong>"Detalhes da nota"</strong>, você pode editar o campo <strong>Discriminação</strong> para incluir informações como a <strong>competência do serviço</strong> (ex.: mês e ano de referência) e outros detalhes relevantes.
+            </div>
+            <span class="step-tag green">📝 Passo 10.1</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="alert warn">
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <span><strong>Atenção:</strong> Antes de emitir, sempre confira <strong>nome do cliente, valor e descrição do serviço</strong>. Após emitida, a nota não pode ser editada — apenas cancelada.</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- CAPÍTULO 5 — STATUS E DOWNLOAD            -->
+  <!-- ══════════════════════════════════════════ -->
+  <section id="cap5">
+    <div class="chapter-header">
+      <div class="chapter-emoji">✅</div>
+      <div class="chapter-header-text">
+        <span class="chapter-eyebrow">Capítulo 5</span>
+        <h2 class="chapter-title">Acompanhando o status e baixando o PDF</h2>
+      </div>
+    </div>
+    <div class="chapter-body">
+
+      <div class="section-label">Passos 11 ao 14</div>
+      <h3 class="section-title">Aguarde o processamento e <em>confirme a emissão</em></h3>
+      <p class="section-body">
+        Após clicar em <strong>Emitir</strong>, o app retorna para a lista de notas e você verá o status da nota em tempo real.
+        Entenda o que cada status significa:
+      </p>
+
+      <div class="status-grid">
+        <div class="status-badge processing">
+          <div class="status-dot processing"></div>
+          <div class="status-info">
+            <span class="status-label processing">Processando</span>
+            <span class="status-desc">Aguarde alguns segundos</span>
+          </div>
+        </div>
+        <div class="status-badge emitida">
+          <div class="status-dot emitida"></div>
+          <div class="status-info">
+            <span class="status-label emitida">Emitida ✓</span>
+            <span class="status-desc">Nota emitida com sucesso</span>
+          </div>
+        </div>
+        <div class="status-badge negada">
+          <div class="status-dot negada"></div>
+          <div class="status-info">
+            <span class="status-label negada">Negada ✗</span>
+            <span class="status-desc">Comunicar ao escritório</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-list">
+        <div class="step-item">
+          <div class="step-dot s1">12</div>
+          <div class="step-body">
+            <div class="step-title">Aguarde o status "Processando"</div>
+            <div class="step-desc">
+              Após emitir, a nota ficará como <strong>"Processando"</strong> por alguns segundos — o tempo depende da sua internet e do portal nacional de NFS-e.
+            </div>
+            <span class="step-tag gold">⏳ Passo 11</span>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-dot s3">13</div>
+          <div class="step-body">
+            <div class="step-title">Nota com a tag "Emitida" — sucesso!</div>
+            <div class="step-desc">
+              Quando o processamento for concluído, a nota exibirá a tag <strong>"Emitida"</strong>, confirmando que tudo ocorreu corretamente.
+              Se aparecer a tag <strong>"Negada"</strong>, comunique imediatamente ao escritório.
+            </div>
+            <span class="step-tag green">✅ Passo 12</span>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-dot s2">14</div>
+          <div class="step-body">
+            <div class="step-title">Clique na nota para conferir dados e baixar o XML ou PDF</div>
+            <div class="step-desc">
+              Ao tocar sobre a nota emitida, você terá acesso a todos os dados e poderá <strong>baixar o XML ou o PDF</strong> para enviar ao seu cliente se necessário.
+            </div>
+            <span class="step-tag blue">📥 Passo 13</span>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-dot s4">15</div>
+          <div class="step-body">
+            <div class="step-title">Clique em "Baixar PDF" para visualizar a nota</div>
+            <div class="step-desc">
+              Ao tocar em <strong>Baixar PDF</strong>, o sistema irá carregar a nota fiscal em formato PDF, pronta para ser compartilhada por WhatsApp, e-mail ou salva no seu celular.
+            </div>
+            <span class="step-tag purple">📄 Passo 14</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="alert danger">
+        <svg viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <span><strong>Nota Negada?</strong> Não tente emitir novamente. Entre em contato com o escritório pelo <strong>(74) 99926-3592</strong>, opção <strong>5 — Notas Fiscais e Impostos</strong>, para identificar e corrigir o problema.</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- CAPÍTULO 6 — PDF COM IMAGENS + CONTATO    -->
+  <!-- ══════════════════════════════════════════ -->
+  <section id="cap6">
+    <div class="chapter-header">
+      <div class="chapter-emoji">🖼️</div>
+      <div class="chapter-header-text">
+        <span class="chapter-eyebrow">Capítulo 6</span>
+        <h2 class="chapter-title">Passo a passo com imagens do aplicativo</h2>
+      </div>
+    </div>
+    <div class="chapter-body">
+
+      <div class="section-label">Material complementar</div>
+      <h3 class="section-title">Prefere visualizar o <em>passo a passo com imagens?</em></h3>
+      <p class="section-body">
+        O escritório preparou um guia visual completo em PDF, com <strong>capturas de tela reais do aplicativo</strong> em cada etapa.
+        Se tiver dúvidas sobre como é alguma tela específica, baixe o PDF abaixo e acompanhe visualmente:
+      </p>
+
+      <!-- BOX DE DOWNLOAD DO PDF -->
+      <div class="pdf-download-box">
+        <div class="pdf-eyebrow">📎 Material Complementar</div>
+        <h3 class="pdf-title">Guia Visual com <em>Imagens do APP</em></h3>
+        <p class="pdf-sub">
+          Caso queira visualizar o passo a passo com as <strong>imagens reais das telas do aplicativo</strong>,
+          basta baixar o PDF completo preparado pelo escritório Domínio Farma Contabilidade.
+        </p>
+        <div class="pdf-divider"></div>
+        <a href="PDF/passo-a-passo-nfse.pdf" download class="pdf-link-card">
+          <div class="pdf-link-icon">📄</div>
+          <div class="pdf-link-info">
+            <span class="pdf-link-name">Passo a Passo — Emissão NFS-e pelo APP</span>
+            <span class="pdf-link-desc">Clique para baixar o PDF com imagens das telas do aplicativo</span>
+          </div>
+          <div class="pdf-link-arrow">
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </a>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <!-- CONTATO -->
+      <div class="section-label">Suporte</div>
+      <h3 class="section-title">Ainda com <em>dúvidas?</em> Fale com o escritório</h3>
+      <p class="section-body">
+        Se após seguir este guia você ainda tiver dificuldades, nossa equipe está pronta para te ajudar.
+        Entre em contato e escolha a opção correta no menu:
+      </p>
+
+      <div class="contato-box">
+        <div class="contato-emoji">📞</div>
+        <div class="contato-title">Domínio Farma Contabilidade</div>
+        <p class="contato-sub">
+          Ligue ou envie uma mensagem pelo WhatsApp e selecione:<br/>
+          <strong>Opção 5 — Notas Fiscais e Impostos</strong>
+        </p>
+        <a class="contato-phone" href="https://wa.me/5574999263592" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.859L.057 23.625a.563.563 0 0 0 .692.693l5.854-1.476A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.875 9.875 0 0 1-5.042-1.381l-.36-.214-3.733.942.98-3.645-.235-.374A9.878 9.878 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118S21.882 6.533 21.882 12 17.467 21.882 12 21.882z"/></svg>
+          (74) 99926-3592
+        </a>
+        <p class="contato-opcao">Selecione a opção <strong>5 — Notas Fiscais e Impostos</strong></p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- RODAPÉ DO ARTIGO -->
+  <blockquote style="margin-top:32px; border-left:4px solid var(--gold); padding:14px 18px; background:var(--gold-bg); border-radius:0 var(--radius-sm) var(--radius-sm) 0; font-family:var(--font-serif); color:var(--text-soft); font-size:14px; line-height:1.7;">
+    💡 Lembrete: emita sua NFS-e <strong>mensalmente</strong> após a prestação do serviço. Em caso de dúvidas, 
+    <a href="https://wa.me/5574999263592" target="_blank" rel="noopener" style="color:var(--gold); font-weight:700; text-decoration:underline;">clique aqui para falar com o escritório pelo WhatsApp</a>.
+  </blockquote>
+
+</main>
+
+<!-- SCRIPT DE PROGRESSO DE LEITURA -->
+<script>
+  const bar = document.getElementById('progress-bar');
+  window.addEventListener('scroll', () => {
+    const total = document.body.scrollHeight - window.innerHeight;
+    const progress = (window.scrollY / total) * 100;
+    bar.style.width = progress + '%';
+  });
+</script>
+
+</body>
+</html>
