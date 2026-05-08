@@ -1,1423 +1,1404 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="theme-color" content="#F7F5F0"/>
+
+<!-- Open Graph — preview rico no WhatsApp -->
+<meta property="og:title"       content="Licença Maternidade: tudo que o empresário precisa saber"/>
+<meta property="og:description" content="Estabilidade, quem paga, como recuperar o dinheiro. Guia completo da Domínio Farma Contabilidade."/>
+<meta property="og:image"       content="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80"/>
+<meta property="og:type"        content="article"/>
+<meta name="twitter:card"       content="summary_large_image"/>
+
 <title>Licença Maternidade — Domínio Farma Contabilidade</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- Fontes -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
 <style>
-/* ─── RESET & BASE ─────────────────────────────────────────────────── */
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-html{font-size:16px;}
-body{
-  font-family:'Inter',sans-serif;
-  background:#111214;
-  color:#EFEFEF;
-  -webkit-tap-highlight-color:transparent;
-  user-select:none;
-  overflow:hidden;
-  height:100vh;
-  width:100vw;
+/* ══════════════════════════════════════════
+   RESET & BASE
+══════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:          #F7F5F0;
+  --bg-alt:      #EFEDE6;
+  --bg-card:     #FFFFFF;
+  --text:        #1C1A17;
+  --text-soft:   #5A5650;
+  --text-muted:  #8C8880;
+  --gold:        #A67C3B;
+  --gold-light:  #C9A96E;
+  --gold-bg:     #FBF4E8;
+  --gold-border: #E8D5B0;
+  --green:       #2E7D52;
+  --green-bg:    #EBF5EF;
+  --green-border:#A8D5BC;
+  --red:         #C0392B;
+  --red-bg:      #FDECEA;
+  --red-border:  #F1A9A0;
+  --blue:        #1A5C8A;
+  --blue-bg:     #EAF2FA;
+  --blue-border: #A8C8E8;
+  --shadow-sm:   0 1px 4px rgba(28,26,23,.08);
+  --shadow-md:   0 4px 16px rgba(28,26,23,.10);
+  --shadow-lg:   0 8px 32px rgba(28,26,23,.12);
+  --radius-sm:   8px;
+  --radius-md:   14px;
+  --radius-lg:   20px;
+  --font-serif:  'Playfair Display', Georgia, serif;
+  --font-sans:   'Inter', system-ui, sans-serif;
+  --max-w:       680px;
 }
 
-/* ─── TOKENS ────────────────────────────────────────────────────────── */
-:root{
-  --gold:#C9A96E;
-  --gold-light:#E0C48A;
-  --gold-dark:#A07840;
-  --gold-glow:rgba(201,169,110,.18);
-  --white:#F0F0F0;
-  --white-soft:#C8C8C8;
-  --gray:#909090;
-  --gray-dark:#606060;
-  --surface:#1A1C20;
-  --surface-2:#202226;
-  --surface-3:#252830;
-  --border:rgba(255,255,255,.07);
-  --border-gold:rgba(201,169,110,.22);
-  --green:#7EC87E;
-  --green-bg:rgba(126,200,126,.07);
-  --red:#D49090;
-  --red-bg:rgba(212,144,144,.07);
-  --blue:#7EB3FF;
-  --blue-bg:rgba(126,179,255,.07);
-  --radius-sm:12px;
-  --radius:18px;
-  --radius-lg:24px;
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* ─── TOPBAR ────────────────────────────────────────────────────────── */
-.topbar{
-  position:fixed;top:0;left:0;right:0;z-index:200;
-  height:56px;
-  background:rgba(15,16,18,.97);
-  border-bottom:1px solid var(--border);
-  display:flex;align-items:center;justify-content:center;
-  padding:0 60px;
-  backdrop-filter:blur(12px);
-}
-.topbar img{height:28px;opacity:.9;}
-.back-btn{
-  position:fixed;top:0;left:0;z-index:201;
-  height:56px;
-  display:flex;align-items:center;
-  padding:0 18px;gap:6px;
-  background:none;border:none;
-  color:var(--gray);
-  font-family:'Inter',sans-serif;font-size:13px;font-weight:600;
-  letter-spacing:.02em;cursor:pointer;text-decoration:none;
-  transition:color .25s;
-}
-.back-btn:hover{color:var(--gold);}
-.back-btn svg{width:18px;height:18px;transition:transform .25s;}
-.back-btn:hover svg{transform:translateX(-3px);}
-
-/* ─── PROGRESSO ──────────────────────────────────────────────────────── */
-.progress-bar{
-  position:fixed;top:56px;left:0;right:0;z-index:199;
-  height:3px;
-  background:rgba(255,255,255,.05);
-}
-.progress-fill{
-  height:100%;width:6.25%;
-  background:linear-gradient(90deg,var(--gold-dark),var(--gold),var(--gold-light));
-  border-radius:0 2px 2px 0;
-  transition:width .5s cubic-bezier(.4,0,.2,1);
+/* ══════════════════════════════════════════
+   BARRA DE PROGRESSO
+══════════════════════════════════════════ */
+#progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  z-index: 1000;
+  transition: width .1s linear;
 }
 
-/* ─── SLIDE COUNTER (topo-direito) ───────────────────────────────────── */
-.slide-counter{
-  position:fixed;top:0;right:0;z-index:201;
-  height:56px;display:flex;align-items:center;
-  padding:0 18px;
-  font-size:13px;font-weight:700;
-  color:var(--gray);
-  letter-spacing:.03em;
-}
-.slide-counter span{color:var(--gold);font-weight:800;}
-
-/* ─── APRESENTAÇÃO & SLIDES ──────────────────────────────────────────── */
-.presentation{
-  width:100vw;height:100vh;
-  overflow:hidden;
-  position:relative;
-}
-.slides{
-  display:flex;flex-direction:column;
-  transition:transform .65s cubic-bezier(.32,0,.2,1);
-}
-.slide{
-  width:100vw;height:100vh;
-  flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;
-  overflow-y:auto;
-  overflow-x:hidden;
-  padding:70px 20px 80px;
-  position:relative;
-  -webkit-overflow-scrolling:touch;
-  scroll-behavior:smooth;
+/* ══════════════════════════════════════════
+   TOPBAR
+══════════════════════════════════════════ */
+.topbar {
+  position: sticky;
+  top: 0;
+  background: rgba(247,245,240,.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--gold-border);
+  z-index: 100;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
 }
 
-/* Fundo sutil por slide — não sobrecarrega a leitura */
-.slide::before{
-  content:'';
-  position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:
-    radial-gradient(ellipse 80% 50% at 80% -10%,rgba(201,169,110,.07) 0%,transparent 60%),
-    radial-gradient(ellipse 60% 40% at 20% 110%,rgba(201,169,110,.04) 0%,transparent 55%);
-}
-.slide>*{position:relative;z-index:1;}
-
-/* ─── CONTEÚDO MÁXIMO ────────────────────────────────────────────────── */
-.sc{max-width:480px;width:100%;margin:0 auto;}
-.sc.center{text-align:center;}
-
-/* ─── TIPOGRAFIA ─────────────────────────────────────────────────────── */
-.slide-label{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:11px;font-weight:700;
-  color:var(--gold);letter-spacing:.1em;text-transform:uppercase;
-  margin-bottom:14px;
-  opacity:.8;
-}
-.slide-label .dot-label{
-  width:5px;height:5px;border-radius:50%;
-  background:var(--gold);opacity:.7;
+.topbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
 }
 
-h1.hero{
-  font-size:clamp(28px,8vw,44px);
-  font-weight:900;letter-spacing:-.035em;line-height:1.06;
-  color:var(--white);
-  margin-bottom:14px;
-}
-h2.title{
-  font-size:clamp(22px,6vw,32px);
-  font-weight:800;letter-spacing:-.03em;line-height:1.1;
-  color:var(--white);
-  margin-bottom:12px;
-}
-.subtitle{
-  font-size:15px;line-height:1.65;
-  color:var(--white-soft);
-  margin-bottom:0;
-}
-.subtitle strong{color:var(--white);font-weight:700;}
-
-/* ─── DEGRADÊ DOURADO NO TEXTO ───────────────────────────────────────── */
-.gt{
-  background:linear-gradient(120deg,var(--gold-dark) 0%,var(--gold) 35%,var(--gold-light) 65%,var(--gold) 100%);
-  background-size:200% auto;
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-  animation:shimmer 6s linear infinite;
-}
-@keyframes shimmer{
-  0%{background-position:0% center}
-  100%{background-position:200% center}
+.topbar-logo-icon {
+  width: 32px; height: 32px;
+  background: var(--gold);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
 }
 
-/* ─── BIG EMOJI ──────────────────────────────────────────────────────── */
-.big-emoji{
-  font-size:52px;
-  display:block;margin-bottom:16px;
-  line-height:1;
-  filter:drop-shadow(0 4px 16px rgba(0,0,0,.4));
+.topbar-logo-text {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.2;
 }
 
-/* ─── LINHA DOURADA ──────────────────────────────────────────────────── */
-.gold-line{
-  width:48px;height:3px;border-radius:2px;
-  background:linear-gradient(90deg,var(--gold-dark),var(--gold-light));
-  margin-bottom:16px;
-  animation:scaleIn .6s ease both;
-  transform-origin:left center;
-}
-.gold-line.center{margin:0 auto 16px;transform-origin:center;}
-@keyframes scaleIn{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-
-/* ─── CARD BASE ──────────────────────────────────────────────────────── */
-.card{
-  background:var(--surface-2);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:20px;
-}
-.card-gold{
-  background:linear-gradient(135deg,rgba(201,169,110,.05) 0%,rgba(201,169,110,.02) 100%);
-  border:1px solid var(--border-gold);
-  border-radius:var(--radius);
-  padding:22px 20px;
+.topbar-logo-text span {
+  display: block;
+  font-weight: 400;
+  font-size: 11px;
+  color: var(--text-muted);
 }
 
-/* ─── INFO CARD (capa) ───────────────────────────────────────────────── */
-.info-card{
-  background:var(--surface-2);
-  border:1px solid var(--border-gold);
-  border-radius:var(--radius);
-  padding:4px 0;
-  margin-top:22px;
-  overflow:hidden;
+.topbar-share {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #25D366;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity .2s;
 }
-.info-row{
-  display:flex;align-items:flex-start;
-  gap:14px;
-  padding:14px 20px;
-  border-bottom:1px solid rgba(255,255,255,.04);
-}
-.info-row:last-child{border-bottom:none;}
-.info-row-emoji{font-size:20px;min-width:26px;padding-top:2px;}
-.info-row-label{
-  font-size:11px;font-weight:700;
-  color:var(--gold);letter-spacing:.07em;text-transform:uppercase;
-  display:block;margin-bottom:3px;
-}
-.info-row-text{font-size:14px;color:var(--white-soft);line-height:1.5;}
+.topbar-share:hover { opacity: .88; }
+.topbar-share svg { width: 15px; height: 15px; fill: #fff; flex-shrink: 0; }
 
-/* ─── ALERT CARDS ────────────────────────────────────────────────────── */
-.alert{
-  display:flex;gap:14px;align-items:flex-start;
-  border-radius:var(--radius-sm);
-  padding:16px;
-  margin-top:14px;
-}
-.alert.warn{background:var(--gold-glow);border:1px solid var(--border-gold);}
-.alert.danger{background:var(--red-bg);border:1px solid rgba(212,144,144,.2);}
-.alert.success{background:var(--green-bg);border:1px solid rgba(126,200,126,.2);}
-.alert.info{background:var(--blue-bg);border:1px solid rgba(126,179,255,.18);}
-
-.alert-icon{
-  width:22px;height:22px;min-width:22px;
-  margin-top:1px;
-}
-.alert.warn .alert-icon{color:var(--gold);}
-.alert.danger .alert-icon{color:var(--red);}
-.alert.success .alert-icon{color:var(--green);}
-.alert.info .alert-icon{color:var(--blue);}
-
-.alert p{
-  font-size:14px;line-height:1.6;
-  color:var(--white-soft);margin:0;
-}
-.alert p strong{font-weight:700;}
-.alert.warn p strong{color:var(--gold);}
-.alert.danger p strong{color:var(--red);}
-.alert.success p strong{color:var(--green);}
-.alert.info p strong{color:var(--blue);}
-
-/* ─── HIGHLIGHT BOX (destaque central) ──────────────────────────────── */
-.highlight-box{
-  background:linear-gradient(135deg,rgba(201,169,110,.08),rgba(201,169,110,.03));
-  border:1px solid var(--border-gold);
-  border-radius:var(--radius-lg);
-  padding:24px 20px;
-  text-align:center;
-  margin-top:16px;
-}
-.highlight-box .hl-num{
-  font-size:clamp(38px,10vw,52px);
-  font-weight:900;line-height:1;
-  margin-bottom:6px;
-}
-.highlight-box .hl-label{
-  font-size:13px;color:var(--gray);
-  font-weight:600;letter-spacing:.03em;
+/* ══════════════════════════════════════════
+   WRAPPER PRINCIPAL
+══════════════════════════════════════════ */
+.article {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 20px 80px;
 }
 
-/* ─── FEATURE LIST ───────────────────────────────────────────────────── */
-.feature-list{display:flex;flex-direction:column;gap:10px;margin-top:14px;}
-.feature-item{
-  display:flex;align-items:flex-start;gap:14px;
-  padding:16px;
-  background:var(--surface-2);
-  border:1px solid var(--border);
-  border-radius:var(--radius-sm);
-}
-.fi-icon{
-  width:42px;height:42px;min-width:42px;
-  border-radius:12px;
-  display:flex;align-items:center;justify-content:center;
-}
-.fi-icon svg{width:20px;height:20px;}
-.fi-icon.gold{background:rgba(201,169,110,.1);}
-.fi-icon.gold svg{color:var(--gold);}
-.fi-icon.green{background:var(--green-bg);}
-.fi-icon.green svg{color:var(--green);}
-.fi-icon.red{background:var(--red-bg);}
-.fi-icon.red svg{color:var(--red);}
-
-.fi-title{font-size:15px;font-weight:700;color:var(--white);margin-bottom:4px;}
-.fi-desc{font-size:13px;color:var(--gray);line-height:1.5;margin:0;}
-
-/* ─── VS CARDS ───────────────────────────────────────────────────────── */
-.vs-wrap{display:flex;flex-direction:column;gap:10px;margin-top:16px;}
-.vs-card{border-radius:var(--radius-sm);padding:18px;}
-.vs-card.a{background:rgba(201,169,110,.05);border:1px solid var(--border-gold);}
-.vs-card.b{background:var(--blue-bg);border:1px solid rgba(126,179,255,.18);}
-.vs-card-head{
-  display:flex;align-items:center;gap:10px;
-  margin-bottom:10px;
-}
-.vs-badge{
-  display:inline-block;
-  padding:4px 12px;border-radius:999px;
-  font-size:11px;font-weight:800;
-  letter-spacing:.05em;text-transform:uppercase;
-}
-.vs-card.a .vs-badge{background:rgba(201,169,110,.12);color:var(--gold);}
-.vs-card.b .vs-badge{background:rgba(126,179,255,.1);color:var(--blue);}
-.vs-card p{font-size:14px;color:var(--white-soft);line-height:1.6;margin:0;}
-.vs-card p strong{font-weight:700;}
-.vs-card.a p strong{color:var(--gold);}
-.vs-card.b p strong{color:var(--blue);}
-
-/* ─── SIMULAÇÃO ──────────────────────────────────────────────────────── */
-.sim-table{width:100%;margin-top:16px;}
-.sim-row{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:13px 0;
-  border-bottom:1px solid rgba(255,255,255,.05);
-  gap:10px;
-}
-.sim-row:last-child{border-bottom:none;}
-.sim-label{font-size:14px;color:var(--gray);font-weight:500;line-height:1.4;}
-.sim-value{font-size:16px;font-weight:800;text-align:right;white-space:nowrap;}
-.sim-value.neutral{color:var(--white);}
-.sim-value.minus{color:var(--red);}
-.sim-value.result{color:var(--green);font-size:22px;}
-.sim-value.credit{color:var(--gold);font-size:22px;}
-.sim-divider{
-  border-top:2px solid var(--border-gold);
-  margin:4px 0;padding-top:4px;
-}
-.sim-total-label{font-size:15px;font-weight:700;color:var(--white);}
-
-/* ─── TIMELINE ───────────────────────────────────────────────────────── */
-.timeline{display:flex;flex-direction:column;gap:0;margin-top:14px;}
-.tl-item{display:flex;gap:16px;padding-bottom:18px;position:relative;}
-.tl-item:not(:last-child)::before{
-  content:'';
-  position:absolute;left:18px;top:38px;
-  width:2px;height:calc(100% - 24px);
-  background:linear-gradient(180deg,rgba(201,169,110,.2),rgba(201,169,110,.04));
-  border-radius:1px;
-}
-.tl-dot{
-  width:38px;height:38px;min-width:38px;
-  border-radius:11px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:15px;font-weight:800;color:#fff;
-}
-.tl-dot.d1{background:linear-gradient(145deg,var(--gold),var(--gold-dark));}
-.tl-dot.d2{background:linear-gradient(145deg,#3C3E44,#2A2C32);}
-.tl-dot.d3{background:linear-gradient(145deg,#7A6040,#5A4428);}
-.tl-dot.d4{background:linear-gradient(145deg,#4A4C54,#38393E);}
-.tl-body{padding-top:4px;}
-.tl-title{font-size:15px;font-weight:700;color:var(--white);margin-bottom:4px;}
-.tl-desc{font-size:13px;color:var(--gray);line-height:1.55;margin:0;}
-.tl-tag{
-  display:inline-block;margin-top:6px;
-  padding:3px 10px;border-radius:999px;
-  font-size:11px;font-weight:700;letter-spacing:.03em;
-  background:rgba(201,169,110,.1);color:var(--gold);
+/* ══════════════════════════════════════════
+   HERO
+══════════════════════════════════════════ */
+.hero {
+  padding: 48px 0 40px;
+  border-bottom: 1px solid var(--gold-border);
+  margin-bottom: 48px;
 }
 
-/* ─── FLOW STEPS ─────────────────────────────────────────────────────── */
-.flow{display:flex;flex-direction:column;gap:0;margin-top:14px;}
-.flow-step{
-  display:flex;align-items:center;gap:14px;
-  background:var(--surface-2);
-  border:1px solid var(--border);
-  border-radius:var(--radius-sm);
-  padding:14px 16px;
-  margin-bottom:4px;
-}
-.flow-icon{
-  width:44px;height:44px;min-width:44px;
-  border-radius:12px;
-  display:flex;align-items:center;justify-content:center;
-}
-.flow-icon svg{width:22px;height:22px;}
-.flow-step-title{font-size:14px;font-weight:700;color:var(--white);display:block;margin-bottom:2px;}
-.flow-step-sub{font-size:12px;color:var(--gray);line-height:1.4;}
-.flow-arrow{
-  display:flex;justify-content:center;
-  padding:2px 0;margin-bottom:4px;
-}
-.flow-arrow svg{width:16px;height:16px;color:rgba(201,169,110,.3);}
-
-/* ─── BEN GRID ───────────────────────────────────────────────────────── */
-.ben-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-  margin-top:14px;
-}
-.ben-item{
-  background:var(--surface-2);
-  border:1px solid var(--border);
-  border-radius:var(--radius-sm);
-  padding:16px 14px;
-}
-.ben-emoji{font-size:24px;display:block;margin-bottom:10px;line-height:1;}
-.ben-title{font-size:13px;font-weight:700;color:var(--white);margin-bottom:4px;line-height:1.3;}
-.ben-desc{font-size:12px;color:var(--gray);line-height:1.45;margin:0;}
-
-/* ─── CTA SLIDE ──────────────────────────────────────────────────────── */
-.cta-stack{display:flex;flex-direction:column;gap:12px;width:100%;}
-.cta-btn{
-  display:flex;align-items:center;justify-content:center;
-  gap:12px;
-  padding:17px 22px;
-  border-radius:var(--radius-sm);
-  font-family:'Inter',sans-serif;
-  font-size:15px;font-weight:700;
-  text-decoration:none;cursor:pointer;border:none;
-  transition:transform .25s,box-shadow .25s,filter .25s;
-  text-align:center;line-height:1.3;
-}
-.cta-btn svg{width:22px;height:22px;min-width:22px;}
-.cta-btn:active{transform:scale(.97);}
-
-.cta-primary{
-  background:linear-gradient(135deg,var(--gold) 0%,var(--gold-dark) 100%);
-  color:#0F0F0F;
-  box-shadow:0 8px 28px rgba(201,169,110,.25);
-}
-.cta-primary:hover{filter:brightness(1.08);transform:translateY(-2px);box-shadow:0 12px 36px rgba(201,169,110,.35);}
-
-.cta-green{
-  background:var(--green-bg);
-  border:1px solid rgba(126,200,126,.25);
-  color:var(--green);
-}
-.cta-green:hover{background:rgba(126,200,126,.12);transform:translateY(-2px);}
-
-.cta-ghost{
-  background:rgba(255,255,255,.03);
-  border:1px solid var(--border-gold);
-  color:var(--gold-light);
-}
-.cta-ghost:hover{background:rgba(201,169,110,.08);transform:translateY(-2px);}
-
-.cta-footer{
-  margin-top:18px;
-  font-size:12px;color:var(--gray-dark);
-  text-align:center;line-height:1.6;
-}
-.cta-footer a{color:var(--gold-dark);text-decoration:none;}
-
-/* ─── BADGE DE TEMA ──────────────────────────────────────────────────── */
-.topic-badge{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:7px 16px;
-  border-radius:999px;
-  background:rgba(201,169,110,.07);
-  border:1px solid var(--border-gold);
-  font-size:11px;font-weight:700;
-  color:var(--gold);letter-spacing:.07em;text-transform:uppercase;
-  margin-bottom:18px;
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--gold-bg);
+  border: 1px solid var(--gold-border);
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 20px;
 }
 
-/* ─── ORB DECORATIVO ─────────────────────────────────────────────────── */
-.orb{
-  position:absolute;
-  width:320px;height:320px;
-  top:50%;left:50%;
-  transform:translate(-50%,-50%);
-  z-index:0;pointer-events:none;
-}
-.orb .ring{
-  position:absolute;border-radius:50%;
-  top:50%;left:50%;
-  transform:translate(-50%,-50%);
-  border:1px solid rgba(201,169,110,.07);
-  animation:pulse 5s ease-in-out infinite;
-}
-.orb .ring:nth-child(1){width:70px;height:70px;}
-.orb .ring:nth-child(2){width:150px;height:150px;animation-delay:.7s;border-color:rgba(255,255,255,.03);}
-.orb .ring:nth-child(3){width:240px;height:240px;animation-delay:1.4s;}
-.orb .ring:nth-child(4){width:320px;height:320px;animation-delay:2.1s;border-color:rgba(255,255,255,.02);}
-@keyframes pulse{
-  0%,100%{opacity:.2;transform:translate(-50%,-50%) scale(1)}
-  50%{opacity:.5;transform:translate(-50%,-50%) scale(1.03)}
+.hero-tag svg {
+  width: 12px; height: 12px;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 2;
 }
 
-/* ─── BOTTOM NAV ─────────────────────────────────────────────────────── */
-.bottom-nav{
-  position:fixed;bottom:0;left:0;right:0;z-index:200;
-  height:64px;
-  background:rgba(15,16,18,.97);
-  border-top:1px solid var(--border);
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 16px;
-  backdrop-filter:blur(12px);
-  gap:12px;
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 7vw, 44px);
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--text);
+  margin-bottom: 16px;
+  letter-spacing: -.02em;
 }
 
-/* Indicadores centrais */
-.nav-dots{
-  display:flex;gap:3px;align-items:center;
-  flex:1;justify-content:center;
-  overflow:hidden;
-  padding:0 8px;
-}
-.nav-dot{
-  width:6px;height:6px;border-radius:50%;
-  background:rgba(255,255,255,.1);
-  transition:all .35s ease;
-  cursor:pointer;flex-shrink:0;
-}
-.nav-dot.active{
-  background:var(--gold);
-  box-shadow:0 0 8px rgba(201,169,110,.4);
-  width:20px;border-radius:3px;
+.hero-title em {
+  font-style: italic;
+  color: var(--gold);
 }
 
-/* Botões nav */
-.nav-btn{
-  width:48px;height:40px;
-  border-radius:11px;
-  background:var(--surface-2);
-  border:1px solid var(--border);
-  color:var(--white-soft);
-  display:flex;align-items:center;justify-content:center;
-  cursor:pointer;
-  transition:all .2s;
-  flex-shrink:0;
-}
-.nav-btn:hover,.nav-btn:active{
-  background:rgba(201,169,110,.1);
-  border-color:var(--border-gold);
-  color:var(--gold);
-}
-.nav-btn:disabled{opacity:.25;cursor:default;}
-.nav-btn svg{width:18px;height:18px;}
-
-/* ─── WPP FLOAT ──────────────────────────────────────────────────────── */
-.wpp-float{
-  position:fixed;bottom:76px;right:16px;z-index:199;
-  width:52px;height:52px;border-radius:50%;
-  background:linear-gradient(145deg,#25D366,#128C7E);
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 6px 24px rgba(37,211,102,.25);
-  cursor:pointer;border:none;
-  transition:transform .3s,box-shadow .3s;
-  text-decoration:none;
-}
-.wpp-float:hover{transform:scale(1.1);box-shadow:0 10px 32px rgba(37,211,102,.35);}
-.wpp-float svg{width:26px;height:26px;color:#fff;}
-.wpp-pulse{
-  position:absolute;top:-3px;right:-3px;
-  width:14px;height:14px;
-  border-radius:50%;
-  background:#FF4444;
-  border:2px solid #111;
+.hero-subtitle {
+  font-size: 17px;
+  color: var(--text-soft);
+  line-height: 1.65;
+  margin-bottom: 24px;
+  max-width: 560px;
 }
 
-/* ─── ANIMAÇÕES DE ENTRADA ───────────────────────────────────────────── */
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(28px)}
-  to{opacity:1;transform:translateY(0)}
-}
-@keyframes fadeIn{
-  from{opacity:0;transform:scale(.92)}
-  to{opacity:1;transform:scale(1)}
-}
-.slide.active .au{animation:fadeUp .6s ease both;}
-.slide.active .ai{animation:fadeIn .6s ease both;}
-.d1{animation-delay:.08s!important}
-.d2{animation-delay:.18s!important}
-.d3{animation-delay:.28s!important}
-.d4{animation-delay:.40s!important}
-.d5{animation-delay:.52s!important}
-.d6{animation-delay:.64s!important}
-
-/* ─── RESPONSIVE: DESKTOP ────────────────────────────────────────────── */
-@media(min-width:768px){
-  .topbar{height:60px;}.topbar img{height:32px;}
-  .back-btn{height:60px;}
-  .slide-counter{height:60px;}
-  .progress-bar{top:60px;}
-  .sc{max-width:600px;}
-  h1.hero{font-size:clamp(36px,5vw,52px);}
-  h2.title{font-size:clamp(28px,4vw,38px);}
-  .subtitle{font-size:17px;}
-  .card,.card-gold{padding:28px;}
-  .big-emoji{font-size:64px;}
-  .ben-grid{grid-template-columns:repeat(3,1fr);}
-  .cta-btn{font-size:16px;padding:19px 28px;}
-  .wpp-float{width:58px;height:58px;bottom:80px;}
-  .bottom-nav{height:68px;}
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
-/* ─── RESPONSIVE: MOBILE PEQUENO (< 380px) ───────────────────────────── */
-@media(max-width:380px){
-  .slide{padding:64px 14px 72px;}
-  h1.hero{font-size:24px;}
-  h2.title{font-size:20px;}
-  .subtitle{font-size:14px;}
-  .big-emoji{font-size:42px;}
-  .ben-grid{grid-template-columns:1fr 1fr;}
-  .ben-item{padding:12px 10px;}
-  .feature-item{padding:12px;}
-  .fi-icon{width:36px;height:36px;min-width:36px;border-radius:10px;}
-  .fi-icon svg{width:17px;height:17px;}
-  .fi-title{font-size:14px;}
-  .fi-desc{font-size:12px;}
-  .info-row{padding:12px 16px;}
-  .cta-btn{font-size:14px;padding:15px 16px;}
-  .sim-value.result,.sim-value.credit{font-size:19px;}
-  .alert p{font-size:13px;}
-  .tl-title{font-size:14px;}
-  .vs-card p{font-size:13px;}
+.hero-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.hero-meta-item svg {
+  width: 14px; height: 14px;
+  stroke: var(--text-muted);
+  fill: none;
+  stroke-width: 2;
+}
+
+.hero-meta-sep {
+  width: 3px; height: 3px;
+  background: var(--text-muted);
+  border-radius: 50%;
+}
+
+/* ══════════════════════════════════════════
+   ÍNDICE / SUMÁRIO
+══════════════════════════════════════════ */
+.summary {
+  background: var(--bg-card);
+  border: 1px solid var(--gold-border);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  margin-bottom: 56px;
+  box-shadow: var(--shadow-sm);
+}
+
+.summary-title {
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.summary-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.summary-list li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text-soft);
+  font-size: 14px;
+  font-weight: 500;
+  transition: color .2s;
+}
+
+.summary-list li a:hover { color: var(--gold); }
+
+.summary-num {
+  width: 22px; height: 22px;
+  background: var(--gold-bg);
+  border: 1px solid var(--gold-border);
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════════
+   SEÇÕES
+══════════════════════════════════════════ */
+.section {
+  margin-bottom: 64px;
+  scroll-margin-top: 80px;
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.section-label::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 5vw, 32px);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 12px;
+  letter-spacing: -.01em;
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.section-body {
+  font-size: 15px;
+  color: var(--text-soft);
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+
+.section-body strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ══════════════════════════════════════════
+   ÂNCORA VISUAL (NÚMERO/DADO GRANDE)
+══════════════════════════════════════════ */
+.anchor-block {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin: 24px 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.anchor-number {
+  font-family: var(--font-serif);
+  font-size: clamp(48px, 12vw, 72px);
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.anchor-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.anchor-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.anchor-sub {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ══════════════════════════════════════════
+   CARDS
+══════════════════════════════════════════ */
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(28,26,23,.06);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+@media (max-width: 420px) {
+  .card-grid { grid-template-columns: 1fr; }
+}
+
+.card-icon {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+
+.card-icon.gold { background: var(--gold-bg); }
+.card-icon.green { background: var(--green-bg); }
+.card-icon.red { background: var(--red-bg); }
+.card-icon.blue { background: var(--blue-bg); }
+
+.card-icon svg {
+  width: 20px; height: 20px;
+  fill: none;
+  stroke-width: 2;
+}
+
+.card-icon.gold svg { stroke: var(--gold); }
+.card-icon.green svg { stroke: var(--green); }
+.card-icon.red svg { stroke: var(--red); }
+.card-icon.blue svg { stroke: var(--blue); }
+
+.card-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 5px;
+  line-height: 1.3;
+}
+
+.card-desc {
+  font-size: 13px;
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+
+/* ══════════════════════════════════════════
+   ALERTAS
+══════════════════════════════════════════ */
+.alert {
+  display: flex;
+  gap: 12px;
+  padding: 16px 18px;
+  border-radius: var(--radius-sm);
+  margin: 20px 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.alert svg {
+  width: 18px; height: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  fill: none;
+  stroke-width: 2;
+}
+
+.alert strong { font-weight: 700; }
+
+.alert.warn {
+  background: var(--gold-bg);
+  border: 1px solid var(--gold-border);
+  color: #7A5C1E;
+}
+.alert.warn svg { stroke: var(--gold); }
+
+.alert.danger {
+  background: var(--red-bg);
+  border: 1px solid var(--red-border);
+  color: #8B2020;
+}
+.alert.danger svg { stroke: var(--red); }
+
+.alert.success {
+  background: var(--green-bg);
+  border: 1px solid var(--green-border);
+  color: #1D5E3A;
+}
+.alert.success svg { stroke: var(--green); }
+
+.alert.info {
+  background: var(--blue-bg);
+  border: 1px solid var(--blue-border);
+  color: #12446A;
+}
+.alert.info svg { stroke: var(--blue); }
+
+/* ══════════════════════════════════════════
+   COMPARATIVO VS
+══════════════════════════════════════════ */
+.vs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+@media (max-width: 420px) {
+  .vs-grid { grid-template-columns: 1fr; }
+}
+
+.vs-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  box-shadow: var(--shadow-sm);
+}
+
+.vs-card.a { border-top: 3px solid var(--gold); }
+.vs-card.b { border-top: 3px solid var(--green); }
+
+.vs-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.vs-card.a .vs-badge { background: var(--gold-bg); color: var(--gold); }
+.vs-card.b .vs-badge { background: var(--green-bg); color: var(--green); }
+
+.vs-card p {
+  font-size: 13px;
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+
+.vs-card strong { color: var(--text); font-weight: 600; }
+
+/* ══════════════════════════════════════════
+   SIMULAÇÃO / TABELA
+══════════════════════════════════════════ */
+.sim-box {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  margin: 24px 0;
+  border: 1px solid rgba(28,26,23,.06);
+}
+
+.sim-header {
+  background: var(--text);
+  padding: 14px 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+
+.sim-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--bg-alt);
+}
+
+.sim-row:last-child { border-bottom: none; }
+
+.sim-row-label {
+  font-size: 14px;
+  color: var(--text-soft);
+}
+
+.sim-row-value {
+  font-size: 15px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.sim-row-value.neutral { color: var(--text); }
+.sim-row-value.minus   { color: var(--red); }
+.sim-row-value.result  { color: var(--green); }
+.sim-row-value.credit  { color: var(--blue); }
+
+.sim-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-border), transparent);
+  margin: 0;
+}
+
+.sim-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px;
+  background: var(--gold-bg);
+}
+
+.sim-total-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.sim-total-value {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--green);
+}
+
+/* ══════════════════════════════════════════
+   TIMELINE
+══════════════════════════════════════════ */
+.timeline {
+  position: relative;
+  margin: 24px 0;
+  padding-left: 20px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 24px;
+  bottom: 24px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--gold-border), var(--bg-alt));
+}
+
+.tl-item {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.tl-item:last-child { margin-bottom: 0; }
+
+.tl-dot {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  border: 2px solid transparent;
+}
+
+.tl-dot.d1 { background: var(--gold-bg);  color: var(--gold);  border-color: var(--gold-border); }
+.tl-dot.d2 { background: var(--blue-bg);  color: var(--blue);  border-color: var(--blue-border); }
+.tl-dot.d3 { background: var(--gold-bg);  color: var(--gold);  border-color: var(--gold-border); }
+.tl-dot.d4 { background: var(--green-bg); color: var(--green); border-color: var(--green-border);}
+
+.tl-body {
+  padding-top: 4px;
+  flex: 1;
+}
+
+.tl-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.tl-desc {
+  font-size: 13px;
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+
+.tl-tag {
+  display: inline-block;
+  background: var(--gold-bg);
+  border: 1px solid var(--gold-border);
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-top: 8px;
+}
+
+/* ══════════════════════════════════════════
+   DIVISOR DE SEÇÃO
+══════════════════════════════════════════ */
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 48px 0;
+}
+
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--gold-border);
+}
+
+.section-divider-icon {
+  width: 28px; height: 28px;
+  background: var(--gold-bg);
+  border: 1px solid var(--gold-border);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px;
+}
+
+/* ══════════════════════════════════════════
+   QUOTE / DESTAQUE EDITORIAL
+══════════════════════════════════════════ */
+.pull-quote {
+  border-left: 4px solid var(--gold);
+  padding: 16px 20px;
+  margin: 28px 0;
+  background: var(--gold-bg);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.pull-quote p {
+  font-family: var(--font-serif);
+  font-size: clamp(16px, 4vw, 20px);
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.pull-quote span {
+  display: block;
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--text-muted);
+  font-style: normal;
+  font-family: var(--font-sans);
+}
+
+/* ══════════════════════════════════════════
+   RESUMO FINAL
+══════════════════════════════════════════ */
+.recap-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+@media (max-width: 420px) {
+  .recap-grid { grid-template-columns: 1fr; }
+}
+
+.recap-item {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(28,26,23,.06);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.recap-emoji {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.recap-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.recap-desc {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+/* ══════════════════════════════════════════
+   CTA FINAL
+══════════════════════════════════════════ */
+.cta-section {
+  background: var(--text);
+  border-radius: var(--radius-lg);
+  padding: 36px 24px;
+  text-align: center;
+  margin: 48px 0 0;
+}
+
+.cta-section-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 12px;
+}
+
+.cta-section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 6vw, 32px);
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.cta-section-title em {
+  font-style: italic;
+  color: var(--gold-light);
+}
+
+.cta-section-sub {
+  font-size: 14px;
+  color: rgba(255,255,255,.65);
+  margin-bottom: 28px;
+  line-height: 1.65;
+}
+
+.cta-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #25D366;
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 14px 28px;
+  border-radius: 50px;
+  width: 100%;
+  max-width: 360px;
+  transition: opacity .2s, transform .15s;
+  box-shadow: 0 4px 16px rgba(37,211,102,.35);
+}
+
+.cta-btn-primary:hover { opacity: .9; transform: translateY(-1px); }
+.cta-btn-primary svg { width: 18px; height: 18px; fill: #fff; flex-shrink: 0; }
+
+.cta-share-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  font-size: 13px;
+  color: rgba(255,255,255,.5);
+  text-decoration: none;
+  transition: color .2s;
+}
+
+.cta-share-link:hover { color: var(--gold-light); }
+.cta-share-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+.cta-footer {
+  margin-top: 20px;
+  font-size: 12px;
+  color: rgba(255,255,255,.35);
+  line-height: 1.6;
+}
+
+/* ══════════════════════════════════════════
+   SCROLL REVEAL
+══════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .5s ease, transform .5s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVO
+══════════════════════════════════════════ */
+@media (max-width: 480px) {
+  .article { padding: 0 16px 80px; }
+  .hero { padding: 32px 0 28px; }
+  .anchor-block { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .anchor-number { font-size: 56px; }
 }
 </style>
 </head>
 <body>
 
-<!-- ─── TOPBAR ─── -->
-<div class="topbar">
-  <img src="../logo.png" alt="Domínio Farma Contabilidade">
-</div>
-<a href="../index.html" class="back-btn" aria-label="Voltar">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-  Voltar
-</a>
-<div class="slide-counter"><span id="cn">1</span>&thinsp;/&thinsp;16</div>
+<!-- BARRA DE PROGRESSO -->
+<div id="progress-bar"></div>
 
-<!-- ─── BARRA DE PROGRESSO ─── -->
-<div class="progress-bar"><div class="progress-fill" id="prog"></div></div>
+<!-- TOPBAR -->
+<header class="topbar">
+  <a class="topbar-logo" href="#">
+    <div class="topbar-logo-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+        <path d="M2 17l10 5 10-5"/>
+        <path d="M2 12l10 5 10-5"/>
+      </svg>
+    </div>
+    <div class="topbar-logo-text">
+      Domínio Farma
+      <span>Contabilidade</span>
+    </div>
+  </a>
 
-<!-- ─── WPP FLUTUANTE ─── -->
-<a class="wpp-float" id="wppFloat" aria-label="Falar no WhatsApp" target="_blank">
-  <svg viewBox="0 0 24 24" fill="currentColor">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-  </svg>
-  <div class="wpp-pulse"></div>
-</a>
+  <a class="topbar-share" id="topbarShare" href="#" target="_blank">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Compartilhar
+  </a>
+</header>
 
-<!-- ─── SLIDES ─── -->
-<div class="presentation">
-<div class="slides" id="sw">
+<!-- ARTIGO -->
+<main class="article">
 
-<!-- ══════════════════════════════════════════════════════════
-     SLIDE 1 — CAPA
-     ══════════════════════════════════════════════════════════ -->
-<section class="slide active">
-  <div class="orb">
-    <div class="ring"></div><div class="ring"></div>
-    <div class="ring"></div><div class="ring"></div>
-  </div>
-  <div class="sc center">
-    <div class="topic-badge au d1">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-      Guia Para o Empresário
+  <!-- ═══ HERO ═══ -->
+  <section class="hero reveal">
+    <div class="hero-tag">
+      <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      Direito Trabalhista
     </div>
 
-    <h1 class="hero au d2">
-      Minha funcionária está <span class="gt">grávida.</span><br>E agora?
+    <h1 class="hero-title">
+      Licença Maternidade:<br>
+      <em>tudo que o empresário</em><br>
+      precisa saber
     </h1>
 
-    <p class="subtitle au d3" style="margin-bottom:0;font-size:16px;">
-      Tudo que você precisa saber sobre estabilidade, licença-maternidade e como sua empresa <strong>recupera o dinheiro.</strong>
+    <p class="hero-subtitle">
+      Da estabilidade garantida até como recuperar o dinheiro pelo INSS —
+      sem juridiquês, sem enrolação.
     </p>
 
-    <div class="info-card au d4">
-      <div class="info-row">
-        <span class="info-row-emoji">⏱️</span>
-        <div>
-          <span class="info-row-label">Tempo de leitura</span>
-          <span class="info-row-text">5 minutos</span>
-        </div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        5 min de leitura
       </div>
-      <div class="info-row">
-        <span class="info-row-emoji">🎯</span>
-        <div>
-          <span class="info-row-label">O que vai aprender</span>
-          <span class="info-row-text">Estabilidade, consultas, quem paga a licença e como recuperar o valor.</span>
-        </div>
+      <div class="hero-meta-sep"></div>
+      <div class="hero-meta-item">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        Para empresários e gestores
       </div>
-      <div class="info-row">
-        <span class="info-row-emoji">🛡️</span>
-        <div>
-          <span class="info-row-label">O que você evita</span>
-          <span class="info-row-text">Demissões irregulares, multas trabalhistas e perda de dinheiro.</span>
-        </div>
+      <div class="hero-meta-sep"></div>
+      <div class="hero-meta-item">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        CLT · INSS · Folha de Pagamento
       </div>
     </div>
+  </section>
 
-    <div class="au d5" style="margin-top:24px;display:flex;justify-content:center;align-items:center;gap:8px;">
-      <div style="width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s ease-in-out infinite;"></div>
-      <span style="font-size:13px;color:var(--gray);">Use as setas ou deslize para navegar</span>
-    </div>
-  </div>
-</section>
+  <!-- ═══ SUMÁRIO ═══ -->
+  <nav class="summary reveal">
+    <p class="summary-title">Neste artigo</p>
+    <ul class="summary-list">
+      <li><a href="#estabilidade"><div class="summary-num">1</div>Estabilidade da gestante</a></li>
+      <li><a href="#consultas"><div class="summary-num">2</div>Direito às consultas de pré-natal</a></li>
+      <li><a href="#quempaga"><div class="summary-num">3</div>Quem paga o salário na licença?</a></li>
+      <li><a href="#recupera"><div class="summary-num">4</div>Como a empresa recupera o dinheiro</a></li>
+      <li><a href="#reembolso"><div class="summary-num">5</div>Pedido de reembolso e prazos</a></li>
+      <li><a href="#convencao"><div class="summary-num">6</div>Atenção à Convenção Coletiva</a></li>
+      <li><a href="#resumo"><div class="summary-num">7</div>Resumo rápido</a></li>
+    </ul>
+  </nav>
 
-<!-- ══════════════════════════════════════════════════════════
-     SLIDE 2 — CALMA
-     ══════════════════════════════════════════════════════════ -->
-<section class="slide">
-  <div class="sc center">
-    <span class="big-emoji au d1">✋</span>
-    <h2 class="title au d2">Calma, <span class="gt">empreendedor!</span></h2>
-        <p class="subtitle au d3" style="text-align:center;">
-      É super normal ter essa dúvida. Existem regras para <strong>agora (antes do parto)</strong> e para a <strong>época da licença.</strong>
+  <!-- ═══════════════════════════════════════
+       SEÇÃO 1 — ESTABILIDADE
+  ═══════════════════════════════════════ -->
+  <section class="section reveal" id="estabilidade">
+    <p class="section-label">01 — Estabilidade</p>
+    <h2 class="section-title">A gestante não pode<br>ser <em>demitida.</em> Ponto.</h2>
+
+    <p class="section-body">
+      A partir da <strong>confirmação da gravidez</strong>, a funcionária passa a ter estabilidade provisória garantida pela Constituição Federal e pela CLT. Isso significa que ela <strong>não pode ser demitida sem justa causa</strong> durante todo esse período.
     </p>
 
-    <div class="card-gold au d4" style="margin-top:18px;text-align:center;">
-      <p style="font-size:16px;color:var(--white);font-weight:600;line-height:1.6;margin:0;">
-        A <span class="gt">Domínio Farma Contabilidade</span> preparou este guia completo para você entender como funciona e como a sua empresa
-        <strong style="color:var(--green);">recupera esse dinheiro.</strong>
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════════════
-     SLIDE 3 — ESTABILIDADE
-     ══════════════════════════════════════════════════════════ -->
-<section class="slide">
-  <div class="sc">
-    <div class="gold-line au d1"></div>
-    <div class="slide-label au d1"><div class="dot-label"></div>Direito Trabalhista</div>
-    <h2 class="title au d2">O primeiro ponto é a <span class="gt">Estabilidade!</span></h2>
-    <p class="subtitle au d3">
-      A partir do momento em que a gravidez começa, a funcionária tem <strong>estabilidade garantida por lei.</strong>
-    </p>
-
-    <div class="card-gold au d4" style="margin-top:16px;display:flex;gap:16px;align-items:flex-start;">
-      <div class="fi-icon gold" style="margin-top:2px;">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      </div>
-      <div>
-        <p style="font-size:16px;color:var(--white);font-weight:700;margin-bottom:6px;line-height:1.3;">
-          Ela não pode ser demitida sem justa causa
-        </p>
-        <p style="font-size:14px;color:var(--white-soft);margin:0;line-height:1.6;">
-          Desde a <strong style="color:var(--gold);">confirmação da gravidez</strong> até <strong style="color:var(--gold);">5 meses após o parto.</strong>
-        </p>
+    <div class="anchor-block">
+      <div class="anchor-number">5</div>
+      <div class="anchor-text">
+        <span class="anchor-label">meses após o parto</span>
+        <span class="anchor-sub">É o prazo total de proteção — da confirmação da gravidez até 5 meses depois do nascimento.</span>
       </div>
     </div>
 
-    <div class="alert danger au d5">
-      <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
-        <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
-      </svg>
-      <p>A demissão durante esse período é <strong>nula</strong> e gera reintegração ou indenização pesada. Não arrisque!</p>
+    <div class="alert danger">
+      <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <p>Demitir a gestante nesse período é <strong>nulo de pleno direito.</strong> A consequência é reintegração ao emprego ou pagamento de indenização referente a todo o período de estabilidade restante.</p>
     </div>
-  </div>
-</section>
 
-<!-- ══════════════════════════════════════════════════════════
-     SLIDE 4 — CONTRATO DE EXPERIÊNCIA
-     ══════════════════════════════════════════════════════════ -->
-<section class="slide">
-  <div class="sc center">
-    <span class="big-emoji au d1">📋</span>
-    <h2 class="title au d2">E se ela estiver no <span class="gt">Contrato de Experiência?</span></h2>
-    <p class="subtitle au d3" style="text-align:center;">
-      A regra é a mesma! O Tribunal Superior do Trabalho (TST) garante que a
-      <strong>estabilidade provisória da gestante</strong> vale inclusive para contratos de experiência.
+    <div class="pull-quote">
+      <p>"Mas ela está no contrato de experiência — posso encerrar quando acabar o prazo?"</p>
+      <span>— Dúvida muito comum entre empregadores</span>
+    </div>
+
+    <p class="section-body">
+      <strong>Não.</strong> O Tribunal Superior do Trabalho (TST) é claro: a estabilidade provisória da gestante vale mesmo no contrato de experiência. Se ela engravidar durante a experiência, o contrato <strong>não pode ser encerrado na data prevista.</strong> A proteção prevalece.
     </p>
 
-    <div class="alert info au d4">
-      <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/>
-        <line x1="12" y1="16" x2="12.01" y2="16"/>
-      </svg>
-      <p>Se ela engravidar durante a experiência, <strong>o contrato não pode ser encerrado na data final prevista.</strong> A estabilidade deve ser respeitada para proteger a mãe e o bebê!</p>
+    <div class="alert info">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <p>A estabilidade começa a contar <strong>a partir da confirmação da gravidez</strong> — não da comunicação à empresa. Mesmo que a funcionária ainda não tenha avisado, o direito já existe.</p>
     </div>
+  </section>
 
-    <div class="highlight-box au d5" style="margin-top:16px;">
-      <div class="hl-num gt">5 meses</div>
-      <div class="hl-label">de estabilidade garantida após o parto — mesmo no contrato de experiência</div>
-    </div>
-  </div>
-</section>
+  <div class="section-divider reveal"><div class="section-divider-icon">🤰</div></div>
 
-<!-- ══════════════════════════════════════════════════════════
-     SLIDE 5 — CONSULTAS MÉDICAS
-     ══════════════════════════════════════════════════════════ -->
-<section class="slide">
-  <div class="sc">
-    <div class="gold-line au d1"></div>
-    <div class="slide-label au d1"><div class="dot-label"></div>Pré-Natal</div>
-    <h2 class="title au d2">Direito às <span class="gt">Consultas</span> Médicas</h2>
-    <p class="subtitle au d3">
-      A gestante tem direito a se ausentar para, no mínimo,
-      <strong>seis consultas médicas e exames de pré-natal</strong> sem nenhum desconto no salário.
+  <!-- ═══════════════════════════════════════
+       SEÇÃO 2 — CONSULTAS
+  ═══════════════════════════════════════ -->
+  <section class="section reveal" id="consultas">
+    <p class="section-label">02 — Pré-Natal</p>
+    <h2 class="section-title">Direito às consultas<br>médicas <em>sem desconto.</em></h2>
+
+    <p class="section-body">
+      A legislação garante que a gestante pode se ausentar do trabalho para realização do pré-natal sem qualquer desconto no salário. O único requisito é a apresentação do atestado médico.
     </p>
 
-    <div class="highlight-box ai d4" style="margin-top:16px;">
-      <div class="hl-num gt">6</div>
-      <div class="hl-label">consultas mínimas garantidas por lei, sem desconto</div>
-    </div>
-
-    <div class="feature-list au d5">
-      <div class="feature-item">
-        <div class="fi-icon gold">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
-            <polyline points="14 2 14 8 20 8"/>
-          </svg>
-        </div>
-        <div>
-          <p class="fi-title">Atestado obrigatório</p>
-          <p class="fi-desc">Para evitar qualquer desconto, a funcionária deve apresentar o atestado de comparecimento emitido pelo médico ou enfermeiro.</p>
-        </div>
+    <div class="anchor-block">
+      <div class="anchor-number">6</div>
+      <div class="anchor-text">
+        <span class="anchor-label">consultas mínimas garantidas</span>
+        <span class="anchor-sub">Sem desconto, sem compensação de horário, sem custo para a funcionária.</span>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ══════════════════════════════════════════════════════════
-     SLIDE 6 — CÔNJUGE
-     ══════════════════════════════════════════════════════════ -->
-<section class="slide">
-  <div class="sc center">
-    <span class="big-emoji au d1">👨‍👩‍👧</span>
-    <h2 class="title au d2">E o <span class="gt">cônjuge?</span></h2>
-    <p class="subtitle au d3" style="text-align:center;">
-      O cônjuge ou companheiro também tem direito a faltar para acompanhar a gestante em até
-      <strong style="color:var(--gold);">6 consultas,</strong> sem desconto no salário.
-    </p>
-
-    <div class="vs-wrap au d4">
+    <div class="vs-grid">
       <div class="vs-card a">
-        <div class="vs-card-head">
-          <span class="vs-badge">Ela</span>
-        </div>
-        <p>Pode se ausentar para <strong>6 consultas de pré-natal</strong> sem desconto, mediante atestado médico.</p>
+        <span class="vs-badge">👩 Ela</span>
+        <p>Pode se ausentar para <strong>6 consultas de pré-natal</strong> sem qualquer desconto, mediante atestado médico.</p>
       </div>
       <div class="vs-card b">
-        <div class="vs-card-head">
-          <span class="vs-badge">Ele</span>
-        </div>
-        <p>Também pode acompanhar em até <strong>6 consultas,</strong> sem desconto — dispensa remunerada garantida em lei.</p>
+        <span class="vs-badge">👨 Cônjuge</span>
+        <p>O companheiro também pode acompanhar em até <strong>6 consultas,</strong> com a mesma dispensa remunerada.</p>
       </div>
     </div>
 
-    <div class="alert success au d5">
-      <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <polyline points="20 6 9 17 4 12"/>
-      </svg>
-      <p>Essa dispensa remunerada permite que ela e o parceiro façam o acompanhamento necessário com <strong>total tranquilidade.</strong></p>
+    <div class="alert warn">
+      <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <p><strong>Exija sempre o atestado.</strong> Sem o comprovante médico, a ausência pode ser tratada como falta injustificada. Oriente sua equipe de RH sobre esse procedimento.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ══════════════════════════════════════════════════════════
-     SLIDE 7 — CHEGOU A HORA
-     ══════════════════════════════════════════════════════════ -->
-<section class="slide">
-  <div class="sc center">
-    <span class="big-emoji au d1">🍼</span>
-    <h2 class="title au d2">Chegou a hora!<br>E o atestado de <span class="gt">120 dias?</span></h2>
-    <p class="subtitle au d3" style="text-align:center;">
-      A funcionária entregou o atestado de afastamento para ter o bebê (licença-maternidade).
+  <div class="section-divider reveal"><div class="section-divider-icon">🍼</div></div>
+
+  <!-- ═══════════════════════════════════════
+       SEÇÃO 3 — QUEM PAGA
+  ═══════════════════════════════════════ -->
+  <section class="section reveal" id="quempaga">
+    <p class="section-label">03 — Licença Maternidade</p>
+    <h2 class="section-title"><em>Quem paga</em> o salário<br>nos 120 dias de licença?</h2>
+
+    <p class="section-body">
+      Quando a funcionária entrega o atestado de afastamento, nasce uma dúvida muito comum: <strong>a empresa continua pagando?</strong> A resposta depende do tipo de vínculo.
     </p>
 
-    <div class="card-gold ai d4" style="margin-top:18px;text-align:center;">
-      <p style="font-size:14px;color:var(--gray);margin-bottom:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;">
-        A maior dúvida dos empreendedores
-      </p>
-      <p style="font-size:clamp(18px,5vw,22px);color:var(--gold);font-weight:900;line-height:1.3;margin:0;">
-        Quem paga o salário dela<br>nesses 4 meses?
-      </p>
-    </div>
-
-    <div class="alert warn au d5" style="margin-top:14px;">
-      <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <circle cx="12" cy="12" r="10"/>
-        <line x1="12" y1="8" x2="12" y2="12"/>
-        <line x1="12" y1="16" x2="12.01" y2="16"/>
-      </svg>
-      <p>A resposta depende do <strong>tipo de contrato.</strong> No próximo slide você entende tudo!</p>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════════════
-     SLIDE 8 — CONTINUO PAGANDO?
-     ══════════════════════════════════════════════════════════ -->
-<section class="slide">
-  <div class="sc">
-    <div class="gold-line au d1"></div>
-    <div class="slide-label au d1"><div class="dot-label"></div>Quem Paga?</div>
-    <h2 class="title au d2">Continuo pagando o <span class="gt">salário?</span></h2>
-    <p class="subtitle au d3">
-      <strong style="color:var(--green);font-size:18px;">SIM!</strong> Se a funcionária for CLT, a responsabilidade do depósito mensal
-      <strong>continua sendo da sua empresa,</strong> no dia e valor normais.
-    </p>
-
-    <div class="vs-wrap au d4">
+    <div class="vs-grid">
       <div class="vs-card a">
-        <div class="vs-card-head"><span class="vs-badge">👩‍💼 Funcionária CLT</span></div>
-        <p>A empresa <strong>adianta o pagamento</strong> e o INSS devolve esse dinheiro ao caixa da empresa depois.</p>
+        <span class="vs-badge">👩‍💼 CLT</span>
+        <p>A <strong>empresa deposita</strong> normalmente na data de sempre. Depois recupera via compensação ou reembolso do INSS.</p>
       </div>
       <div class="vs-card b">
-        <div class="vs-card-head"><span class="vs-badge">📋 MEI / Autônoma / Doméstica</span></div>
-        <p>O <strong>INSS paga direto</strong> para a mãe. Sem custo para a empresa.</p>
+        <span class="vs-badge">📋 MEI / Autônoma</span>
+        <p>O <strong>INSS paga diretamente</strong> para a mãe. Nenhum custo adicional para a empresa.</p>
       </div>
     </div>
 
-    <div class="alert success au d5">
-      <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <polyline points="20 6 9 17 4 12"/>
-      </svg>
-      <p><strong>Fique tranquilo!</strong> Para CLT, a empresa adianta e o INSS devolve. Você não perde o dinheiro!</p>
+    <div class="alert success">
+      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      <p>Para CLT: <strong>a empresa adianta, o INSS devolve.</strong> Você não perde o dinheiro — apenas financia temporariamente. Nos próximos tópicos mostramos exatamente como isso funciona.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ══════════════════════════════════════════════════════════
-     SLIDE 9 — COMO RECUPERA
-     ══════════════════════════════════════════════════════════ -->
-<section class="slide">
-  <div class="sc">
-    <div class="gold-line au d1"></div>
-    <div class="slide-label au d1"><div class="dot-label"></div>Compensação</div>
-    <h2 class="title au d2">Como a empresa <span class="gt">recupera</span> esse dinheiro?</h2>
-    <p class="subtitle au d3">
-      Por meio de <strong>Compensação!</strong> Ao fechar a folha, a <strong style="color:var(--gold);">Domínio Farma</strong> abate o salário-maternidade pago dos impostos do INSS do mês.
+  <div class="section-divider reveal"><div class="section-divider-icon">💰</div></div>
+
+  <!-- ═══════════════════════════════════════
+       SEÇÃO 4 — COMO RECUPERA
+  ═══════════════════════════════════════ -->
+  <section class="section reveal" id="recupera">
+    <p class="section-label">04 — Compensação</p>
+    <h2 class="section-title">Como a empresa<br><em>recupera</em> esse dinheiro?</h2>
+
+    <p class="section-body">
+      O mecanismo se chama <strong>compensação previdenciária.</strong> Na hora de fechar a folha, o valor pago como salário-maternidade é abatido diretamente da guia do INSS do mês.
     </p>
 
-    <div class="flow au d4">
-      <div class="flow-step">
-        <div class="flow-icon" style="background:linear-gradient(145deg,var(--gold),var(--gold-dark));">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
-        </div>
-        <div>
-          <span class="flow-step-title">Você paga o salário</span>
-          <span class="flow-step-sub">Normalmente na folha de pagamento do mês</span>
-        </div>
-      </div>
-      <div class="flow-arrow">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-      </div>
-
-      <div class="flow-step">
-        <div class="flow-icon" style="background:var(--surface-3);border:1px solid var(--border-gold);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-        </div>
-        <div>
-          <span class="flow-step-title">Nós apuramos os valores</span>
-          <span class="flow-step-sub">Domínio Farma calcula tudo na folha</span>
-        </div>
-      </div>
-      <div class="flow-arrow">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-      </div>
-
-      <div class="flow-step">
-        <div class="flow-icon" style="background:linear-gradient(145deg,#404248,#2C2E34);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-        </div>
-        <div>
-          <span class="flow-step-title">Abatemos do INSS</span>
-          <span class="flow-step-sub">O valor é descontado da guia mensal</span>
-        </div>
-      </div>
-      <div class="flow-arrow">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-      </div>
-
-      <div class="flow-step" style="border-color:rgba(126,200,126,.2);background:var(--green-bg);">
-        <div class="flow-icon" style="background:linear-gradient(145deg,#5A9E5A,#3D7A3D);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        </div>
-        <div>
-          <span class="flow-step-title" style="color:var(--green);">💰 Dinheiro volta pro caixa!</span>
-          <span class="flow-step-sub">Compensação automática ou reembolso</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════════════
-     SLIDE 10 — SIMULAÇÃO
-     ══════════════════════════════════════════════════════════ -->
-<section class="slide">
-  <div class="sc">
-    <div class="gold-line center au d1"></div>
-    <div class="slide-label au d1" style="justify-content:center;"><div class="dot-label"></div>Exemplo Prático</div>
-    <h2 class="title au d2" style="text-align:center;"><span class="gt">Simulação</span> Prática</h2>
-    <p class="subtitle au d3" style="text-align:center;">Veja na prática como o dinheiro "volta" pro caixa:</p>
-
-    <div class="card au d4" style="margin-top:16px;">
-      <div class="sim-table">
-        <div class="sim-row">
-          <span class="sim-label">Imposto INSS do mês (DARF)</span>
-          <span class="sim-value neutral">R$ 3.000</span>
-        </div>
-        <div class="sim-row">
-          <span class="sim-label">Salário-maternidade pago</span>
-          <span class="sim-value minus">– R$ 2.000</span>
-        </div>
-        <div class="sim-divider"></div>
-        <div class="sim-row">
-          <span class="sim-total-label">Você paga apenas</span>
-          <span class="sim-value result">R$ 1.000</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="alert success au d5">
-      <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <polyline points="20 6 9 17 4 12"/>
-      </svg>
-      <p><strong>O abatimento é feito na hora!</strong> Sua empresa paga apenas R$ 1.000 de imposto no mês em vez de R$ 3.000.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════════════
-     SLIDE 11 — IMPOSTO MENOR QUE O SALÁRIO
-     ══════════════════════════════════════════════════════════ -->
-<section class="slide">
-  <div class="sc center">
-    <span class="big-emoji au d1">🤩</span>
-    <h2 class="title au d2">E se o imposto for <span class="gt">menor</span> que o salário?</h2>
-    <p class="subtitle au d3" style="text-align:center;">
-      <strong style="color:var(--green);">Você tem direito a reembolso!</strong> O crédito fica disponível para uso nos meses seguintes ou para saque.
-    </p>
-
-    <div class="card au d4" style="margin-top:16px;">
-      <div class="sim-table">
-        <div class="sim-row">
-          <span class="sim-label">Imposto INSS do mês</span>
-          <span class="sim-value neutral">R$ 500</span>
-        </div>
-        <div class="sim-row">
-          <span class="sim-label">Salário-maternidade pago</span>
-          <span class="sim-value minus">– R$ 2.000</span>
-        </div>
-        <div class="sim-row">
-          <span class="sim-label">Guia do mês</span>
-          <span class="sim-value result">R$ 0 ✓ zerada!</span>
-        </div>
-        <div class="sim-divider"></div>
-        <div class="sim-row">
-          <span class="sim-total-label">Crédito restante</span>
-          <span class="sim-value credit">R$ 1.500</span>
-        </div>
-      </div>
-    </div>
-
-    <p class="au d5" style="text-align:center;color:var(--white-soft);margin-top:16px;font-size:15px;">
-      Esse valor restante <strong style="color:var(--gold);">você pede de volta!</strong> Veja como no próximo slide.
-    </p>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════════════
-     SLIDE 12 — REEMBOLSO
-     ══════════════════════════════════════════════════════════ -->
-<section class="slide">
-  <div class="sc">
-    <div class="gold-line au d1"></div>
-    <div class="slide-label au d1"><div class="dot-label"></div>Reembolso</div>
-    <h2 class="title au d2">Como pedir o <span class="gt">reembolso</span> e quanto tempo demora?</h2>
-    <p class="subtitle au d3">
-      A Domínio Farma protocola o pedido na Receita Federal pelo sistema <strong>PER/DCOMP Web.</strong>
-    </p>
-
-    <div class="timeline au d4">
+    <div class="timeline">
       <div class="tl-item">
         <div class="tl-dot d1">1</div>
         <div class="tl-body">
-          <p class="tl-title">Apuração dos valores</p>
-          <p class="tl-desc">Consolidamos competência a competência o que foi pago na licença.</p>
+          <p class="tl-title">Você paga o salário normalmente</p>
+          <p class="tl-desc">Na data de sempre, no valor integral. O processo é transparente para a funcionária.</p>
         </div>
       </div>
       <div class="tl-item">
         <div class="tl-dot d2">2</div>
         <div class="tl-body">
-          <p class="tl-title">Pedido via PER/DCOMP</p>
-          <p class="tl-desc">Protocolamos o pedido no sistema oficial da Receita Federal.</p>
+          <p class="tl-title">A Domínio Farma apura os valores</p>
+          <p class="tl-desc">Calculamos o salário-maternidade competência a competência na folha de pagamento.</p>
         </div>
       </div>
       <div class="tl-item">
         <div class="tl-dot d3">3</div>
         <div class="tl-body">
-          <p class="tl-title">Análise da Receita</p>
-          <p class="tl-desc">Prazo legal para análise e aprovação do pedido.</p>
-          <span class="tl-tag">⏳ Até 360 dias (1 ano)</span>
+          <p class="tl-title">Abatemos do INSS do mês</p>
+          <p class="tl-desc">O valor pago é descontado diretamente da guia de recolhimento mensal da empresa.</p>
         </div>
       </div>
       <div class="tl-item">
         <div class="tl-dot d4">4</div>
         <div class="tl-body">
-          <p class="tl-title">Depósito na conta</p>
-          <p class="tl-desc">O valor aprovado é depositado diretamente na conta bancária da empresa.</p>
+          <p class="tl-title">O dinheiro volta pro caixa</p>
+          <p class="tl-desc">A compensação é imediata — você paga menos INSS no mês e o saldo se equaliza.</p>
         </div>
       </div>
     </div>
 
-    <div class="alert warn au d5">
-      <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-      </svg>
-      <p><strong>Organize o fluxo de caixa!</strong> A Receita tem até <strong>360 dias</strong> para analisar. Planeje-se para esse período.</p>
-    </div>
-  </div>
-</section>
+    <p class="section-label" style="margin-top:28px;margin-bottom:16px;">Exemplo prático</p>
 
-<!-- ══════════════════════════════════════════════════════════
-     SLIDE 13 — CONVENÇÃO COLETIVA
-     ══════════════════════════════════════════════════════════ -->
-<section class="slide">
-  <div class="sc center">
-    <span class="big-emoji au d1">⚠️</span>
-    <h2 class="title au d2">Atenção à <span class="gt">Convenção Coletiva!</span></h2>
-    <p class="subtitle au d3" style="text-align:center;">
-      A CLT é o mínimo garantido, mas a Convenção do sindicato da sua categoria
-      <strong>pode mudar essas regras!</strong>
+    <div class="sim-box">
+      <div class="sim-header">Simulação — Folha do Mês</div>
+      <div class="sim-row">
+        <span class="sim-row-label">Imposto INSS do mês (DARF)</span>
+        <span class="sim-row-value neutral">R$ 3.000</span>
+      </div>
+      <div class="sim-row">
+        <span class="sim-row-label">Salário-maternidade pago</span>
+        <span class="sim-row-value minus">− R$ 2.000</span>
+      </div>
+      <div class="sim-divider"></div>
+      <div class="sim-total">
+        <span class="sim-total-label">Você paga apenas</span>
+        <span class="sim-total-value">R$ 1.000</span>
+      </div>
+    </div>
+
+    <div class="alert success">
+      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      <p><strong>R$ 2.000 voltam automaticamente</strong> para o caixa da empresa via abatimento da guia. Sem burocracia adicional.</p>
+    </div>
+  </section>
+
+  <div class="section-divider reveal"><div class="section-divider-icon">📋</div></div>
+
+  <!-- ═══════════════════════════════════════
+       SEÇÃO 5 — REEMBOLSO
+  ═══════════════════════════════════════ -->
+  <section class="section reveal" id="reembolso">
+    <p class="section-label">05 — Reembolso</p>
+    <h2 class="section-title">E se o imposto for<br><em>menor</em> que o salário?</h2>
+
+    <p class="section-body">
+      Se o valor do salário-maternidade for maior do que o INSS a recolher no mês,
+      a guia vai a <strong>zero</strong> e o saldo restante vira um crédito que pode ser pedido de volta à Receita Federal.
     </p>
 
-    <div class="feature-list au d4">
-      <div class="feature-item">
-        <div class="fi-icon gold">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-          </svg>
-        </div>
-        <div>
-          <p class="fi-title">Estabilidade ampliada</p>
-          <p class="fi-desc">Muitas convenções ampliam a estabilidade para <strong style="color:var(--gold);">mais de 5 meses</strong> após o parto.</p>
-        </div>
+    <div class="sim-box">
+      <div class="sim-header">Simulação — Quando o crédito sobra</div>
+      <div class="sim-row">
+        <span class="sim-row-label">Imposto INSS do mês</span>
+        <span class="sim-row-value neutral">R$ 500</span>
       </div>
-      <div class="feature-item">
-        <div class="fi-icon green">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          </svg>
-        </div>
-        <div>
-          <p class="fi-title">Benefícios extras</p>
-          <p class="fi-desc">Podem exigir auxílio-creche, licença estendida ou outros direitos adicionais.</p>
-        </div>
+      <div class="sim-row">
+        <span class="sim-row-label">Salário-maternidade pago</span>
+        <span class="sim-row-value minus">− R$ 2.000</span>
+      </div>
+      <div class="sim-row">
+        <span class="sim-row-label">Guia do mês</span>
+        <span class="sim-row-value result">R$ 0 ✓ zerada</span>
+      </div>
+      <div class="sim-divider"></div>
+      <div class="sim-total">
+        <span class="sim-total-label">Crédito a recuperar</span>
+        <span class="sim-total-value" style="color:var(--blue);">R$ 1.500</span>
       </div>
     </div>
 
-    <div class="alert warn au d5">
-      <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <circle cx="12" cy="12" r="10"/>
-        <line x1="12" y1="8" x2="12" y2="12"/>
-        <line x1="12" y1="16" x2="12.01" y2="16"/>
-      </svg>
-      <p>Sempre consulte o acordo do sindicato antes de qualquer decisão! A <strong>Domínio Farma</strong> pode orientar você nessa análise.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════════════
-     SLIDE 14 — RESUMO
-     ══════════════════════════════════════════════════════════ -->
-<section class="slide">
-  <div class="sc">
-    <div class="gold-line au d1"></div>
-    <div class="slide-label au d1"><div class="dot-label"></div>Resumo</div>
-    <h2 class="title au d2">⚡ Resumo <span class="gt">Rápido</span></h2>
-    <p class="subtitle au d3">Os pontos que você não pode esquecer:</p>
-
-    <div class="ben-grid au d4">
-      <div class="ben-item">
-        <span class="ben-emoji">🛡️</span>
-        <p class="ben-title">Estabilidade</p>
-        <p class="ben-desc">Da confirmação até 5 meses pós-parto. Vale no contrato de experiência!</p>
-      </div>
-      <div class="ben-item">
-        <span class="ben-emoji">🏥</span>
-        <p class="ben-title">Consultas</p>
-        <p class="ben-desc">Mín. 6 consultas sem desconto. Cônjuge também tem direito.</p>
-      </div>
-      <div class="ben-item">
-        <span class="ben-emoji">💰</span>
-        <p class="ben-title">Quem paga</p>
-        <p class="ben-desc">CLT: empresa adianta e INSS devolve. MEI/Doméstica: INSS paga direto.</p>
-      </div>
-      <div class="ben-item">
-        <span class="ben-emoji">🔄</span>
-        <p class="ben-title">Compensação</p>
-        <p class="ben-desc">Abatemos do INSS mensal. Sobrou? Pedimos reembolso via PER/DCOMP.</p>
-      </div>
-      <div class="ben-item">
-        <span class="ben-emoji">⏳</span>
-        <p class="ben-title">Prazo Receita</p>
-        <p class="ben-desc">Até 360 dias para análise. Organize o fluxo de caixa!</p>
-      </div>
-      <div class="ben-item">
-        <span class="ben-emoji">📜</span>
-        <p class="ben-title">Conv. Coletiva</p>
-        <p class="ben-desc">Pode ampliar estabilidade e exigir benefícios extras. Sempre consulte!</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════════════
-     SLIDE 15 — INTERAÇÃO
-     ══════════════════════════════════════════════════════════ -->
-<section class="slide">
-  <div class="sc center">
-    <span class="big-emoji au d1">💬</span>
-    <h2 class="title au d2">Me conta a <span class="gt">verdade:</span></h2>
-    <p class="subtitle au d3" style="text-align:center;font-size:16px;">
-      Você já sabia da <strong>estabilidade no contrato de experiência</strong> ou do
-      <strong>prazo de 1 ano da Receita</strong> para devolver o dinheiro?
+    <p class="section-body" style="margin-top:20px;">
+      Esse crédito não se perde. A Domínio Farma protocola o pedido de reembolso pelo sistema
+      <strong>PER/DCOMP Web</strong> da Receita Federal. O valor aprovado é depositado diretamente na conta da empresa.
     </p>
 
-    <div class="card-gold ai d4" style="margin-top:18px;text-align:center;">
-      <p style="font-size:15px;color:var(--white);font-weight:600;line-height:1.65;margin:0;">
-        Compartilhe esse guia com outros empreendedores e evite que alguém cometa erros custosos! 🚀
-      </p>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot d1">1</div>
+        <div class="tl-body">
+          <p class="tl-title">Apuração dos créditos</p>
+          <p class="tl-desc">Consolidamos cada competência, mês a mês, durante os 4 meses da licença.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot d2">2</div>
+        <div class="tl-body">
+          <p class="tl-title">Protocolo via PER/DCOMP</p>
+          <p class="tl-desc">Pedido formal protocolado no sistema oficial da Receita Federal.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot d3">3</div>
+        <div class="tl-body">
+          <p class="tl-title">Análise da Receita Federal</p>
+          <p class="tl-desc">A Receita tem até 360 dias para analisar e aprovar o pedido.</p>
+          <span class="tl-tag">⏳ Prazo legal: até 360 dias</span>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot d4">4</div>
+        <div class="tl-body">
+          <p class="tl-title">Depósito na conta da empresa</p>
+          <p class="tl-desc">O valor aprovado cai diretamente na conta bancária cadastrada.</p>
+        </div>
+      </div>
     </div>
 
-    <div class="alert info au d5" style="margin-top:16px;">
-      <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
-        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
-        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
-      </svg>
-      <p>Use o botão de compartilhar no último slide para enviar pelo <strong>WhatsApp</strong> com um clique!</p>
+    <div class="alert warn">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <p><strong>Planeje o fluxo de caixa.</strong> O prazo de até 360 dias é legal — na prática costuma ser mais rápido, mas o planejamento financeiro deve considerar esse período de espera.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ══════════════════════════════════════════════════════════
-     SLIDE 16 — CTA FINAL
-     ══════════════════════════════════════════════════════════ -->
-<section class="slide">
-  <div class="orb">
-    <div class="ring"></div><div class="ring"></div>
-    <div class="ring"></div><div class="ring"></div>
-  </div>
-  <div class="sc center">
-    <div class="gold-line center au d1"></div>
-    <h2 class="title au d2" style="font-size:clamp(24px,7vw,38px);font-weight:900;letter-spacing:-.03em;">
-      Conte com a <span class="gt">Domínio Farma</span> 🤝
+  <div class="section-divider reveal"><div class="section-divider-icon">⚖️</div></div>
+
+  <!-- ═══════════════════════════════════════
+       SEÇÃO 6 — CONVENÇÃO COLETIVA
+  ═══════════════════════════════════════ -->
+  <section class="section reveal" id="convencao">
+    <p class="section-label">06 — Convenção Coletiva</p>
+    <h2 class="section-title">A CLT é o <em>mínimo.</em><br>Verifique sua convenção.</h2>
+
+    <p class="section-body">
+      As regras que vimos até aqui são o <strong>piso garantido pela CLT.</strong> A Convenção Coletiva do sindicato da sua categoria pode ampliar esses direitos — e o que ela determinar prevalece sobre a CLT quando for mais favorável ao trabalhador.
+    </p>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon gold">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <p class="card-title">Estabilidade ampliada</p>
+        <p class="card-desc">Muitas convenções estendem para além dos 5 meses após o parto.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon green">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <p class="card-title">Benefícios extras</p>
+        <p class="card-desc">Auxílio-creche, licença estendida ou outros direitos adicionais.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon blue">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        </div>
+        <p class="card-title">Licença paternidade maior</p>
+        <p class="card-desc">O cônjuge pode ter mais dias do que os 5 previstos em lei.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon red">
+          <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <p class="card-title">Penalidades maiores</p>
+        <p class="card-desc">A multa por descumprimento pode ser maior do que a prevista na CLT.</p>
+      </div>
+    </div>
+
+    <div class="alert info">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <p>Antes de qualquer decisão, consulte a convenção do sindicato da sua categoria. A <strong>Domínio Farma</strong> pode analisar o documento e orientar você sobre o que se aplica ao seu negócio.</p>
+    </div>
+  </section>
+
+  <div class="section-divider reveal"><div class="section-divider-icon">⚡</div></div>
+
+  <!-- ═══════════════════════════════════════
+       SEÇÃO 7 — RESUMO
+  ═══════════════════════════════════════ -->
+  <section class="section reveal" id="resumo">
+    <p class="section-label">07 — Resumo</p>
+    <h2 class="section-title">Os pontos que você<br>não pode <em>esquecer.</em></h2>
+
+    <div class="recap-grid">
+      <div class="recap-item">
+        <span class="recap-emoji">🛡️</span>
+        <p class="recap-title">Estabilidade total</p>
+        <p class="recap-desc">Da confirmação até 5 meses pós-parto. Vale no contrato de experiência.</p>
+      </div>
+      <div class="recap-item">
+        <span class="recap-emoji">🏥</span>
+        <p class="recap-title">6 consultas garantidas</p>
+        <p class="recap-desc">Sem desconto no salário. Cônjuge também tem esse direito.</p>
+      </div>
+      <div class="recap-item">
+        <span class="recap-emoji">💰</span>
+        <p class="recap-title">Empresa adianta</p>
+        <p class="recap-desc">CLT: você paga, INSS devolve. MEI/Autônoma: INSS paga direto.</p>
+      </div>
+      <div class="recap-item">
+        <span class="recap-emoji">🔄</span>
+        <p class="recap-title">Compensação na guia</p>
+        <p class="recap-desc">Abate direto no INSS do mês. Sobrou? Pedimos reembolso.</p>
+      </div>
+      <div class="recap-item">
+        <span class="recap-emoji">⏳</span>
+        <p class="recap-title">Prazo de até 1 ano</p>
+        <p class="recap-desc">Receita tem 360 dias para analisar. Planeje o fluxo de caixa.</p>
+      </div>
+      <div class="recap-item">
+        <span class="recap-emoji">📜</span>
+        <p class="recap-title">Verifique a convenção</p>
+        <p class="recap-desc">Pode ampliar direitos além do que a CLT garante.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       CTA FINAL
+  ═══════════════════════════════════════ -->
+  <div class="cta-section reveal">
+    <p class="cta-section-eyebrow">Domínio Farma Contabilidade</p>
+    <h2 class="cta-section-title">
+      Ficou alguma dúvida?<br>
+      <em>Fale com a gente.</em>
     </h2>
-    <p class="subtitle au d3" style="text-align:center;font-size:15px;margin-bottom:0;">
+    <p class="cta-section-sub">
       Cuidamos de toda a folha, apuração, compensação e pedido de reembolso.<br>
-      <strong>Você foca no seu negócio!</strong>
+      Você foca no seu negócio.
     </p>
 
-    <div class="cta-stack au d4" style="margin-top:26px;">
-      <a class="cta-btn cta-green" id="ctaShare" target="_blank">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
-          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
-          <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
-        </svg>
-        Compartilhar no WhatsApp
-      </a>
+    <a class="cta-btn-primary"
+       href="https://wa.me/5574999263592?text=Olá!%20Li%20o%20artigo%20sobre%20licença-maternidade%20e%20gostaria%20de%20tirar%20uma%20dúvida."
+       target="_blank">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Falar com a Domínio Farma
+    </a>
 
-      <a class="cta-btn cta-primary"
-         href="https://wa.me/5574999263592?text=Ol%C3%A1!%20Vi%20o%20guia%20sobre%20licen%C3%A7a-maternidade%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es."
-         target="_blank">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Falar com a Contabilidade
-      </a>
+    <a class="cta-share-link" id="ctaShareFinal" href="#">
+      <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+      Compartilhar este artigo
+    </a>
 
-      <a href="../index.html" class="cta-btn cta-ghost">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
-          <polyline points="9 22 9 12 15 12 15 22"/>
-        </svg>
-        Voltar para a Home
-      </a>
-    </div>
-
-    <div class="cta-footer au d5">
-      <strong style="color:var(--white-soft);">Domínio Farma Contabilidade</strong><br>
-      <a href="https://wa.me/5574999263592" target="_blank">(74) 99926-3592</a>
-      &nbsp;·&nbsp; Contabilidade 100% Digital
-    </div>
+    <p class="cta-footer">
+      (74) 99926-3592 · Contabilidade 100% Digital
+    </p>
   </div>
-</section>
 
-</div><!-- /slides -->
-</div><!-- /presentation -->
-
-<!-- ─── BOTTOM NAV ─── -->
-<div class="bottom-nav">
-  <button class="nav-btn" id="btnPrev" onclick="prev()" aria-label="Slide anterior">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-      <polyline points="18 15 12 9 6 15"/>
-    </svg>
-  </button>
-
-  <div class="nav-dots" id="ind"></div>
-
-  <button class="nav-btn" id="btnNext" onclick="next()" aria-label="Próximo slide">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-      <polyline points="6 9 12 15 18 9"/>
-    </svg>
-  </button>
-</div>
+</main>
 
 <script>
-/* ─── CONFIG ─── */
-const TOTAL = 16;
-let current = 0;
+/* ── PROGRESSO DE LEITURA ── */
+const bar = document.getElementById('progress-bar');
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  bar.style.width = Math.min(pct, 100) + '%';
+}, { passive: true });
 
-/* ─── REFS ─── */
-const sw      = document.getElementById('sw');
-const cnEl    = document.getElementById('cn');
-const progEl  = document.getElementById('prog');
-const indEl   = document.getElementById('ind');
-const btnPrev = document.getElementById('btnPrev');
-const btnNext = document.getElementById('btnNext');
-const slides  = document.querySelectorAll('.slide');
-
-/* ─── DOTS ─── */
-for (let i = 0; i < TOTAL; i++) {
-  const d = document.createElement('div');
-  d.className = 'nav-dot' + (i === 0 ? ' active' : '');
-  d.setAttribute('aria-label', 'Slide ' + (i + 1));
-  d.onclick = () => go(i);
-  indEl.appendChild(d);
-}
-
-/* ─── UPDATE UI ─── */
-function update() {
-  /* dots */
-  indEl.querySelectorAll('.nav-dot').forEach((d, i) =>
-    d.classList.toggle('active', i === current)
-  );
-  /* counter */
-  cnEl.textContent = current + 1;
-  /* progress */
-  progEl.style.width = ((current + 1) / TOTAL * 100) + '%';
-  /* slides active class + reset scroll */
-  slides.forEach((s, i) => {
-    s.classList.toggle('active', i === current);
-    if (i === current) s.scrollTop = 0;
+/* ── SCROLL REVEAL ── */
+const reveals = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      io.unobserve(e.target);
+    }
   });
-  /* nav btn states */
-  btnPrev.disabled = current === 0;
-  btnNext.disabled = current === TOTAL - 1;
-}
+}, { threshold: 0.08 });
+reveals.forEach(el => io.observe(el));
 
-/* ─── NAVIGATE ─── */
-function go(i) {
-  if (i < 0 || i >= TOTAL) return;
-  current = i;
-  sw.style.transform = 'translateY(-' + current * 100 + 'vh)';
-  update();
-}
-function next() { go(current + 1); }
-function prev() { go(current - 1); }
-
-/* ─── TECLADO ─── */
-document.addEventListener('keydown', e => {
-  if (['ArrowDown','ArrowRight',' '].includes(e.key)) { e.preventDefault(); next(); }
-  if (['ArrowUp','ArrowLeft'].includes(e.key))         { e.preventDefault(); prev(); }
-});
-
-/* ─── SWIPE (touch) ─── */
-let touchStartY = 0;
-let touchMoved  = false;
-
-document.addEventListener('touchstart', e => {
-  touchStartY = e.changedTouches[0].screenY;
-  touchMoved  = false;
-}, { passive: true });
-
-document.addEventListener('touchmove', e => {
-  const slide = slides[current];
-  if (!slide) return;
-  const dy        = touchStartY - e.changedTouches[0].screenY;
-  const atTop     = slide.scrollTop <= 0;
-  const atBottom  = slide.scrollTop + slide.clientHeight >= slide.scrollHeight - 2;
-  if ((dy > 0 && !atBottom) || (dy < 0 && !atTop)) touchMoved = true;
-}, { passive: true });
-
-document.addEventListener('touchend', e => {
-  if (touchMoved) return;
-  const delta = touchStartY - e.changedTouches[0].screenY;
-  if (Math.abs(delta) > 48) delta > 0 ? next() : prev();
-});
-
-/* ─── SHARE URL ─── */
-function getShareUrl() {
+/* ── SHARE URL ── */
+function buildShare() {
   return 'https://wa.me/?text=' +
     encodeURIComponent(
-      'Confira o Guia da Licença Maternidade — tudo que o empresário precisa saber sobre estabilidade e como recuperar o dinheiro: ' +
+      '📋 *Licença Maternidade — tudo que o empresário precisa saber*\n\n' +
+      'Estabilidade, quem paga, como recuperar o dinheiro. Guia completo:\n' +
       window.location.href
     );
 }
-document.getElementById('wppFloat').href  = getShareUrl();
-document.getElementById('ctaShare').href  = getShareUrl();
-
-/* ─── INIT ─── */
-update();
+document.getElementById('topbarShare').href    = buildShare();
+document.getElementById('ctaShareFinal').href  = buildShare();
 </script>
 </body>
 </html>
-
