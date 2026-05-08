@@ -1,1319 +1,1681 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<meta name="theme-color" content="#F7F5F0"/>
-
-<meta property="og:title"       content="Domínio Farma Cliente: Guia Completo do App"/>
-<meta property="og:description" content="Aprenda a usar o app Domínio Farma Cliente: login, pedidos, pontos, notificações e muito mais."/>
-<meta property="og:type"        content="article"/>
-<meta name="twitter:card"       content="summary_large_image"/>
-
-<title>Guia do App — Domínio Farma Cliente</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --bg:          #F7F5F0;
-  --bg-alt:      #EFEDE6;
-  --bg-card:     #FFFFFF;
-  --text:        #1C1A17;
-  --text-soft:   #5A5650;
-  --text-muted:  #8C8880;
-  --gold:        #A67C3B;
-  --gold-light:  #C9A96E;
-  --gold-bg:     #FBF4E8;
-  --gold-border: #E8D5B0;
-  --green:       #2E7D52;
-  --green-bg:    #EBF5EF;
-  --green-border:#A8D5BC;
-  --red:         #C0392B;
-  --red-bg:      #FDECEA;
-  --red-border:  #F1A9A0;
-  --blue:        #1A5C8A;
-  --blue-bg:     #EAF2FA;
-  --blue-border: #A8C8E8;
-  --shadow-sm:   0 1px 4px rgba(28,26,23,.08);
-  --shadow-md:   0 4px 16px rgba(28,26,23,.10);
-  --shadow-lg:   0 8px 32px rgba(28,26,23,.12);
-  --radius-sm:   8px;
-  --radius-md:   14px;
-  --radius-lg:   20px;
-  --font-serif:  'Playfair Display', Georgia, serif;
-  --font-sans:   'Inter', system-ui, sans-serif;
-  --max-w:       680px;
-}
-
-html { scroll-behavior: smooth; }
-
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--font-sans);
-  font-size: 16px;
-  line-height: 1.7;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* ── PROGRESSO ── */
-#progress-bar {
-  position: fixed;
-  top: 0; left: 0;
-  height: 3px;
-  width: 0%;
-  background: linear-gradient(90deg, var(--gold), var(--gold-light));
-  z-index: 1000;
-  transition: width .1s linear;
-}
-
-/* ── TOPBAR PRETA ── */
-.topbar {
-  position: sticky;
-  top: 0;
-  background: rgba(10, 10, 10, 0.97);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(166, 124, 59, 0.30);
-  z-index: 100;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.topbar-logo {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
-
-.topbar-logo-img {
-  height: 38px;
-  width: auto;
-  object-fit: contain;
-  display: block;
-}
-
-.topbar-share {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: #25D366;
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  padding: 6px 14px;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: opacity .2s;
-  flex-shrink: 0;
-}
-.topbar-share:hover { opacity: .88; }
-.topbar-share svg { width: 15px; height: 15px; fill: #fff; flex-shrink: 0; }
-
-/* ── WRAPPER ── */
-.article {
-  max-width: var(--max-w);
-  margin: 0 auto;
-  padding: 0 20px 80px;
-}
-
-/* ── HERO ── */
-.hero {
-  padding: 48px 0 40px;
-  border-bottom: 1px solid var(--gold-border);
-  margin-bottom: 48px;
-}
-
-.hero-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: var(--gold-bg);
-  border: 1px solid var(--gold-border);
-  color: var(--gold);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  padding: 4px 12px;
-  border-radius: 20px;
-  margin-bottom: 20px;
-}
-
-.hero-tag svg {
-  width: 12px; height: 12px;
-  stroke: var(--gold);
-  fill: none;
-  stroke-width: 2;
-}
-
-.hero-title {
-  font-family: var(--font-serif);
-  font-size: clamp(28px, 7vw, 44px);
-  font-weight: 900;
-  line-height: 1.15;
-  color: var(--text);
-  margin-bottom: 16px;
-  letter-spacing: -.02em;
-}
-
-.hero-title em {
-  font-style: italic;
-  color: var(--gold);
-}
-
-.hero-subtitle {
-  font-size: 17px;
-  color: var(--text-soft);
-  line-height: 1.65;
-  margin-bottom: 24px;
-  max-width: 560px;
-}
-
-.hero-meta {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.hero-meta-item {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 13px;
-  color: var(--text-muted);
-}
-
-.hero-meta-item svg {
-  width: 14px; height: 14px;
-  stroke: var(--text-muted);
-  fill: none;
-  stroke-width: 2;
-}
-
-.hero-meta-sep {
-  width: 3px; height: 3px;
-  background: var(--text-muted);
-  border-radius: 50%;
-}
-
-/* ── DOWNLOAD BANNER ── */
-.download-banner {
-  background: var(--bg-card);
-  border: 1px solid var(--green-border);
-  border-left: 4px solid var(--green);
-  border-radius: var(--radius-md);
-  padding: 20px 24px;
-  margin-bottom: 48px;
-  box-shadow: var(--shadow-sm);
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.download-banner-text { flex: 1; min-width: 200px; }
-.download-banner-text strong { font-size: 14px; font-weight: 700; color: var(--text); display: block; margin-bottom: 4px; }
-.download-banner-text span { font-size: 13px; color: var(--text-soft); }
-
-.download-banner-btns {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.dl-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 16px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 700;
-  transition: opacity .2s, transform .15s;
-  white-space: nowrap;
-}
-.dl-btn:hover { opacity: .88; transform: translateY(-1px); }
-.dl-btn.android { background: #34A853; color: #fff; }
-.dl-btn.ios     { background: #1C1C1E; color: #fff; }
-
-/* ── SUMÁRIO ── */
-.summary {
-  background: var(--bg-card);
-  border: 1px solid var(--gold-border);
-  border-left: 4px solid var(--gold);
-  border-radius: var(--radius-md);
-  padding: 24px;
-  margin-bottom: 56px;
-  box-shadow: var(--shadow-sm);
-}
-
-.summary-title {
-  font-family: var(--font-serif);
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--text-muted);
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  margin-bottom: 14px;
-}
-
-.summary-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.summary-list li a {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-  color: var(--text-soft);
-  font-size: 14px;
-  font-weight: 500;
-  transition: color .2s;
-}
-
-.summary-list li a:hover { color: var(--gold); }
-
-.summary-num {
-  width: 22px; height: 22px;
-  background: var(--gold-bg);
-  border: 1px solid var(--gold-border);
-  border-radius: 50%;
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--gold);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-}
-
-/* ── SEÇÕES ── */
-.section {
-  margin-bottom: 64px;
-  scroll-margin-top: 80px;
-}
-
-.section-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 10px;
-}
-
-.section-label::before {
-  content: '';
-  display: block;
-  width: 20px;
-  height: 2px;
-  background: var(--gold);
-  border-radius: 2px;
-}
-
-.section-title {
-  font-family: var(--font-serif);
-  font-size: clamp(22px, 5vw, 32px);
-  font-weight: 700;
-  line-height: 1.2;
-  color: var(--text);
-  margin-bottom: 12px;
-  letter-spacing: -.01em;
-}
-
-.section-title em {
-  font-style: italic;
-  color: var(--gold);
-}
-
-.section-body {
-  font-size: 15px;
-  color: var(--text-soft);
-  line-height: 1.75;
-  margin-bottom: 20px;
-}
-
-.section-body strong { color: var(--text); font-weight: 600; }
-
-/* ── ÂNCORA VISUAL ── */
-.anchor-block {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  background: var(--bg-card);
-  border: 1px solid var(--gold-border);
-  border-radius: var(--radius-lg);
-  padding: 24px;
-  margin: 24px 0;
-  box-shadow: var(--shadow-sm);
-}
-
-.anchor-number {
-  font-family: var(--font-serif);
-  font-size: clamp(48px, 12vw, 72px);
-  font-weight: 900;
-  color: var(--gold);
-  line-height: 1;
-  flex-shrink: 0;
-}
-
-.anchor-text { display: flex; flex-direction: column; gap: 4px; }
-
-.anchor-label {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--text);
-  line-height: 1.3;
-}
-
-.anchor-sub {
-  font-size: 13px;
-  color: var(--text-muted);
-  line-height: 1.5;
-}
-
-/* ── CARDS ── */
-.card {
-  background: var(--bg-card);
-  border-radius: var(--radius-md);
-  padding: 20px;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid rgba(28,26,23,.06);
-}
-
-.card-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin: 20px 0;
-}
-
-@media (max-width: 420px) { .card-grid { grid-template-columns: 1fr; } }
-
-.card-icon {
-  width: 40px; height: 40px;
-  border-radius: 10px;
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 12px;
-}
-
-.card-icon.gold  { background: var(--gold-bg); }
-.card-icon.green { background: var(--green-bg); }
-.card-icon.red   { background: var(--red-bg); }
-.card-icon.blue  { background: var(--blue-bg); }
-
-.card-icon svg { width: 20px; height: 20px; fill: none; stroke-width: 2; }
-.card-icon.gold  svg { stroke: var(--gold); }
-.card-icon.green svg { stroke: var(--green); }
-.card-icon.red   svg { stroke: var(--red); }
-.card-icon.blue  svg { stroke: var(--blue); }
-
-.card-title {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 5px;
-  line-height: 1.3;
-}
-
-.card-desc {
-  font-size: 13px;
-  color: var(--text-soft);
-  line-height: 1.6;
-}
-
-/* ── ALERTAS ── */
-.alert {
-  display: flex;
-  gap: 12px;
-  padding: 16px 18px;
-  border-radius: var(--radius-sm);
-  margin: 20px 0;
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-.alert svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; fill: none; stroke-width: 2; }
-.alert strong { font-weight: 700; }
-
-.alert.warn    { background: var(--gold-bg);  border: 1px solid var(--gold-border);  color: #7A5C1E; }
-.alert.danger  { background: var(--red-bg);   border: 1px solid var(--red-border);   color: #8B2020; }
-.alert.success { background: var(--green-bg); border: 1px solid var(--green-border); color: #1D5E3A; }
-.alert.info    { background: var(--blue-bg);  border: 1px solid var(--blue-border);  color: #12446A; }
-
-.alert.warn    svg { stroke: var(--gold);  }
-.alert.danger  svg { stroke: var(--red);   }
-.alert.success svg { stroke: var(--green); }
-.alert.info    svg { stroke: var(--blue);  }
-
-/* ── STEPS (lista numerada) ── */
-.steps-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin: 20px 0;
-}
-
-.step-item {
-  display: flex;
-  gap: 14px;
-  align-items: flex-start;
-  background: var(--bg-card);
-  border-radius: var(--radius-md);
-  padding: 16px 18px;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid rgba(28,26,23,.06);
-}
-
-.step-num {
-  width: 28px; height: 28px;
-  min-width: 28px;
-  background: var(--gold-bg);
-  border: 1.5px solid var(--gold-border);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 12px; font-weight: 700;
-  color: var(--gold);
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.step-body { flex: 1; }
-.step-body strong { font-size: 14px; font-weight: 700; color: var(--text); display: block; margin-bottom: 4px; line-height: 1.3; }
-.step-body p { font-size: 13px; color: var(--text-soft); line-height: 1.6; }
-
-/* ── TIMELINE ── */
-.timeline {
-  position: relative;
-  margin: 24px 0;
-  padding-left: 20px;
-}
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 15px; top: 24px; bottom: 24px;
-  width: 2px;
-  background: linear-gradient(180deg, var(--gold-border), var(--bg-alt));
-}
-
-.tl-item {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 24px;
-  position: relative;
-}
-.tl-item:last-child { margin-bottom: 0; }
-
-.tl-dot {
-  width: 32px; height: 32px;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 13px; font-weight: 700;
-  flex-shrink: 0;
-  position: relative; z-index: 1;
-  border: 2px solid transparent;
-}
-
-.tl-dot.d1 { background: var(--gold-bg);  color: var(--gold);  border-color: var(--gold-border);  }
-.tl-dot.d2 { background: var(--blue-bg);  color: var(--blue);  border-color: var(--blue-border);  }
-.tl-dot.d3 { background: var(--gold-bg);  color: var(--gold);  border-color: var(--gold-border);  }
-.tl-dot.d4 { background: var(--green-bg); color: var(--green); border-color: var(--green-border); }
-.tl-dot.d5 { background: var(--red-bg);   color: var(--red);   border-color: var(--red-border);   }
-
-.tl-body { padding-top: 4px; flex: 1; }
-.tl-title { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px; line-height: 1.3; }
-.tl-desc  { font-size: 13px; color: var(--text-soft); line-height: 1.6; }
-
-.tl-tag {
-  display: inline-block;
-  background: var(--gold-bg);
-  border: 1px solid var(--gold-border);
-  color: var(--gold);
-  font-size: 12px; font-weight: 600;
-  padding: 3px 10px;
-  border-radius: 20px;
-  margin-top: 8px;
-}
-
-/* ── TABELA DE NOTIFICAÇÕES ── */
-.notif-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 20px 0;
-  font-size: 14px;
-  background: var(--bg-card);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-}
-
-.notif-table thead tr {
-  background: var(--text);
-}
-
-.notif-table th {
-  padding: 12px 16px;
-  text-align: left;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--gold-light);
-}
-
-.notif-table td {
-  padding: 13px 16px;
-  border-bottom: 1px solid var(--bg-alt);
-  color: var(--text-soft);
-  vertical-align: top;
-}
-
-.notif-table tr:last-child td { border-bottom: none; }
-.notif-table tr:nth-child(even) td { background: var(--gold-bg); }
-.notif-table td strong { color: var(--text); font-weight: 600; }
-
-/* ── DIVISOR ── */
-.section-divider {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin: 48px 0;
-}
-
-.section-divider::before,
-.section-divider::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--gold-border);
-}
-
-.section-divider-icon {
-  width: 28px; height: 28px;
-  background: var(--gold-bg);
-  border: 1px solid var(--gold-border);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 13px;
-}
-
-/* ── PULL QUOTE ── */
-.pull-quote {
-  border-left: 4px solid var(--gold);
-  padding: 16px 20px;
-  margin: 28px 0;
-  background: var(--gold-bg);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-}
-
-.pull-quote p {
-  font-family: var(--font-serif);
-  font-size: clamp(16px, 4vw, 20px);
-  font-style: italic;
-  color: var(--text);
-  line-height: 1.5;
-}
-
-.pull-quote span {
-  display: block;
-  margin-top: 8px;
-  font-size: 12px;
-  color: var(--text-muted);
-  font-style: normal;
-  font-family: var(--font-sans);
-}
-
-/* ── RECAP GRID ── */
-.recap-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin: 24px 0;
-}
-
-@media (max-width: 420px) { .recap-grid { grid-template-columns: 1fr; } }
-
-.recap-item {
-  background: var(--bg-card);
-  border-radius: var(--radius-md);
-  padding: 16px;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid rgba(28,26,23,.06);
-  display: flex; flex-direction: column; gap: 6px;
-}
-
-.recap-emoji { font-size: 24px; line-height: 1; }
-.recap-title { font-size: 13px; font-weight: 700; color: var(--text); line-height: 1.3; }
-.recap-desc  { font-size: 12px; color: var(--text-muted); line-height: 1.55; }
-
-/* ── CTA FINAL ── */
-.cta-section {
-  background: var(--text);
-  border-radius: var(--radius-lg);
-  padding: 36px 24px;
-  text-align: center;
-  margin: 48px 0 0;
-}
-
-.cta-section-eyebrow {
-  font-size: 11px; font-weight: 700;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--gold-light);
-  margin-bottom: 12px;
-}
-
-.cta-section-title {
-  font-family: var(--font-serif);
-  font-size: clamp(22px, 6vw, 32px);
-  font-weight: 900;
-  color: #fff;
-  margin-bottom: 10px;
-  line-height: 1.2;
-}
-
-.cta-section-title em { font-style: italic; color: var(--gold-light); }
-
-.cta-section-sub {
-  font-size: 14px;
-  color: rgba(255,255,255,.65);
-  margin-bottom: 28px;
-  line-height: 1.65;
-}
-
-.cta-btns {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-}
-
-.cta-btn-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  background: #34A853;
-  color: #fff;
-  text-decoration: none;
-  font-size: 15px; font-weight: 700;
-  padding: 14px 28px;
-  border-radius: 50px;
-  width: 100%; max-width: 360px;
-  transition: opacity .2s, transform .15s;
-  box-shadow: 0 4px 16px rgba(52,168,83,.35);
-}
-
-.cta-btn-primary:hover { opacity: .9; transform: translateY(-1px); }
-
-.cta-btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  background: #1C1C1E;
-  color: #fff;
-  text-decoration: none;
-  font-size: 15px; font-weight: 700;
-  padding: 14px 28px;
-  border-radius: 50px;
-  width: 100%; max-width: 360px;
-  transition: opacity .2s, transform .15s;
-  box-shadow: 0 4px 16px rgba(0,0,0,.25);
-}
-
-.cta-btn-secondary:hover { opacity: .9; transform: translateY(-1px); }
-
-.cta-footer {
-  margin-top: 20px;
-  font-size: 12px;
-  color: rgba(255,255,255,.35);
-  line-height: 1.6;
-}
-
-/* ── SCROLL REVEAL ── */
-.reveal {
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity .5s ease, transform .5s ease;
-}
-.reveal.visible { opacity: 1; transform: translateY(0); }
-
-/* ── RESPONSIVO ── */
-@media (max-width: 480px) {
-  .article { padding: 0 16px 80px; }
-  .hero { padding: 32px 0 28px; }
-  .anchor-block { flex-direction: column; align-items: flex-start; gap: 8px; }
-  .anchor-number { font-size: 56px; }
-  .topbar-logo-img { height: 30px; }
-  .download-banner { flex-direction: column; align-items: flex-start; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guia Completo — Emissão de NFS-e pelo App Domínio Farma</title>
+  <meta name="description" content="Passo a passo completo para emissão de Nota Fiscal de Serviço Eletrônica (NFS-e) pelo aplicativo Domínio Farma Cliente.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================================
+       RESET & BASE
+       ======================================== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #1A1A1A;
+      background: #FFFFFF;
+      overflow-x: hidden;
+    }
+
+    /* ========================================
+       VARIABLES
+       ======================================== */
+    :root {
+      --primary: #2E7D32;
+      --secondary: #43A047;
+      --accent: #66BB6A;
+      --bg: #FFFFFF;
+      --surface: #F5F5F5;
+      --text: #1A1A1A;
+      --text-secondary: #555555;
+      --topbar: #000000;
+      --info-bg: #E3F2FD;
+      --info-border: #1565C0;
+      --warning-bg: #FFF8E1;
+      --warning-border: #F57F17;
+      --success-bg: #E8F5E9;
+      --success-border: #2E7D32;
+      --danger-bg: #FFEBEE;
+      --danger-border: #C62828;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --shadow: 0 2px 12px rgba(0,0,0,0.06);
+      --shadow-hover: 0 8px 30px rgba(0,0,0,0.12);
+      --transition: 0.3s ease;
+    }
+
+    /* ========================================
+       CONTAINER
+       ======================================== */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ========================================
+       TOPBAR
+       ======================================== */
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 56px;
+      background: var(--topbar);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .topbar-logo {
+      color: #FFFFFF;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .topbar-logo svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    /* ========================================
+       BARRA DE PROGRESSO
+       ======================================== */
+    .reading-progress {
+      position: fixed;
+      top: 56px;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      z-index: 1001;
+      transition: width 0.15s linear;
+    }
+
+    /* ========================================
+       HERO SECTION
+       ======================================== */
+    .hero {
+      margin-top: 56px;
+      background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 50%, #388E3C 100%);
+      padding: 80px 20px 72px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.08) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 80%, rgba(0,0,0,0.15) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #FFFFFF;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border-radius: 999px;
+      margin-bottom: 28px;
+      backdrop-filter: blur(4px);
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      color: #FFFFFF;
+      line-height: 1.15;
+      max-width: 700px;
+      margin: 0 auto 20px;
+      position: relative;
+    }
+
+    .hero-subtitle {
+      color: rgba(255,255,255,0.85);
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .hero-subtitle svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    .hero-meta {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.85rem;
+      margin-bottom: 32px;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #FFFFFF;
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 14px 32px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: all var(--transition);
+      border: none;
+      cursor: pointer;
+    }
+
+    .hero-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    }
+
+    .hero-cta svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* ========================================
+       BANNER DE DOWNLOAD
+       ======================================== */
+    .download-banner {
+      background: #000000;
+      padding: 28px 20px;
+    }
+
+    .download-banner-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .download-banner-text {
+      color: #CCCCCC;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .store-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid #444;
+      border-radius: var(--radius-sm);
+      padding: 10px 20px;
+      color: #FFFFFF;
+      text-decoration: none;
+      transition: all var(--transition);
+      background: transparent;
+    }
+
+    .store-btn:hover {
+      border-color: var(--accent);
+      background: rgba(255,255,255,0.05);
+      transform: translateY(-2px);
+    }
+
+    .store-btn svg {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+
+    .store-btn-label {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .store-btn-label small {
+      font-size: 0.65rem;
+      color: #AAA;
+      font-weight: 400;
+    }
+
+    .store-btn-label span {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    /* ========================================
+       SUMÁRIO
+       ======================================== */
+    .summary {
+      background: #F9FBF9;
+      border-left: 4px solid var(--primary);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 32px;
+      margin: 48px auto;
+      max-width: 860px;
+    }
+
+    .summary-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    .summary-title svg {
+      width: 24px;
+      height: 24px;
+      color: var(--primary);
+    }
+
+    .summary ol {
+      list-style: none;
+      counter-reset: summary-counter;
+      padding: 0;
+    }
+
+    .summary ol li {
+      counter-increment: summary-counter;
+      margin-bottom: 6px;
+    }
+
+    .summary ol li a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: all var(--transition);
+    }
+
+    .summary ol li a::before {
+      content: counter(summary-counter, decimal-leading-zero);
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 0.85rem;
+      min-width: 28px;
+    }
+
+    .summary ol li a:hover {
+      color: var(--primary);
+      background: rgba(46,125,50,0.06);
+      transform: translateX(4px);
+    }
+
+    /* ========================================
+       BANNER PASSO A PASSO COM IMAGENS
+       ======================================== */
+    .image-guide-banner {
+      background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+      border: 2px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin: 0 auto 48px;
+      max-width: 860px;
+      text-align: center;
+    }
+
+    .image-guide-banner h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .image-guide-banner p {
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .image-guide-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--primary);
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 14px 32px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: all var(--transition);
+    }
+
+    .image-guide-btn:hover {
+      background: #1B5E20;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(46,125,50,0.3);
+    }
+
+    .image-guide-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* ========================================
+       CAPÍTULOS / SEÇÕES
+       ======================================== */
+    .chapter {
+      padding: 64px 0;
+      border-bottom: 2px dashed #E0E0E0;
+    }
+
+    .chapter:last-of-type {
+      border-bottom: none;
+    }
+
+    .chapter-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .chapter-number {
+      width: 48px;
+      height: 48px;
+      min-width: 48px;
+      background: var(--primary);
+      color: #FFFFFF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .chapter-title-group {
+      flex: 1;
+    }
+
+    .chapter-title-group h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.2;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .chapter-title-group h2 svg {
+      width: 28px;
+      height: 28px;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .chapter-description {
+      color: var(--text-secondary);
+      margin-top: 8px;
+      font-size: 0.95rem;
+    }
+
+    .chapter p {
+      margin-bottom: 16px;
+    }
+
+    .chapter ul, .chapter ol {
+      margin-bottom: 16px;
+      padding-left: 24px;
+    }
+
+    .chapter li {
+      margin-bottom: 8px;
+    }
+
+    /* ========================================
+       CARDS
+       ======================================== */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      margin: 24px 0;
+    }
+
+    .card {
+      background: var(--bg);
+      border: 1px solid #E8F5E9;
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: all var(--transition);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      background: #E8F5E9;
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .card-icon svg {
+      width: 26px;
+      height: 26px;
+      color: var(--primary);
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ========================================
+       ALERTAS
+       ======================================== */
+    .alert {
+      display: flex;
+      gap: 12px;
+      padding: 16px;
+      border-radius: var(--radius-sm);
+      margin: 20px 0;
+      align-items: flex-start;
+    }
+
+    .alert svg {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .alert-content {
+      flex: 1;
+    }
+
+    .alert-content strong {
+      display: block;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .alert-content p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    .alert-info {
+      background: var(--info-bg);
+      border-left: 4px solid var(--info-border);
+    }
+    .alert-info svg { color: var(--info-border); }
+
+    .alert-warning {
+      background: var(--warning-bg);
+      border-left: 4px solid var(--warning-border);
+    }
+    .alert-warning svg { color: var(--warning-border); }
+
+    .alert-success {
+      background: var(--success-bg);
+      border-left: 4px solid var(--success-border);
+    }
+    .alert-success svg { color: var(--success-border); }
+
+    .alert-danger {
+      background: var(--danger-bg);
+      border-left: 4px solid var(--danger-border);
+    }
+    .alert-danger svg { color: var(--danger-border); }
+
+    /* ========================================
+       TIMELINE
+       ======================================== */
+    .timeline {
+      position: relative;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 24px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--primary);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 60px;
+      margin-bottom: 36px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-marker {
+      position: absolute;
+      left: 14px;
+      top: 4px;
+      width: 22px;
+      height: 22px;
+      background: var(--primary);
+      border-radius: 50%;
+      border: 3px solid #FFFFFF;
+      box-shadow: 0 0 0 3px var(--primary);
+      z-index: 1;
+    }
+
+    .timeline-item h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .timeline-item p {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    /* ========================================
+       TABELA
+       ======================================== */
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 24px 0;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow);
+    }
+
+    .table-wrapper table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 500px;
+    }
+
+    .table-wrapper thead {
+      background: var(--primary);
+      color: #FFFFFF;
+    }
+
+    .table-wrapper th {
+      padding: 14px 18px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+
+    .table-wrapper td {
+      padding: 12px 18px;
+      font-size: 0.9rem;
+      color: var(--text);
+      border-bottom: 1px solid #EEEEEE;
+    }
+
+    .table-wrapper tbody tr:nth-child(even) {
+      background: var(--surface);
+    }
+
+    .table-wrapper tbody tr:hover {
+      background: #E8F5E9;
+    }
+
+    /* ========================================
+       PULL QUOTE
+       ======================================== */
+    .pull-quote {
+      border-left: 4px solid var(--secondary);
+      background: #F1F8E9;
+      padding: 24px 32px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin: 28px 0;
+    }
+
+    .pull-quote p {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--primary);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* ========================================
+       BOTÕES DE COMPARTILHAMENTO
+       ======================================== */
+    .share-bar {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .share-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition);
+      position: relative;
+    }
+
+    .share-btn svg {
+      width: 20px;
+      height: 20px;
+      color: #FFFFFF;
+    }
+
+    .share-btn:hover {
+      transform: scale(1.12);
+    }
+
+    .share-btn.whatsapp { background: #25D366; }
+    .share-btn.twitter { background: #1DA1F2; }
+    .share-btn.linkedin { background: #0A66C2; }
+    .share-btn.copy-link { background: #555555; }
+
+    .share-tooltip {
+      position: absolute;
+      right: 54px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #333;
+      color: #FFF;
+      font-size: 0.75rem;
+      padding: 6px 12px;
+      border-radius: 6px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition);
+    }
+
+    .share-btn:hover .share-tooltip {
+      opacity: 1;
+    }
+
+    .share-tooltip.show-feedback {
+      opacity: 1 !important;
+      background: var(--primary);
+    }
+
+    /* ========================================
+       CTA FINAL
+       ======================================== */
+    .cta-final {
+      background: linear-gradient(135deg, #1B5E20, #2E7D32);
+      padding: 72px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-final::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 70% 30%, rgba(255,255,255,0.06) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .cta-final h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.6rem, 4vw, 2.5rem);
+      color: #FFFFFF;
+      font-weight: 700;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .cta-final p {
+      color: rgba(255,255,255,0.8);
+      font-size: 1.05rem;
+      max-width: 520px;
+      margin: 0 auto 32px;
+      position: relative;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .cta-store-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.12);
+      border: 2px solid rgba(255,255,255,0.3);
+      color: #FFFFFF;
+      padding: 14px 28px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all var(--transition);
+      backdrop-filter: blur(4px);
+    }
+
+    .cta-store-btn:hover {
+      background: rgba(255,255,255,0.2);
+      border-color: #FFFFFF;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+
+    .cta-store-btn svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* ========================================
+       RODAPÉ
+       ======================================== */
+    .footer {
+      background: #000000;
+      padding: 48px 20px 32px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 1.15rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .footer-logo svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .footer-contact {
+      color: #888888;
+      font-size: 0.85rem;
+      margin-bottom: 8px;
+    }
+
+    .footer-contact a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .footer-contact a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-copyright {
+      color: #666666;
+      font-size: 0.8rem;
+      margin-top: 16px;
+    }
+
+    .footer-phone {
+      color: #888;
+      font-size: 0.85rem;
+      margin-bottom: 6px;
+    }
+
+    .footer-phone a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* ========================================
+       SCROLL REVEAL
+       ======================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ========================================
+       STEP HIGHLIGHT
+       ======================================== */
+    .step-highlight {
+      background: #F1F8E9;
+      border-radius: var(--radius-sm);
+      padding: 18px 22px;
+      margin: 16px 0;
+      border: 1px solid #C8E6C9;
+    }
+
+    .step-highlight strong {
+      color: var(--primary);
+    }
+
+    /* ========================================
+       RESPONSIVIDADE
+       ======================================== */
+    @media (max-width: 768px) {
+      .share-bar {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding: 56px 16px 48px;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .chapter-header {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .chapter-title-group h2 {
+        font-size: 1.4rem;
+      }
+
+      .chapter {
+        padding: 40px 0;
+      }
+
+      .summary {
+        padding: 24px 20px;
+        margin: 32px 20px;
+      }
+
+      .image-guide-banner {
+        margin: 0 20px 32px;
+        padding: 24px 20px;
+      }
+
+      .download-banner-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pull-quote {
+        padding: 20px 20px;
+      }
+
+      .pull-quote p {
+        font-size: 1.1rem;
+      }
+
+      .timeline::before {
+        left: 14px;
+      }
+
+      .timeline-item {
+        padding-left: 44px;
+      }
+
+      .timeline-marker {
+        left: 5px;
+        width: 18px;
+        height: 18px;
+      }
+
+      .cta-final {
+        padding: 48px 16px;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .store-btn {
+        width: 100%;
+        max-width: 260px;
+        justify-content: center;
+      }
+    }
+
+    @media (min-width: 600px) and (max-width: 900px) {
+      .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
 </head>
 <body>
 
-<div id="progress-bar"></div>
-
-<!-- ═══ TOPBAR PRETA COM LOGO ═══ -->
-<header class="topbar">
-  <a class="topbar-logo" href="#">
-    <img src="/logo.png" alt="Domínio Farma" class="topbar-logo-img"/>
-  </a>
-  <a class="topbar-share" id="topbarShare" href="#" target="_blank">
-    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    Compartilhar
-  </a>
-</header>
-
-<main class="article">
-
-  <!-- ═══ HERO ═══ -->
-  <section class="hero reveal">
-    <div class="hero-tag">
-      <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/><path d="M8 12h8M12 8v8"/></svg>
-      Guia Oficial do Usuário
-    </div>
-    <h1 class="hero-title">
-      Domínio Farma Cliente:<br>
-      <em>tudo que você precisa</em><br>
-      saber sobre o app
-    </h1>
-    <p class="hero-subtitle">
-      Do download ao resgate de pontos — um guia completo para aproveitar
-      todos os benefícios da sua farmácia na palma da mão.
-    </p>
-    <div class="hero-meta">
-      <div class="hero-meta-item">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        6 min de leitura
-      </div>
-      <div class="hero-meta-sep"></div>
-      <div class="hero-meta-item">
-        <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-        Android e iPhone
-      </div>
-      <div class="hero-meta-sep"></div>
-      <div class="hero-meta-item">
-        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        100% Gratuito · Sem anúncios
+  <!-- ========================================
+       TOPBAR
+       ======================================== -->
+  <header class="topbar" role="banner">
+    <div class="topbar-inner">
+      <div class="topbar-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-6 18h9"/>
+          <rect x="9" y="7" width="6" height="4" rx="1"/>
+          <line x1="12" y1="14" x2="12" y2="17"/>
+        </svg>
+        Domínio Farma
       </div>
     </div>
-  </section>
+  </header>
 
-  <!-- ═══ DOWNLOAD BANNER ═══ -->
-  <div class="download-banner reveal">
-    <div class="download-banner-text">
-      <strong>📲 Ainda não instalou o app?</strong>
-      <span>Baixe gratuitamente antes de continuar o guia.</span>
-    </div>
-    <div class="download-banner-btns">
-      <a href="https://play.google.com/store/apps/details?id=br.com.nibo.customer.dominiofarma.app&hl=pt_BR"
-         target="_blank" class="dl-btn android">🤖 Google Play</a>
-      <a href="https://apps.apple.com/br/app/dom%C3%ADnio-farma-clientes/id6757874723"
-         target="_blank" class="dl-btn ios">🍎 App Store</a>
-    </div>
-  </div>
+  <!-- Barra de progresso de leitura -->
+  <div class="reading-progress" id="readingProgress" role="progressbar" aria-label="Progresso de leitura"></div>
 
-  <!-- ═══ SUMÁRIO ═══ -->
-  <nav class="summary reveal">
-    <p class="summary-title">Neste guia</p>
-    <ul class="summary-list">
-      <li><a href="#instalacao"><div class="summary-num">1</div>Baixando e instalando o app</a></li>
-      <li><a href="#conta"><div class="summary-num">2</div>Criando sua conta e fazendo login</a></li>
-      <li><a href="#tela-inicial"><div class="summary-num">3</div>Explorando a tela inicial</a></li>
-      <li><a href="#pedidos"><div class="summary-num">4</div>Consultando seus pedidos</a></li>
-      <li><a href="#pontos"><div class="summary-num">5</div>Programa de fidelidade e pontos</a></li>
-      <li><a href="#notificacoes"><div class="summary-num">6</div>Notificações e alertas</a></li>
-      <li><a href="#suporte"><div class="summary-num">7</div>Dúvidas frequentes e suporte</a></li>
-    </ul>
-  </nav>
+  <!-- ========================================
+       BOTÕES DE COMPARTILHAMENTO
+       ======================================== -->
+  <aside class="share-bar" aria-label="Compartilhar">
+    <button class="share-btn whatsapp" onclick="shareWhatsApp()" aria-label="Compartilhar no WhatsApp">
+      <span class="share-tooltip">WhatsApp</span>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </button>
+    <button class="share-btn twitter" onclick="shareTwitter()" aria-label="Compartilhar no Twitter">
+      <span class="share-tooltip">Twitter / X</span>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </button>
+    <button class="share-btn linkedin" onclick="shareLinkedIn()" aria-label="Compartilhar no LinkedIn">
+      <span class="share-tooltip">LinkedIn</span>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </button>
+    <button class="share-btn copy-link" id="copyLinkBtn" onclick="copyLink()" aria-label="Copiar link">
+      <span class="share-tooltip" id="copyTooltip">Copiar Link</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+    </button>
+  </aside>
 
-  <!-- ═══ SEÇÃO 1 — INSTALAÇÃO ═══ -->
-  <section class="section reveal" id="instalacao">
-    <p class="section-label">01 — Instalação</p>
-    <h2 class="section-title">Baixando e instalando<br>o app <em>em minutos.</em></h2>
-    <p class="section-body">
-      O Domínio Farma Cliente está disponível gratuitamente para <strong>Android</strong> e <strong>iPhone</strong>.
-      O processo de instalação é simples e leva menos de dois minutos.
-    </p>
-    <div class="anchor-block">
-      <div class="anchor-number">2</div>
-      <div class="anchor-text">
-        <span class="anchor-label">minutos para instalar</span>
-        <span class="anchor-sub">Download rápido, leve e sem custo. Disponível para Android 6.0+ e iOS 13+.</span>
+  <main>
+    <!-- ========================================
+         HERO SECTION
+         ======================================== -->
+    <section class="hero" role="region" aria-label="Introdução">
+      <div class="hero-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+        GUIA OFICIAL
       </div>
-    </div>
-    <div class="steps-list">
-      <div class="step-item">
-        <div class="step-num">1</div>
-        <div class="step-body">
-          <strong>Acesse a loja do seu smartphone</strong>
-          <p>Abra a <strong>Google Play Store</strong> (Android) ou a <strong>App Store</strong> (iPhone). Use os botões de download no topo desta página para ir direto ao app.</p>
-        </div>
+      <h1>Emissão de NFS-e pelo App Domínio Farma</h1>
+      <div class="hero-subtitle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        5 min de leitura · Guia Completo Passo a Passo
       </div>
-      <div class="step-item">
-        <div class="step-num">2</div>
-        <div class="step-body">
-          <strong>Pesquise "Domínio Farma Cliente"</strong>
-          <p>Digite o nome na busca e localize o app oficial. Verifique o ícone e o nome do desenvolvedor antes de instalar.</p>
-        </div>
-      </div>
-      <div class="step-item">
-        <div class="step-num">3</div>
-        <div class="step-body">
-          <strong>Toque em "Instalar" ou "Obter"</strong>
-          <p>Aguarde o download. O app é leve e instala rapidamente mesmo em conexões mais lentas.</p>
-        </div>
-      </div>
-      <div class="step-item">
-        <div class="step-num">4</div>
-        <div class="step-body">
-          <strong>Abra o app e siga para o login</strong>
-          <p>Após a instalação, abra o app e continue para o Capítulo 2 para criar sua conta.</p>
-        </div>
-      </div>
-    </div>
-    <div class="alert success">
-      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-      <p>O app é <strong>100% gratuito</strong>, sem anúncios e sem cobranças ocultas. Compatible com Android 6.0+ e iOS 13+.</p>
-    </div>
-  </section>
-
-  <div class="section-divider reveal"><div class="section-divider-icon">🔐</div></div>
-
-  <!-- ═══ SEÇÃO 2 — CONTA E LOGIN ═══ -->
-  <section class="section reveal" id="conta">
-    <p class="section-label">02 — Conta</p>
-    <h2 class="section-title">Criando sua conta<br>e fazendo <em>login.</em></h2>
-    <p class="section-body">
-      O cadastro é rápido. Use o <strong>mesmo CPF</strong> que você já utiliza na farmácia física para que
-      seu histórico e pontos sejam vinculados automaticamente.
-    </p>
-    <div class="steps-list">
-      <div class="step-item">
-        <div class="step-num">1</div>
-        <div class="step-body">
-          <strong>Toque em "Criar Conta"</strong>
-          <p>Na tela inicial do app, selecione a opção para se cadastrar.</p>
-        </div>
-      </div>
-      <div class="step-item">
-        <div class="step-num">2</div>
-        <div class="step-body">
-          <strong>Preencha seus dados pessoais</strong>
-          <p>Informe nome completo, CPF, e-mail e telefone. Use o mesmo CPF cadastrado na farmácia.</p>
-        </div>
-      </div>
-      <div class="step-item">
-        <div class="step-num">3</div>
-        <div class="step-body">
-          <strong>Crie uma senha segura</strong>
-          <p>Mínimo de 8 caracteres, combinando letras e números. Guarde-a em local seguro.</p>
-        </div>
-      </div>
-      <div class="step-item">
-        <div class="step-num">4</div>
-        <div class="step-body">
-          <strong>Confirme seu e-mail</strong>
-          <p>Clique no link enviado para sua caixa de entrada. Verifique a pasta de spam se não encontrar.</p>
-        </div>
-      </div>
-      <div class="step-item">
-        <div class="step-num">5</div>
-        <div class="step-body">
-          <strong>Faça login e ative a biometria</strong>
-          <p>Insira e-mail e senha. Ative o acesso por impressão digital ou Face ID para entrar mais rápido.</p>
-        </div>
-      </div>
-    </div>
-    <div class="pull-quote">
-      <p>"Já sou cliente da farmácia — preciso me cadastrar do zero?"</p>
-      <span>— Dúvida muito comum entre novos usuários do app</span>
-    </div>
-    <p class="section-body">
-      <strong>Não.</strong> Basta usar o mesmo CPF que você já utiliza na farmácia física.
-      Ao fazer isso, seu histórico de compras e saldo de pontos ficam vinculados automaticamente à conta do app.
-    </p>
-    <div class="alert info">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      <p>Se tiver dificuldades para criar a conta, leve seu CPF e vá até a farmácia — a equipe pode ajudar no cadastro presencialmente.</p>
-    </div>
-  </section>
-
-  <div class="section-divider reveal"><div class="section-divider-icon">🏠</div></div>
-
-  <!-- ═══ SEÇÃO 3 — TELA INICIAL ═══ -->
-  <section class="section reveal" id="tela-inicial">
-    <p class="section-label">03 — Tela Inicial</p>
-    <h2 class="section-title">Conheça as principais<br><em>seções do app.</em></h2>
-    <p class="section-body">
-      Após o login, você terá acesso a um painel completo. Veja o que cada área oferece:
-    </p>
-    <div class="card-grid">
-      <div class="card">
-        <div class="card-icon gold">
-          <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
-        </div>
-        <p class="card-title">Meus Pedidos</p>
-        <p class="card-desc">Acompanhe o status e histórico completo das suas compras em tempo real.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon green">
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        </div>
-        <p class="card-title">Meus Pontos</p>
-        <p class="card-desc">Visualize seu saldo de fidelidade, extrato e como utilizar os pontos.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon blue">
-          <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
-        </div>
-        <p class="card-title">Notificações</p>
-        <p class="card-desc">Alertas de promoções, status do pedido, pontos expirando e muito mais.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon gold">
-          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        </div>
-        <p class="card-title">Meu Perfil</p>
-        <p class="card-desc">Edite seus dados pessoais, endereço e preferências de comunicação.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon red">
-          <svg viewBox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-        </div>
-        <p class="card-title">Catálogo</p>
-        <p class="card-desc">Explore produtos, verifique preços e disponibilidade em estoque.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon green">
-          <svg viewBox="0 0 24 24"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg>
-        </div>
-        <p class="card-title">Promoções</p>
-        <p class="card-desc">Ofertas e descontos exclusivos para clientes do app.</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider reveal"><div class="section-divider-icon">🛒</div></div>
-
-  <!-- ═══ SEÇÃO 4 — PEDIDOS ═══ -->
-  <section class="section reveal" id="pedidos">
-    <p class="section-label">04 — Pedidos</p>
-    <h2 class="section-title">Acompanhe seus pedidos<br><em>em tempo real.</em></h2>
-    <p class="section-body">
-      Na seção <strong>"Meus Pedidos"</strong> você encontra o histórico completo de compras
-      e pode acompanhar cada etapa do processo.
-    </p>
-    <div class="timeline">
-      <div class="tl-item">
-        <div class="tl-dot d1">1</div>
-        <div class="tl-body">
-          <p class="tl-title">Acesse "Meus Pedidos"</p>
-          <p class="tl-desc">Toque na seção na tela principal. Todos os seus pedidos aparecem listados por data.</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot d2">2</div>
-        <div class="tl-body">
-          <p class="tl-title">Verifique o status</p>
-          <p class="tl-desc">Cada pedido mostra sua etapa atual: <strong>Em separação</strong>, <strong>Pronto para retirada</strong> ou <strong>Entregue</strong>.</p>
-          <span class="tl-tag">📦 Atualização em tempo real</span>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot d3">3</div>
-        <div class="tl-body">
-          <p class="tl-title">Toque no pedido para ver detalhes</p>
-          <p class="tl-desc">Visualize itens comprados, valores, forma de pagamento e data da compra.</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot d4">4</div>
-        <div class="tl-body">
-          <p class="tl-title">Fale com a farmácia se precisar</p>
-          <p class="tl-desc">Use o botão "Falar com a farmácia" dentro do pedido para contato direto.</p>
-        </div>
-      </div>
-    </div>
-    <div class="alert warn">
-      <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-      <p><strong>Atenção:</strong> compras realizadas em dinheiro ou sem informar o CPF podem não aparecer no histórico do app.</p>
-    </div>
-  </section>
-
-  <div class="section-divider reveal"><div class="section-divider-icon">⭐</div></div>
-
-  <!-- ═══ SEÇÃO 5 — PONTOS ═══ -->
-  <section class="section reveal" id="pontos">
-    <p class="section-label">05 — Fidelidade</p>
-    <h2 class="section-title">Acumule pontos e<br>ganhe <em>recompensas.</em></h2>
-    <p class="section-body">
-      Cada compra feita com CPF — na farmácia física ou pelo app — gera pontos no seu saldo de fidelidade.
-      Acompanhe tudo e resgate quando quiser.
-    </p>
-    <div class="anchor-block">
-      <div class="anchor-number">+</div>
-      <div class="anchor-text">
-        <span class="anchor-label">pontos a cada compra</span>
-        <span class="anchor-sub">Acumule em todas as compras e troque por descontos e recompensas. Consulte as regras na sua farmácia.</span>
-      </div>
-    </div>
-    <div class="card-grid">
-      <div class="card">
-        <div class="card-icon gold">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
-        <p class="card-title">Acumule pontos</p>
-        <p class="card-desc">Compre usando CPF ou pelo app e veja seu saldo crescer automaticamente.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon blue">
-          <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-        </div>
-        <p class="card-title">Consulte o saldo</p>
-        <p class="card-desc">Veja os pontos disponíveis, extrato e histórico na seção "Meus Pontos".</p>
-      </div>
-      <div class="card">
-        <div class="card-icon green">
-          <svg viewBox="0 0 24 24"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/></svg>
-        </div>
-        <p class="card-title">Resgate recompensas</p>
-        <p class="card-desc">Troque pontos por descontos e brindes na farmácia física ou pelo app.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon red">
-          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        </div>
-        <p class="card-title">Atenção à validade</p>
-        <p class="card-desc">Pontos podem expirar. Verifique a data de vencimento no app regularmente.</p>
-      </div>
-    </div>
-    <div class="alert info">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      <p>As regras do programa de pontos podem variar por farmácia. <strong>Consulte sua unidade</strong> para saber a proporção de pontos por compra e condições de resgate.</p>
-    </div>
-  </section>
-
-  <div class="section-divider reveal"><div class="section-divider-icon">🔔</div></div>
-
-  <!-- ═══ SEÇÃO 6 — NOTIFICAÇÕES ═══ -->
-  <section class="section reveal" id="notificacoes">
-    <p class="section-label">06 — Notificações</p>
-    <h2 class="section-title">Alertas que fazem<br>a diferença no <em>dia a dia.</em></h2>
-    <p class="section-body">
-      O app envia notificações inteligentes para que você nunca perca uma promoção,
-      um pedido pronto ou um medicamento disponível. Configure do jeito que preferir.
-    </p>
-
-    <table class="notif-table">
-      <thead>
-        <tr>
-          <th>Tipo de Alerta</th>
-          <th>Para que serve</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>💊 <strong>Lembrete de medicamento</strong></td>
-          <td>Avisa o horário de tomar ou quando está na hora de renovar a receita.</td>
-        </tr>
-        <tr>
-          <td>🎁 <strong>Promoções exclusivas</strong></td>
-          <td>Ofertas disponíveis somente para clientes do app.</td>
-        </tr>
-        <tr>
-          <td>📦 <strong>Status do pedido</strong></td>
-          <td>Atualização em tempo real: separação, pronto, entregue.</td>
-        </tr>
-        <tr>
-          <td>⭐ <strong>Pontos vencendo</strong></td>
-          <td>Avisa quando seus pontos estão perto de expirar.</td>
-        </tr>
-        <tr>
-          <td>📋 <strong>Produto disponível</strong></td>
-          <td>Notifica quando um item que estava em falta chega ao estoque.</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="alert success">
-      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-      <p><strong>Como ativar:</strong> acesse <strong>Perfil → Configurações → Notificações</strong> e permita as notificações do app no seu celular. Você pode personalizar quais alertas deseja receber.</p>
-    </div>
-  </section>
-
-  <div class="section-divider reveal"><div class="section-divider-icon">❓</div></div>
-
-  <!-- ═══ SEÇÃO 7 — SUPORTE ═══ -->
-  <section class="section reveal" id="suporte">
-    <p class="section-label">07 — Suporte</p>
-    <h2 class="section-title">Dúvidas frequentes<br>e <em>como resolver.</em></h2>
-    <p class="section-body">
-      Separamos as situações mais comuns e o que fazer em cada uma delas.
-    </p>
-    <div class="steps-list">
-      <div class="step-item">
-        <div class="step-num">🔑</div>
-        <div class="step-body">
-          <strong>Esqueci minha senha</strong>
-          <p>Na tela de login, toque em <strong>"Esqueci a senha"</strong>. Você receberá um link de redefinição no e-mail cadastrado.</p>
-        </div>
-      </div>
-      <div class="step-item">
-        <div class="step-num">📱</div>
-        <div class="step-body">
-          <strong>Troquei de celular</strong>
-          <p>Instale o app no novo aparelho e faça login normalmente. Todos os dados ficam salvos na nuvem — nada é perdido.</p>
-        </div>
-      </div>
-      <div class="step-item">
-        <div class="step-num">🔄</div>
-        <div class="step-body">
-          <strong>App travando ou com erro</strong>
-          <p>Tente fechar e reabrir o app. Se persistir, desinstale e reinstale. Certifique-se de que o app está na versão mais recente.</p>
-        </div>
-      </div>
-      <div class="step-item">
-        <div class="step-num">💬</div>
-        <div class="step-body">
-          <strong>Problemas com pedidos ou pontos</strong>
-          <p>Use o chat dentro do pedido ou vá pessoalmente à farmácia com seu CPF para que a equipe resolva rapidamente.</p>
-        </div>
-      </div>
-      <div class="step-item">
-        <div class="step-num">✏️</div>
-        <div class="step-body">
-          <strong>Atualizar dados pessoais</strong>
-          <p>Acesse <strong>Perfil → Editar dados</strong> e salve as alterações. Mantenha seu telefone e e-mail sempre atualizados.</p>
-        </div>
-      </div>
-    </div>
-    <div class="alert info">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      <p>Para suporte técnico do aplicativo, entre em contato diretamente com a equipe da sua farmácia Domínio Farma.</p>
-    </div>
-  </section>
-
-  <div class="section-divider reveal"><div class="section-divider-icon">⚡</div></div>
-
-  <!-- ═══ RESUMO RÁPIDO ═══ -->
-  <section class="section reveal" id="resumo">
-    <p class="section-label">Resumo</p>
-    <h2 class="section-title">O que você <em>não pode</em><br>esquecer.</h2>
-    <div class="recap-grid">
-      <div class="recap-item">
-        <span class="recap-emoji">📲</span>
-        <p class="recap-title">Download gratuito</p>
-        <p class="recap-desc">Disponível na Google Play e App Store. Android 6.0+ e iOS 13+. Sem anúncios.</p>
-      </div>
-      <div class="recap-item">
-        <span class="recap-emoji">🔐</span>
-        <p class="recap-title">Use o mesmo CPF</p>
-        <p class="recap-desc">O CPF da farmácia vincula histórico e pontos automaticamente ao app.</p>
-      </div>
-      <div class="recap-item">
-        <span class="recap-emoji">🛒</span>
-        <p class="recap-title">Pedidos em tempo real</p>
-        <p class="recap-desc">Acompanhe cada etapa do seu pedido direto pelo celular.</p>
-      </div>
-      <div class="recap-item">
-        <span class="recap-emoji">⭐</span>
-        <p class="recap-title">Pontos que valem</p>
-        <p class="recap-desc">Acumule em cada compra e troque por descontos e recompensas.</p>
-      </div>
-      <div class="recap-item">
-        <span class="recap-emoji">🔔</span>
-        <p class="recap-title">Ative as notificações</p>
-        <p class="recap-desc">Fique por dentro de promoções, pedidos e pontos prestes a vencer.</p>
-      </div>
-      <div class="recap-item">
-        <span class="recap-emoji">💬</span>
-        <p class="recap-title">Suporte sempre disponível</p>
-        <p class="recap-desc">Problema? Fale pelo chat do app ou vá até a farmácia com seu CPF.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ CTA FINAL ═══ -->
-  <div class="cta-section reveal">
-    <p class="cta-section-eyebrow">Domínio Farma Cliente</p>
-    <h2 class="cta-section-title">
-      Pronto para começar?<br>
-      <em>Baixe o app agora.</em>
-    </h2>
-    <p class="cta-section-sub">
-      Sua farmácia favorita na palma da mão.<br>
-      Pedidos, pontos, promoções e muito mais — tudo gratuito.
-    </p>
-    <div class="cta-btns">
-      <a class="cta-btn-primary"
-         href="https://play.google.com/store/apps/details?id=br.com.nibo.customer.dominiofarma.app&hl=pt_BR"
-         target="_blank">
-        🤖 Baixar para Android
+      <p class="hero-meta">App Domínio Farma — Cliente · Atualizado em Maio de 2026</p>
+      <a href="#capitulo-1" class="hero-cta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        Começar o Passo a Passo
       </a>
-      <a class="cta-btn-secondary"
-         href="https://apps.apple.com/br/app/dom%C3%ADnio-farma-clientes/id6757874723"
-         target="_blank">
-        🍎 Baixar para iPhone
+    </section>
+
+    <!-- ========================================
+         BANNER DE DOWNLOAD
+         ======================================== -->
+    <section class="download-banner" role="region" aria-label="Baixar aplicativo">
+      <div class="download-banner-inner">
+        <span class="download-banner-text">Ainda não tem o app? Baixe gratuitamente:</span>
+        <a href="https://play.google.com/store/apps/details?id=br.com.nibo.customer.dominiofarma.app&hl=pt_BR" target="_blank" rel="noopener" class="store-btn" aria-label="Baixar na Google Play">
+          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302a1 1 0 010 1.38l-2.302 2.302L15.392 12l2.306-2.492zM5.864 3.455L16.8 9.788 14.5 12.09 5.864 3.455z" fill="#FFFFFF"/></svg>
+          <div class="store-btn-label">
+            <small>Disponível no</small>
+            <span>Google Play</span>
+          </div>
+        </a>
+        <a href="https://apps.apple.com/br/app/dom%C3%ADnio-farma-clientes/id6757874723" target="_blank" rel="noopener" class="store-btn" aria-label="Baixar na App Store">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" fill="#FFFFFF"/></svg>
+          <div class="store-btn-label">
+            <small>Disponível na</small>
+            <span>App Store</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ========================================
+         SUMÁRIO
+         ======================================== -->
+    <nav class="summary container reveal" aria-label="Sumário do guia">
+      <h2 class="summary-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        Sumário
+      </h2>
+      <ol>
+        <li><a href="#capitulo-1">Abra o Aplicativo Domínio Farma</a></li>
+        <li><a href="#capitulo-2">Faça o Login na Sua Conta</a></li>
+        <li><a href="#capitulo-3">Acesse a Emissão de NFS-e</a></li>
+        <li><a href="#capitulo-4">Crie uma Nova Nota Fiscal</a></li>
+        <li><a href="#capitulo-5">Selecione o Cliente (Tomador)</a></li>
+        <li><a href="#capitulo-6">Informe o Valor e Confirme</a></li>
+        <li><a href="#capitulo-7">Confira o Resumo e Emita</a></li>
+        <li><a href="#capitulo-8">Acompanhe o Processamento</a></li>
+        <li><a href="#capitulo-9">Baixe o PDF ou XML da Nota</a></li>
+        <li><a href="#capitulo-10">Dúvidas e Suporte</a></li>
+      </ol>
+    </nav>
+
+    <!-- ========================================
+         BANNER PASSO A PASSO COM IMAGENS
+         ======================================== -->
+    <div class="image-guide-banner container reveal">
+      <h3>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2E7D32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        Prefere ver o passo a passo com imagens?
+      </h3>
+      <p>Preparamos um guia visual completo com capturas de tela de cada etapa do processo. Clique no botão abaixo para acessar:</p>
+      <a href="https://canva.link/tf4hc1gupy15dg3" target="_blank" rel="noopener" class="image-guide-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        Ver Guia com Imagens
       </a>
     </div>
-    <p class="cta-footer">100% Gratuito · Sem anúncios · Android e iPhone</p>
-  </div>
 
-</main>
+    <div class="container">
 
-<script>
-/* ── PROGRESSO ── */
-const bar = document.getElementById('progress-bar');
-window.addEventListener('scroll', () => {
-  const h = document.documentElement;
-  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
-  bar.style.width = Math.min(pct, 100) + '%';
-}, { passive: true });
+      <!-- ========================================
+           CAPÍTULO 1
+           ======================================== -->
+      <section class="chapter reveal" id="capitulo-1">
+        <div class="chapter-header">
+          <div class="chapter-number">1</div>
+          <div class="chapter-title-group">
+            <h2>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+              Abra o Aplicativo Domínio Farma
+            </h2>
+            <p class="chapter-description">Primeiro passo: localize e abra o app no seu celular.</p>
+          </div>
+        </div>
 
-/* ── SCROLL REVEAL ── */
-const reveals = document.querySelectorAll('.reveal');
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      io.unobserve(e.target);
+        <p>Abra o aplicativo <strong>Domínio Farma — Cliente</strong> no seu smartphone. O ícone do app aparece na sua tela inicial ou na gaveta de aplicativos.</p>
+
+        <div class="alert alert-info">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          <div class="alert-content">
+            <strong>Ainda não tem o app instalado?</strong>
+            <p>Procure por <strong>"Domínio Farma"</strong> na sua loja de aplicativos e faça o download gratuito. Veja os links abaixo:</p>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <a href="https://play.google.com/store/apps/details?id=br.com.nibo.customer.dominiofarma.app&hl=pt_BR" target="_blank" rel="noopener" class="card" style="text-decoration:none; text-align:center;">
+            <div class="card-icon" style="margin:0 auto 16px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+            <h3>Android</h3>
+            <p>Baixar na Google Play</p>
+          </a>
+          <a href="https://apps.apple.com/br/app/dom%C3%ADnio-farma-clientes/id6757874723" target="_blank" rel="noopener" class="card" style="text-decoration:none; text-align:center;">
+            <div class="card-icon" style="margin:0 auto 16px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M15 8.5c0-.83-.67-1.5-1.5-1.5S12 7.67 12 8.5s.67 1.5 1.5 1.5S15 9.33 15 8.5z"/></svg>
+            </div>
+            <h3>iPhone (iOS)</h3>
+            <p>Baixar na App Store</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- ========================================
+           CAPÍTULO 2
+           ======================================== -->
+      <section class="chapter reveal" id="capitulo-2">
+        <div class="chapter-header">
+          <div class="chapter-number">2</div>
+          <div class="chapter-title-group">
+            <h2>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+              Faça o Login na Sua Conta
+            </h2>
+            <p class="chapter-description">Acesse sua conta com e-mail e senha.</p>
+          </div>
+        </div>
+
+        <p>Ao abrir o app, clique no botão <strong>"Fazer o login"</strong>. Em seguida, informe o seu <strong>e-mail</strong> e a sua <strong>senha</strong>, depois clique em <strong>"Entrar"</strong>.</p>
+
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="timeline-marker"></div>
+            <h3>Passo 2.1 — Clique em "Fazer o login"</h3>
+            <p>Na tela inicial do app, toque no botão de login para iniciar o processo de autenticação.</p>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="timeline-marker"></div>
+            <h3>Passo 2.2 — Informe seu e-mail</h3>
+            <p>Digite o endereço de e-mail cadastrado na sua conta Domínio Farma.</p>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="timeline-marker"></div>
+            <h3>Passo 2.3 — Informe sua senha e entre</h3>
+            <p>Digite sua senha e toque em <strong>"Entrar"</strong> para acessar o sistema.</p>
+          </div>
+        </div>
+
+        <div class="alert alert-success">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <div class="alert-content">
+            <strong>Dica!</strong>
+            <p>Se você já fez login anteriormente, o app pula esta etapa automaticamente e vai direto para a tela inicial. Você não precisa digitar e-mail e senha toda vez.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================
+           CAPÍTULO 3
+           ======================================== -->
+      <section class="chapter reveal" id="capitulo-3">
+        <div class="chapter-header">
+          <div class="chapter-number">3</div>
+          <div class="chapter-title-group">
+            <h2>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              Acesse a Emissão de NFS-e
+            </h2>
+            <p class="chapter-description">Encontre o botão de emissão na tela inicial.</p>
+          </div>
+        </div>
+
+        <p>Na tela inicial do aplicativo, localize e clique no botão superior chamado <strong>"Emissão de NFS-e"</strong>. Essa é a função que permite criar e gerenciar suas notas fiscais de serviço eletrônicas diretamente pelo celular.</p>
+
+        <div class="pull-quote reveal">
+          <p>"Com o app Domínio Farma, emitir NFS-e é simples e rápido — tudo na palma da sua mão, sem precisar de computador."</p>
+        </div>
+      </section>
+
+      <!-- ========================================
+           CAPÍTULO 4
+           ======================================== -->
+      <section class="chapter reveal" id="capitulo-4">
+        <div class="chapter-header">
+          <div class="chapter-number">4</div>
+          <div class="chapter-title-group">
+            <h2>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+              Crie uma Nova Nota Fiscal
+            </h2>
+            <p class="chapter-description">Escolha como deseja iniciar a emissão da nota.</p>
+          </div>
+        </div>
+
+        <p>Na tela de NFS-e, clique no <strong>ícone de "+"</strong> no canto inferior da tela para abrir as opções de criação. Você verá três opções:</p>
+
+        <div class="cards-grid">
+          <div class="card reveal">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="11" x2="12" y2="17"/><line x1="9" y1="14" x2="15" y2="14"/></svg>
+            </div>
+            <h3>1. Nova Nota</h3>
+            <p>Preencha todas as informações do zero. Ideal para notas com dados diferentes das anteriores.</p>
+          </div>
+          <div class="card reveal">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            </div>
+            <h3>2. Última Nota Emitida</h3>
+            <p>Copia os dados da última nota emitida. Ótimo quando você emite para o mesmo tomador com frequência.</p>
+          </div>
+          <div class="card reveal">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <h3>3. Última Nota por Cliente</h3>
+            <p>Semelhante à opção 2, mas permite escolher o tomador (cliente) antes de copiar os dados da nota anterior.</p>
+          </div>
+        </div>
+
+        <div class="alert alert-info">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          <div class="alert-content">
+            <strong>Qual opção escolher?</strong>
+            <p>Se é sua primeira nota, use a opção <strong>"Nova Nota"</strong>. Se emite mensalmente para o mesmo cliente, as opções 2 ou 3 economizam tempo ao copiar os dados automaticamente.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================
+           CAPÍTULO 5
+           ======================================== -->
+      <section class="chapter reveal" id="capitulo-5">
+        <div class="chapter-header">
+          <div class="chapter-number">5</div>
+          <div class="chapter-title-group">
+            <h2>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Selecione o Cliente (Tomador)
+            </h2>
+            <p class="chapter-description">Escolha ou cadastre o tomador da nota fiscal.</p>
+          </div>
+        </div>
+
+        <p>Nesta etapa, você deve selecionar o <strong>cliente (tomador do serviço)</strong> para quem a nota será emitida:</p>
+
+        <ul>
+          <li><strong>Cliente já cadastrado:</strong> basta clicar sobre o nome dele na lista.</li>
+          <li><strong>Cliente novo:</strong> clique em <strong>"+ Novo Cliente"</strong> e preencha os dados necessários (CNPJ/CPF, nome, endereço, etc.).</li>
+        </ul>
+
+        <div class="alert alert-warning">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <div class="alert-content">
+            <strong>Atenção!</strong>
+            <p>Confira com cuidado os dados do cliente antes de prosseguir. CNPJ/CPF e endereço incorretos podem gerar problemas na nota fiscal.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================
+           CAPÍTULO 6
+           ======================================== -->
+      <section class="chapter reveal" id="capitulo-6">
+        <div class="chapter-header">
+          <div class="chapter-number">6</div>
+          <div class="chapter-title-group">
+            <h2>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+              Informe o Valor e Confirme
+            </h2>
+            <p class="chapter-description">Defina o valor da nota fiscal do serviço prestado.</p>
+          </div>
+        </div>
+
+        <p>Informe o <strong>valor da nota fiscal</strong> no campo indicado. Este é o valor total do serviço que foi prestado ao cliente.</p>
+
+        <div class="step-highlight">
+          <strong>Exemplo:</strong> Se o serviço prestado custou R$ 1.500,00, digite esse valor no campo e clique em <strong>"Continuar"</strong>.
+        </div>
+
+        <p>Após informar o valor, clique no botão <strong>"Continuar"</strong> para avançar para a tela de resumo.</p>
+      </section>
+
+      <!-- ========================================
+           CAPÍTULO 7
+           ======================================== -->
+      <section class="chapter reveal" id="capitulo-7">
+        <div class="chapter-header">
+          <div class="chapter-number">7</div>
+          <div class="chapter-title-group">
+            <h2>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+              Confira o Resumo e Emita
+            </h2>
+            <p class="chapter-description">Revise todos os dados antes de emitir a nota.</p>
+          </div>
+        </div>
+
+        <p>A tela de <strong>resumo da nota fiscal</strong> exibe todos os dados preenchidos. Confira cuidadosamente:</p>
+
+        <div class="table-wrapper reveal">
+          <table>
+            <thead>
+              <tr>
+                <th>Campo</th>
+                <th>O que verificar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Tomador</strong></td>
+                <td>Nome e CNPJ/CPF do cliente corretos</td>
+              </tr>
+              <tr>
+                <td><strong>Valor</strong></td>
+                <td>Valor do serviço informado corretamente</td>
+              </tr>
+              <tr>
+                <td><strong>Descrição do serviço</strong></td>
+                <td>Discriminação detalhada do serviço prestado</td>
+              </tr>
+              <tr>
+                <td><strong>Competência</strong></td>
+                <td>Mês/ano de referência do serviço</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="alert alert-info">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          <div class="alert-content">
+            <strong>Precisa alterar a descrição?</strong>
+            <p>Acesse <strong>"Detalhes da nota"</strong> para editar a discriminação do serviço. Você pode incluir a competência no campo "Discriminação" conforme necessário.</p>
+          </div>
+        </div>
+
+        <p>Se todos os dados estiverem corretos, clique no botão <strong>"Emitir"</strong> para enviar a nota fiscal.</p>
+      </section>
+
+      <!-- ========================================
+           CAPÍTULO 8
+           ======================================== -->
+      <section class="chapter reveal" id="capitulo-8">
+        <div class="chapter-header">
+          <div class="chapter-number">8</div>
+          <div class="chapter-title-group">
+            <h2>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>
+              Acompanhe o Processamento
+            </h2>
+            <p class="chapter-description">Aguarde a confirmação da emissão.</p>
+          </div>
+        </div>
+
+        <p>Após clicar em <strong>"Emitir"</strong>, o sistema retorna à lista de notas. A nota recém-criada aparecerá com a tag <strong>"Processando"</strong>.</p>
+
+        <div class="step-highlight">
+          <strong>Aguarde alguns segundos.</strong> O tempo de processamento depende da sua conexão com a internet e da resposta do Portal Nacional da NFS-e.
+        </div>
+
+        <p>Quando o processamento for concluído, a tag mudará para indicar o resultado:</p>
+
+        <div class="cards-grid">
+          <div class="card reveal" style="border-left: 4px solid var(--success-border);">
+            <h3 style="color: var(--success-border);">✓ Emitida</h3>
+            <p>A nota foi aprovada com sucesso! Você pode baixar o PDF ou XML.</p>
+          </div>
+          <div class="card reveal" style="border-left: 4px solid var(--danger-border);">
+            <h3 style="color: var(--danger-border);">✕ Negada</h3>
+            <p>Houve um problema na emissão. Entre em contato com o escritório para resolver.</p>
+          </div>
+        </div>
+
+        <div class="alert alert-danger">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          <div class="alert-content">
+            <strong>Nota Negada?</strong>
+            <p>Se a nota apresentar a tag <strong>"Negada"</strong>, não tente emitir novamente sem orientação. Comunique o escritório imediatamente pelo telefone <strong>(74) 99926-3592</strong> — opção 5.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================
+           CAPÍTULO 9
+           ======================================== -->
+      <section class="chapter reveal" id="capitulo-9">
+        <div class="chapter-header">
+          <div class="chapter-number">9</div>
+          <div class="chapter-title-group">
+            <h2>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Baixe o PDF ou XML da Nota
+            </h2>
+            <p class="chapter-description">Acesse, baixe e compartilhe sua nota fiscal.</p>
+          </div>
+        </div>
+
+        <p>Após a nota ser emitida com sucesso, clique sobre ela na lista para ver os detalhes. Na tela de detalhes, você encontrará as opções:</p>
+
+        <div class="cards-grid">
+          <div class="card reveal" style="text-align:center;">
+            <div class="card-icon" style="margin:0 auto 16px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <h3>Baixar PDF</h3>
+            <p>Arquivo visual da nota fiscal para enviar ao cliente ou imprimir.</p>
+          </div>
+          <div class="card reveal" style="text-align:center;">
+            <div class="card-icon" style="margin:0 auto 16px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h3>Baixar XML</h3>
+            <p>Arquivo técnico da nota para escrituração contábil ou fiscal.</p>
+          </div>
+        </div>
+
+        <div class="alert alert-success">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <div class="alert-content">
+            <strong>Compartilhamento fácil!</strong>
+            <p>Ao baixar o PDF, você pode compartilhá-lo diretamente pelo WhatsApp, e-mail ou qualquer outro meio com o seu cliente.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================
+           CAPÍTULO 10
+           ======================================== -->
+      <section class="chapter reveal" id="capitulo-10">
+        <div class="chapter-header">
+          <div class="chapter-number">10</div>
+          <div class="chapter-title-group">
+            <h2>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              Dúvidas e Suporte
+            </h2>
+            <p class="chapter-description">Precisa de ajuda? Veja como entrar em contato.</p>
+          </div>
+        </div>
+
+        <p>Em caso de dúvidas sobre a emissão de NFS-e ou qualquer problema com o aplicativo, entre em contato com o escritório:</p>
+
+        <div class="card reveal" style="text-align:center; max-width: 480px; margin: 24px auto;">
+          <div class="card-icon" style="margin: 0 auto 16px; background: #E8F5E9; width: 64px; height: 64px; border-radius: 50%;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2E7D32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:30px; height:30px;"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <h3 style="font-size: 1.5rem; margin-bottom: 8px;">(74) 99926-3592</h3>
+          <p style="color: var(--text-secondary); margin-bottom: 12px;">Escolha a <strong>opção 5</strong> — Notas Fiscais e Impostos</p>
+          <p style="font-size: 0.85rem; color: #888;">Horário comercial · Segunda a Sexta</p>
+        </div>
+
+        <div class="pull-quote reveal">
+          <p>"Emitir nota fiscal nunca foi tão fácil. Com o Domínio Farma, você cuida do seu negócio e nós cuidamos da burocracia."</p>
+        </div>
+
+        <div class="alert alert-info">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          <div class="alert-content">
+            <strong>Guia Visual com Imagens</strong>
+            <p>Quer ver cada passo com capturas de tela? Acesse nosso guia visual completo: <a href="https://canva.link/tf4hc1gupy15dg3" target="_blank" rel="noopener" style="color: var(--info-border); font-weight: 600;">Abrir Guia com Imagens</a></p>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /.container -->
+
+    <!-- ========================================
+         CTA FINAL
+         ======================================== -->
+    <section class="cta-final reveal" role="region" aria-label="Baixar o aplicativo">
+      <h2>Comece a Emitir Suas Notas Agora</h2>
+      <p>Baixe o app Domínio Farma — Cliente e tenha o controle total das suas notas fiscais na palma da mão.</p>
+      <div class="cta-buttons">
+        <a href="https://play.google.com/store/apps/details?id=br.com.nibo.customer.dominiofarma.app&hl=pt_BR" target="_blank" rel="noopener" class="cta-store-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302a1 1 0 010 1.38l-2.302 2.302L15.392 12l2.306-2.492zM5.864 3.455L16.8 9.788 14.5 12.09 5.864 3.455z"/></svg>
+          Google Play
+        </a>
+        <a href="https://apps.apple.com/br/app/dom%C3%ADnio-farma-clientes/id6757874723" target="_blank" rel="noopener" class="cta-store-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          App Store
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================
+       RODAPÉ
+       ======================================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><path d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-6 18h9"/><rect x="9" y="7" width="6" height="4" rx="1"/><line x1="12" y1="14" x2="12" y2="17"/></svg>
+      Domínio Farma
+    </div>
+    <p class="footer-phone">Suporte: <a href="tel:+5574999263592">(74) 99926-3592</a> — Opção 5</p>
+    <p class="footer-contact">Dúvidas sobre notas fiscais e impostos? Fale conosco.</p>
+    <p class="footer-copyright">© 2026 Domínio Farma. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- ========================================
+       JAVASCRIPT
+       ======================================== -->
+  <script>
+    /* ---- Barra de Progresso de Leitura ---- */
+    const progressBar = document.getElementById('readingProgress');
+    function updateProgress() {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (docHeight > 0) {
+        const pct = (scrollTop / docHeight) * 100;
+        progressBar.style.width = pct + '%';
+      }
     }
-  });
-}, { threshold: 0.08 });
-reveals.forEach(el => io.observe(el));
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
 
-/* ── SHARE URL ── */
-function buildShare() {
-  return 'https://wa.me/?text=' +
-    encodeURIComponent(
-      '📱 *Guia Completo — Domínio Farma Cliente*\n\n' +
-      'Aprenda a usar o app: pontos, pedidos, notificações e mais:\n' +
-      window.location.href
-    );
-}
-document.getElementById('topbarShare').href = buildShare();
-</script>
+    /* ---- Scroll Reveal (IntersectionObserver) ---- */
+    const revealElements = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+        }
+      });
+    }, { threshold: 0.1 });
+    revealElements.forEach(el => observer.observe(el));
+
+    /* ---- Smooth Scroll para links âncora ---- */
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          const offset = 70; // compensar topbar
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+
+    /* ---- Compartilhamento Social ---- */
+    const pageUrl = encodeURIComponent(window.location.href);
+    const pageTitle = encodeURIComponent(document.title);
+
+    function shareWhatsApp() {
+      window.open('https://wa.me/?text=' + pageTitle + '%20' + pageUrl, '_blank');
+    }
+
+    function shareTwitter() {
+      window.open('https://twitter.com/intent/tweet?text=' + pageTitle + '&url=' + pageUrl, '_blank');
+    }
+
+    function shareLinkedIn() {
+      window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + pageUrl, '_blank');
+    }
+
+    function copyLink() {
+      const tooltip = document.getElementById('copyTooltip');
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        tooltip.textContent = 'Copiado!';
+        tooltip.classList.add('show-feedback');
+        setTimeout(() => {
+          tooltip.textContent = 'Copiar Link';
+          tooltip.classList.remove('show-feedback');
+        }, 2000);
+      }).catch(() => {
+        /* Fallback para navegadores mais antigos */
+        const ta = document.createElement('textarea');
+        ta.value = window.location.href;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        tooltip.textContent = 'Copiado!';
+        tooltip.classList.add('show-feedback');
+        setTimeout(() => {
+          tooltip.textContent = 'Copiar Link';
+          tooltip.classList.remove('show-feedback');
+        }, 2000);
+      });
+    }
+  </script>
 </body>
 </html>
