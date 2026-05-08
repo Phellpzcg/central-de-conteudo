@@ -1,0 +1,1505 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="theme-color" content="#F7F5F0"/>
+
+<meta property="og:title"       content="Seguro-Desemprego e FGTS: seu guia completo pós-demissão"/>
+<meta property="og:description" content="Como dar entrada no Seguro-Desemprego e sacar o FGTS pelo celular. Guia da Domínio Farma Contabilidade."/>
+<meta property="og:type"        content="article"/>
+<meta name="twitter:card"       content="summary_large_image"/>
+
+<title>Seguro-Desemprego e FGTS — Domínio Farma Contabilidade</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:          #F7F5F0;
+  --bg-alt:      #EFEDE6;
+  --bg-card:     #FFFFFF;
+  --text:        #1C1A17;
+  --text-soft:   #5A5650;
+  --text-muted:  #8C8880;
+  --gold:        #A67C3B;
+  --gold-light:  #C9A96E;
+  --gold-bg:     #FBF4E8;
+  --gold-border: #E8D5B0;
+  --green:       #2E7D52;
+  --green-bg:    #EBF5EF;
+  --green-border:#A8D5BC;
+  --red:         #C0392B;
+  --red-bg:      #FDECEA;
+  --red-border:  #F1A9A0;
+  --blue:        #1A5C8A;
+  --blue-bg:     #EAF2FA;
+  --blue-border: #A8C8E8;
+  --purple:      #6B3FA0;
+  --purple-bg:   #F3EEFB;
+  --purple-border:#C9AAEC;
+  --shadow-sm:   0 1px 4px rgba(28,26,23,.08);
+  --shadow-md:   0 4px 16px rgba(28,26,23,.10);
+  --radius-sm:   8px;
+  --radius-md:   14px;
+  --radius-lg:   20px;
+  --font-serif:  'Playfair Display', Georgia, serif;
+  --font-sans:   'Inter', system-ui, sans-serif;
+  --max-w:       680px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── PROGRESSO ── */
+#progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  z-index: 1000;
+  transition: width .1s linear;
+}
+
+/* ── TOPBAR PRETA ── */
+.topbar {
+  position: sticky;
+  top: 0;
+  background: rgba(10,10,10,0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(166,124,59,0.30);
+  z-index: 100;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.topbar-logo { display: flex; align-items: center; text-decoration: none; }
+
+.topbar-logo-img {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.topbar-share {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #25D366;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity .2s;
+  flex-shrink: 0;
+}
+.topbar-share:hover { opacity: .88; }
+.topbar-share svg { width: 15px; height: 15px; fill: #fff; flex-shrink: 0; }
+
+/* ── WRAPPER ── */
+.article {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 20px 80px;
+}
+
+/* ── HERO ── */
+.hero {
+  padding: 48px 0 40px;
+  border-bottom: 1px solid var(--gold-border);
+  margin-bottom: 48px;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--gold-bg);
+  border: 1px solid var(--gold-border);
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.hero-tag svg { width: 12px; height: 12px; stroke: var(--gold); fill: none; stroke-width: 2; }
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 7vw, 44px);
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--text);
+  margin-bottom: 16px;
+  letter-spacing: -.02em;
+}
+
+.hero-title em { font-style: italic; color: var(--gold); }
+
+.hero-subtitle {
+  font-size: 17px;
+  color: var(--text-soft);
+  line-height: 1.65;
+  margin-bottom: 24px;
+  max-width: 560px;
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.hero-meta-item svg { width: 14px; height: 14px; stroke: var(--text-muted); fill: none; stroke-width: 2; }
+.hero-meta-sep { width: 3px; height: 3px; background: var(--text-muted); border-radius: 50%; }
+
+/* ── AVISO URGENTE ── */
+.urgency-banner {
+  background: var(--text);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  border-left: 4px solid var(--gold-light);
+}
+
+.urgency-banner-icon { font-size: 28px; line-height: 1; flex-shrink: 0; margin-top: 2px; }
+.urgency-banner-body { display: flex; flex-direction: column; gap: 4px; }
+.urgency-banner-title { font-size: 14px; font-weight: 700; color: var(--gold-light); letter-spacing: .03em; }
+.urgency-banner-text  { font-size: 13px; color: rgba(255,255,255,.75); line-height: 1.6; }
+.urgency-banner-text strong { color: #fff; }
+
+/* ── SUMÁRIO ── */
+.summary {
+  background: var(--bg-card);
+  border: 1px solid var(--gold-border);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  margin-bottom: 56px;
+  box-shadow: var(--shadow-sm);
+}
+
+.summary-title {
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.summary-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+
+.summary-list li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text-soft);
+  font-size: 14px;
+  font-weight: 500;
+  transition: color .2s;
+}
+
+.summary-list li a:hover { color: var(--gold); }
+
+.summary-num {
+  width: 22px; height: 22px;
+  background: var(--gold-bg);
+  border: 1px solid var(--gold-border);
+  border-radius: 50%;
+  font-size: 11px; font-weight: 700;
+  color: var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.summary-badge {
+  margin-left: auto;
+  font-size: 10px; font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 10px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.badge-blue   { background: var(--blue-bg);   color: var(--blue);   border: 1px solid var(--blue-border); }
+.badge-green  { background: var(--green-bg);  color: var(--green);  border: 1px solid var(--green-border); }
+.badge-gold   { background: var(--gold-bg);   color: var(--gold);   border: 1px solid var(--gold-border); }
+.badge-red    { background: var(--red-bg);    color: var(--red);    border: 1px solid var(--red-border); }
+
+/* ── CHAPTER ── */
+.chapter-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--text);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  padding: 22px 24px;
+}
+
+.chapter-emoji { font-size: 32px; line-height: 1; }
+.chapter-header-text { display: flex; flex-direction: column; gap: 3px; }
+
+.chapter-eyebrow {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+
+.chapter-title {
+  font-family: var(--font-serif);
+  font-size: clamp(20px, 5vw, 28px);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.chapter-body {
+  background: var(--bg-card);
+  border: 1px solid rgba(28,26,23,.08);
+  border-top: none;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  padding: 28px 24px;
+  margin-bottom: 56px;
+  box-shadow: var(--shadow-md);
+}
+
+/* ── SEÇÕES INTERNAS ── */
+.section { margin-bottom: 40px; scroll-margin-top: 80px; }
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.section-label::before {
+  content: '';
+  display: block;
+  width: 20px; height: 2px;
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(20px, 4.5vw, 28px);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.section-title em { font-style: italic; color: var(--gold); }
+
+.section-body {
+  font-size: 15px;
+  color: var(--text-soft);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+.section-body strong { color: var(--text); font-weight: 600; }
+
+/* ── ÂNCORA VISUAL ── */
+.anchor-block {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: var(--bg);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.anchor-number {
+  font-family: var(--font-serif);
+  font-size: clamp(44px, 11vw, 64px);
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.anchor-text { display: flex; flex-direction: column; gap: 4px; }
+.anchor-label { font-size: 14px; font-weight: 700; color: var(--text); line-height: 1.3; }
+.anchor-sub   { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+
+/* ── DOCS LIST ── */
+.docs-grid { display: flex; flex-direction: column; gap: 8px; margin: 16px 0; }
+
+.doc-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: var(--bg);
+  border: 1px solid rgba(28,26,23,.07);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+}
+
+.doc-icon {
+  width: 30px; height: 30px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.doc-icon.gold   { background: var(--gold-bg); }
+.doc-icon.green  { background: var(--green-bg); }
+.doc-icon.blue   { background: var(--blue-bg); }
+.doc-icon.red    { background: var(--red-bg); }
+.doc-icon.purple { background: var(--purple-bg); }
+
+.doc-text { display: flex; flex-direction: column; gap: 2px; }
+.doc-name { font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.3; }
+.doc-desc { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+
+/* ── APP CARD (atualizado com links) ── */
+.app-card {
+  background: var(--bg);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  margin: 16px 0;
+}
+
+.app-card-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.app-icon {
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.app-icon.ctd  { background: #E8F0FE; }
+.app-icon.fgts { background: #E5F5E5; }
+
+.app-info { display: flex; flex-direction: column; gap: 3px; }
+.app-name { font-size: 15px; font-weight: 700; color: var(--text); }
+.app-desc { font-size: 12px; color: var(--text-muted); }
+.app-free { font-size: 11px; font-weight: 700; color: var(--green); }
+
+.app-divider {
+  height: 1px;
+  background: var(--gold-border);
+  margin-bottom: 14px;
+}
+
+.app-stores-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.app-store-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+@media (max-width: 380px) {
+  .app-store-buttons { grid-template-columns: 1fr; }
+}
+
+.store-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: opacity .2s, transform .15s;
+  border: 1px solid;
+}
+
+.store-btn:hover { opacity: .88; transform: translateY(-1px); }
+
+.store-btn.android {
+  background: #E8F5E9;
+  border-color: #A5D6A7;
+}
+
+.store-btn.ios {
+  background: #F3F4F6;
+  border-color: #D1D5DB;
+}
+
+.store-btn-icon { font-size: 22px; flex-shrink: 0; }
+
+.store-btn-text { display: flex; flex-direction: column; gap: 1px; }
+
+.store-btn-sub {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+.store-btn-name {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.store-btn.android .store-btn-sub  { color: #388E3C; }
+.store-btn.android .store-btn-name { color: #1B5E20; }
+.store-btn.ios .store-btn-sub      { color: #6B7280; }
+.store-btn.ios .store-btn-name     { color: #111827; }
+
+/* ── STEP LIST ── */
+.step-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 16px 0;
+  position: relative;
+}
+
+.step-list::before {
+  content: '';
+  position: absolute;
+  left: 19px; top: 32px; bottom: 32px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--gold-border), transparent);
+  z-index: 0;
+}
+
+.step-item {
+  display: flex;
+  gap: 14px;
+  padding: 14px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.step-dot {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 800;
+  flex-shrink: 0;
+  border: 2px solid transparent;
+  position: relative;
+}
+
+.step-dot.s1 { background: var(--gold-bg);   color: var(--gold);   border-color: var(--gold-border);   }
+.step-dot.s2 { background: var(--blue-bg);   color: var(--blue);   border-color: var(--blue-border);   }
+.step-dot.s3 { background: var(--green-bg);  color: var(--green);  border-color: var(--green-border);  }
+.step-dot.s4 { background: var(--purple-bg); color: var(--purple); border-color: var(--purple-border); }
+.step-dot.s5 { background: var(--red-bg);    color: var(--red);    border-color: var(--red-border);    }
+
+.step-body { padding-top: 8px; flex: 1; }
+.step-title { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px; line-height: 1.3; }
+.step-desc  { font-size: 13px; color: var(--text-soft); line-height: 1.65; }
+.step-desc strong { color: var(--text); font-weight: 600; }
+
+.step-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 8px;
+  font-size: 12px; font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.step-tag.gold   { background: var(--gold-bg);   color: var(--gold);   border: 1px solid var(--gold-border); }
+.step-tag.green  { background: var(--green-bg);  color: var(--green);  border: 1px solid var(--green-border); }
+.step-tag.blue   { background: var(--blue-bg);   color: var(--blue);   border: 1px solid var(--blue-border); }
+.step-tag.red    { background: var(--red-bg);    color: var(--red);    border: 1px solid var(--red-border); }
+
+/* ── ALERTAS ── */
+.alert {
+  display: flex;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  margin: 16px 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.alert svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; fill: none; stroke-width: 2; }
+.alert strong { font-weight: 700; }
+
+.alert.warn    { background: var(--gold-bg);  border: 1px solid var(--gold-border);  color: #7A5C1E; }
+.alert.danger  { background: var(--red-bg);   border: 1px solid var(--red-border);   color: #8B2020; }
+.alert.success { background: var(--green-bg); border: 1px solid var(--green-border); color: #1D5E3A; }
+.alert.info    { background: var(--blue-bg);  border: 1px solid var(--blue-border);  color: #12446A; }
+
+.alert.warn    svg { stroke: var(--gold);  }
+.alert.danger  svg { stroke: var(--red);   }
+.alert.success svg { stroke: var(--green); }
+.alert.info    svg { stroke: var(--blue);  }
+
+/* ── PARCELAS TABLE ── */
+.parcelas-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  margin: 16px 0;
+  font-size: 13px;
+}
+
+.parcelas-table thead {
+  background: var(--text);
+  color: var(--gold-light);
+}
+
+.parcelas-table thead th {
+  padding: 12px 14px;
+  text-align: left;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+.parcelas-table tbody tr {
+  border-bottom: 1px solid var(--bg-alt);
+  background: var(--bg-card);
+}
+
+.parcelas-table tbody tr:last-child { border-bottom: none; }
+.parcelas-table tbody tr:nth-child(even) { background: var(--bg); }
+
+.parcelas-table tbody td {
+  padding: 12px 14px;
+  color: var(--text-soft);
+  line-height: 1.4;
+}
+
+.parcelas-table tbody td strong { color: var(--text); font-weight: 700; }
+
+.parcelas-num {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--gold);
+}
+
+/* ── PRAZO CARDS ── */
+.prazo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 16px 0;
+}
+
+@media (max-width: 420px) { .prazo-grid { grid-template-columns: 1fr; } }
+
+.prazo-card {
+  background: var(--bg);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  border: 1px solid rgba(28,26,23,.07);
+  display: flex; flex-direction: column; gap: 6px;
+}
+
+.prazo-emoji { font-size: 22px; }
+.prazo-label { font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: .05em; }
+.prazo-value { font-family: var(--font-serif); font-size: 18px; font-weight: 900; color: var(--text); line-height: 1.2; }
+.prazo-sub   { font-size: 11px; color: var(--text-muted); line-height: 1.5; }
+
+/* ── PULL QUOTE ── */
+.pull-quote {
+  border-left: 4px solid var(--gold);
+  padding: 14px 18px;
+  margin: 20px 0;
+  background: var(--gold-bg);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.pull-quote p {
+  font-family: var(--font-serif);
+  font-size: clamp(15px, 3.5vw, 19px);
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.pull-quote span {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--text-muted);
+  font-style: normal;
+  font-family: var(--font-sans);
+}
+
+/* ── DIVIDER ── */
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 40px 0;
+}
+
+.section-divider::before,
+.section-divider::after {
+  content: ''; flex: 1;
+  height: 1px;
+  background: var(--gold-border);
+}
+
+.section-divider-icon {
+  width: 28px; height: 28px;
+  background: var(--gold-bg);
+  border: 1px solid var(--gold-border);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px;
+}
+
+/* ── RECAP GRID ── */
+.recap-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+@media (max-width: 420px) { .recap-grid { grid-template-columns: 1fr; } }
+
+.recap-item {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(28,26,23,.06);
+  display: flex; flex-direction: column; gap: 5px;
+}
+
+.recap-emoji { font-size: 22px; }
+.recap-title { font-size: 13px; font-weight: 700; color: var(--text); }
+.recap-desc  { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+
+/* ── CTA FINAL ── */
+.cta-section {
+  background: var(--text);
+  border-radius: var(--radius-lg);
+  padding: 36px 24px;
+  text-align: center;
+  margin: 48px 0 0;
+}
+
+.cta-section-eyebrow {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 12px;
+}
+
+.cta-section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 6vw, 32px);
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.cta-section-title em { font-style: italic; color: var(--gold-light); }
+
+.cta-section-sub {
+  font-size: 14px;
+  color: rgba(255,255,255,.65);
+  margin-bottom: 28px;
+  line-height: 1.65;
+}
+
+.cta-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #25D366;
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px; font-weight: 700;
+  padding: 14px 28px;
+  border-radius: 50px;
+  width: 100%; max-width: 360px;
+  transition: opacity .2s, transform .15s;
+  box-shadow: 0 4px 16px rgba(37,211,102,.35);
+}
+
+.cta-btn-primary:hover { opacity: .9; transform: translateY(-1px); }
+.cta-btn-primary svg { width: 18px; height: 18px; fill: #fff; flex-shrink: 0; }
+
+.cta-share-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  font-size: 13px;
+  color: rgba(255,255,255,.5);
+  text-decoration: none;
+  transition: color .2s;
+}
+
+.cta-share-link:hover { color: var(--gold-light); }
+.cta-share-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+.cta-footer {
+  margin-top: 20px;
+  font-size: 12px;
+  color: rgba(255,255,255,.35);
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .5s ease, transform .5s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 480px) {
+  .article { padding: 0 16px 80px; }
+  .hero { padding: 32px 0 28px; }
+  .topbar-logo-img { height: 30px; }
+  .chapter-body { padding: 20px 16px; }
+  .anchor-block { flex-direction: column; align-items: flex-start; gap: 8px; }
+}
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<!-- ═══ TOPBAR ═══ -->
+<header class="topbar">
+  <a class="topbar-logo" href="#">
+    <img src="/logo.png" alt="Domínio Farma Contabilidade" class="topbar-logo-img"/>
+  </a>
+  <a class="topbar-share" id="topbarShare" href="#" target="_blank">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Compartilhar
+  </a>
+</header>
+
+<main class="article">
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero reveal">
+    <div class="hero-tag">
+      <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+      Direitos do Trabalhador
+    </div>
+    <h1 class="hero-title">
+      Seguro-Desemprego e FGTS:<br>
+      <em>seu guia completo</em><br>
+      pós-demissão
+    </h1>
+    <p class="hero-subtitle">
+      Tudo que você precisa saber para garantir seus direitos — quando pedir, como pedir, quais aplicativos usar. Sem burocracia, sem fila.
+    </p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        7 min de leitura
+      </div>
+      <div class="hero-meta-sep"></div>
+      <div class="hero-meta-item">
+        <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        100% pelo celular
+      </div>
+      <div class="hero-meta-sep"></div>
+      <div class="hero-meta-item">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        CLT · INSS · Caixa
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ AVISO URGENTE ═══ -->
+  <div class="urgency-banner reveal">
+    <div class="urgency-banner-icon">⚠️</div>
+    <div class="urgency-banner-body">
+      <p class="urgency-banner-title">Atenção ao prazo — não deixe para depois</p>
+      <p class="urgency-banner-text">O Seguro-Desemprego tem prazo de solicitação entre o <strong>7º e o 120º dia</strong> após a demissão. Depois disso, você perde o direito. Leia este guia e já providencie.</p>
+    </div>
+  </div>
+
+  <!-- ═══ SUMÁRIO ═══ -->
+  <nav class="summary reveal">
+    <p class="summary-title">Neste guia</p>
+    <ul class="summary-list">
+      <li><a href="#quando"><div class="summary-num">1</div>Quando fazer cada coisa<span class="summary-badge badge-red">Urgente</span></a></li>
+      <li><a href="#seguro"><div class="summary-num">2</div>Documentos para o Seguro-Desemprego<span class="summary-badge badge-blue">Seguro</span></a></li>
+      <li><a href="#seguro-steps"><div class="summary-num">3</div>Passo a passo: Seguro-Desemprego<span class="summary-badge badge-blue">App</span></a></li>
+      <li><a href="#parcelas"><div class="summary-num">4</div>Quantas parcelas você recebe<span class="summary-badge badge-gold">Valor</span></a></li>
+      <li><a href="#fgts"><div class="summary-num">5</div>Documentos para o FGTS<span class="summary-badge badge-green">FGTS</span></a></li>
+      <li><a href="#fgts-steps"><div class="summary-num">6</div>Passo a passo: Saque do FGTS<span class="summary-badge badge-green">App</span></a></li>
+      <li><a href="#resumo"><div class="summary-num">7</div>Resumo rápido<span class="summary-badge badge-gold">Fixar</span></a></li>
+    </ul>
+  </nav>
+
+  <!-- ══════════════════════════════════════
+       CAPÍTULO 0 — QUANDO FAZER
+  ══════════════════════════════════════ -->
+  <div class="reveal" id="quando">
+    <div class="chapter-header">
+      <div class="chapter-emoji">📅</div>
+      <div class="chapter-header-text">
+        <span class="chapter-eyebrow">Primeiros passos</span>
+        <h2 class="chapter-title">Quando fazer cada coisa</h2>
+      </div>
+    </div>
+    <div class="chapter-body">
+      <p class="section-body">
+        Você acabou de ser demitido sem justa causa. Existem <strong>dois processos independentes</strong> que precisam ser feitos — e cada um tem o seu prazo.
+      </p>
+      <div class="prazo-grid">
+        <div class="prazo-card">
+          <span class="prazo-emoji">📋</span>
+          <span class="prazo-label">Seguro-Desemprego</span>
+          <span class="prazo-value">7° ao 120° dia</span>
+          <span class="prazo-sub">Contados a partir da data da demissão. Não perca esse prazo.</span>
+        </div>
+        <div class="prazo-card">
+          <span class="prazo-emoji">💰</span>
+          <span class="prazo-label">Saque do FGTS</span>
+          <span class="prazo-value">Após a empresa liberar</span>
+          <span class="prazo-sub">A empresa tem 10 dias corridos para comunicar a rescisão à Caixa.</span>
+        </div>
+      </div>
+      <div class="alert info">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p>Os dois processos são <strong>independentes</strong> — você pode fazer um sem o outro e em qualquer ordem. O ideal é dar entrada no Seguro-Desemprego logo nos primeiros dias, enquanto providencia o saque do FGTS.</p>
+      </div>
+      <div class="pull-quote">
+        <p>"Posso pedir o Seguro-Desemprego e sacar o FGTS ao mesmo tempo?"</p>
+        <span>— Sim. São dois benefícios distintos e você tem direito aos dois.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider reveal"><div class="section-divider-icon">📋</div></div>
+
+  <!-- ══════════════════════════════════════
+       CAPÍTULO 1 — SEGURO-DESEMPREGO
+  ══════════════════════════════════════ -->
+  <div class="reveal" id="seguro">
+    <div class="chapter-header">
+      <div class="chapter-emoji">📱</div>
+      <div class="chapter-header-text">
+        <span class="chapter-eyebrow">Parte 1 de 2 — Seguro-Desemprego</span>
+        <h2 class="chapter-title">Como dar entrada pelo celular</h2>
+      </div>
+    </div>
+    <div class="chapter-body">
+
+      <!-- ── APP CTPS ── -->
+      <div class="section">
+        <p class="section-label">Aplicativo necessário</p>
+
+        <div class="app-card">
+          <div class="app-card-top">
+            <div class="app-icon ctd">📂</div>
+            <div class="app-info">
+              <span class="app-name">Carteira de Trabalho Digital</span>
+              <span class="app-desc">App oficial do Ministério do Trabalho e Emprego</span>
+              <span class="app-free">✓ Gratuito · Processo em menos de 5 min</span>
+            </div>
+          </div>
+          <div class="app-divider"></div>
+          <p class="app-stores-label">Baixe agora — toque no seu sistema:</p>
+          <div class="app-store-buttons">
+            <a class="store-btn android"
+               href="https://play.google.com/store/apps/details?id=br.gov.dataprev.carteiradigital&hl=pt_BR"
+               target="_blank" rel="noopener">
+              <span class="store-btn-icon">▶</span>
+              <span class="store-btn-text">
+                <span class="store-btn-sub">Google Play</span>
+                <span class="store-btn-name">Android</span>
+              </span>
+            </a>
+            <a class="store-btn ios"
+               href="https://apps.apple.com/br/app/carteira-de-trabalho-digital/id1295257499"
+               target="_blank" rel="noopener">
+              <span class="store-btn-icon"> </span>
+              <span class="store-btn-text">
+                <span class="store-btn-sub">App Store</span>
+                <span class="store-btn-name">iPhone</span>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <div class="alert success">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          <p>Você <strong>não precisa ir a nenhuma agência.</strong> Todo o processo é feito pelo app, em qualquer lugar, a qualquer hora.</p>
+        </div>
+      </div>
+
+      <!-- ── QUEM TEM DIREITO ── -->
+      <div class="section">
+        <p class="section-label">Antes de começar — verifique se você tem direito</p>
+        <div class="anchor-block">
+          <div class="anchor-number">120</div>
+          <div class="anchor-text">
+            <span class="anchor-label">dias é o prazo máximo</span>
+            <span class="anchor-sub">Contados da demissão. Depois disso o direito expira definitivamente.</span>
+          </div>
+        </div>
+        <p class="section-body">Para solicitar, você precisa ter sido <strong>demitido sem justa causa</strong> e atender ao tempo mínimo trabalhado:</p>
+        <table class="parcelas-table">
+          <thead>
+            <tr>
+              <th>Qual solicitação</th>
+              <th>Meses mínimos</th>
+              <th>Período de referência</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1ª vez</strong></td>
+              <td><span class="parcelas-num">12</span> meses</td>
+              <td>Nos últimos 18 meses</td>
+            </tr>
+            <tr>
+              <td><strong>2ª vez</strong></td>
+              <td><span class="parcelas-num">9</span> meses</td>
+              <td>Nos últimos 12 meses</td>
+            </tr>
+            <tr>
+              <td><strong>3ª vez em diante</strong></td>
+              <td><span class="parcelas-num">6</span> meses</td>
+              <td>Imediatamente anteriores</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="alert danger">
+          <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <p>Você <strong>não</strong> tem direito se: pediu demissão, foi demitido por justa causa, está recebendo outro benefício do INSS (exceto auxílio-acidente ou pensão por morte) ou possui outra fonte de renda suficiente.</p>
+        </div>
+      </div>
+
+      <!-- ── DOCUMENTOS SEGURO ── -->
+      <div class="section">
+        <p class="section-label">Documentos necessários</p>
+        <p class="section-body">Tenha estes itens em mãos <strong>antes</strong> de abrir o aplicativo:</p>
+        <div class="docs-grid">
+          <div class="doc-item">
+            <div class="doc-icon gold">🪪</div>
+            <div class="doc-text">
+              <span class="doc-name">Documento de identidade com foto</span>
+              <span class="doc-desc">RG, CNH ou Carteira de Identidade Nacional (CIN)</span>
+            </div>
+          </div>
+          <div class="doc-item">
+            <div class="doc-icon blue">🔢</div>
+            <div class="doc-text">
+              <span class="doc-name">CPF</span>
+              <span class="doc-desc">Para login no Gov.br — obrigatório</span>
+            </div>
+          </div>
+          <div class="doc-item">
+            <div class="doc-icon green">📄</div>
+            <div class="doc-text">
+              <span class="doc-name">Requerimento do Seguro-Desemprego</span>
+              <span class="doc-desc">Formulário com número de <strong>10 dígitos</strong> entregue pela empresa na demissão. Este é o documento mais importante.</span>
+            </div>
+          </div>
+          <div class="doc-item">
+            <div class="doc-icon purple">📑</div>
+            <div class="doc-text">
+              <span class="doc-name">Termo de Rescisão (TRCT)</span>
+              <span class="doc-desc">Documento assinado no ato da demissão</span>
+            </div>
+          </div>
+          <div class="doc-item">
+            <div class="doc-icon red">🏦</div>
+            <div class="doc-text">
+              <span class="doc-name">Dados bancários</span>
+              <span class="doc-desc">Conta em seu nome para recebimento das parcelas</span>
+            </div>
+          </div>
+          <div class="doc-item">
+            <div class="doc-icon gold">🔑</div>
+            <div class="doc-text">
+              <span class="doc-name">Senha do Gov.br</span>
+              <span class="doc-desc">Se não tiver, crie em gov.br/conta-acesso antes de começar</span>
+            </div>
+          </div>
+        </div>
+        <div class="alert warn">
+          <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <p><strong>Não encontrou o requerimento?</strong> Peça ao RH ou ao empregador. Ele é obrigatório por lei e deve ser entregue no ato da demissão.</p>
+        </div>
+      </div>
+
+      <!-- ── PASSO A PASSO SEGURO ── -->
+      <div class="section" id="seguro-steps">
+        <p class="section-label">Passo a passo no aplicativo</p>
+        <div class="step-list">
+          <div class="step-item">
+            <div class="step-dot s1">1</div>
+            <div class="step-body">
+              <p class="step-title">Baixe a Carteira de Trabalho Digital</p>
+              <p class="step-desc">Use os botões acima para baixar o app correto para o seu celular. É <strong>gratuito</strong> e oficial do Governo Federal.</p>
+              <span class="step-tag gold">📲 Android ou iPhone — ambos gratuitos</span>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-dot s2">2</div>
+            <div class="step-body">
+              <p class="step-title">Entre com a conta Gov.br</p>
+              <p class="step-desc">Abra o app e faça login com seu <strong>CPF e senha do Gov.br</strong>. Se ainda não tem conta, acesse <em>gov.br/conta-acesso</em> e crie antes de continuar.</p>
+              <span class="step-tag blue">🔐 Login único do Governo Federal</span>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-dot s3">3</div>
+            <div class="step-body">
+              <p class="step-title">Toque nas três barrinhas ☰ (menu)</p>
+              <p class="step-desc">Na tela principal, toque no ícone de menu <strong>☰</strong> no canto inferior da tela para acessar todas as opções.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-dot s4">4</div>
+            <div class="step-body">
+              <p class="step-title">Benefícios → Seguro-Desemprego → Solicitar</p>
+              <p class="step-desc">No menu, toque em <strong>"Benefícios"</strong>, depois <strong>"Seguro-Desemprego"</strong> e por fim <strong>"Solicitar"</strong>.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-dot s5">5</div>
+            <div class="step-body">
+              <p class="step-title">Informe o número do requerimento</p>
+              <p class="step-desc">Selecione a <strong>modalidade</strong> conforme sua rescisão e informe o <strong>número de 10 dígitos</strong> do requerimento entregue pela empresa.</p>
+              <span class="step-tag red">📋 Número de 10 dígitos — no topo do formulário</span>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-dot s1">6</div>
+            <div class="step-body">
+              <p class="step-title">Confirme os dados e envie</p>
+              <p class="step-desc">Revise todas as informações, confirme dados pessoais e bancários e finalize. Você receberá confirmação na tela.</p>
+              <span class="step-tag green">✅ Benefício liberado em até 30 dias</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── PARCELAS ── -->
+      <div class="section" id="parcelas">
+        <p class="section-label">Quantas parcelas você recebe</p>
+        <table class="parcelas-table">
+          <thead>
+            <tr>
+              <th>Tempo trabalhado (últimos 36 meses)</th>
+              <th>Parcelas</th>
+              <th>Valor mínimo 2025</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>De 6 a 11 meses</td>
+              <td><span class="parcelas-num">3</span></td>
+              <td><strong>R$ 1.518</strong> cada</td>
+            </tr>
+            <tr>
+              <td>De 12 a 23 meses</td>
+              <td><span class="parcelas-num">4</span></td>
+              <td><strong>R$ 1.518</strong> cada</td>
+            </tr>
+            <tr>
+              <td>24 meses ou mais</td>
+              <td><span class="parcelas-num">5</span></td>
+              <td><strong>R$ 1.518</strong> cada</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="alert info">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <p>O valor <strong>pode ser maior</strong> dependendo do seu salário. O cálculo usa a média dos últimos 3 salários. Acompanhe parcelas e datas diretamente no app.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section-divider reveal"><div class="section-divider-icon">💰</div></div>
+
+  <!-- ══════════════════════════════════════
+       CAPÍTULO 2 — FGTS
+  ══════════════════════════════════════ -->
+  <div class="reveal" id="fgts">
+    <div class="chapter-header">
+      <div class="chapter-emoji">🏦</div>
+      <div class="chapter-header-text">
+        <span class="chapter-eyebrow">Parte 2 de 2 — FGTS</span>
+        <h2 class="chapter-title">Como sacar o FGTS pelo celular</h2>
+      </div>
+    </div>
+    <div class="chapter-body">
+
+      <!-- ── APP FGTS ── -->
+      <div class="section">
+        <p class="section-label">Aplicativo necessário</p>
+
+        <div class="app-card">
+          <div class="app-card-top">
+            <div class="app-icon fgts">🟢</div>
+            <div class="app-info">
+              <span class="app-name">FGTS — Caixa Econômica Federal</span>
+              <span class="app-desc">App oficial da Caixa para consulta e saque do FGTS</span>
+              <span class="app-free">✓ Gratuito · Depósito em até 5 dias úteis</span>
+            </div>
+          </div>
+          <div class="app-divider"></div>
+          <p class="app-stores-label">Baixe agora — toque no seu sistema:</p>
+          <div class="app-store-buttons">
+            <a class="store-btn android"
+               href="https://play.google.com/store/apps/details?id=br.gov.caixa.fgts.trabalhador&hl=pt_BR"
+               target="_blank" rel="noopener">
+              <span class="store-btn-icon">▶</span>
+              <span class="store-btn-text">
+                <span class="store-btn-sub">Google Play</span>
+                <span class="store-btn-name">Android</span>
+              </span>
+            </a>
+            <a class="store-btn ios"
+               href="https://apps.apple.com/br/app/fgts/id1038441027"
+               target="_blank" rel="noopener">
+              <span class="store-btn-icon"> </span>
+              <span class="store-btn-text">
+                <span class="store-btn-sub">App Store</span>
+                <span class="store-btn-name">iPhone</span>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <div class="alert success">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          <p>Se a empresa já comunicou sua rescisão e você tiver conta cadastrada no app, o <strong>dinheiro cai automaticamente em até 5 dias úteis</strong> — sem nenhuma ação adicional.</p>
+        </div>
+      </div>
+
+      <!-- ── QUEM TEM DIREITO FGTS ── -->
+      <div class="section">
+        <p class="section-label">Quem tem direito ao saque</p>
+        <div class="anchor-block">
+          <div class="anchor-number">8%</div>
+          <div class="anchor-text">
+            <span class="anchor-label">do salário depositado todo mês</span>
+            <span class="anchor-sub">Esse é o valor que a empresa deposita na sua conta do FGTS. Todo esse dinheiro é seu.</span>
+          </div>
+        </div>
+        <div class="docs-grid">
+          <div class="doc-item">
+            <div class="doc-icon green">✅</div>
+            <div class="doc-text">
+              <span class="doc-name">Demitido sem justa causa</span>
+              <span class="doc-desc">Saque 100% do saldo + multa de 40% paga pela empresa</span>
+            </div>
+          </div>
+          <div class="doc-item">
+            <div class="doc-icon blue">✅</div>
+            <div class="doc-text">
+              <span class="doc-name">Acordo entre empresa e funcionário</span>
+              <span class="doc-desc">Saque de até 80% do saldo disponível</span>
+            </div>
+          </div>
+          <div class="doc-item">
+            <div class="doc-icon red">❌</div>
+            <div class="doc-text">
+              <span class="doc-name">Pediu demissão voluntariamente</span>
+              <span class="doc-desc">Sem direito ao saque imediato. Aguarde 3 anos.</span>
+            </div>
+          </div>
+          <div class="doc-item">
+            <div class="doc-icon red">❌</div>
+            <div class="doc-text">
+              <span class="doc-name">Demitido por justa causa</span>
+              <span class="doc-desc">Sem direito ao saque. O saldo permanece na conta.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── DOCUMENTOS FGTS ── -->
+      <div class="section">
+        <p class="section-label">O que você vai precisar</p>
+        <div class="docs-grid">
+          <div class="doc-item">
+            <div class="doc-icon blue">🔢</div>
+            <div class="doc-text">
+              <span class="doc-name">CPF</span>
+              <span class="doc-desc">Para criar o cadastro e fazer login no app FGTS</span>
+            </div>
+          </div>
+          <div class="doc-item">
+            <div class="doc-icon gold">🔑</div>
+            <div class="doc-text">
+              <span class="doc-name">Senha do app FGTS (Caixa)</span>
+              <span class="doc-desc">Se não tiver, crie direto no app — numérica, mínimo 6 dígitos</span>
+            </div>
+          </div>
+          <div class="doc-item">
+            <div class="doc-icon green">📱</div>
+            <div class="doc-text">
+              <span class="doc-name">Número de celular</span>
+              <span class="doc-desc">Para receber o código de verificação via SMS no cadastro</span>
+            </div>
+          </div>
+          <div class="doc-item">
+            <div class="doc-icon purple">✉️</div>
+            <div class="doc-text">
+              <span class="doc-name">E-mail</span>
+              <span class="doc-desc">Para ativar a conta — você receberá um link de confirmação</span>
+            </div>
+          </div>
+          <div class="doc-item">
+            <div class="doc-icon gold">🏦</div>
+            <div class="doc-text">
+              <span class="doc-name">Conta bancária em seu nome</span>
+              <span class="doc-desc">Conta corrente ou poupança — Caixa ou qualquer outro banco</span>
+            </div>
+          </div>
+        </div>
+        <div class="alert danger">
+          <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <p><strong>Não use contas de terceiros</strong> nem carteiras digitais como Mercado Pago, PicPay ou PagSeguro. A conta deve obrigatoriamente estar no seu CPF — caso contrário o saque será bloqueado.</p>
+        </div>
+      </div>
+
+      <!-- ── PASSO A PASSO FGTS ── -->
+      <div class="section" id="fgts-steps">
+        <p class="section-label">Passo a passo no aplicativo</p>
+        <div class="step-list">
+          <div class="step-item">
+            <div class="step-dot s1">1</div>
+            <div class="step-body">
+              <p class="step-title">Baixe o app FGTS da Caixa</p>
+              <p class="step-desc">Use os botões acima para baixar o app correto. É o app da <strong>Caixa Econômica Federal</strong>, com ícone verde. Totalmente gratuito.</p>
+              <span class="step-tag gold">📲 Android ou iPhone — ambos gratuitos</span>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-dot s2">2</div>
+            <div class="step-body">
+              <p class="step-title">Crie seu cadastro (se ainda não tiver)</p>
+              <p class="step-desc">Toque em <strong>"Cadastre-se"</strong> e informe: CPF, nome completo, telefone, data de nascimento, CEP e e-mail. Escolha uma senha <strong>numérica com mínimo 6 dígitos</strong>. Confirme o SMS e ative a conta pelo link no e-mail.</p>
+              <span class="step-tag blue">📩 Verifique e-mail e SMS após o cadastro</span>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-dot s3">3</div>
+            <div class="step-body">
+              <p class="step-title">Faça login e acesse "Meu Saque"</p>
+              <p class="step-desc">Entre com CPF e senha. Na tela inicial, toque em <strong>"Meu Saque"</strong> ou <strong>"Solicite seu saque 100% digital"</strong>.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-dot s4">4</div>
+            <div class="step-body">
+              <p class="step-title">Selecione o motivo: Demissão sem justa causa</p>
+              <p class="step-desc">O sistema reconhece automaticamente quando a empresa libera a chave do FGTS. Se o saldo não aparecer, aguarde os 10 dias corridos e acesse novamente.</p>
+              <span class="step-tag gold">🔓 Liberação automática após comunicação da empresa</span>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-dot s5">5</div>
+            <div class="step-body">
+              <p class="step-title">Cadastre uma conta bancária em seu nome</p>
+              <p class="step-desc">Toque em <strong>"Creditar em conta"</strong> e informe os dados da sua conta. Qualquer banco é aceito — Caixa, Bradesco, Itaú, Nubank, Inter, etc. <strong>Deve ser conta no seu CPF.</strong></p>
+              <span class="step-tag red">⚠️ Só conta no seu nome — sem exceções</span>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-dot s1">6</div>
+            <div class="step-body">
+              <p class="step-title">Confirme e aguarde o depósito</p>
+              <p class="step-desc">Revise os dados, confirme e aguarde. O valor é creditado em <strong>até 5 dias úteis</strong>. Acompanhe pelo app em <strong>"Acompanhar saques"</strong>.</p>
+              <span class="step-tag green">✅ Depósito em até 5 dias úteis</span>
+            </div>
+          </div>
+        </div>
+        <div class="alert warn">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <p><strong>O saldo não aparece?</strong> A empresa ainda não comunicou sua rescisão à Caixa. Aguarde os 10 dias corridos após a demissão e tente novamente.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section-divider reveal"><div class="section-divider-icon">⚡</div></div>
+
+  <!-- ══════════════════════════════════════
+       RESUMO RÁPIDO
+  ══════════════════════════════════════ -->
+  <div class="reveal" id="resumo">
+    <div class="chapter-header">
+      <div class="chapter-emoji">⚡</div>
+      <div class="chapter-header-text">
+        <span class="chapter-eyebrow">Revisão final</span>
+        <h2 class="chapter-title">Resumo para não esquecer nada</h2>
+      </div>
+    </div>
+    <div class="chapter-body">
+      <div class="recap-grid">
+        <div class="recap-item">
+          <span class="recap-emoji">📅</span>
+          <p class="recap-title">Prazo do Seguro</p>
+          <p class="recap-desc">Do 7° ao 120° dia após a demissão. Não perca.</p>
+        </div>
+        <div class="recap-item">
+          <span class="recap-emoji">📂</span>
+          <p class="recap-title">App do Seguro</p>
+          <p class="recap-desc">Carteira de Trabalho Digital — login via Gov.br</p>
+        </div>
+        <div class="recap-item">
+          <span class="recap-emoji">📋</span>
+          <p class="recap-title">Doc mais importante</p>
+          <p class="recap-desc">Requerimento com 10 dígitos — exija da empresa na demissão</p>
+        </div>
+        <div class="recap-item">
+          <span class="recap-emoji">💰</span>
+          <p class="recap-title">FGTS: 8% ao mês</p>
+          <p class="recap-desc">Mais multa de 40% da empresa — tudo é seu</p>
+        </div>
+        <div class="recap-item">
+          <span class="recap-emoji">🟢</span>
+          <p class="recap-title">App do FGTS</p>
+          <p class="recap-desc">App FGTS (Caixa) — senha numérica própria</p>
+        </div>
+        <div class="recap-item">
+          <span class="recap-emoji">🏦</span>
+          <p class="recap-title">Conta bancária</p>
+          <p class="recap-desc">Obrigatoriamente no seu nome. Nada de conta de terceiros.</p>
+        </div>
+        <div class="recap-item">
+          <span class="recap-emoji">⏳</span>
+          <p class="recap-title">FGTS: 5 dias úteis</p>
+          <p class="recap-desc">Após solicitar, o depósito cai em até 5 dias úteis</p>
+        </div>
+        <div class="recap-item">
+          <span class="recap-emoji">🤝</span>
+          <p class="recap-title">São independentes</p>
+          <p class="recap-desc">Faça os dois — Seguro e FGTS são benefícios diferentes</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ CTA FINAL ═══ -->
+  <div class="cta-section reveal">
+    <p class="cta-section-eyebrow">Domínio Farma Contabilidade</p>
+    <h2 class="cta-section-title">
+      Ficou com dúvida<br>
+      <em>em algum passo?</em>
+    </h2>
+    <p class="cta-section-sub">
+      Nossa equipe pode te orientar. Entre em contato pelo WhatsApp — rápido e gratuito para clientes parceiros.
+    </p>
+    <a class="cta-btn-primary"
+       href="https://wa.me/5574999263592?text=Olá!%20Li%20o%20guia%20de%20Seguro-Desemprego%20e%20FGTS%20e%20estou%20com%20uma%20dúvida."
+       target="_blank">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Falar com a Domínio Farma
+    </a>
+    <a class="cta-share-link" id="ctaShareFinal" href="#">
+      <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+      Compartilhar este guia com alguém
+    </a>
+    <p class="cta-footer">(74) 99926-3592 · dominiofarma.com · Contabilidade 100% Digital</p>
+  </div>
+
+</main>
+
+<script>
+/* ── PROGRESSO ── */
+const bar = document.getElementById('progress-bar');
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  bar.style.width = Math.min(pct, 100) + '%';
+}, { passive: true });
+
+/* ── SCROLL REVEAL ── */
+const reveals = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+  });
+}, { threshold: 0.06 });
+reveals.forEach(el => io.observe(el));
+
+/* ── SHARE ── */
+function buildShare() {
+  return 'https://wa.me/?text=' +
+    encodeURIComponent(
+      '📋 *Seguro-Desemprego e FGTS — Guia Completo*\n\n' +
+      'Como dar entrada e sacar pelo celular, passo a passo:\n' +
+      window.location.href
+    );
+}
+document.getElementById('topbarShare').href   = buildShare();
+document.getElementById('ctaShareFinal').href = buildShare();
+</script>
+</body>
+</html>
