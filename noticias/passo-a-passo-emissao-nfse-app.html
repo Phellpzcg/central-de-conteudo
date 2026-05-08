@@ -1,819 +1,1319 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Guia Completo – Domínio Farma Cliente</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="theme-color" content="#F7F5F0"/>
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f4f6f9;
-      color: #333;
-    }
+<meta property="og:title"       content="Domínio Farma Cliente: Guia Completo do App"/>
+<meta property="og:description" content="Aprenda a usar o app Domínio Farma Cliente: login, pedidos, pontos, notificações e muito mais."/>
+<meta property="og:type"        content="article"/>
+<meta name="twitter:card"       content="summary_large_image"/>
 
-    /* ───── BANNER ───── */
-    .banner {
-      background: linear-gradient(135deg, #1a6b3c 0%, #27ae60 60%, #2ecc71 100%);
-      color: white;
-      text-align: center;
-      padding: 60px 20px 50px;
-      position: relative;
-      overflow: hidden;
-    }
-    .banner::before {
-      content: '';
-      position: absolute;
-      top: -50px; right: -50px;
-      width: 200px; height: 200px;
-      background: rgba(255,255,255,0.07);
-      border-radius: 50%;
-    }
-    .banner::after {
-      content: '';
-      position: absolute;
-      bottom: -60px; left: -40px;
-      width: 250px; height: 250px;
-      background: rgba(255,255,255,0.05);
-      border-radius: 50%;
-    }
-    .banner-icon {
-      font-size: 64px;
-      margin-bottom: 16px;
-      display: block;
-    }
-    .banner h1 {
-      font-size: 2.2rem;
-      font-weight: 800;
-      margin-bottom: 10px;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    }
-    .banner p {
-      font-size: 1.1rem;
-      opacity: 0.92;
-      max-width: 600px;
-      margin: 0 auto 24px;
-    }
-    .banner-badge {
-      display: inline-block;
-      background: rgba(255,255,255,0.2);
-      border: 2px solid rgba(255,255,255,0.4);
-      border-radius: 50px;
-      padding: 6px 20px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
+<title>Guia do App — Domínio Farma Cliente</title>
 
-    /* ───── DOWNLOAD BUTTONS (Banner) ───── */
-    .download-section {
-      background: #fff;
-      border-top: 4px solid #27ae60;
-      padding: 32px 20px;
-      text-align: center;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-    }
-    .download-section .ds-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: #1a6b3c;
-      margin-bottom: 6px;
-    }
-    .download-section .ds-sub {
-      font-size: 0.95rem;
-      color: #666;
-      margin-bottom: 22px;
-    }
-    .btn-group {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 16px;
-    }
-    .btn-download {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      padding: 14px 28px;
-      border-radius: 14px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-      min-width: 220px;
-      justify-content: center;
-    }
-    .btn-download:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
-    }
-    .btn-android {
-      background: linear-gradient(135deg, #34a853, #1e7e34);
-      color: white;
-      box-shadow: 0 4px 14px rgba(52,168,83,0.4);
-    }
-    .btn-ios {
-      background: linear-gradient(135deg, #1c1c1e, #3a3a3c);
-      color: white;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.35);
-    }
-    .btn-download .btn-icon { font-size: 1.6rem; }
-    .btn-download .btn-text { text-align: left; line-height: 1.3; }
-    .btn-download .btn-text span { display: block; font-size: 0.72rem; font-weight: 400; opacity: 0.85; }
-    .free-note {
-      margin-top: 14px;
-      font-size: 0.85rem;
-      color: #888;
-    }
-    .free-note strong { color: #27ae60; }
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 
-    /* ───── ALERT BOX ───── */
-    .alert-app {
-      background: linear-gradient(135deg, #fff8e1, #fffde7);
-      border: 2px solid #f9a825;
-      border-left: 6px solid #f9a825;
-      border-radius: 12px;
-      padding: 18px 20px;
-      margin: 24px 0;
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-    }
-    .alert-app .alert-icon { font-size: 1.8rem; flex-shrink: 0; }
-    .alert-app .alert-body { flex: 1; }
-    .alert-app .alert-body strong {
-      display: block;
-      font-size: 1rem;
-      color: #e65100;
-      margin-bottom: 6px;
-    }
-    .alert-app .alert-body p { font-size: 0.9rem; color: #555; margin-bottom: 12px; }
-    .mini-btn-group { display: flex; flex-wrap: wrap; gap: 10px; }
-    .mini-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 16px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 600;
-      transition: transform 0.15s;
-    }
-    .mini-btn:hover { transform: translateY(-2px); }
-    .mini-btn-android {
-      background: #34a853;
-      color: white;
-    }
-    .mini-btn-ios {
-      background: #1c1c1e;
-      color: white;
-    }
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* ───── LAYOUT PRINCIPAL ───── */
-    .container {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 40px 20px 60px;
-    }
+:root {
+  --bg:          #F7F5F0;
+  --bg-alt:      #EFEDE6;
+  --bg-card:     #FFFFFF;
+  --text:        #1C1A17;
+  --text-soft:   #5A5650;
+  --text-muted:  #8C8880;
+  --gold:        #A67C3B;
+  --gold-light:  #C9A96E;
+  --gold-bg:     #FBF4E8;
+  --gold-border: #E8D5B0;
+  --green:       #2E7D52;
+  --green-bg:    #EBF5EF;
+  --green-border:#A8D5BC;
+  --red:         #C0392B;
+  --red-bg:      #FDECEA;
+  --red-border:  #F1A9A0;
+  --blue:        #1A5C8A;
+  --blue-bg:     #EAF2FA;
+  --blue-border: #A8C8E8;
+  --shadow-sm:   0 1px 4px rgba(28,26,23,.08);
+  --shadow-md:   0 4px 16px rgba(28,26,23,.10);
+  --shadow-lg:   0 8px 32px rgba(28,26,23,.12);
+  --radius-sm:   8px;
+  --radius-md:   14px;
+  --radius-lg:   20px;
+  --font-serif:  'Playfair Display', Georgia, serif;
+  --font-sans:   'Inter', system-ui, sans-serif;
+  --max-w:       680px;
+}
 
-    /* ───── SUMÁRIO ───── */
-    .toc {
-      background: white;
-      border-radius: 16px;
-      padding: 28px 32px;
-      margin-bottom: 36px;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
-      border-left: 5px solid #27ae60;
-    }
-    .toc h2 {
-      font-size: 1.1rem;
-      color: #1a6b3c;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .toc ol { padding-left: 20px; }
-    .toc ol li { margin-bottom: 8px; }
-    .toc ol li a {
-      color: #27ae60;
-      text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-    .toc ol li a:hover { color: #1a6b3c; text-decoration: underline; }
+html { scroll-behavior: smooth; }
 
-    /* ───── CAPÍTULOS ───── */
-    .chapter {
-      background: white;
-      border-radius: 16px;
-      padding: 36px 36px 28px;
-      margin-bottom: 28px;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
-    }
-    .chapter-header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 24px;
-      padding-bottom: 18px;
-      border-bottom: 2px solid #f0f0f0;
-    }
-    .chapter-number {
-      width: 44px; height: 44px;
-      background: linear-gradient(135deg, #27ae60, #1a6b3c);
-      color: white;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      font-weight: 800;
-      flex-shrink: 0;
-    }
-    .chapter-title {
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: #1a6b3c;
-    }
-    .chapter-icon { font-size: 1.3rem; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
 
-    /* ───── STEPS ───── */
-    .steps { counter-reset: step-counter; }
-    .step {
-      display: flex;
-      gap: 16px;
-      margin-bottom: 20px;
-      align-items: flex-start;
-    }
-    .step-num {
-      counter-increment: step-counter;
-      width: 32px; height: 32px;
-      min-width: 32px;
-      background: #e8f5e9;
-      color: #1a6b3c;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 0.9rem;
-    }
-    .step-num::before { content: counter(step-counter); }
-    .step-content { flex: 1; padding-top: 4px; }
-    .step-content strong { color: #1a6b3c; }
-    .step-content p { font-size: 0.95rem; line-height: 1.65; color: #444; margin-top: 4px; }
+/* ── PROGRESSO ── */
+#progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  z-index: 1000;
+  transition: width .1s linear;
+}
 
-    /* ───── CARDS ───── */
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      margin-top: 20px;
-    }
-    .card {
-      background: #f8fffe;
-      border: 1.5px solid #c8e6c9;
-      border-radius: 12px;
-      padding: 20px;
-      text-align: center;
-    }
-    .card .card-icon { font-size: 2rem; margin-bottom: 10px; display: block; }
-    .card h4 { font-size: 0.95rem; font-weight: 700; color: #1a6b3c; margin-bottom: 6px; }
-    .card p { font-size: 0.85rem; color: #555; line-height: 1.5; }
+/* ── TOPBAR PRETA ── */
+.topbar {
+  position: sticky;
+  top: 0;
+  background: rgba(10, 10, 10, 0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(166, 124, 59, 0.30);
+  z-index: 100;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
 
-    /* ───── INFO BOX ───── */
-    .info-box {
-      background: #e8f5e9;
-      border-radius: 10px;
-      padding: 16px 18px;
-      margin: 18px 0;
-      font-size: 0.9rem;
-      color: #2e7d32;
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-    }
-    .info-box .ib-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+.topbar-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
 
-    /* ───── PILL LIST ───── */
-    .pill-list { list-style: none; padding: 0; margin-top: 14px; }
-    .pill-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      padding: 10px 0;
-      border-bottom: 1px solid #f0f0f0;
-      font-size: 0.95rem;
-      color: #444;
-      line-height: 1.5;
-    }
-    .pill-list li:last-child { border-bottom: none; }
-    .pill-list li .pill-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+.topbar-logo-img {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
 
-    /* ───── TIP BOX ───── */
-    .tip-box {
-      background: linear-gradient(135deg, #e3f2fd, #e8f5e9);
-      border-radius: 12px;
-      padding: 18px 20px;
-      margin: 20px 0;
-      border-left: 5px solid #1976d2;
-      font-size: 0.92rem;
-      color: #333;
-    }
-    .tip-box strong { color: #1565c0; }
+.topbar-share {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #25D366;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity .2s;
+  flex-shrink: 0;
+}
+.topbar-share:hover { opacity: .88; }
+.topbar-share svg { width: 15px; height: 15px; fill: #fff; flex-shrink: 0; }
 
-    /* ───── WARNING BOX ───── */
-    .warning-box {
-      background: #fff3e0;
-      border-radius: 10px;
-      padding: 14px 18px;
-      margin: 16px 0;
-      border-left: 5px solid #ff9800;
-      font-size: 0.9rem;
-      color: #e65100;
-      display: flex;
-      gap: 10px;
-    }
+/* ── WRAPPER ── */
+.article {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 20px 80px;
+}
 
-    /* ───── TABLE ───── */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 16px;
-      font-size: 0.9rem;
-    }
-    th {
-      background: #1a6b3c;
-      color: white;
-      padding: 12px 14px;
-      text-align: left;
-    }
-    td {
-      padding: 11px 14px;
-      border-bottom: 1px solid #eee;
-      vertical-align: top;
-    }
-    tr:nth-child(even) td { background: #f9f9f9; }
+/* ── HERO ── */
+.hero {
+  padding: 48px 0 40px;
+  border-bottom: 1px solid var(--gold-border);
+  margin-bottom: 48px;
+}
 
-    /* ───── CTA FINAL ───── */
-    .cta-final {
-      background: linear-gradient(135deg, #1a6b3c, #27ae60);
-      color: white;
-      border-radius: 16px;
-      padding: 40px 32px;
-      text-align: center;
-      margin-top: 36px;
-    }
-    .cta-final h2 { font-size: 1.6rem; margin-bottom: 10px; }
-    .cta-final p { font-size: 1rem; opacity: 0.9; margin-bottom: 28px; }
-    .cta-final .btn-group { justify-content: center; }
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--gold-bg);
+  border: 1px solid var(--gold-border);
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
 
-    /* ───── RESPONSIVO ───── */
-    @media (max-width: 600px) {
-      .banner h1 { font-size: 1.5rem; }
-      .chapter { padding: 24px 18px; }
-      .chapter-title { font-size: 1.1rem; }
-      .btn-download { min-width: 170px; padding: 12px 18px; }
-      .toc { padding: 20px 18px; }
-    }
-  </style>
+.hero-tag svg {
+  width: 12px; height: 12px;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 2;
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 7vw, 44px);
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--text);
+  margin-bottom: 16px;
+  letter-spacing: -.02em;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hero-subtitle {
+  font-size: 17px;
+  color: var(--text-soft);
+  line-height: 1.65;
+  margin-bottom: 24px;
+  max-width: 560px;
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.hero-meta-item svg {
+  width: 14px; height: 14px;
+  stroke: var(--text-muted);
+  fill: none;
+  stroke-width: 2;
+}
+
+.hero-meta-sep {
+  width: 3px; height: 3px;
+  background: var(--text-muted);
+  border-radius: 50%;
+}
+
+/* ── DOWNLOAD BANNER ── */
+.download-banner {
+  background: var(--bg-card);
+  border: 1px solid var(--green-border);
+  border-left: 4px solid var(--green);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  margin-bottom: 48px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.download-banner-text { flex: 1; min-width: 200px; }
+.download-banner-text strong { font-size: 14px; font-weight: 700; color: var(--text); display: block; margin-bottom: 4px; }
+.download-banner-text span { font-size: 13px; color: var(--text-soft); }
+
+.download-banner-btns {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.dl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  transition: opacity .2s, transform .15s;
+  white-space: nowrap;
+}
+.dl-btn:hover { opacity: .88; transform: translateY(-1px); }
+.dl-btn.android { background: #34A853; color: #fff; }
+.dl-btn.ios     { background: #1C1C1E; color: #fff; }
+
+/* ── SUMÁRIO ── */
+.summary {
+  background: var(--bg-card);
+  border: 1px solid var(--gold-border);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  margin-bottom: 56px;
+  box-shadow: var(--shadow-sm);
+}
+
+.summary-title {
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.summary-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.summary-list li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text-soft);
+  font-size: 14px;
+  font-weight: 500;
+  transition: color .2s;
+}
+
+.summary-list li a:hover { color: var(--gold); }
+
+.summary-num {
+  width: 22px; height: 22px;
+  background: var(--gold-bg);
+  border: 1px solid var(--gold-border);
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ── SEÇÕES ── */
+.section {
+  margin-bottom: 64px;
+  scroll-margin-top: 80px;
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.section-label::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 5vw, 32px);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 12px;
+  letter-spacing: -.01em;
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.section-body {
+  font-size: 15px;
+  color: var(--text-soft);
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+
+.section-body strong { color: var(--text); font-weight: 600; }
+
+/* ── ÂNCORA VISUAL ── */
+.anchor-block {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin: 24px 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.anchor-number {
+  font-family: var(--font-serif);
+  font-size: clamp(48px, 12vw, 72px);
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.anchor-text { display: flex; flex-direction: column; gap: 4px; }
+
+.anchor-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.anchor-sub {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ── CARDS ── */
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(28,26,23,.06);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+@media (max-width: 420px) { .card-grid { grid-template-columns: 1fr; } }
+
+.card-icon {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 12px;
+}
+
+.card-icon.gold  { background: var(--gold-bg); }
+.card-icon.green { background: var(--green-bg); }
+.card-icon.red   { background: var(--red-bg); }
+.card-icon.blue  { background: var(--blue-bg); }
+
+.card-icon svg { width: 20px; height: 20px; fill: none; stroke-width: 2; }
+.card-icon.gold  svg { stroke: var(--gold); }
+.card-icon.green svg { stroke: var(--green); }
+.card-icon.red   svg { stroke: var(--red); }
+.card-icon.blue  svg { stroke: var(--blue); }
+
+.card-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 5px;
+  line-height: 1.3;
+}
+
+.card-desc {
+  font-size: 13px;
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+
+/* ── ALERTAS ── */
+.alert {
+  display: flex;
+  gap: 12px;
+  padding: 16px 18px;
+  border-radius: var(--radius-sm);
+  margin: 20px 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.alert svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; fill: none; stroke-width: 2; }
+.alert strong { font-weight: 700; }
+
+.alert.warn    { background: var(--gold-bg);  border: 1px solid var(--gold-border);  color: #7A5C1E; }
+.alert.danger  { background: var(--red-bg);   border: 1px solid var(--red-border);   color: #8B2020; }
+.alert.success { background: var(--green-bg); border: 1px solid var(--green-border); color: #1D5E3A; }
+.alert.info    { background: var(--blue-bg);  border: 1px solid var(--blue-border);  color: #12446A; }
+
+.alert.warn    svg { stroke: var(--gold);  }
+.alert.danger  svg { stroke: var(--red);   }
+.alert.success svg { stroke: var(--green); }
+.alert.info    svg { stroke: var(--blue);  }
+
+/* ── STEPS (lista numerada) ── */
+.steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.step-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(28,26,23,.06);
+}
+
+.step-num {
+  width: 28px; height: 28px;
+  min-width: 28px;
+  background: var(--gold-bg);
+  border: 1.5px solid var(--gold-border);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700;
+  color: var(--gold);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.step-body { flex: 1; }
+.step-body strong { font-size: 14px; font-weight: 700; color: var(--text); display: block; margin-bottom: 4px; line-height: 1.3; }
+.step-body p { font-size: 13px; color: var(--text-soft); line-height: 1.6; }
+
+/* ── TIMELINE ── */
+.timeline {
+  position: relative;
+  margin: 24px 0;
+  padding-left: 20px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 15px; top: 24px; bottom: 24px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--gold-border), var(--bg-alt));
+}
+
+.tl-item {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  position: relative;
+}
+.tl-item:last-child { margin-bottom: 0; }
+
+.tl-dot {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700;
+  flex-shrink: 0;
+  position: relative; z-index: 1;
+  border: 2px solid transparent;
+}
+
+.tl-dot.d1 { background: var(--gold-bg);  color: var(--gold);  border-color: var(--gold-border);  }
+.tl-dot.d2 { background: var(--blue-bg);  color: var(--blue);  border-color: var(--blue-border);  }
+.tl-dot.d3 { background: var(--gold-bg);  color: var(--gold);  border-color: var(--gold-border);  }
+.tl-dot.d4 { background: var(--green-bg); color: var(--green); border-color: var(--green-border); }
+.tl-dot.d5 { background: var(--red-bg);   color: var(--red);   border-color: var(--red-border);   }
+
+.tl-body { padding-top: 4px; flex: 1; }
+.tl-title { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px; line-height: 1.3; }
+.tl-desc  { font-size: 13px; color: var(--text-soft); line-height: 1.6; }
+
+.tl-tag {
+  display: inline-block;
+  background: var(--gold-bg);
+  border: 1px solid var(--gold-border);
+  color: var(--gold);
+  font-size: 12px; font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-top: 8px;
+}
+
+/* ── TABELA DE NOTIFICAÇÕES ── */
+.notif-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 14px;
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.notif-table thead tr {
+  background: var(--text);
+}
+
+.notif-table th {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+
+.notif-table td {
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--bg-alt);
+  color: var(--text-soft);
+  vertical-align: top;
+}
+
+.notif-table tr:last-child td { border-bottom: none; }
+.notif-table tr:nth-child(even) td { background: var(--gold-bg); }
+.notif-table td strong { color: var(--text); font-weight: 600; }
+
+/* ── DIVISOR ── */
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 48px 0;
+}
+
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--gold-border);
+}
+
+.section-divider-icon {
+  width: 28px; height: 28px;
+  background: var(--gold-bg);
+  border: 1px solid var(--gold-border);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px;
+}
+
+/* ── PULL QUOTE ── */
+.pull-quote {
+  border-left: 4px solid var(--gold);
+  padding: 16px 20px;
+  margin: 28px 0;
+  background: var(--gold-bg);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.pull-quote p {
+  font-family: var(--font-serif);
+  font-size: clamp(16px, 4vw, 20px);
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.pull-quote span {
+  display: block;
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--text-muted);
+  font-style: normal;
+  font-family: var(--font-sans);
+}
+
+/* ── RECAP GRID ── */
+.recap-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+@media (max-width: 420px) { .recap-grid { grid-template-columns: 1fr; } }
+
+.recap-item {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(28,26,23,.06);
+  display: flex; flex-direction: column; gap: 6px;
+}
+
+.recap-emoji { font-size: 24px; line-height: 1; }
+.recap-title { font-size: 13px; font-weight: 700; color: var(--text); line-height: 1.3; }
+.recap-desc  { font-size: 12px; color: var(--text-muted); line-height: 1.55; }
+
+/* ── CTA FINAL ── */
+.cta-section {
+  background: var(--text);
+  border-radius: var(--radius-lg);
+  padding: 36px 24px;
+  text-align: center;
+  margin: 48px 0 0;
+}
+
+.cta-section-eyebrow {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 12px;
+}
+
+.cta-section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 6vw, 32px);
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.cta-section-title em { font-style: italic; color: var(--gold-light); }
+
+.cta-section-sub {
+  font-size: 14px;
+  color: rgba(255,255,255,.65);
+  margin-bottom: 28px;
+  line-height: 1.65;
+}
+
+.cta-btns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.cta-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #34A853;
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px; font-weight: 700;
+  padding: 14px 28px;
+  border-radius: 50px;
+  width: 100%; max-width: 360px;
+  transition: opacity .2s, transform .15s;
+  box-shadow: 0 4px 16px rgba(52,168,83,.35);
+}
+
+.cta-btn-primary:hover { opacity: .9; transform: translateY(-1px); }
+
+.cta-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #1C1C1E;
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px; font-weight: 700;
+  padding: 14px 28px;
+  border-radius: 50px;
+  width: 100%; max-width: 360px;
+  transition: opacity .2s, transform .15s;
+  box-shadow: 0 4px 16px rgba(0,0,0,.25);
+}
+
+.cta-btn-secondary:hover { opacity: .9; transform: translateY(-1px); }
+
+.cta-footer {
+  margin-top: 20px;
+  font-size: 12px;
+  color: rgba(255,255,255,.35);
+  line-height: 1.6;
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .5s ease, transform .5s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVO ── */
+@media (max-width: 480px) {
+  .article { padding: 0 16px 80px; }
+  .hero { padding: 32px 0 28px; }
+  .anchor-block { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .anchor-number { font-size: 56px; }
+  .topbar-logo-img { height: 30px; }
+  .download-banner { flex-direction: column; align-items: flex-start; }
+}
+</style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════════
-     BANNER PRINCIPAL
-════════════════════════════════════════════ -->
-<div class="banner">
-  <span class="banner-icon">💊</span>
-  <h1>Domínio Farma Cliente</h1>
-  <p>Seu guia completo para usar o app e aproveitar todos os benefícios da sua farmácia</p>
-  <span class="banner-badge">📖 Guia Oficial do Usuário</span>
-</div>
+<div id="progress-bar"></div>
 
-<!-- ═══════════════════════════════════════════
-     SEÇÃO DE DOWNLOAD (logo abaixo do banner)
-════════════════════════════════════════════ -->
-<div class="download-section">
-  <div class="ds-title">📲 Ainda não tem o app instalado?</div>
-  <div class="ds-sub">Baixe gratuitamente agora e tenha sua farmácia na palma da mão</div>
-  <div class="btn-group">
-    <a href="https://play.google.com/store/apps/details?id=br.com.nibo.customer.dominiofarma.app&hl=pt_BR"
-       target="_blank"
-       class="btn-download btn-android">
-      <span class="btn-icon">🤖</span>
-      <span class="btn-text">
-        <span>Disponível no</span>
-        Google Play
-      </span>
-    </a>
-    <a href="https://apps.apple.com/br/app/dom%C3%ADnio-farma-clientes/id6757874723"
-       target="_blank"
-       class="btn-download btn-ios">
-      <span class="btn-icon">🍎</span>
-      <span class="btn-text">
-        <span>Baixar na</span>
-        App Store
-      </span>
-    </a>
-  </div>
-  <p class="free-note">✅ <strong>100% gratuito</strong> · Disponível para Android e iPhone · Sem anúncios</p>
-</div>
+<!-- ═══ TOPBAR PRETA COM LOGO ═══ -->
+<header class="topbar">
+  <a class="topbar-logo" href="#">
+    <img src="/logo.png" alt="Domínio Farma" class="topbar-logo-img"/>
+  </a>
+  <a class="topbar-share" id="topbarShare" href="#" target="_blank">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Compartilhar
+  </a>
+</header>
 
-<!-- ═══════════════════════════════════════════
-     CONTEÚDO PRINCIPAL
-════════════════════════════════════════════ -->
-<div class="container">
+<main class="article">
 
-  <!-- SUMÁRIO -->
-  <div class="toc">
-    <h2>📋 Índice do Guia</h2>
-    <ol>
-      <li><a href="#cap1">Baixando e instalando o app</a></li>
-      <li><a href="#cap2">Criando sua conta e fazendo login</a></li>
-      <li><a href="#cap3">Explorando a tela inicial</a></li>
-      <li><a href="#cap4">Consultando seus pedidos e compras</a></li>
-      <li><a href="#cap5">Programa de fidelidade e pontos</a></li>
-      <li><a href="#cap6">Notificações e alertas de medicamentos</a></li>
-      <li><a href="#cap7">Dúvidas frequentes e suporte</a></li>
-    </ol>
-  </div>
-
-  <!-- ═══════════ CAPÍTULO 1 ═══════════ -->
-  <div class="chapter" id="cap1">
-    <div class="chapter-header">
-      <div class="chapter-number">1</div>
-      <div>
-        <div class="chapter-icon">📲</div>
-        <div class="chapter-title">Baixando e instalando o app</div>
-      </div>
+  <!-- ═══ HERO ═══ -->
+  <section class="hero reveal">
+    <div class="hero-tag">
+      <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/><path d="M8 12h8M12 8v8"/></svg>
+      Guia Oficial do Usuário
     </div>
-
-    <!-- ALERTA: não tem o app -->
-    <div class="alert-app">
-      <span class="alert-icon">⚠️</span>
-      <div class="alert-body">
-        <strong>Caso você ainda não tenha o app instalado, baixe agora antes de continuar!</strong>
-        <p>O Domínio Farma Cliente é gratuito e está disponível para Android e iPhone. Após instalar, volte aqui para continuar o guia.</p>
-        <div class="mini-btn-group">
-          <a href="https://play.google.com/store/apps/details?id=br.com.nibo.customer.dominiofarma.app&hl=pt_BR"
-             target="_blank"
-             class="mini-btn mini-btn-android">
-            🤖 Baixar para Android
-          </a>
-          <a href="https://apps.apple.com/br/app/dom%C3%ADnio-farma-clientes/id6757874723"
-             target="_blank"
-             class="mini-btn mini-btn-ios">
-            🍎 Baixar para iPhone
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="steps">
-      <div class="step">
-        <div class="step-num"></div>
-        <div class="step-content">
-          <strong>Acesse a loja do seu smartphone</strong>
-          <p>Abra a <strong>Google Play Store</strong> (Android) ou a <strong>App Store</strong> (iPhone). Use os botões acima para ir direto à página do app.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num"></div>
-        <div class="step-content">
-          <strong>Pesquise por "Domínio Farma Cliente"</strong>
-          <p>Digite o nome na barra de busca e localize o app oficial. Verifique se o ícone e o nome coincidem com o app da sua farmácia.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num"></div>
-        <div class="step-content">
-          <strong>Toque em "Instalar" ou "Obter"</strong>
-          <p>Aguarde o download concluir. O app é leve e instala rapidamente, mesmo em conexões mais lentas.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num"></div>
-        <div class="step-content">
-          <strong>Abra o app e prossiga para o cadastro</strong>
-          <p>Após instalar, toque no ícone do Domínio Farma Cliente e siga para o Capítulo 2 deste guia.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="info-box">
-      <span class="ib-icon">ℹ️</span>
-      <span>O app está disponível gratuitamente para dispositivos com <strong>Android 6.0+</strong> e <strong>iOS 13+</strong>. Não requer cadastro pago.</span>
-    </div>
-  </div>
-
-  <!-- ═══════════ CAPÍTULO 2 ═══════════ -->
-  <div class="chapter" id="cap2">
-    <div class="chapter-header">
-      <div class="chapter-number">2</div>
-      <div>
-        <div class="chapter-icon">🔐</div>
-        <div class="chapter-title">Criando sua conta e fazendo login</div>
-      </div>
-    </div>
-
-    <div class="steps">
-      <div class="step">
-        <div class="step-num"></div>
-        <div class="step-content">
-          <strong>Abra o app e toque em "Criar Conta"</strong>
-          <p>Na tela inicial, selecione a opção para cadastrar um novo usuário.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num"></div>
-        <div class="step-content">
-          <strong>Informe seus dados pessoais</strong>
-          <p>Preencha nome completo, CPF, e-mail e telefone. Certifique-se de que o CPF cadastrado é o mesmo informado na farmácia.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num"></div>
-        <div class="step-content">
-          <strong>Crie uma senha segura</strong>
-          <p>Use no mínimo 8 caracteres, incluindo letras e números. Anote em local seguro.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num"></div>
-        <div class="step-content">
-          <strong>Confirme seu e-mail</strong>
-          <p>Acesse seu e-mail e clique no link de confirmação enviado pelo Domínio Farma. Verifique também a caixa de spam.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num"></div>
-        <div class="step-content">
-          <strong>Faça login no app</strong>
-          <p>Insira seu e-mail e senha cadastrados e toque em "Entrar". Você pode ativar o login por biometria (digital ou Face ID) nas configurações.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="tip-box">
-      <strong>💡 Dica:</strong> Se o seu CPF já estava cadastrado na farmácia física, seus pontos e histórico de compras serão vinculados automaticamente à sua conta no app.
-    </div>
-  </div>
-
-  <!-- ═══════════ CAPÍTULO 3 ═══════════ -->
-  <div class="chapter" id="cap3">
-    <div class="chapter-header">
-      <div class="chapter-number">3</div>
-      <div>
-        <div class="chapter-icon">🏠</div>
-        <div class="chapter-title">Explorando a tela inicial</div>
-      </div>
-    </div>
-
-    <p style="font-size:0.95rem;color:#444;margin-bottom:20px;line-height:1.65;">
-      Após o login, você terá acesso ao painel principal do app. Conheça as principais seções disponíveis:
+    <h1 class="hero-title">
+      Domínio Farma Cliente:<br>
+      <em>tudo que você precisa</em><br>
+      saber sobre o app
+    </h1>
+    <p class="hero-subtitle">
+      Do download ao resgate de pontos — um guia completo para aproveitar
+      todos os benefícios da sua farmácia na palma da mão.
     </p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        6 min de leitura
+      </div>
+      <div class="hero-meta-sep"></div>
+      <div class="hero-meta-item">
+        <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        Android e iPhone
+      </div>
+      <div class="hero-meta-sep"></div>
+      <div class="hero-meta-item">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        100% Gratuito · Sem anúncios
+      </div>
+    </div>
+  </section>
 
-    <div class="cards-grid">
-      <div class="card">
-        <span class="card-icon">🛒</span>
-        <h4>Meus Pedidos</h4>
-        <p>Acompanhe o status de pedidos realizados e veja seu histórico de compras.</p>
-      </div>
-      <div class="card">
-        <span class="card-icon">⭐</span>
-        <h4>Meus Pontos</h4>
-        <p>Veja seu saldo de pontos do programa de fidelidade e como resgatá-los.</p>
-      </div>
-      <div class="card">
-        <span class="card-icon">🔔</span>
-        <h4>Notificações</h4>
-        <p>Receba alertas de promoções, disponibilidade de medicamentos e avisos importantes.</p>
-      </div>
-      <div class="card">
-        <span class="card-icon">👤</span>
-        <h4>Meu Perfil</h4>
-        <p>Edite seus dados, endereços e preferências de comunicação.</p>
-      </div>
-      <div class="card">
-        <span class="card-icon">💊</span>
-        <h4>Catálogo</h4>
-        <p>Navegue pelos produtos disponíveis e consulte preços e disponibilidade.</p>
-      </div>
-      <div class="card">
-        <span class="card-icon">🎁</span>
-        <h4>Promoções</h4>
-        <p>Confira as ofertas exclusivas para clientes cadastrados no app.</p>
-      </div>
+  <!-- ═══ DOWNLOAD BANNER ═══ -->
+  <div class="download-banner reveal">
+    <div class="download-banner-text">
+      <strong>📲 Ainda não instalou o app?</strong>
+      <span>Baixe gratuitamente antes de continuar o guia.</span>
+    </div>
+    <div class="download-banner-btns">
+      <a href="https://play.google.com/store/apps/details?id=br.com.nibo.customer.dominiofarma.app&hl=pt_BR"
+         target="_blank" class="dl-btn android">🤖 Google Play</a>
+      <a href="https://apps.apple.com/br/app/dom%C3%ADnio-farma-clientes/id6757874723"
+         target="_blank" class="dl-btn ios">🍎 App Store</a>
     </div>
   </div>
 
-  <!-- ═══════════ CAPÍTULO 4 ═══════════ -->
-  <div class="chapter" id="cap4">
-    <div class="chapter-header">
-      <div class="chapter-number">4</div>
-      <div>
-        <div class="chapter-icon">🛒</div>
-        <div class="chapter-title">Consultando seus pedidos e compras</div>
-      </div>
-    </div>
-
-    <div class="steps">
-      <div class="step">
-        <div class="step-num"></div>
-        <div class="step-content">
-          <strong>Acesse "Meus Pedidos" no menu principal</strong>
-          <p>Toque no ícone de sacola ou no menu inferior do app.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num"></div>
-        <div class="step-content">
-          <strong>Visualize o status de cada pedido</strong>
-          <p>Cada compra exibe o status atual: <em>Em separação, Pronto para retirada, Entregue</em>, entre outros.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num"></div>
-        <div class="step-content">
-          <strong>Toque em um pedido para ver os detalhes</strong>
-          <p>Você verá os itens comprados, valores, data e forma de pagamento utilizada.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num"></div>
-        <div class="step-content">
-          <strong>Solicite suporte se necessário</strong>
-          <p>Em caso de divergências, use o botão "Falar com a farmácia" dentro do pedido para entrar em contato diretamente.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="warning-box">
-      <span>⚠️</span>
-      <span>Compras realizadas em dinheiro ou sem informar o CPF podem não aparecer no histórico do app. Sempre informe seu CPF no caixa.</span>
-    </div>
-  </div>
-
-  <!-- ═══════════ CAPÍTULO 5 ═══════════ -->
-  <div class="chapter" id="cap5">
-    <div class="chapter-header">
-      <div class="chapter-number">5</div>
-      <div>
-        <div class="chapter-icon">⭐</div>
-        <div class="chapter-title">Programa de fidelidade e pontos</div>
-      </div>
-    </div>
-
-    <ul class="pill-list">
-      <li>
-        <span class="pill-icon">🎯</span>
-        <span><strong>Acumule pontos</strong> a cada compra realizada na farmácia informando seu CPF ou usando o app.</span>
-      </li>
-      <li>
-        <span class="pill-icon">👁️</span>
-        <span><strong>Consulte seu saldo</strong> a qualquer momento na seção "Meus Pontos" da tela inicial.</span>
-      </li>
-      <li>
-        <span class="pill-icon">🛍️</span>
-        <span><strong>Resgate seus pontos</strong> diretamente na farmácia física apresentando o app ou informando seu CPF.</span>
-      </li>
-      <li>
-        <span class="pill-icon">📅</span>
-        <span><strong>Fique atento à validade</strong> dos pontos — o app exibe a data de expiração do seu saldo acumulado.</span>
-      </li>
-      <li>
-        <span class="pill-icon">🎁</span>
-        <span><strong>Aproveite recompensas exclusivas</strong> para clientes com pontos acumulados, como descontos e brindes especiais.</span>
-      </li>
+  <!-- ═══ SUMÁRIO ═══ -->
+  <nav class="summary reveal">
+    <p class="summary-title">Neste guia</p>
+    <ul class="summary-list">
+      <li><a href="#instalacao"><div class="summary-num">1</div>Baixando e instalando o app</a></li>
+      <li><a href="#conta"><div class="summary-num">2</div>Criando sua conta e fazendo login</a></li>
+      <li><a href="#tela-inicial"><div class="summary-num">3</div>Explorando a tela inicial</a></li>
+      <li><a href="#pedidos"><div class="summary-num">4</div>Consultando seus pedidos</a></li>
+      <li><a href="#pontos"><div class="summary-num">5</div>Programa de fidelidade e pontos</a></li>
+      <li><a href="#notificacoes"><div class="summary-num">6</div>Notificações e alertas</a></li>
+      <li><a href="#suporte"><div class="summary-num">7</div>Dúvidas frequentes e suporte</a></li>
     </ul>
+  </nav>
 
-    <div class="info-box">
-      <span class="ib-icon">ℹ️</span>
-      <span>As regras de pontuação (valor gasto por ponto, validade e resgate) podem variar por farmácia. Consulte sua unidade para mais detalhes.</span>
-    </div>
-  </div>
-
-  <!-- ═══════════ CAPÍTULO 6 ═══════════ -->
-  <div class="chapter" id="cap6">
-    <div class="chapter-header">
-      <div class="chapter-number">6</div>
-      <div>
-        <div class="chapter-icon">🔔</div>
-        <div class="chapter-title">Notificações e alertas de medicamentos</div>
+  <!-- ═══ SEÇÃO 1 — INSTALAÇÃO ═══ -->
+  <section class="section reveal" id="instalacao">
+    <p class="section-label">01 — Instalação</p>
+    <h2 class="section-title">Baixando e instalando<br>o app <em>em minutos.</em></h2>
+    <p class="section-body">
+      O Domínio Farma Cliente está disponível gratuitamente para <strong>Android</strong> e <strong>iPhone</strong>.
+      O processo de instalação é simples e leva menos de dois minutos.
+    </p>
+    <div class="anchor-block">
+      <div class="anchor-number">2</div>
+      <div class="anchor-text">
+        <span class="anchor-label">minutos para instalar</span>
+        <span class="anchor-sub">Download rápido, leve e sem custo. Disponível para Android 6.0+ e iOS 13+.</span>
       </div>
     </div>
+    <div class="steps-list">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <strong>Acesse a loja do seu smartphone</strong>
+          <p>Abra a <strong>Google Play Store</strong> (Android) ou a <strong>App Store</strong> (iPhone). Use os botões de download no topo desta página para ir direto ao app.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <strong>Pesquise "Domínio Farma Cliente"</strong>
+          <p>Digite o nome na busca e localize o app oficial. Verifique o ícone e o nome do desenvolvedor antes de instalar.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <strong>Toque em "Instalar" ou "Obter"</strong>
+          <p>Aguarde o download. O app é leve e instala rapidamente mesmo em conexões mais lentas.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <strong>Abra o app e siga para o login</strong>
+          <p>Após a instalação, abra o app e continue para o Capítulo 2 para criar sua conta.</p>
+        </div>
+      </div>
+    </div>
+    <div class="alert success">
+      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      <p>O app é <strong>100% gratuito</strong>, sem anúncios e sem cobranças ocultas. Compatible com Android 6.0+ e iOS 13+.</p>
+    </div>
+  </section>
 
-    <p style="font-size:0.95rem;color:#444;margin-bottom:18px;line-height:1.65;">
-      O app permite configurar alertas personalizados para que você nunca perca um medicamento ou promoção importante:
+  <div class="section-divider reveal"><div class="section-divider-icon">🔐</div></div>
+
+  <!-- ═══ SEÇÃO 2 — CONTA E LOGIN ═══ -->
+  <section class="section reveal" id="conta">
+    <p class="section-label">02 — Conta</p>
+    <h2 class="section-title">Criando sua conta<br>e fazendo <em>login.</em></h2>
+    <p class="section-body">
+      O cadastro é rápido. Use o <strong>mesmo CPF</strong> que você já utiliza na farmácia física para que
+      seu histórico e pontos sejam vinculados automaticamente.
+    </p>
+    <div class="steps-list">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <strong>Toque em "Criar Conta"</strong>
+          <p>Na tela inicial do app, selecione a opção para se cadastrar.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <strong>Preencha seus dados pessoais</strong>
+          <p>Informe nome completo, CPF, e-mail e telefone. Use o mesmo CPF cadastrado na farmácia.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <strong>Crie uma senha segura</strong>
+          <p>Mínimo de 8 caracteres, combinando letras e números. Guarde-a em local seguro.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <strong>Confirme seu e-mail</strong>
+          <p>Clique no link enviado para sua caixa de entrada. Verifique a pasta de spam se não encontrar.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <strong>Faça login e ative a biometria</strong>
+          <p>Insira e-mail e senha. Ative o acesso por impressão digital ou Face ID para entrar mais rápido.</p>
+        </div>
+      </div>
+    </div>
+    <div class="pull-quote">
+      <p>"Já sou cliente da farmácia — preciso me cadastrar do zero?"</p>
+      <span>— Dúvida muito comum entre novos usuários do app</span>
+    </div>
+    <p class="section-body">
+      <strong>Não.</strong> Basta usar o mesmo CPF que você já utiliza na farmácia física.
+      Ao fazer isso, seu histórico de compras e saldo de pontos ficam vinculados automaticamente à conta do app.
+    </p>
+    <div class="alert info">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <p>Se tiver dificuldades para criar a conta, leve seu CPF e vá até a farmácia — a equipe pode ajudar no cadastro presencialmente.</p>
+    </div>
+  </section>
+
+  <div class="section-divider reveal"><div class="section-divider-icon">🏠</div></div>
+
+  <!-- ═══ SEÇÃO 3 — TELA INICIAL ═══ -->
+  <section class="section reveal" id="tela-inicial">
+    <p class="section-label">03 — Tela Inicial</p>
+    <h2 class="section-title">Conheça as principais<br><em>seções do app.</em></h2>
+    <p class="section-body">
+      Após o login, você terá acesso a um painel completo. Veja o que cada área oferece:
+    </p>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon gold">
+          <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+        </div>
+        <p class="card-title">Meus Pedidos</p>
+        <p class="card-desc">Acompanhe o status e histórico completo das suas compras em tempo real.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon green">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="card-title">Meus Pontos</p>
+        <p class="card-desc">Visualize seu saldo de fidelidade, extrato e como utilizar os pontos.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon blue">
+          <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+        </div>
+        <p class="card-title">Notificações</p>
+        <p class="card-desc">Alertas de promoções, status do pedido, pontos expirando e muito mais.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon gold">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <p class="card-title">Meu Perfil</p>
+        <p class="card-desc">Edite seus dados pessoais, endereço e preferências de comunicação.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon red">
+          <svg viewBox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+        </div>
+        <p class="card-title">Catálogo</p>
+        <p class="card-desc">Explore produtos, verifique preços e disponibilidade em estoque.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon green">
+          <svg viewBox="0 0 24 24"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg>
+        </div>
+        <p class="card-title">Promoções</p>
+        <p class="card-desc">Ofertas e descontos exclusivos para clientes do app.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider reveal"><div class="section-divider-icon">🛒</div></div>
+
+  <!-- ═══ SEÇÃO 4 — PEDIDOS ═══ -->
+  <section class="section reveal" id="pedidos">
+    <p class="section-label">04 — Pedidos</p>
+    <h2 class="section-title">Acompanhe seus pedidos<br><em>em tempo real.</em></h2>
+    <p class="section-body">
+      Na seção <strong>"Meus Pedidos"</strong> você encontra o histórico completo de compras
+      e pode acompanhar cada etapa do processo.
+    </p>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot d1">1</div>
+        <div class="tl-body">
+          <p class="tl-title">Acesse "Meus Pedidos"</p>
+          <p class="tl-desc">Toque na seção na tela principal. Todos os seus pedidos aparecem listados por data.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot d2">2</div>
+        <div class="tl-body">
+          <p class="tl-title">Verifique o status</p>
+          <p class="tl-desc">Cada pedido mostra sua etapa atual: <strong>Em separação</strong>, <strong>Pronto para retirada</strong> ou <strong>Entregue</strong>.</p>
+          <span class="tl-tag">📦 Atualização em tempo real</span>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot d3">3</div>
+        <div class="tl-body">
+          <p class="tl-title">Toque no pedido para ver detalhes</p>
+          <p class="tl-desc">Visualize itens comprados, valores, forma de pagamento e data da compra.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot d4">4</div>
+        <div class="tl-body">
+          <p class="tl-title">Fale com a farmácia se precisar</p>
+          <p class="tl-desc">Use o botão "Falar com a farmácia" dentro do pedido para contato direto.</p>
+        </div>
+      </div>
+    </div>
+    <div class="alert warn">
+      <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <p><strong>Atenção:</strong> compras realizadas em dinheiro ou sem informar o CPF podem não aparecer no histórico do app.</p>
+    </div>
+  </section>
+
+  <div class="section-divider reveal"><div class="section-divider-icon">⭐</div></div>
+
+  <!-- ═══ SEÇÃO 5 — PONTOS ═══ -->
+  <section class="section reveal" id="pontos">
+    <p class="section-label">05 — Fidelidade</p>
+    <h2 class="section-title">Acumule pontos e<br>ganhe <em>recompensas.</em></h2>
+    <p class="section-body">
+      Cada compra feita com CPF — na farmácia física ou pelo app — gera pontos no seu saldo de fidelidade.
+      Acompanhe tudo e resgate quando quiser.
+    </p>
+    <div class="anchor-block">
+      <div class="anchor-number">+</div>
+      <div class="anchor-text">
+        <span class="anchor-label">pontos a cada compra</span>
+        <span class="anchor-sub">Acumule em todas as compras e troque por descontos e recompensas. Consulte as regras na sua farmácia.</span>
+      </div>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon gold">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <p class="card-title">Acumule pontos</p>
+        <p class="card-desc">Compre usando CPF ou pelo app e veja seu saldo crescer automaticamente.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon blue">
+          <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <p class="card-title">Consulte o saldo</p>
+        <p class="card-desc">Veja os pontos disponíveis, extrato e histórico na seção "Meus Pontos".</p>
+      </div>
+      <div class="card">
+        <div class="card-icon green">
+          <svg viewBox="0 0 24 24"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/></svg>
+        </div>
+        <p class="card-title">Resgate recompensas</p>
+        <p class="card-desc">Troque pontos por descontos e brindes na farmácia física ou pelo app.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon red">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <p class="card-title">Atenção à validade</p>
+        <p class="card-desc">Pontos podem expirar. Verifique a data de vencimento no app regularmente.</p>
+      </div>
+    </div>
+    <div class="alert info">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <p>As regras do programa de pontos podem variar por farmácia. <strong>Consulte sua unidade</strong> para saber a proporção de pontos por compra e condições de resgate.</p>
+    </div>
+  </section>
+
+  <div class="section-divider reveal"><div class="section-divider-icon">🔔</div></div>
+
+  <!-- ═══ SEÇÃO 6 — NOTIFICAÇÕES ═══ -->
+  <section class="section reveal" id="notificacoes">
+    <p class="section-label">06 — Notificações</p>
+    <h2 class="section-title">Alertas que fazem<br>a diferença no <em>dia a dia.</em></h2>
+    <p class="section-body">
+      O app envia notificações inteligentes para que você nunca perca uma promoção,
+      um pedido pronto ou um medicamento disponível. Configure do jeito que preferir.
     </p>
 
-    <table>
+    <table class="notif-table">
       <thead>
         <tr>
-          <th>Tipo de Notificação</th>
+          <th>Tipo de Alerta</th>
           <th>Para que serve</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>💊 Lembrete de medicamento</td>
-          <td>Avisa quando está na hora de tomar ou renovar um remédio de uso contínuo</td>
+          <td>💊 <strong>Lembrete de medicamento</strong></td>
+          <td>Avisa o horário de tomar ou quando está na hora de renovar a receita.</td>
         </tr>
         <tr>
-          <td>🎁 Promoções exclusivas</td>
-          <td>Ofertas e descontos especiais para clientes cadastrados</td>
+          <td>🎁 <strong>Promoções exclusivas</strong></td>
+          <td>Ofertas disponíveis somente para clientes do app.</td>
         </tr>
         <tr>
-          <td>📦 Status do pedido</td>
-          <td>Atualização em tempo real sobre o andamento da sua compra</td>
+          <td>📦 <strong>Status do pedido</strong></td>
+          <td>Atualização em tempo real: separação, pronto, entregue.</td>
         </tr>
         <tr>
-          <td>⭐ Pontos prestes a vencer</td>
-          <td>Alerta antes que seus pontos de fidelidade expirem</td>
+          <td>⭐ <strong>Pontos vencendo</strong></td>
+          <td>Avisa quando seus pontos estão perto de expirar.</td>
         </tr>
         <tr>
-          <td>📋 Disponibilidade de produto</td>
-          <td>Avisa quando um item que estava em falta chega ao estoque</td>
+          <td>📋 <strong>Produto disponível</strong></td>
+          <td>Notifica quando um item que estava em falta chega ao estoque.</td>
         </tr>
       </tbody>
     </table>
 
-    <div class="tip-box" style="margin-top:20px;">
-      <strong>💡 Como ativar:</strong> Acesse <em>Perfil &gt; Configurações &gt; Notificações</em> e escolha quais alertas deseja receber. Permita as notificações do app quando o sistema do celular solicitar.
+    <div class="alert success">
+      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      <p><strong>Como ativar:</strong> acesse <strong>Perfil → Configurações → Notificações</strong> e permita as notificações do app no seu celular. Você pode personalizar quais alertas deseja receber.</p>
     </div>
-  </div>
+  </section>
 
-  <!-- ═══════════ CAPÍTULO 7 ═══════════ -->
-  <div class="chapter" id="cap7">
-    <div class="chapter-header">
-      <div class="chapter-number">7</div>
-      <div>
-        <div class="chapter-icon">❓</div>
-        <div class="chapter-title">Dúvidas frequentes e suporte</div>
+  <div class="section-divider reveal"><div class="section-divider-icon">❓</div></div>
+
+  <!-- ═══ SEÇÃO 7 — SUPORTE ═══ -->
+  <section class="section reveal" id="suporte">
+    <p class="section-label">07 — Suporte</p>
+    <h2 class="section-title">Dúvidas frequentes<br>e <em>como resolver.</em></h2>
+    <p class="section-body">
+      Separamos as situações mais comuns e o que fazer em cada uma delas.
+    </p>
+    <div class="steps-list">
+      <div class="step-item">
+        <div class="step-num">🔑</div>
+        <div class="step-body">
+          <strong>Esqueci minha senha</strong>
+          <p>Na tela de login, toque em <strong>"Esqueci a senha"</strong>. Você receberá um link de redefinição no e-mail cadastrado.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">📱</div>
+        <div class="step-body">
+          <strong>Troquei de celular</strong>
+          <p>Instale o app no novo aparelho e faça login normalmente. Todos os dados ficam salvos na nuvem — nada é perdido.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">🔄</div>
+        <div class="step-body">
+          <strong>App travando ou com erro</strong>
+          <p>Tente fechar e reabrir o app. Se persistir, desinstale e reinstale. Certifique-se de que o app está na versão mais recente.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">💬</div>
+        <div class="step-body">
+          <strong>Problemas com pedidos ou pontos</strong>
+          <p>Use o chat dentro do pedido ou vá pessoalmente à farmácia com seu CPF para que a equipe resolva rapidamente.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">✏️</div>
+        <div class="step-body">
+          <strong>Atualizar dados pessoais</strong>
+          <p>Acesse <strong>Perfil → Editar dados</strong> e salve as alterações. Mantenha seu telefone e e-mail sempre atualizados.</p>
+        </div>
       </div>
     </div>
-
-    <ul class="pill-list">
-      <li>
-        <span class="pill-icon">🔑</span>
-        <span><strong>Esqueci minha senha:</strong> Na tela de login, toque em "Esqueci a senha" e siga as instruções enviadas por e-mail para redefinição.</span>
-      </li>
-      <li>
-        <span class="pill-icon">📱</span>
-        <span><strong>Troquei de celular:</strong> Basta instalar o app no novo aparelho e fazer login com seu e-mail e senha. Todos os dados são salvos na nuvem.</span>
-      </li>
-      <li>
-        <span class="pill-icon">🔄</span>
-        <span><strong>App travando ou lento:</strong> Feche e abra novamente. Se persistir, atualize o app pela loja ou reinstale — seus dados não serão perdidos.</span>
-      </li>
-      <li>
-        <span class="pill-icon">💬</span>
-        <span><strong>Problemas com pedidos ou pontos:</strong> Entre em contato diretamente com a farmácia pelo chat dentro do app ou presencialmente.</span>
-      </li>
-      <li>
-        <span class="pill-icon">✏️</span>
-        <span><strong>Atualizar dados cadastrais:</strong> Acesse <em>Perfil &gt; Editar dados</em> para alterar telefone, e-mail ou endereço de entrega.</span>
-      </li>
-    </ul>
-
-    <div class="info-box" style="margin-top:20px;">
-      <span class="ib-icon">📞</span>
-      <span>Para suporte técnico do app, você também pode entrar em contato com a equipe da <strong>Domínio Farma</strong> através do atendimento disponível na sua farmácia.</span>
+    <div class="alert info">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <p>Para suporte técnico do aplicativo, entre em contato diretamente com a equipe da sua farmácia Domínio Farma.</p>
     </div>
+  </section>
+
+  <div class="section-divider reveal"><div class="section-divider-icon">⚡</div></div>
+
+  <!-- ═══ RESUMO RÁPIDO ═══ -->
+  <section class="section reveal" id="resumo">
+    <p class="section-label">Resumo</p>
+    <h2 class="section-title">O que você <em>não pode</em><br>esquecer.</h2>
+    <div class="recap-grid">
+      <div class="recap-item">
+        <span class="recap-emoji">📲</span>
+        <p class="recap-title">Download gratuito</p>
+        <p class="recap-desc">Disponível na Google Play e App Store. Android 6.0+ e iOS 13+. Sem anúncios.</p>
+      </div>
+      <div class="recap-item">
+        <span class="recap-emoji">🔐</span>
+        <p class="recap-title">Use o mesmo CPF</p>
+        <p class="recap-desc">O CPF da farmácia vincula histórico e pontos automaticamente ao app.</p>
+      </div>
+      <div class="recap-item">
+        <span class="recap-emoji">🛒</span>
+        <p class="recap-title">Pedidos em tempo real</p>
+        <p class="recap-desc">Acompanhe cada etapa do seu pedido direto pelo celular.</p>
+      </div>
+      <div class="recap-item">
+        <span class="recap-emoji">⭐</span>
+        <p class="recap-title">Pontos que valem</p>
+        <p class="recap-desc">Acumule em cada compra e troque por descontos e recompensas.</p>
+      </div>
+      <div class="recap-item">
+        <span class="recap-emoji">🔔</span>
+        <p class="recap-title">Ative as notificações</p>
+        <p class="recap-desc">Fique por dentro de promoções, pedidos e pontos prestes a vencer.</p>
+      </div>
+      <div class="recap-item">
+        <span class="recap-emoji">💬</span>
+        <p class="recap-title">Suporte sempre disponível</p>
+        <p class="recap-desc">Problema? Fale pelo chat do app ou vá até a farmácia com seu CPF.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA FINAL ═══ -->
+  <div class="cta-section reveal">
+    <p class="cta-section-eyebrow">Domínio Farma Cliente</p>
+    <h2 class="cta-section-title">
+      Pronto para começar?<br>
+      <em>Baixe o app agora.</em>
+    </h2>
+    <p class="cta-section-sub">
+      Sua farmácia favorita na palma da mão.<br>
+      Pedidos, pontos, promoções e muito mais — tudo gratuito.
+    </p>
+    <div class="cta-btns">
+      <a class="cta-btn-primary"
+         href="https://play.google.com/store/apps/details?id=br.com.nibo.customer.dominiofarma.app&hl=pt_BR"
+         target="_blank">
+        🤖 Baixar para Android
+      </a>
+      <a class="cta-btn-secondary"
+         href="https://apps.apple.com/br/app/dom%C3%ADnio-farma-clientes/id6757874723"
+         target="_blank">
+        🍎 Baixar para iPhone
+      </a>
+    </div>
+    <p class="cta-footer">100% Gratuito · Sem anúncios · Android e iPhone</p>
   </div>
 
-  <!-- ═══════════ CTA FINAL ═══════════ -->
-  <div class="cta-final">
-    <h2>🚀 Pronto para começar?</h2>
-    <p>Baixe o Domínio Farma Cliente agora e tenha todos os benefícios da sua farmácia favorita no seu bolso!</p>
-    <div class="btn-group">
-      <a href="https://play.google.com/store/apps/details?id=br.com.nibo.customer.dominiofarma.app&hl=pt_BR"
-         target="_blank"
-         class="btn-download btn-android">
-        <span class="btn-icon">🤖</span>
-        <span class="btn-text">
-          <span>Disponível no</span>
-          Google Play
-        </span>
-      </a>
-      <a href="https://apps.apple.com/br/app/dom%C3%ADnio-farma-clientes/id6757874723"
-         target="_blank"
-         class="btn-download btn-ios">
-        <span class="btn-icon">🍎</span>
-        <span class="btn-text">
-          <span>Baixar na</span>
-          App Store
-        </span>
-      </a>
-    </div>
-    <p style="margin-top:16px;opacity:0.8;font-size:0.9rem;">✅ Gratuito · Sem anúncios · Android e iPhone</p>
-  </div>
+</main>
 
-</div><!-- /container -->
+<script>
+/* ── PROGRESSO ── */
+const bar = document.getElementById('progress-bar');
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  bar.style.width = Math.min(pct, 100) + '%';
+}, { passive: true });
+
+/* ── SCROLL REVEAL ── */
+const reveals = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+reveals.forEach(el => io.observe(el));
+
+/* ── SHARE URL ── */
+function buildShare() {
+  return 'https://wa.me/?text=' +
+    encodeURIComponent(
+      '📱 *Guia Completo — Domínio Farma Cliente*\n\n' +
+      'Aprenda a usar o app: pontos, pedidos, notificações e mais:\n' +
+      window.location.href
+    );
+}
+document.getElementById('topbarShare').href = buildShare();
+</script>
 </body>
 </html>
