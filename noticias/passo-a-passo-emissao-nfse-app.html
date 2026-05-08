@@ -3,1124 +3,414 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<meta name="theme-color" content="#F7F5F0"/>
-
-<meta property="og:title"       content="Nova Regra de Emissão de Notas Fiscais — Guia Completo"/>
+<meta name="theme-color" content="#050816"/>
+<meta property="og:title" content="Nova Regra de Emissão de Notas Fiscais — Guia Completo"/>
 <meta property="og:description" content="Entenda as mudanças que impactam sua rotina de faturamento e emissão. Guia completo da Domínio Farma Contabilidade."/>
-<meta property="og:type"        content="article"/>
-<meta name="twitter:card"       content="summary_large_image"/>
-
+<meta property="og:type" content="article"/>
+<meta name="twitter:card" content="summary_large_image"/>
 <title>Nova Regra de Emissão de Notas Fiscais — Domínio Farma Contabilidade</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --bg:          #F7F5F0;
-  --bg-alt:      #EFEDE6;
-  --bg-card:     #FFFFFF;
-  --text:        #1C1A17;
-  --text-soft:   #5A5650;
-  --text-muted:  #8C8880;
-  --gold:        #A67C3B;
-  --gold-light:  #C9A96E;
-  --gold-bg:     #FBF4E8;
-  --gold-border: #E8D5B0;
-  --green:       #2E7D52;
-  --green-bg:    #EBF5EF;
-  --green-border:#A8D5BC;
-  --red:         #C0392B;
-  --red-bg:      #FDECEA;
-  --red-border:  #F1A9A0;
-  --blue:        #1A5C8A;
-  --blue-bg:     #EAF2FA;
-  --blue-border: #A8C8E8;
-  --shadow-sm:   0 1px 4px rgba(28,26,23,.08);
-  --shadow-md:   0 4px 16px rgba(28,26,23,.10);
-  --shadow-lg:   0 8px 32px rgba(28,26,23,.12);
-  --radius-sm:   8px;
-  --radius-md:   14px;
-  --radius-lg:   20px;
-  --font-serif:  'Playfair Display', Georgia, serif;
-  --font-sans:   'Inter', system-ui, sans-serif;
-  --max-w:       680px;
-}
-
-html { scroll-behavior: smooth; }
-
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--font-sans);
-  font-size: 16px;
-  line-height: 1.7;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* ── PROGRESSO ── */
-#progress-bar {
-  position: fixed;
-  top: 0; left: 0;
-  height: 3px;
-  width: 0%;
-  background: linear-gradient(90deg, var(--gold), var(--gold-light));
-  z-index: 1000;
-  transition: width .1s linear;
-}
-
-/* ── TOPBAR PRETA ── */
-.topbar {
-  position: sticky;
-  top: 0;
-  background: rgba(10, 10, 10, 0.97);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(166, 124, 59, 0.30);
-  z-index: 100;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.topbar-logo {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
-
-.topbar-logo-img {
-  height: 38px;
-  width: auto;
-  object-fit: contain;
-  display: block;
-}
-
-.topbar-share {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: #25D366;
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  padding: 6px 14px;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: opacity .2s;
-  flex-shrink: 0;
-}
-.topbar-share:hover { opacity: .88; }
-.topbar-share svg { width: 15px; height: 15px; fill: #fff; flex-shrink: 0; }
-
-/* ── WRAPPER ── */
-.article {
-  max-width: var(--max-w);
-  margin: 0 auto;
-  padding: 0 20px 80px;
-}
-
-/* ── HERO ── */
-.hero {
-  padding: 48px 0 40px;
-  border-bottom: 1px solid var(--gold-border);
-  margin-bottom: 48px;
-}
-
-.hero-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: var(--gold-bg);
-  border: 1px solid var(--gold-border);
-  color: var(--gold);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  padding: 4px 12px;
-  border-radius: 20px;
-  margin-bottom: 20px;
-}
-
-.hero-tag svg {
-  width: 12px; height: 12px;
-  stroke: var(--gold);
-  fill: none;
-  stroke-width: 2;
-}
-
-.hero-title {
-  font-family: var(--font-serif);
-  font-size: clamp(28px, 7vw, 44px);
-  font-weight: 900;
-  line-height: 1.15;
-  color: var(--text);
-  margin-bottom: 16px;
-  letter-spacing: -.02em;
-}
-
-.hero-title em {
-  font-style: italic;
-  color: var(--gold);
-}
-
-.hero-subtitle {
-  font-size: 17px;
-  color: var(--text-soft);
-  line-height: 1.65;
-  margin-bottom: 24px;
-  max-width: 560px;
-}
-
-.hero-meta {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.hero-meta-item {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 13px;
-  color: var(--text-muted);
-}
-
-.hero-meta-item svg {
-  width: 14px; height: 14px;
-  stroke: var(--text-muted);
-  fill: none;
-  stroke-width: 2;
-}
-
-.hero-meta-sep {
-  width: 3px; height: 3px;
-  background: var(--text-muted);
-  border-radius: 50%;
-}
-
-/* ── SUMÁRIO ── */
-.summary {
-  background: var(--bg-card);
-  border: 1px solid var(--gold-border);
-  border-left: 4px solid var(--gold);
-  border-radius: var(--radius-md);
-  padding: 24px;
-  margin-bottom: 56px;
-  box-shadow: var(--shadow-sm);
-}
-
-.summary-title {
-  font-family: var(--font-serif);
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--text-muted);
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  margin-bottom: 14px;
-}
-
-.summary-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.summary-list li a {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-  color: var(--text-soft);
-  font-size: 14px;
-  font-weight: 500;
-  transition: color .2s;
-}
-
-.summary-list li a:hover { color: var(--gold); }
-
-.summary-num {
-  width: 22px; height: 22px;
-  background: var(--gold-bg);
-  border: 1px solid var(--gold-border);
-  border-radius: 50%;
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--gold);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-}
-
-/* ── SEÇÕES ── */
-.section {
-  margin-bottom: 64px;
-  scroll-margin-top: 80px;
-}
-
-.section-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 10px;
-}
-
-.section-label::before {
-  content: '';
-  display: block;
-  width: 20px;
-  height: 2px;
-  background: var(--gold);
-  border-radius: 2px;
-}
-
-.section-title {
-  font-family: var(--font-serif);
-  font-size: clamp(22px, 5vw, 32px);
-  font-weight: 700;
-  line-height: 1.2;
-  color: var(--text);
-  margin-bottom: 12px;
-  letter-spacing: -.01em;
-}
-
-.section-title em {
-  font-style: italic;
-  color: var(--gold);
-}
-
-.section-body {
-  font-size: 15px;
-  color: var(--text-soft);
-  line-height: 1.75;
-  margin-bottom: 20px;
-}
-
-.section-body strong { color: var(--text); font-weight: 600; }
-
-/* ── ÂNCORA VISUAL ── */
-.anchor-block {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  background: var(--bg-card);
-  border: 1px solid var(--gold-border);
-  border-radius: var(--radius-lg);
-  padding: 24px;
-  margin: 24px 0;
-  box-shadow: var(--shadow-sm);
-}
-
-.anchor-number {
-  font-family: var(--font-serif);
-  font-size: clamp(48px, 12vw, 72px);
-  font-weight: 900;
-  color: var(--gold);
-  line-height: 1;
-  flex-shrink: 0;
-}
-
-.anchor-text { display: flex; flex-direction: column; gap: 4px; }
-
-.anchor-label {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--text);
-  line-height: 1.3;
-}
-
-.anchor-sub {
-  font-size: 13px;
-  color: var(--text-muted);
-  line-height: 1.5;
-}
-
-/* ── CARDS ── */
-.card {
-  background: var(--bg-card);
-  border-radius: var(--radius-md);
-  padding: 20px;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid rgba(28,26,23,.06);
-}
-
-.card-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin: 20px 0;
-}
-
-@media (max-width: 420px) { .card-grid { grid-template-columns: 1fr; } }
-
-.card-icon {
-  width: 40px; height: 40px;
-  border-radius: 10px;
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 12px;
-}
-
-.card-icon.gold  { background: var(--gold-bg); }
-.card-icon.green { background: var(--green-bg); }
-.card-icon.red   { background: var(--red-bg); }
-.card-icon.blue  { background: var(--blue-bg); }
-
-.card-icon svg { width: 20px; height: 20px; fill: none; stroke-width: 2; }
-.card-icon.gold  svg { stroke: var(--gold); }
-.card-icon.green svg { stroke: var(--green); }
-.card-icon.red   svg { stroke: var(--red); }
-.card-icon.blue  svg { stroke: var(--blue); }
-
-.card-title {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 5px;
-  line-height: 1.3;
-}
-
-.card-desc {
-  font-size: 13px;
-  color: var(--text-soft);
-  line-height: 1.6;
-}
-
-/* ── ALERTAS ── */
-.alert {
-  display: flex;
-  gap: 12px;
-  padding: 16px 18px;
-  border-radius: var(--radius-sm);
-  margin: 20px 0;
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-.alert svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; fill: none; stroke-width: 2; }
-.alert strong { font-weight: 700; }
-
-.alert.warn    { background: var(--gold-bg);  border: 1px solid var(--gold-border);  color: #7A5C1E; }
-.alert.danger  { background: var(--red-bg);   border: 1px solid var(--red-border);   color: #8B2020; }
-.alert.success { background: var(--green-bg); border: 1px solid var(--green-border); color: #1D5E3A; }
-.alert.info    { background: var(--blue-bg);  border: 1px solid var(--blue-border);  color: #12446A; }
-
-.alert.warn    svg { stroke: var(--gold);  }
-.alert.danger  svg { stroke: var(--red);   }
-.alert.success svg { stroke: var(--green); }
-.alert.info    svg { stroke: var(--blue);  }
-
-/* ── COMPARATIVO ── */
-.vs-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin: 20px 0;
-}
-
-@media (max-width: 420px) { .vs-grid { grid-template-columns: 1fr; } }
-
-.vs-card {
-  background: var(--bg-card);
-  border-radius: var(--radius-md);
-  padding: 18px;
-  box-shadow: var(--shadow-sm);
-}
-
-.vs-card.a { border-top: 3px solid var(--red); }
-.vs-card.b { border-top: 3px solid var(--green); }
-
-.vs-badge {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  padding: 3px 10px;
-  border-radius: 20px;
-  margin-bottom: 10px;
-}
-
-.vs-card.a .vs-badge { background: var(--red-bg);   color: var(--red);   }
-.vs-card.b .vs-badge { background: var(--green-bg); color: var(--green); }
-
-.vs-card p  { font-size: 13px; color: var(--text-soft); line-height: 1.6; }
-.vs-card strong { color: var(--text); font-weight: 600; }
-
-/* ── SIMULAÇÃO ── */
-.sim-box {
-  background: var(--bg-card);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  box-shadow: var(--shadow-md);
-  margin: 24px 0;
-  border: 1px solid rgba(28,26,23,.06);
-}
-
-.sim-header {
-  background: var(--text);
-  padding: 14px 20px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--gold-light);
-}
-
-.sim-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 20px;
-  border-bottom: 1px solid var(--bg-alt);
-}
-.sim-row:last-child { border-bottom: none; }
-
-.sim-row-label { font-size: 14px; color: var(--text-soft); }
-
-.sim-row-value {
-  font-size: 15px;
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
-}
-
-.sim-row-value.neutral { color: var(--text);  }
-.sim-row-value.gold    { color: var(--gold);  }
-.sim-row-value.minus   { color: var(--red);   }
-.sim-row-value.result  { color: var(--green); }
-.sim-row-value.credit  { color: var(--blue);  }
-
-.sim-divider {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold-border), transparent);
-}
-
-.sim-total {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 20px;
-  background: var(--gold-bg);
-}
-
-.sim-total-label { font-size: 15px; font-weight: 700; color: var(--text); }
-
-.sim-total-value {
-  font-family: var(--font-serif);
-  font-size: 24px;
-  font-weight: 900;
-  color: var(--green);
-}
-
-/* ── TIMELINE ── */
-.timeline {
-  position: relative;
-  margin: 24px 0;
-  padding-left: 20px;
-}
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 15px; top: 24px; bottom: 24px;
-  width: 2px;
-  background: linear-gradient(180deg, var(--gold-border), var(--bg-alt));
-}
-
-.tl-item {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 24px;
-  position: relative;
-}
-.tl-item:last-child { margin-bottom: 0; }
-
-.tl-dot {
-  width: 32px; height: 32px;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 13px; font-weight: 700;
-  flex-shrink: 0;
-  position: relative; z-index: 1;
-  border: 2px solid transparent;
-}
-
-.tl-dot.d1 { background: var(--gold-bg);  color: var(--gold);  border-color: var(--gold-border);  }
-.tl-dot.d2 { background: var(--blue-bg);  color: var(--blue);  border-color: var(--blue-border);  }
-.tl-dot.d3 { background: var(--gold-bg);  color: var(--gold);  border-color: var(--gold-border);  }
-.tl-dot.d4 { background: var(--green-bg); color: var(--green); border-color: var(--green-border); }
-
-.tl-body { padding-top: 4px; flex: 1; }
-
-.tl-title { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px; line-height: 1.3; }
-.tl-desc  { font-size: 13px; color: var(--text-soft); line-height: 1.6; }
-
-.tl-tag {
-  display: inline-block;
-  background: var(--gold-bg);
-  border: 1px solid var(--gold-border);
-  color: var(--gold);
-  font-size: 12px; font-weight: 600;
-  padding: 3px 10px;
-  border-radius: 20px;
-  margin-top: 8px;
-}
-
-/* ── DIVISOR ── */
-.section-divider {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin: 48px 0;
-}
-
-.section-divider::before,
-.section-divider::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--gold-border);
-}
-
-.section-divider-icon {
-  width: 28px; height: 28px;
-  background: var(--gold-bg);
-  border: 1px solid var(--gold-border);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 13px;
-}
-
-/* ── PULL QUOTE ── */
-.pull-quote {
-  border-left: 4px solid var(--gold);
-  padding: 16px 20px;
-  margin: 28px 0;
-  background: var(--gold-bg);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-}
-
-.pull-quote p {
-  font-family: var(--font-serif);
-  font-size: clamp(16px, 4vw, 20px);
-  font-style: italic;
-  color: var(--text);
-  line-height: 1.5;
-}
-
-.pull-quote span {
-  display: block;
-  margin-top: 8px;
-  font-size: 12px;
-  color: var(--text-muted);
-  font-style: normal;
-  font-family: var(--font-sans);
-}
-
-/* ── RECAP GRID ── */
-.recap-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin: 24px 0;
-}
-
-@media (max-width: 420px) { .recap-grid { grid-template-columns: 1fr; } }
-
-.recap-item {
-  background: var(--bg-card);
-  border-radius: var(--radius-md);
-  padding: 16px;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid rgba(28,26,23,.06);
-  display: flex; flex-direction: column; gap: 6px;
-}
-
-.recap-emoji { font-size: 24px; line-height: 1; }
-.recap-title { font-size: 13px; font-weight: 700; color: var(--text); line-height: 1.3; }
-.recap-desc  { font-size: 12px; color: var(--text-muted); line-height: 1.55; }
-
-/* ── CENÁRIO TAG ── */
-.scenario-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: var(--gold-bg);
-  border: 1px solid var(--gold-border);
-  color: var(--gold);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  padding: 4px 14px;
-  border-radius: 20px;
-  margin-bottom: 16px;
-}
-
-.scenario-tag.action {
-  background: var(--green-bg);
-  border-color: var(--green-border);
-  color: var(--green);
-}
-
-.scenario-tag.alert-tag {
-  background: var(--red-bg);
-  border-color: var(--red-border);
-  color: var(--red);
-}
-
-/* ── INFO ITEMS (cenários de recusa) ── */
-.info-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin: 20px 0;
-}
-
-.info-item {
-  background: var(--bg-card);
-  border: 1px solid rgba(28,26,23,.06);
-  border-radius: var(--radius-md);
-  padding: 16px 18px;
-  box-shadow: var(--shadow-sm);
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-}
-
-.info-item-emoji {
-  font-size: 24px;
-  line-height: 1;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.info-item-title {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 2px;
-  line-height: 1.3;
-}
-
-.info-item-desc {
-  font-size: 13px;
-  color: var(--text-soft);
-  line-height: 1.55;
-}
-
-/* ── CTA FINAL ── */
-.cta-section {
-  background: var(--text);
-  border-radius: var(--radius-lg);
-  padding: 36px 24px;
-  text-align: center;
-  margin: 48px 0 0;
-}
-
-.cta-section-eyebrow {
-  font-size: 11px; font-weight: 700;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--gold-light);
-  margin-bottom: 12px;
-}
-
-.cta-section-title {
-  font-family: var(--font-serif);
-  font-size: clamp(22px, 6vw, 32px);
-  font-weight: 900;
-  color: #fff;
-  margin-bottom: 10px;
-  line-height: 1.2;
-}
-
-.cta-section-title em { font-style: italic; color: var(--gold-light); }
-
-.cta-section-sub {
-  font-size: 14px;
-  color: rgba(255,255,255,.65);
-  margin-bottom: 28px;
-  line-height: 1.65;
-}
-
-.cta-btn-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  background: #25D366;
-  color: #fff;
-  text-decoration: none;
-  font-size: 15px; font-weight: 700;
-  padding: 14px 28px;
-  border-radius: 50px;
-  width: 100%; max-width: 360px;
-  transition: opacity .2s, transform .15s;
-  box-shadow: 0 4px 16px rgba(37,211,102,.35);
-}
-
-.cta-btn-primary:hover { opacity: .9; transform: translateY(-1px); }
-.cta-btn-primary svg { width: 18px; height: 18px; fill: #fff; flex-shrink: 0; }
-
-.cta-share-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 16px;
-  font-size: 13px;
-  color: rgba(255,255,255,.5);
-  text-decoration: none;
-  transition: color .2s;
-}
-
-.cta-share-link:hover { color: var(--gold-light); }
-.cta-share-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
-
-.cta-footer {
-  margin-top: 20px;
-  font-size: 12px;
-  color: rgba(255,255,255,.35);
-  line-height: 1.6;
-}
-
-/* ── PROIBIÇÃO CARDS ── */
-.prohib-card {
-  background: var(--red-bg);
-  border: 1px solid var(--red-border);
-  border-radius: var(--radius-md);
-  padding: 18px;
-  margin: 20px 0;
-}
-
-.prohib-card h4 {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--red);
-  margin-bottom: 6px;
-}
-
-.prohib-card p {
-  font-size: 13px;
-  color: #8B2020;
-  line-height: 1.6;
-}
-
-/* ── SOLUÇÃO CARD ── */
-.solution-card {
-  background: var(--green-bg);
-  border: 1px solid var(--green-border);
-  border-radius: var(--radius-md);
-  padding: 18px;
-  margin: 20px 0;
-}
-
-.solution-card h4 {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--green);
-  margin-bottom: 6px;
-}
-
-.solution-card p {
-  font-size: 13px;
-  color: #1D5E3A;
-  line-height: 1.6;
-}
-
-/* ── CHECKLIST ── */
-.checklist {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin: 24px 0;
-}
-
-.check-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: var(--bg-card);
-  border: 1px solid rgba(28,26,23,.06);
-  border-radius: var(--radius-sm);
-  padding: 14px 16px;
-  box-shadow: var(--shadow-sm);
-}
-
-.check-icon {
-  width: 28px; height: 28px;
-  background: var(--green-bg);
-  border: 1px solid var(--green-border);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-  font-size: 13px;
-  color: var(--green);
-  font-weight: 700;
-}
-
-.check-text {
-  font-size: 14px;
-  color: var(--text-soft);
-  line-height: 1.5;
-}
-
-.check-text strong { color: var(--text); font-weight: 600; }
-
-/* ── SCROLL REVEAL ── */
-.reveal {
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity .5s ease, transform .5s ease;
-}
-.reveal.visible { opacity: 1; transform: translateY(0); }
-
-/* ── RESPONSIVO ── */
-@media (max-width: 480px) {
-  .article { padding: 0 16px 80px; }
-  .hero { padding: 32px 0 28px; }
-  .anchor-block { flex-direction: column; align-items: flex-start; gap: 8px; }
-  .anchor-number { font-size: 56px; }
-  .topbar-logo-img { height: 30px; }
-}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;background:#050816;font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased}
+.presentation{width:100vw;height:100vh;overflow:hidden;position:relative}
+#sw{display:flex;transition:transform .7s cubic-bezier(.22,1,.36,1);width:max-content;height:100vh}
+.slide{width:100vw;height:100vh;flex-shrink:0;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.slide::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(900px 420px at 72% 18%,rgba(255,120,180,.14) 0%,transparent 42%),radial-gradient(800px 380px at 35% 20%,rgba(35,110,255,.14) 0%,transparent 42%),linear-gradient(180deg,#0A0F24 0%,#070B1D 45%,#050816 100%)}
+.slide::after{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.3;background-image:radial-gradient(rgba(255,255,255,.06) .8px,transparent .8px);background-size:24px 24px}
+.slide>*{position:relative;z-index:1}
+h1{font-weight:900;letter-spacing:-.03em;line-height:1.08;color:#F5F7FB}
+h2{font-weight:800;letter-spacing:-.025em;line-height:1.12;color:#F5F7FB}
+h3{font-weight:700;letter-spacing:-.015em;color:#F5F7FB}
+p,span,li{font-weight:400;line-height:1.6;color:#AAB3C5}
+.gt{background:linear-gradient(135deg,#2E6BFF 0%,#C86DD7 50%,#2E6BFF 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s linear infinite}
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+.gl{width:90px;height:4px;border-radius:2px;background:linear-gradient(90deg,#2E6BFF,#C86DD7);margin-bottom:22px;animation:lineG .8s ease both;transform-origin:left}
+.gl.ce{margin:0 auto 22px auto;transform-origin:center}
+@keyframes lineG{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.badge{display:inline-flex;align-items:center;gap:10px;padding:10px 24px;border-radius:999px;margin-bottom:32px;background:rgba(46,107,255,.08);border:1px solid rgba(46,107,255,.2);font-size:14px;font-weight:600;color:#8FAEFF;letter-spacing:.05em;text-transform:uppercase}
+.card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:22px;box-shadow:0 16px 48px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.04);padding:32px 28px;backdrop-filter:blur(8px);transition:all .4s ease}
+.card:hover{border-color:rgba(46,107,255,.2);transform:translateY(-3px);box-shadow:0 24px 60px rgba(0,0,0,.5),0 0 30px rgba(46,107,255,.08)}
+.cp{background:linear-gradient(145deg,rgba(18,11,43,.95) 0%,rgba(10,15,36,.98) 55%,rgba(5,8,22,1) 100%);border:1px solid rgba(255,255,255,.08);border-radius:22px;box-shadow:0 20px 50px rgba(0,0,0,.45),0 0 40px rgba(46,107,255,.08);padding:34px 30px;backdrop-filter:blur(10px);transition:all .4s ease}
+.cp:hover{border-color:rgba(46,107,255,.25);transform:translateY(-3px) scale(1.01);box-shadow:0 28px 64px rgba(0,0,0,.55),0 0 50px rgba(46,107,255,.12)}
+.tn{width:72px;height:72px;border-radius:18px;margin:0 auto 26px;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;color:#fff;animation:glowP 3s ease-in-out infinite}
+.tn.n1{background:linear-gradient(145deg,#2E6BFF,#1E56D9)}
+.tn.n2{background:linear-gradient(145deg,#5B3FD6,#4530B3);animation-delay:.5s}
+.tn.n3{background:linear-gradient(145deg,#C86DD7,#A854BF);animation-delay:1s}
+.tn.n4{background:linear-gradient(145deg,#2E9E6B,#1E8A5A);animation-delay:1.5s}
+@keyframes glowP{0%,100%{box-shadow:0 0 18px rgba(46,107,255,.12)}50%{box-shadow:0 0 36px rgba(46,107,255,.3)}}
+.ic{width:54px;height:54px;border-radius:14px;margin-bottom:18px;display:flex;align-items:center;justify-content:center;background:rgba(46,107,255,.08)}
+.ic svg{width:26px;height:26px;color:#2E6BFF}
+.ic.purple{background:rgba(91,63,214,.08)}
+.ic.purple svg{color:#5B3FD6}
+.ic.pink{background:rgba(200,109,215,.08)}
+.ic.pink svg{color:#C86DD7}
+.ic.green{background:rgba(46,158,107,.08)}
+.ic.green svg{color:#2E9E6B}
+.ic.red{background:rgba(255,80,80,.08)}
+.ic.red svg{color:#FF5050}
+.ic.gold{background:rgba(255,200,60,.08)}
+.ic.gold svg{color:#FFD460}
+.s5c{position:relative;overflow:hidden}
+.s5c::before{content:'';position:absolute;top:0;left:0;width:5px;height:100%;border-radius:2px 0 0 2px}
+.s5n{font-size:58px;font-weight:900;letter-spacing:-.03em;line-height:1.1;margin-bottom:10px}
+.fl{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap}
+.fs-step{display:flex;flex-direction:column;align-items:center;text-align:center;min-width:135px;padding:0 8px}
+.fs-step .fi{width:76px;height:76px;border-radius:20px;background:rgba(46,107,255,.08);border:1px solid rgba(46,107,255,.18);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.fs-step .fi svg{width:34px;height:34px;color:#2E6BFF}
+.fs-step span{font-size:15px;font-weight:600;color:#F5F7FB}
+.fa{display:flex;align-items:center;padding-bottom:30px;margin:0 6px}
+.fa svg{width:26px;height:26px;color:#7E879B}
+.fs-step.act .fi{background:linear-gradient(180deg,#2E6BFF,#1E56D9);border-color:transparent;box-shadow:0 10px 22px rgba(46,107,255,.28)}
+.fs-step.act .fi svg{color:#fff}
+.bwc{border-radius:20px;padding:28px 24px}
+.bwc.cr{background:rgba(255,80,80,.05);border:1px solid rgba(255,80,80,.12)}
+.bwc.cy{background:rgba(255,200,60,.05);border:1px solid rgba(255,200,60,.12)}
+.bwc.cg{background:rgba(80,220,120,.05);border:1px solid rgba(80,220,120,.12)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(35px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeScale{from{opacity:0;transform:scale(.88)}to{opacity:1;transform:scale(1)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.slide.active .au{animation:fadeUp .7s ease both}
+.slide.active .as{animation:fadeScale .7s ease both}
+.d1{animation-delay:.1s!important}
+.d2{animation-delay:.22s!important}
+.d3{animation-delay:.34s!important}
+.d4{animation-delay:.46s!important}
+.d5{animation-delay:.58s!important}
+.d6{animation-delay:.7s!important}
+.d7{animation-delay:.82s!important}
+.s1{text-align:center;max-width:1000px}
+.s1 h1{font-size:clamp(52px,7vw,82px);margin-bottom:26px}
+.s1 .tag{font-size:22px;color:#AAB3C5;max-width:600px;margin:0 auto;line-height:1.5}
+.progress{position:fixed;top:0;left:0;height:3px;z-index:1000;background:linear-gradient(90deg,#2E6BFF,#C86DD7,#2E6BFF);background-size:200% auto;animation:shimmer 3s linear infinite;transition:width .6s ease}
+.fs-btn{position:fixed;top:20px;right:20px;z-index:999;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:#7E879B;padding:12px 18px;border-radius:12px;cursor:pointer;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;display:flex;align-items:center;gap:8px;transition:all .3s ease;backdrop-filter:blur(6px);letter-spacing:.04em;text-transform:uppercase}
+.fs-btn:hover{background:rgba(255,255,255,.08);color:#F5F7FB;border-color:rgba(46,107,255,.3)}
+.fs-btn svg{width:16px;height:16px}
+.sc{position:fixed;bottom:36px;left:40px;z-index:998;color:#7E879B;font-size:14px;font-weight:600;letter-spacing:.05em;background:rgba(0,0,0,.3);padding:10px 18px;border-radius:10px;backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.05)}
+.sc .cn{color:#2E6BFF;font-weight:800}
+.ind{position:fixed;bottom:36px;left:50%;transform:translateX(-50%);z-index:998;display:flex;gap:7px;background:rgba(0,0,0,.3);padding:10px 16px;border-radius:20px;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.05)}
+.ind .dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.15);transition:all .4s ease;cursor:pointer}
+.ind .dot.active{background:#2E6BFF;box-shadow:0 0 14px rgba(46,107,255,.6);width:34px;border-radius:5px}
+.nav-arr{position:fixed;bottom:32px;right:40px;z-index:998;display:flex;gap:10px}
+.nav-arr button{width:52px;height:52px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#AAB3C5;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s ease;backdrop-filter:blur(6px)}
+.nav-arr button:hover{background:rgba(46,107,255,.2);border-color:rgba(46,107,255,.4);color:#fff;transform:scale(1.05)}
+.si{max-width:1100px;width:90%;padding:20px}
+.si.ce{text-align:center}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+.g4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:16px}
+@media(max-width:900px){.g3,.g4{grid-template-columns:1fr 1fr}.g2{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.g2,.g3,.g4{grid-template-columns:1fr}.s1 h1{font-size:clamp(36px,8vw,52px)!important}.si{width:95%;padding:16px}.sim-box{font-size:13px}.fl{gap:10px}.fs-step{min-width:100px}.fs-step .fi{width:56px;height:56px;border-radius:14px}.fs-step .fi svg{width:24px;height:24px}}
+
+/* Versus grid */
+.vs-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+@media(max-width:600px){.vs-grid{grid-template-columns:1fr}}
+.vs-card{border-radius:18px;padding:24px;backdrop-filter:blur(8px)}
+.vs-card.old{background:rgba(255,80,80,.04);border:1px solid rgba(255,80,80,.12)}
+.vs-card.new{background:rgba(80,220,120,.04);border:1px solid rgba(80,220,120,.12)}
+.vs-badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 14px;border-radius:20px;margin-bottom:12px}
+.vs-card.old .vs-badge{background:rgba(255,80,80,.1);color:#FF6B6B}
+.vs-card.new .vs-badge{background:rgba(80,220,120,.1);color:#5EE89A}
+.vs-card p{font-size:14px;color:#AAB3C5;line-height:1.6}
+.vs-card strong{color:#F5F7FB}
+
+/* Sim box (data table) */
+.sim-box{border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.07);margin:20px 0}
+.sim-header{background:rgba(255,255,255,.04);padding:14px 24px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8FAEFF;border-bottom:1px solid rgba(255,255,255,.07)}
+.sim-row{display:flex;justify-content:space-between;align-items:center;padding:14px 24px;border-bottom:1px solid rgba(255,255,255,.04)}
+.sim-row:last-child{border-bottom:none}
+.sim-row-label{font-size:14px;color:#7E879B}
+.sim-row-value{font-size:15px;font-weight:700;font-variant-numeric:tabular-nums}
+.sim-row-value.gold{color:#FFD460}
+.sim-row-value.credit{color:#8FAEFF}
+.sim-row-value.result{color:#5EE89A}
+.sim-row-value.minus{color:#FF6B6B}
+.sim-total{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;background:rgba(46,107,255,.06);border-top:1px solid rgba(46,107,255,.12)}
+.sim-total-label{font-size:15px;font-weight:700;color:#F5F7FB}
+.sim-total-value{font-size:24px;font-weight:900;color:#FFD460;letter-spacing:-.02em}
+
+/* Info items */
+.info-list{display:flex;flex-direction:column;gap:12px;margin:20px 0}
+.info-item{display:flex;align-items:flex-start;gap:16px;padding:20px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:16px;backdrop-filter:blur(8px)}
+.info-item-emoji{font-size:28px;line-height:1;flex-shrink:0}
+.info-item-title{font-size:15px;font-weight:700;color:#F5F7FB;margin-bottom:4px}
+.info-item-desc{font-size:13px;color:#AAB3C5;line-height:1.6}
+
+/* Prohib and solution cards */
+.prohib-card{background:rgba(255,80,80,.05);border:1px solid rgba(255,80,80,.12);border-radius:16px;padding:22px;margin:16px 0}
+.prohib-card h4{font-size:15px;font-weight:700;color:#FF6B6B;margin-bottom:8px}
+.prohib-card p{font-size:14px;color:#AAB3C5;line-height:1.6}
+.prohib-card strong{color:#F5F7FB}
+.solution-card{background:rgba(80,220,120,.05);border:1px solid rgba(80,220,120,.12);border-radius:16px;padding:22px;margin:16px 0}
+.solution-card h4{font-size:15px;font-weight:700;color:#5EE89A;margin-bottom:8px}
+.solution-card p{font-size:14px;color:#AAB3C5;line-height:1.6}
+.solution-card strong{color:#F5F7FB}
+
+/* Alert */
+.alert{display:flex;gap:14px;padding:18px 20px;border-radius:14px;margin:16px 0;font-size:14px;line-height:1.6}
+.alert svg{width:20px;height:20px;flex-shrink:0;margin-top:2px;fill:none;stroke-width:2}
+.alert strong{color:#F5F7FB;font-weight:700}
+.alert.warn{background:rgba(255,200,60,.06);border:1px solid rgba(255,200,60,.15)}
+.alert.warn svg{stroke:#FFD460}
+.alert.warn p{color:#FFD460}
+.alert.danger{background:rgba(255,80,80,.06);border:1px solid rgba(255,80,80,.15)}
+.alert.danger svg{stroke:#FF6B6B}
+.alert.danger p{color:#FF6B6B}
+.alert.success{background:rgba(80,220,120,.06);border:1px solid rgba(80,220,120,.15)}
+.alert.success svg{stroke:#5EE89A}
+.alert.success p{color:#5EE89A}
+.alert.info{background:rgba(46,107,255,.06);border:1px solid rgba(46,107,255,.15)}
+.alert.info svg{stroke:#8FAEFF}
+.alert.info p{color:#8FAEFF}
+
+/* Pull quote */
+.pull-quote{border-left:4px solid;border-image:linear-gradient(180deg,#2E6BFF,#C86DD7) 1;padding:20px 24px;margin:20px 0;background:rgba(46,107,255,.04);border-radius:0 14px 14px 0}
+.pull-quote p{font-size:18px;font-style:italic;color:#F5F7FB;line-height:1.5;font-weight:500}
+.pull-quote cite{display:block;margin-top:10px;font-size:13px;color:#7E879B;font-style:normal}
+
+/* Recap grid */
+.recap-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:20px 0}
+@media(max-width:900px){.recap-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.recap-grid{grid-template-columns:1fr}}
+.recap-item{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:20px;backdrop-filter:blur(8px);transition:all .4s ease}
+.recap-item:hover{border-color:rgba(46,107,255,.2);transform:translateY(-2px)}
+.recap-emoji{font-size:28px;margin-bottom:12px;display:block}
+.recap-title{font-size:14px;font-weight:700;color:#F5F7FB;margin-bottom:6px}
+.recap-desc{font-size:13px;color:#7E879B;line-height:1.55}
+
+/* Checklist */
+.checklist{display:flex;flex-direction:column;gap:10px;margin:20px 0}
+.check-item{display:flex;align-items:center;gap:14px;padding:16px 20px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);border-radius:14px}
+.check-icon{width:30px;height:30px;background:rgba(80,220,120,.1);border:1px solid rgba(80,220,120,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;color:#5EE89A;font-weight:700}
+.check-text{font-size:14px;color:#AAB3C5;line-height:1.5}
+.check-text strong{color:#F5F7FB;font-weight:600}
+
+/* CTA section */
+.cta-inner{max-width:560px;text-align:center}
+.cta-eyebrow{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8FAEFF;margin-bottom:16px}
+.cta-title{font-size:clamp(28px,5vw,42px);font-weight:900;color:#F5F7FB;margin-bottom:12px;line-height:1.12;letter-spacing:-.025em}
+.cta-sub{font-size:16px;color:#7E879B;margin-bottom:32px;line-height:1.6}
+.cta-btn{display:inline-flex;align-items:center;gap:12px;padding:16px 36px;border-radius:999px;background:#25D366;color:#fff;text-decoration:none;font-size:16px;font-weight:700;transition:all .3s ease;box-shadow:0 8px 30px rgba(37,211,102,.3)}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(37,211,102,.45)}
+.cta-btn svg{width:20px;height:20px;fill:#fff}
+.cta-footer{margin-top:24px;font-size:13px;color:#7E879B}
+
+/* Scroll area inside slide */
+.slide-scroll{width:100%;height:100%;overflow-y:auto;display:flex;align-items:flex-start;justify-content:center;padding:60px 20px;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.1) transparent}
+.slide-scroll::-webkit-scrollbar{width:6px}
+.slide-scroll::-webkit-scrollbar-track{background:transparent}
+.slide-scroll::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:3px}
+.slide-inner{max-width:900px;width:100%}
 </style>
 </head>
 <body>
 
-<div id="progress-bar"></div>
+<div class="progress" id="prog" style="width:10%"></div>
 
-<!-- ═══ TOPBAR PRETA COM LOGO ═══ -->
-<header class="topbar">
-  <a class="topbar-logo" href="#">
-    <img src="/logo.png" alt="Domínio Farma Contabilidade" class="topbar-logo-img"/>
-  </a>
-  <a class="topbar-share" id="topbarShare" href="#" target="_blank">
-    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    Compartilhar
-  </a>
-</header>
+<button class="fs-btn" id="fsBtn" onclick="toggleFs()">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3"></path></svg>
+  <span id="fsTxt">Tela cheia</span>
+</button>
 
-<main class="article">
+<div class="sc"><span class="cn" id="cn">1</span> / 10</div>
+<div class="ind" id="ind"></div>
+<div class="nav-arr">
+  <button onclick="prev()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+  <button onclick="next()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+</div>
 
-  <!-- ═══ HERO ═══ -->
-  <section class="hero reveal">
-    <div class="hero-tag">
-      <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+<div class="presentation">
+<div class="slides" id="sw">
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- SLIDE 1 — CAPA -->
+<!-- ══════════════════════════════════════════════════ -->
+<section class="slide active">
+  <div class="s1">
+    <div class="badge au d1">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
       Guia para o Empresário
     </div>
-    <h1 class="hero-title">
-      Nova Regra de<br>
-      <em>Emissão de Notas Fiscais</em> 📋
-    </h1>
-    <p class="hero-subtitle">
-      Entenda as mudanças que impactam sua rotina de faturamento e emissão — sem complicação, direto ao ponto.
-    </p>
-    <div class="hero-meta">
-      <div class="hero-meta-item">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    <h1 class="au d2">Nova Regra de<br><span class="gt">Emissão de Notas Fiscais</span> 📋</h1>
+    <p class="tag au d3">Entenda as mudanças que impactam sua rotina de faturamento e emissão — sem complicação, direto ao ponto.</p>
+    <div style="display:flex;gap:16px;justify-content:center;margin-top:32px;flex-wrap:wrap" class="au d4">
+      <div style="display:flex;align-items:center;gap:6px;font-size:13px;color:#7E879B">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#7E879B" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         8 min de leitura
       </div>
-      <div class="hero-meta-sep"></div>
-      <div class="hero-meta-item">
-        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+      <div style="width:4px;height:4px;background:#7E879B;border-radius:50%;align-self:center"></div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:13px;color:#7E879B">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#7E879B" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
         Para empresários e gestores
       </div>
-      <div class="hero-meta-sep"></div>
-      <div class="hero-meta-item">
-        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <div style="width:4px;height:4px;background:#7E879B;border-radius:50%;align-self:center"></div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:13px;color:#7E879B">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#7E879B" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         NF-e · NFC-e · ICMS
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ═══ SUMÁRIO ═══ -->
-  <nav class="summary reveal">
-    <p class="summary-title">Neste artigo</p>
-    <ul class="summary-list">
-      <li><a href="#objetivo"><div class="summary-num">1</div>O que o Fisco quer?</a></li>
-      <li><a href="#responsabilidade"><div class="summary-num">2</div>A responsabilidade é sua</a></li>
-      <li><a href="#historia"><div class="summary-num">3</div>A história completa — sem lacunas</a></li>
-      <li><a href="#prorrogacao"><div class="summary-num">4</div>Prazo prorrogado: 03/08/2026</a></li>
-      <li><a href="#recusa"><div class="summary-num">5</div>Cenário 1: Recusa de mercadoria</a></li>
-      <li><a href="#imposto"><div class="summary-num">6</div>Cenário 2: Imposto destacado a maior</a></li>
-      <li><a href="#antecipado"><div class="summary-num">7</div>Cenário 3: Pagamento antecipado</a></li>
-      <li><a href="#perda"><div class="summary-num">8</div>Cenário 4: Perda no estoque</a></li>
-      <li><a href="#nfce"><div class="summary-num">9</div>Mudanças na NFC-e (Cupom)</a></li>
-      <li><a href="#resumo"><div class="summary-num">10</div>Resumo e checklist</a></li>
-    </ul>
-  </nav>
-
-  <!-- ═══ SEÇÃO 1 — OBJETIVO DO FISCO ═══ -->
-  <section class="section reveal" id="objetivo">
-    <p class="section-label">01 — Objetivo</p>
-    <h2 class="section-title">O que o <em>Fisco</em> quer<br>com essas mudanças?</h2>
-    <p class="section-body">
-      Padronizar e simplificar os tratamentos fiscais, <strong>centralizando a responsabilidade</strong> para garantir dados precisos para a apuração dos impostos. Menos ambiguidade, maior clareza.
-    </p>
-    <div class="alert success">
+<!-- ══════════════════════════════════════════════════ -->
+<!-- SLIDE 2 — O QUE O FISCO QUER -->
+<!-- ══════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="si ce">
+    <div class="gl ce au d1"></div>
+    <p style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8FAEFF;margin-bottom:12px" class="au d1">01 — Objetivo</p>
+    <h2 class="au d2" style="font-size:clamp(32px,5vw,48px);margin-bottom:16px">O que o <span class="gt">Fisco</span> quer<br>com essas mudanças?</h2>
+    <p class="au d3" style="font-size:17px;max-width:620px;margin:0 auto 32px">Padronizar e simplificar os tratamentos fiscais, <strong style="color:#F5F7FB">centralizando a responsabilidade</strong> para garantir dados precisos para a apuração dos impostos.</p>
+    <div class="g3 au d4" style="max-width:800px;margin:0 auto">
+      <div class="card" style="text-align:center;padding:28px 20px">
+        <div class="ic" style="margin:0 auto 18px"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2E6BFF" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3 style="font-size:15px;margin-bottom:6px">Padronização</h3>
+        <p style="font-size:13px">Regras uniformes para todo o país</p>
+      </div>
+      <div class="card" style="text-align:center;padding:28px 20px">
+        <div class="ic purple" style="margin:0 auto 18px"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5B3FD6" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <h3 style="font-size:15px;margin-bottom:6px">Clareza</h3>
+        <p style="font-size:13px">Menos ambiguidades na emissão</p>
+      </div>
+      <div class="card" style="text-align:center;padding:28px 20px">
+        <div class="ic pink" style="margin:0 auto 18px"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C86DD7" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <h3 style="font-size:15px;margin-bottom:6px">Responsável único</h3>
+        <p style="font-size:13px">Um dono para cada documento</p>
+      </div>
+    </div>
+    <div class="alert success au d5" style="max-width:620px;margin:28px auto 0;text-align:left">
       <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
       <p>Menos ambiguidades, maior clareza e um <strong>responsável único</strong> por cada documento fiscal.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <div class="section-divider reveal"><div class="section-divider-icon">🎯</div></div>
-
-  <!-- ═══ SEÇÃO 2 — RESPONSABILIDADE ═══ -->
-  <section class="section reveal" id="responsabilidade">
-    <p class="section-label">02 — Responsabilidade</p>
-    <h2 class="section-title">A responsabilidade<br>agora é <em>sua!</em></h2>
-    <p class="section-body">
-      O remetente (vendedor) é o responsável por emitir documentos fiscais em <strong>qualquer cenário de recusa</strong>, garantindo responsabilidade e conformidade desde o início.
-    </p>
-    <div class="vs-grid">
-      <div class="vs-card a">
+<!-- ══════════════════════════════════════════════════ -->
+<!-- SLIDE 3 — RESPONSABILIDADE -->
+<!-- ══════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="si ce">
+    <div class="gl ce au d1"></div>
+    <p style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8FAEFF;margin-bottom:12px" class="au d1">02 — Responsabilidade</p>
+    <h2 class="au d2" style="font-size:clamp(32px,5vw,48px);margin-bottom:16px">A responsabilidade<br>agora é <span class="gt">sua!</span></h2>
+    <p class="au d3" style="font-size:17px;max-width:620px;margin:0 auto 32px">O remetente (vendedor) é o responsável por emitir documentos fiscais em <strong style="color:#F5F7FB">qualquer cenário de recusa</strong>, garantindo conformidade desde o início.</p>
+    <div class="vs-grid au d4" style="max-width:700px;margin:0 auto">
+      <div class="vs-card old">
         <span class="vs-badge">❌ Antes</span>
         <p>O <strong>cliente</strong> era responsável por emitir a nota de devolução ao recusar mercadoria.</p>
       </div>
-      <div class="vs-card b">
+      <div class="vs-card new">
         <span class="vs-badge">✅ Agora</span>
         <p>O <strong>remetente (vendedor)</strong> assume toda a responsabilidade de emissão em qualquer cenário de ajuste ou recusa.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <div class="section-divider reveal"><div class="section-divider-icon">⚙️</div></div>
-
-  <!-- ═══ SEÇÃO 3 — HISTÓRIA COMPLETA ═══ -->
-  <section class="section reveal" id="historia">
-    <p class="section-label">03 — Rastreabilidade</p>
-    <h2 class="section-title">A história precisa<br>ser <em>completa.</em></h2>
-    <p class="section-body">
-      Cada operação, retorno ou ajuste precisa registrar <strong>exatamente o que ocorreu</strong>. O sistema não aceita lacunas ou histórias incompletas na documentação fiscal.
-    </p>
-    <div class="alert danger">
+<!-- ══════════════════════════════════════════════════ -->
+<!-- SLIDE 4 — HISTÓRIA COMPLETA + PRAZO -->
+<!-- ══════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="si ce">
+    <div class="gl ce au d1"></div>
+    <p style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8FAEFF;margin-bottom:12px" class="au d1">03 — Rastreabilidade · 04 — Prazos</p>
+    <h2 class="au d2" style="font-size:clamp(30px,4.5vw,44px);margin-bottom:16px">A história precisa ser <span class="gt">completa</span></h2>
+    <p class="au d3" style="font-size:16px;max-width:620px;margin:0 auto 28px">Cada operação, retorno ou ajuste precisa registrar <strong style="color:#F5F7FB">exatamente o que ocorreu</strong>. Sem lacunas.</p>
+    <div class="alert danger au d4" style="max-width:650px;margin:0 auto 24px;text-align:left">
       <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
       <p>Mercadoria saiu e não chegou? Voltou parcialmente? Houve perda? <strong>Cada movimento precisa de um documento fiscal correspondente</strong> — sem exceções!</p>
     </div>
-    <div class="pull-quote">
+    <div class="pull-quote au d5" style="max-width:650px;margin:0 auto 28px;text-align:left">
       <p>"Se saiu da empresa, precisa ter nota. Se voltou, também. Se perdeu, igualmente."</p>
-      <span>— Princípio da rastreabilidade fiscal completa</span>
+      <cite>— Princípio da rastreabilidade fiscal completa</cite>
     </div>
-  </section>
-
-  <div class="section-divider reveal"><div class="section-divider-icon">⚠️</div></div>
-
-  <!-- ═══ SEÇÃO 4 — PRORROGAÇÃO ═══ -->
-  <section class="section reveal" id="prorrogacao">
-    <p class="section-label">04 — Prazos</p>
-    <h2 class="section-title">O início foi<br><em>prorrogado.</em></h2>
-    <p class="section-body">
-      A partir de <strong>03/08/2026</strong>, as novas regras de NF-e entram em vigor. O prazo foi adiado para permitir adequação técnica e operacional pelas empresas.
-    </p>
-    <div class="sim-box">
-      <div class="sim-header">Cronograma Oficial</div>
+    <div class="sim-box au d6" style="max-width:500px;margin:0 auto">
+      <div class="sim-header">📅 Cronograma Oficial</div>
       <div class="sim-row">
         <span class="sim-row-label">Previsão anterior</span>
-        <span class="sim-row-value minus" style="text-decoration:line-through;">Maio/2026</span>
+        <span class="sim-row-value minus" style="text-decoration:line-through">Maio/2026</span>
       </div>
-      <div class="sim-divider"></div>
       <div class="sim-total">
         <span class="sim-total-label">Nova data oficial</span>
-        <span class="sim-total-value" style="color:var(--gold);">03/08/2026</span>
+        <span class="sim-total-value">03/08/2026</span>
       </div>
     </div>
-    <div class="alert info">
+    <div class="alert info au d7" style="max-width:650px;margin:20px auto 0;text-align:left">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
       <p><strong>Use esse tempo para se preparar!</strong> Consulte seu fornecedor de sistema para garantir a atualização antes de agosto.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <div class="section-divider reveal"><div class="section-divider-icon">📅</div></div>
-
-  <!-- ═══ SEÇÃO 5 — CENÁRIO 1: RECUSA ═══ -->
-  <section class="section reveal" id="recusa">
-    <p class="section-label">05 — Cenário 1</p>
-    <h2 class="section-title">Mercadoria <em>recusada:</em><br>o que fazer?</h2>
-    <p class="section-body">
-      O que fazer quando o cliente rejeita toda ou parte da mercadoria? Agora a responsabilidade de emitir a nota é <strong>do vendedor</strong>.
-    </p>
-
-    <div class="info-list">
-      <div class="info-item">
-        <span class="info-item-emoji">🚫</span>
-        <div>
-          <p class="info-item-title">Recusa Total</p>
-          <p class="info-item-desc">Cliente rejeitou 100% da mercadoria.</p>
+<!-- ══════════════════════════════════════════════════ -->
+<!-- SLIDE 5 — CENÁRIO 1: RECUSA -->
+<!-- ══════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="slide-scroll">
+    <div class="slide-inner" style="text-align:center">
+      <div class="gl ce au d1"></div>
+      <p style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8FAEFF;margin-bottom:12px" class="au d1">05 — Cenário 1</p>
+      <h2 class="au d2" style="font-size:clamp(30px,4.5vw,44px);margin-bottom:16px">Mercadoria <span class="gt">recusada:</span><br>o que fazer?</h2>
+      <p class="au d3" style="font-size:16px;max-width:620px;margin:0 auto 28px">O que fazer quando o cliente rejeita toda ou parte da mercadoria? Agora a responsabilidade de emitir a nota é <strong style="color:#F5F7FB">do vendedor</strong>.</p>
+      <div class="info-list au d4" style="max-width:650px;margin:0 auto 24px;text-align:left">
+        <div class="info-item">
+          <span class="info-item-emoji">🚫</span>
+          <div>
+            <p class="info-item-title">Recusa Total</p>
+            <p class="info-item-desc">Cliente rejeitou 100% da mercadoria.</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <span class="info-item-emoji">📦</span>
+          <div>
+            <p class="info-item-title">Recusa Parcial</p>
+            <p class="info-item-desc">Cliente aceitou parte do pedido.</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <span class="info-item-emoji">❓</span>
+          <div>
+            <p class="info-item-title">Não Localizado</p>
+            <p class="info-item-desc">Destinatário não encontrado no endereço.</p>
+          </div>
         </div>
       </div>
-      <div class="info-item">
-        <span class="info-item-emoji">📦</span>
-        <div>
-          <p class="info-item-title">Recusa Parcial</p>
-          <p class="info-item-desc">Cliente aceitou parte do pedido.</p>
+      <p style="font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#5EE89A;margin-bottom:16px" class="au d5">✅ Ação do vendedor — NF-e de Entrada (Nota de Crédito)</p>
+      <div class="sim-box au d6" style="max-width:550px;margin:0 auto">
+        <div class="sim-header">Detalhes Técnicos — Recusa</div>
+        <div class="sim-row">
+          <span class="sim-row-label">Finalidade (finNFe)</span>
+          <span class="sim-row-value gold">5 (Crédito)</span>
+        </div>
+        <div class="sim-row">
+          <span class="sim-row-label">Código</span>
+          <span class="sim-row-value credit">03 (Total) ou 06 (Parcial)</span>
+        </div>
+        <div class="sim-row">
+          <span class="sim-row-label">Destaca ICMS?</span>
+          <span class="sim-row-value result">Sim</span>
         </div>
       </div>
-      <div class="info-item">
-        <span class="info-item-emoji">❓</span>
-        <div>
-          <p class="info-item-title">Não Localizado</p>
-          <p class="info-item-desc">Destinatário não encontrado no endereço.</p>
-        </div>
-      </div>
+      <div style="height:80px"></div>
     </div>
+  </div>
+</section>
 
-    <p class="section-label" style="margin-top:28px;">✅ Ação do vendedor</p>
-    <p class="section-body">
-      O vendedor deve emitir uma <strong>NF-e de Entrada (Nota de Crédito)</strong> com finalidades específicas:
-    </p>
-
-    <div class="sim-box">
-      <div class="sim-header">Detalhes Técnicos — Recusa</div>
-      <div class="sim-row">
-        <span class="sim-row-label">Finalidade (finNFe)</span>
-        <span class="sim-row-value gold">5 (Crédito)</span>
-      </div>
-      <div class="sim-row">
-        <span class="sim-row-label">Código</span>
-        <span class="sim-row-value credit">03 (Total) ou 06 (Parcial)</span>
-      </div>
-      <div class="sim-row">
-        <span class="sim-row-label">Destaca ICMS?</span>
-        <span class="sim-row-value result">Sim</span>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider reveal"><div class="section-divider-icon">📦</div></div>
-
-  <!-- ═══ SEÇÃO 6 — CENÁRIO 2: IMPOSTO MAIOR ═══ -->
-  <section class="section reveal" id="imposto">
-    <p class="section-label">06 — Cenário 2</p>
-    <h2 class="section-title">Imposto destacado<br><em>a maior.</em></h2>
-    <p class="section-body">
-      O que fazer quando a nota emitida destacou imposto maior que o devido e não há possibilidade de cancelar?
-    </p>
-
-    <div class="alert danger">
+<!-- ══════════════════════════════════════════════════ -->
+<!-- SLIDE 6 — CENÁRIO 2: IMPOSTO A MAIOR -->
+<!-- ══════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="si ce">
+    <div class="gl ce au d1"></div>
+    <p style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8FAEFF;margin-bottom:12px" class="au d1">06 — Cenário 2</p>
+    <h2 class="au d2" style="font-size:clamp(30px,4.5vw,44px);margin-bottom:16px">Imposto destacado<br><span class="gt">a maior</span></h2>
+    <p class="au d3" style="font-size:16px;max-width:620px;margin:0 auto 24px">Quando a nota emitida destacou imposto maior que o devido e não há possibilidade de cancelar.</p>
+    <div class="alert danger au d4" style="max-width:620px;margin:0 auto 24px;text-align:left">
       <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
       <p>Erro na alíquota ou base de cálculo? A resposta é emitir uma <strong>NF-e de Crédito</strong> para ajustar!</p>
     </div>
-
-    <p class="section-label" style="margin-top:28px;">✅ Ação do vendedor</p>
-    <p class="section-body">
-      Para corrigir o valor destacado a maior, o vendedor deve emitir uma <strong>NF-e de Crédito</strong> com finalidade específica:
-    </p>
-
-    <div class="sim-box">
+    <p style="font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#5EE89A;margin-bottom:16px" class="au d5">✅ Ação do vendedor — NF-e de Crédito</p>
+    <div class="sim-box au d6" style="max-width:550px;margin:0 auto">
       <div class="sim-header">Detalhes Técnicos — Redução de Valor</div>
       <div class="sim-row">
         <span class="sim-row-label">Finalidade (finNFe)</span>
@@ -1135,19 +425,19 @@ body {
         <span class="sim-row-value result">Sim (Ajuste)</span>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <div class="section-divider reveal"><div class="section-divider-icon">🧮</div></div>
-
-  <!-- ═══ SEÇÃO 7 — CENÁRIO 3: PAGAMENTO ANTECIPADO ═══ -->
-  <section class="section reveal" id="antecipado">
-    <p class="section-label">07 — Cenário 3</p>
-    <h2 class="section-title">Pagamento<br><em>antecipado.</em></h2>
-    <p class="section-body">
-      Venda futura: o cliente paga antes da entrega. <strong>Pagamento antecipado não gera ICMS no momento da entrada.</strong> Emita NF-e de Débito para registrar a entrada financeira.
-    </p>
-
-    <div class="sim-box">
+<!-- ══════════════════════════════════════════════════ -->
+<!-- SLIDE 7 — CENÁRIO 3: PAGAMENTO ANTECIPADO -->
+<!-- ══════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="si ce">
+    <div class="gl ce au d1"></div>
+    <p style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8FAEFF;margin-bottom:12px" class="au d1">07 — Cenário 3</p>
+    <h2 class="au d2" style="font-size:clamp(30px,4.5vw,44px);margin-bottom:16px">Pagamento<br><span class="gt">antecipado</span></h2>
+    <p class="au d3" style="font-size:16px;max-width:620px;margin:0 auto 24px">Venda futura: o cliente paga antes da entrega. <strong style="color:#F5F7FB">Pagamento antecipado não gera ICMS</strong> no momento da entrada. Emita NF-e de Débito.</p>
+    <div class="sim-box au d4" style="max-width:550px;margin:0 auto 20px">
       <div class="sim-header">Detalhes Técnicos — Antecipação</div>
       <div class="sim-row">
         <span class="sim-row-label">Finalidade (finNFe)</span>
@@ -1162,257 +452,224 @@ body {
         <span class="sim-row-value minus">Não</span>
       </div>
     </div>
-
-    <div class="alert warn">
+    <div class="alert warn au d5" style="max-width:620px;margin:0 auto;text-align:left">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
       <p><strong>ICMS só é devido na saída da mercadoria,</strong> na nota de remessa. O pagamento antecipado registra apenas a movimentação financeira.</p>
     </div>
-  </section>
-
-  <div class="section-divider reveal"><div class="section-divider-icon">💰</div></div>
-
-  <!-- ═══ SEÇÃO 8 — CENÁRIO 4: PERDA NO ESTOQUE ═══ -->
-  <section class="section reveal" id="perda">
-    <p class="section-label">08 — Cenário 4</p>
-    <h2 class="section-title">Perda no<br><em>estoque.</em></h2>
-    <p class="section-body">
-      Procedimento para perdas por extravio, perecimento, deterioração, furto ou roubo:
-    </p>
-
-    <div class="card-grid">
-      <div class="card">
-        <div class="card-icon red">
-          <svg viewBox="0 0 24 24"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg>
-        </div>
-        <p class="card-title">Perecimento</p>
-        <p class="card-desc">Produtos vencidos ou deteriorados que não podem mais ser comercializados.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon blue">
-          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        </div>
-        <p class="card-title">Extravio</p>
-        <p class="card-desc">Mercadoria desaparecida sem justificativa identificada.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon gold">
-          <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-        </div>
-        <p class="card-title">Furto / Roubo</p>
-        <p class="card-desc">Provado com boletim de ocorrência ou laudo técnico.</p>
-      </div>
-    </div>
-
-    <p class="section-label" style="margin-top:28px;">✅ Ação do dono</p>
-    <p class="section-body">
-      A saída de mercadoria por perda deve ser registrada por emissão de <strong>NF-e de Débito com finalidade 07 (Perda).</strong>
-    </p>
-
-    <div class="sim-box">
-      <div class="sim-header">Detalhes Técnicos — Perda</div>
-      <div class="sim-row">
-        <span class="sim-row-label">Finalidade (finNFe)</span>
-        <span class="sim-row-value gold">6 (Débito)</span>
-      </div>
-      <div class="sim-row">
-        <span class="sim-row-label">Código</span>
-        <span class="sim-row-value credit">07</span>
-      </div>
-      <div class="sim-row">
-        <span class="sim-row-label">Destaca ICMS?</span>
-        <span class="sim-row-value minus">Não</span>
-      </div>
-    </div>
-
-    <div class="alert warn">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      <p><strong>Documente internamente</strong> com boletim de ocorrência ou laudo técnico em caso de roubo ou deterioração.</p>
-    </div>
-  </section>
-
-  <div class="section-divider reveal"><div class="section-divider-icon">📦</div></div>
-
-  <!-- ═══ SEÇÃO 9 — MUDANÇAS NFC-e ═══ -->
-  <section class="section reveal" id="nfce">
-    <p class="section-label">09 — Alerta Varejo</p>
-    <h2 class="section-title">Mudanças na<br><em>NFC-e</em> (Cupom) 🏪</h2>
-    <p class="section-body">
-      A partir de <strong>05/01/2026</strong>, as regras de emissão, agrupamento e uso de NFC-e sofrerão restrições rígidas, incluindo proibição de emissão de NFC-e para CNPJ e agrupamentos em NF-e.
-    </p>
-
-    <!-- Proibição 1 -->
-    <h3 style="font-family:var(--font-serif);font-size:20px;font-weight:700;color:var(--text);margin:28px 0 10px;">
-      Proibição 1: <em>NF-e Substituta</em>
-    </h3>
-    <p class="section-body">
-      NF-e não pode mais ser usada para agrupar vários cupons emitidos anteriormente, apenas para operações isoladas.
-    </p>
-    <div class="prohib-card">
-      <h4>🚫 Prática Proibida</h4>
-      <p>Emitir vários NFC-e e depois agrupar em uma NF-e única de cliente: <strong>proibido a partir de jan/2026.</strong></p>
-    </div>
-
-    <!-- Proibição 2 -->
-    <h3 style="font-family:var(--font-serif);font-size:20px;font-weight:700;color:var(--text);margin:28px 0 10px;">
-      Proibição 2: <em>NFC-e para CNPJ</em>
-    </h3>
-    <p class="section-body">
-      A partir de jan/2026, NFC-e para CNPJ está proibido. O documento será permitido apenas para consumidor final (CPF ou sem identificação).
-    </p>
-
-    <div class="sim-box">
-      <div class="sim-header">Regra de Emissão — NFC-e</div>
-      <div class="sim-row">
-        <span class="sim-row-label">NFC-e para CPF</span>
-        <span class="sim-row-value result">✅ Permitido</span>
-      </div>
-      <div class="sim-row">
-        <span class="sim-row-label">NFC-e sem identificação</span>
-        <span class="sim-row-value result">✅ Permitido</span>
-      </div>
-      <div class="sim-row">
-        <span class="sim-row-label">NFC-e para CNPJ</span>
-        <span class="sim-row-value minus">❌ Proibido</span>
-      </div>
-    </div>
-
-    <!-- Solução -->
-    <div class="solution-card">
-      <h4>💡 A Solução</h4>
-      <p>Se o cliente solicitar nota com CNPJ, é obrigatório emitir uma <strong>NF-e Modelo 55</strong> — Nota completa. Seu sistema de PDV ou ERP deve estar atualizado para isso.</p>
-    </div>
-
-    <div class="alert danger">
-      <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-      <p><strong>Confirme com seu fornecedor</strong> se a funcionalidade de emissão de NF-e Modelo 55 já está integrada ao seu PDV!</p>
-    </div>
-  </section>
-
-  <div class="section-divider reveal"><div class="section-divider-icon">⚡</div></div>
-
-  <!-- ═══ SEÇÃO 10 — RESUMO ═══ -->
-  <section class="section reveal" id="resumo">
-    <p class="section-label">10 — Resumo</p>
-    <h2 class="section-title">Prepare-se com<br><em>antecedência.</em> 🏆</h2>
-    <p class="section-body">
-      Clareza, padronização e rastreabilidade reduzem erros e multas. Use esse período para testar seu sistema com seu fornecedor.
-    </p>
-
-    <div class="recap-grid">
-      <div class="recap-item">
-        <span class="recap-emoji">⚙️</span>
-        <p class="recap-title">Responsabilidade do vendedor</p>
-        <p class="recap-desc">Em qualquer recusa ou ajuste, quem emite agora é o remetente.</p>
-      </div>
-      <div class="recap-item">
-        <span class="recap-emoji">📋</span>
-        <p class="recap-title">História completa</p>
-        <p class="recap-desc">Todo movimento de mercadoria precisa de documento fiscal.</p>
-      </div>
-      <div class="recap-item">
-        <span class="recap-emoji">📅</span>
-        <p class="recap-title">Prazo: 03/08/2026</p>
-        <p class="recap-desc">Nova data oficial — use o tempo para adequação.</p>
-      </div>
-      <div class="recap-item">
-        <span class="recap-emoji">🧮</span>
-        <p class="recap-title">NF-e 05 e 06</p>
-        <p class="recap-desc">Crédito e Débito — novas finalidades para ajustes.</p>
-      </div>
-      <div class="recap-item">
-        <span class="recap-emoji">🏪</span>
-        <p class="recap-title">NFC-e restrita</p>
-        <p class="recap-desc">Proibida para CNPJ e agrupamento a partir de jan/2026.</p>
-      </div>
-      <div class="recap-item">
-        <span class="recap-emoji">📦</span>
-        <p class="recap-title">Perdas documentadas</p>
-        <p class="recap-desc">Extravio, furto, perecimento — tudo precisa de NF-e de Débito.</p>
-      </div>
-    </div>
-
-    <h3 style="font-family:var(--font-serif);font-size:20px;font-weight:700;color:var(--text);margin:32px 0 16px;">
-      Checklist de <em>preparação</em>
-    </h3>
-
-    <div class="checklist">
-      <div class="check-item">
-        <div class="check-icon">✓</div>
-        <p class="check-text"><strong>Converse com o fornecedor do seu sistema</strong> sobre as atualizações necessárias</p>
-      </div>
-      <div class="check-item">
-        <div class="check-icon">✓</div>
-        <p class="check-text"><strong>Garanta suporte para NF-e 05 e 06</strong> (Crédito e Débito)</p>
-      </div>
-      <div class="check-item">
-        <div class="check-icon">✓</div>
-        <p class="check-text"><strong>Teste emissão de NF-e Modelo 55 no caixa</strong> para vendas com CNPJ</p>
-      </div>
-      <div class="check-item">
-        <div class="check-icon">✓</div>
-        <p class="check-text"><strong>Consulte a Domínio Farma</strong> para esclarecer qualquer dúvida</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ CTA FINAL ═══ -->
-  <div class="cta-section reveal">
-    <p class="cta-section-eyebrow">Domínio Farma Contabilidade</p>
-    <h2 class="cta-section-title">
-      Precisando de ajuda? 🤝<br>
-      <em>Fale com a gente.</em>
-    </h2>
-    <p class="cta-section-sub">
-      A equipe da Domínio Farma está pronta para orientar sua empresa nessa transição.<br>
-      Contabilidade 100% digital · Especializada no segmento farma.
-    </p>
-    <a class="cta-btn-primary"
-       href="https://wa.me/5574999263592?text=Ol%C3%A1!%20Tenho%20d%C3%BAvidas%20sobre%20as%20novas%20regras%20de%20NF-e%20e%20preciso%20de%20orienta%C3%A7%C3%A3o."
-       target="_blank">
-      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Falar com a Domínio Farma
-    </a>
-    <a class="cta-share-link" id="ctaShareFinal" href="#">
-      <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-      Compartilhar este artigo
-    </a>
-    <p class="cta-footer">(74) 99926-3592 · Contabilidade 100% Digital · Especializada no Segmento Farma</p>
   </div>
+</section>
 
-</main>
+<!-- ══════════════════════════════════════════════════ -->
+<!-- SLIDE 8 — CENÁRIO 4: PERDA NO ESTOQUE -->
+<!-- ══════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="slide-scroll">
+    <div class="slide-inner" style="text-align:center">
+      <div class="gl ce au d1"></div>
+      <p style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8FAEFF;margin-bottom:12px" class="au d1">08 — Cenário 4</p>
+      <h2 class="au d2" style="font-size:clamp(30px,4.5vw,44px);margin-bottom:16px">Perda no<br><span class="gt">estoque</span></h2>
+      <p class="au d3" style="font-size:16px;max-width:620px;margin:0 auto 28px">Procedimento para perdas por extravio, perecimento, deterioração, furto ou roubo.</p>
+      <div class="g3 au d4" style="max-width:800px;margin:0 auto 24px">
+        <div class="card" style="text-align:center;padding:24px 18px">
+          <div class="ic red" style="margin:0 auto 14px"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FF5050" stroke-width="2"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg></div>
+          <h3 style="font-size:14px;margin-bottom:4px">Perecimento</h3>
+          <p style="font-size:12px">Produtos vencidos ou deteriorados</p>
+        </div>
+        <div class="card" style="text-align:center;padding:24px 18px">
+          <div class="ic" style="margin:0 auto 14px"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2E6BFF" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+          <h3 style="font-size:14px;margin-bottom:4px">Extravio</h3>
+          <p style="font-size:12px">Mercadoria desaparecida sem causa</p>
+        </div>
+        <div class="card" style="text-align:center;padding:24px 18px">
+          <div class="ic gold" style="margin:0 auto 14px"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFD460" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+          <h3 style="font-size:14px;margin-bottom:4px">Furto / Roubo</h3>
+          <p style="font-size:12px">Com B.O. ou laudo técnico</p>
+        </div>
+      </div>
+      <div class="sim-box au d5" style="max-width:550px;margin:0 auto 20px">
+        <div class="sim-header">Detalhes Técnicos — Perda</div>
+        <div class="sim-row">
+          <span class="sim-row-label">Finalidade (finNFe)</span>
+          <span class="sim-row-value gold">6 (Débito)</span>
+        </div>
+        <div class="sim-row">
+          <span class="sim-row-label">Código</span>
+          <span class="sim-row-value credit">07</span>
+        </div>
+        <div class="sim-row">
+          <span class="sim-row-label">Destaca ICMS?</span>
+          <span class="sim-row-value minus">Não</span>
+        </div>
+      </div>
+      <div class="alert warn au d6" style="max-width:620px;margin:0 auto;text-align:left">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p><strong>Documente internamente</strong> com boletim de ocorrência ou laudo técnico em caso de roubo ou deterioração.</p>
+      </div>
+      <div style="height:80px"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- SLIDE 9 — MUDANÇAS NFC-e -->
+<!-- ══════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="slide-scroll">
+    <div class="slide-inner" style="text-align:center">
+      <div class="gl ce au d1"></div>
+      <p style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8FAEFF;margin-bottom:12px" class="au d1">09 — Alerta Varejo</p>
+      <h2 class="au d2" style="font-size:clamp(30px,4.5vw,44px);margin-bottom:16px">Mudanças na<br><span class="gt">NFC-e</span> (Cupom) 🏪</h2>
+      <p class="au d3" style="font-size:16px;max-width:620px;margin:0 auto 28px">A partir de <strong style="color:#F5F7FB">05/01/2026</strong>, novas restrições rígidas, incluindo proibição de NFC-e para CNPJ e agrupamentos em NF-e.</p>
+
+      <div style="display:flex;gap:16px;max-width:750px;margin:0 auto 24px;flex-wrap:wrap;justify-content:center" class="au d4">
+        <div class="prohib-card" style="flex:1;min-width:280px;text-align:left">
+          <h4>🚫 Proibição 1: NF-e Substituta</h4>
+          <p>Emitir vários NFC-e e depois agrupar em uma NF-e única: <strong>proibido a partir de jan/2026.</strong></p>
+        </div>
+        <div class="prohib-card" style="flex:1;min-width:280px;text-align:left">
+          <h4>🚫 Proibição 2: NFC-e para CNPJ</h4>
+          <p>NFC-e para CNPJ está proibido. Apenas CPF ou sem identificação.</p>
+        </div>
+      </div>
+
+      <div class="sim-box au d5" style="max-width:550px;margin:0 auto 20px">
+        <div class="sim-header">Regra de Emissão — NFC-e</div>
+        <div class="sim-row">
+          <span class="sim-row-label">NFC-e para CPF</span>
+          <span class="sim-row-value result">✅ Permitido</span>
+        </div>
+        <div class="sim-row">
+          <span class="sim-row-label">NFC-e sem identificação</span>
+          <span class="sim-row-value result">✅ Permitido</span>
+        </div>
+        <div class="sim-row">
+          <span class="sim-row-label">NFC-e para CNPJ</span>
+          <span class="sim-row-value minus">❌ Proibido</span>
+        </div>
+      </div>
+
+      <div class="solution-card au d6" style="max-width:620px;margin:0 auto 20px;text-align:left">
+        <h4>💡 A Solução</h4>
+        <p>Se o cliente solicitar nota com CNPJ, é obrigatório emitir uma <strong>NF-e Modelo 55</strong> — Nota completa. Seu sistema deve estar atualizado.</p>
+      </div>
+
+      <div class="alert danger au d7" style="max-width:620px;margin:0 auto;text-align:left">
+        <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <p><strong>Confirme com seu fornecedor</strong> se a funcionalidade de emissão de NF-e Modelo 55 já está integrada ao seu PDV!</p>
+      </div>
+      <div style="height:80px"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- SLIDE 10 — RESUMO + CTA -->
+<!-- ══════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="slide-scroll">
+    <div class="slide-inner" style="text-align:center">
+      <div class="gl ce au d1"></div>
+      <p style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8FAEFF;margin-bottom:12px" class="au d1">10 — Resumo</p>
+      <h2 class="au d2" style="font-size:clamp(30px,4.5vw,44px);margin-bottom:16px">Prepare-se com<br><span class="gt">antecedência</span> 🏆</h2>
+      <p class="au d3" style="font-size:16px;max-width:620px;margin:0 auto 28px">Clareza, padronização e rastreabilidade reduzem erros e multas. Use esse período para testar seu sistema.</p>
+
+      <div class="recap-grid au d4" style="max-width:850px;margin:0 auto 28px;text-align:left">
+        <div class="recap-item">
+          <span class="recap-emoji">⚙️</span>
+          <p class="recap-title">Responsabilidade do vendedor</p>
+          <p class="recap-desc">Em qualquer recusa ou ajuste, quem emite agora é o remetente.</p>
+        </div>
+        <div class="recap-item">
+          <span class="recap-emoji">📋</span>
+          <p class="recap-title">História completa</p>
+          <p class="recap-desc">Todo movimento de mercadoria precisa de documento fiscal.</p>
+        </div>
+        <div class="recap-item">
+          <span class="recap-emoji">📅</span>
+          <p class="recap-title">Prazo: 03/08/2026</p>
+          <p class="recap-desc">Nova data oficial — use o tempo para adequação.</p>
+        </div>
+        <div class="recap-item">
+          <span class="recap-emoji">🧮</span>
+          <p class="recap-title">NF-e 05 e 06</p>
+          <p class="recap-desc">Crédito e Débito — novas finalidades para ajustes.</p>
+        </div>
+        <div class="recap-item">
+          <span class="recap-emoji">🏪</span>
+          <p class="recap-title">NFC-e restrita</p>
+          <p class="recap-desc">Proibida para CNPJ e agrupamento a partir de jan/2026.</p>
+        </div>
+        <div class="recap-item">
+          <span class="recap-emoji">📦</span>
+          <p class="recap-title">Perdas documentadas</p>
+          <p class="recap-desc">Extravio, furto, perecimento — tudo precisa de NF-e de Débito.</p>
+        </div>
+      </div>
+
+      <div class="checklist au d5" style="max-width:620px;margin:0 auto 32px;text-align:left">
+        <div class="check-item">
+          <div class="check-icon">✓</div>
+          <p class="check-text"><strong>Converse com o fornecedor do seu sistema</strong> sobre as atualizações necessárias</p>
+        </div>
+        <div class="check-item">
+          <div class="check-icon">✓</div>
+          <p class="check-text"><strong>Garanta suporte para NF-e 05 e 06</strong> (Crédito e Débito)</p>
+        </div>
+        <div class="check-item">
+          <div class="check-icon">✓</div>
+          <p class="check-text"><strong>Teste emissão de NF-e Modelo 55 no caixa</strong> para vendas com CNPJ</p>
+        </div>
+        <div class="check-item">
+          <div class="check-icon">✓</div>
+          <p class="check-text"><strong>Consulte a Domínio Farma</strong> para esclarecer qualquer dúvida</p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="cp au d6" style="max-width:560px;margin:0 auto;padding:40px 32px">
+        <p class="cta-eyebrow">Domínio Farma Contabilidade</p>
+        <h2 style="font-size:clamp(24px,4vw,34px);font-weight:900;color:#F5F7FB;margin-bottom:12px;line-height:1.15">Precisando de ajuda? 🤝<br><span class="gt">Fale com a gente.</span></h2>
+        <p style="font-size:15px;color:#7E879B;margin-bottom:28px;line-height:1.6">A equipe da Domínio Farma está pronta para orientar sua empresa nessa transição.</p>
+        <a class="cta-btn" href="https://wa.me/5574999263592?text=Ol%C3%A1!%20Tenho%20d%C3%BAvidas%20sobre%20as%20novas%20regras%20de%20NF-e%20e%20preciso%20de%20orienta%C3%A7%C3%A3o." target="_blank" style="display:inline-flex;align-items:center;gap:12px;padding:16px 36px;border-radius:999px;background:#25D366;color:#fff;text-decoration:none;font-size:16px;font-weight:700;box-shadow:0 8px 30px rgba(37,211,102,.3);transition:all .3s ease">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar com a Domínio Farma
+        </a>
+        <p style="margin-top:20px;font-size:12px;color:#7E879B">(74) 99926-3592 · Contabilidade 100% Digital · Especializada no Segmento Farma</p>
+      </div>
+      <div style="height:80px"></div>
+    </div>
+  </div>
+</section>
+
+</div>
+</div>
 
 <script>
-/* ── PROGRESSO ── */
-const bar = document.getElementById('progress-bar');
-window.addEventListener('scroll', () => {
-  const h = document.documentElement;
-  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
-  bar.style.width = Math.min(pct, 100) + '%';
-}, { passive: true });
+const T=10;let C=0;
+const W=document.getElementById('sw');
+const CN=document.getElementById('cn');
+const P=document.getElementById('prog');
+const I=document.getElementById('ind');
 
-/* ── SCROLL REVEAL ── */
-const reveals = document.querySelectorAll('.reveal');
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      io.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.08 });
-reveals.forEach(el => io.observe(el));
+for(let i=0;i<T;i++){const d=document.createElement('div');d.classList.add('dot');if(i===0)d.classList.add('active');d.onclick=()=>go(i);I.appendChild(d)}
 
-/* ── SHARE URL ── */
-function buildShare() {
-  return 'https://wa.me/?text=' +
-    encodeURIComponent(
-      '📋 *Nova Regra de Emissão de Notas Fiscais — Guia Completo*\n\n' +
-      'Entenda as mudanças que impactam sua rotina de faturamento. Guia da Domínio Farma:\n' +
-      window.location.href
-    );
-}
-document.getElementById('topbarShare').href   = buildShare();
-document.getElementById('ctaShareFinal').href = buildShare();
+function upd(){I.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===C));CN.textContent=C+1;P.style.width=((C+1)/T*100)+'%';document.querySelectorAll('.slide').forEach((s,i)=>s.classList.toggle('active',i===C))}
+
+function go(i){if(i<0||i>=T)return;C=i;W.style.transform=`translateX(-${C*100}vw)`;upd()}
+function next(){if(C<T-1)go(C+1)}
+function prev(){if(C>0)go(C-1)}
+
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();next()}if(e.key==='ArrowLeft'){e.preventDefault();prev()}if(e.key==='f'||e.key==='F')toggleFs()})
+
+let tx=0;
+document.addEventListener('touchstart',e=>tx=e.changedTouches[0].screenX);
+document.addEventListener('touchend',e=>{const d=tx-e.changedTouches[0].screenX;if(Math.abs(d)>50){d>0?next():prev()}});
+
+function toggleFs(){if(!document.fullscreenElement){document.documentElement.requestFullscreen().catch(()=>{})}else{document.exitFullscreen()}}
+document.addEventListener('fullscreenchange',()=>{const btn=document.getElementById('fsTxt');if(btn)btn.textContent=document.fullscreenElement?'Sair':'Tela cheia'});
+
+upd();
 </script>
+
 </body>
 </html>
