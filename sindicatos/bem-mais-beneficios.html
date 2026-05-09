@@ -1114,8 +1114,7 @@ button:focus-visible {
 <script>
 /**
  * DOMINIO FARMA WIKI - JavaScript
- * Versão: 1.1.0 | Atualizado: Maio/2026
- * Otimizado para GitHub Pages
+ * Versão: 1.1.1 | Correção: Reveal animation
  */
 (function() {
   'use strict';
@@ -1123,10 +1122,17 @@ button:focus-visible {
   // === ELEMENTOS DOM ===
   const $ = (sel) => document.querySelector(sel);
   const $$
-= (sel) => document.querySelectorAll(sel); const bar = $('#progress-bar'); const fabTop = $('#fabTop'); // === SCROLL: Progress Bar + FAB (com throttle) === let ticking = false; const updateScroll = () => { const { scrollTop, scrollHeight, clientHeight } = document.documentElement; const pct = (scrollTop / (scrollHeight - clientHeight)) * 100; bar.style.width = `${Math.min(pct, 100)}%`; fabTop.classList.toggle('visible', scrollTop > 600); ticking = false; }; window.addEventListener('scroll', () => { if (!ticking) { requestAnimationFrame(updateScroll); ticking = true; } }, { passive: true }); fabTop.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); }); // === REVEAL ON SCROLL === const reveals =
+= (sel) => document.querySelectorAll(sel); const bar = $('#progress-bar'); const fabTop = $('#fabTop'); // === SCROLL: Progress Bar + FAB (com throttle) === let ticking = false; const updateScroll = () => { const { scrollTop, scrollHeight, clientHeight } = document.documentElement; const pct = (scrollTop / (scrollHeight - clientHeight)) * 100; if (bar) bar.style.width = `${Math.min(pct, 100)}%`; if (fabTop) fabTop.classList.toggle('visible', scrollTop > 600); ticking = false; }; window.addEventListener('scroll', () => { if (!ticking) { requestAnimationFrame(updateScroll); ticking = true; } }, { passive: true }); if (fabTop) { fabTop.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); }); } // === REVEAL ON SCROLL (CORRIGIDO) === const initReveal = () => { const reveals =
 $$('.reveal');
-  
-  if ('IntersectionObserver' in window) {
+    
+    if (!reveals.length) return;
+
+    // Fallback: se não suportar IntersectionObserver, mostra tudo
+    if (!('IntersectionObserver' in window)) {
+      reveals.forEach(el => el.classList.add('visible'));
+      return;
+    }
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -1134,64 +1140,91 @@ $$('.reveal');
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.08, rootMargin: '50px' });
+    }, { 
+      threshold: 0.05,  // Reduzido para disparar mais cedo
+      rootMargin: '100px 0px' // Margem maior
+    });
 
     reveals.forEach(el => observer.observe(el));
-  } else {
-    // Fallback para browsers antigos
-    reveals.forEach(el => el.classList.add('visible'));
-  }
+
+    // FALLBACK DE SEGURANÇA: Se após 2 segundos ainda houver elementos escondidos, mostra todos
+    setTimeout(() => {
+      reveals.forEach(el => {
+        if (!el.classList.contains('visible')) {
+          el.classList.add('visible');
+        }
+      });
+    }, 2000);
+  };
 
   // === DATA DE PUBLICAÇÃO ===
-  const publishEl = $('#publishDate');
-  if (publishEl) {
-    const meses = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
-    const d = new Date();
-    publishEl.textContent = `📅 Publicado em ${d.getDate()} de ${meses[d.getMonth()]} de ${d.getFullYear()}`;
-  }
+  const initPublishDate = () => {
+    const publishEl = $('#publishDate');
+    if (publishEl) {
+      const meses = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+      const d = new Date();
+      publishEl.textContent = `📅 Publicado em ${d.getDate()} de ${meses[d.getMonth()]} de ${d.getFullYear()}`;
+    }
+  };
 
   // === COMPARTILHAMENTO WHATSAPP ===
-  const getShareUrl = (anchor) => {
-    const base = window.location.href.split('#')[0];
-    return anchor ? `${base}#${anchor}` : base;
-  };
+  const initShare = () => {
+    const getShareUrl = (anchor) => {
+      const base = window.location.href.split('#')[0];
+      return anchor ? `${base}#${anchor}` : base;
+    };
 
-  const shareArticle = () => {
-    const url = getShareUrl();
-    const text = `👷‍♂️ Você sabia? Sua empresa paga R$ 32,90/mês para garantir 10 benefícios a você por meio da CCT. Conheça seus direitos:\n\n${url}`;
-    window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
-  };
+    const shareArticle = () => {
+      const url = getShareUrl();
+      const text = `👷‍♂️ Você sabia? Sua empresa paga R$ 32,90/mês para garantir 10 benefícios a você por meio da CCT. Conheça seus direitos:\n\n${url}`;
+      window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+    };
 
-  const shareChapter = (e) => {
-    const btn = e.currentTarget;
-    const anchor = btn.dataset.shareChapter;
-    const title = btn.dataset.chapterTitle || '';
-    const url = getShareUrl(anchor);
-    const text = `📖 ${title}\n\nCapítulo do artigo "10 benefícios garantidos por CCT":\n${url}`;
-    window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
-  };
+    const shareChapter = (e) => {
+      const btn = e.currentTarget;
+      const anchor = btn.dataset.shareChapter;
+      const title = btn.dataset.chapterTitle || '';
+      const url = getShareUrl(anchor);
+      const text = `📖 ${title}\n\nCapítulo do artigo "10 benefícios garantidos por CCT":\n${url}`;
+      window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+    };
 
-  // Event listeners para compartilhamento
-  $('#topbarShare')?.addEventListener('click', shareArticle);
-  $('#ctaShare')?.addEventListener('click', shareArticle);
-  $$
-('[data-share-chapter]').forEach(btn => { btn.addEventListener('click', shareChapter); }); // === NAVEGAÇÃO SUAVE PARA MINI-CARDS ===
+    $('#topbarShare')?.addEventListener('click', shareArticle);
+    $('#ctaShare')?.addEventListener('click', shareArticle);
+    $$
+('[data-share-chapter]').forEach(btn => { btn.addEventListener('click', shareChapter); }); }; // === NAVEGAÇÃO SUAVE PARA MINI-CARDS === const initMiniCards = () => {
 $$('.mini-card').forEach(card => {
-    card.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetId = card.getAttribute('href');
-      const target = $(targetId);
-      
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        // Foca no elemento para acessibilidade
-        setTimeout(() => target.focus({ preventScroll: true }), 500);
-      }
+      card.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = card.getAttribute('href');
+        const target = $(targetId);
+        
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          setTimeout(() => target.focus({ preventScroll: true }), 500);
+        }
+      });
     });
-  });
+  };
+
+  // === INICIALIZAÇÃO ===
+  const init = () => {
+    initReveal();
+    initPublishDate();
+    initShare();
+    initMiniCards();
+  };
+
+  // Garante que o DOM está pronto
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 
 })();
 </script>
+
 
 </body>
 </html>
