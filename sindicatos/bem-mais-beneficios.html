@@ -1,1212 +1,1276 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="[DESCRIÇÃO DO ARTIGO] - Domínio Farma Contabilidade">
-    <meta name="author" content="Domínio Farma Contabilidade">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="[TÍTULO DO ARTIGO]">
-    <meta property="og:description" content="[DESCRIÇÃO DO ARTIGO]">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://dominiofarma.com/artigos/[SLUG]">
-    <meta property="og:image" content="https://dominiofarma.com/images/[IMAGEM].jpg">
-    
-    <title>[TÍTULO DO ARTIGO] | Domínio Farma Contabilidade</title>
-    
-    <!-- Preconnect para fontes -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <style>
-        /* ===================================================
-           CSS VARIABLES - CUSTOMIZE AQUI PARA CADA PROJETO
-           =================================================== */
-        :root {
-            /* Cores Primárias */
-            --color-primary: #1e40af;
-            --color-primary-dark: #1e3a8a;
-            --color-primary-light: #3b82f6;
-            
-            /* Cores Secundárias */
-            --color-secondary: #059669;
-            --color-secondary-dark: #047857;
-            
-            /* Cores de Destaque */
-            --color-accent: #f59e0b;
-            --color-accent-dark: #d97706;
-            
-            /* Cores de Texto */
-            --color-text: #1f2937;
-            --color-text-light: #4b5563;
-            --color-text-muted: #6b7280;
-            
-            /* Cores de Fundo */
-            --color-bg: #ffffff;
-            --color-bg-alt: #f8fafc;
-            --color-bg-dark: #f1f5f9;
-            
-            /* Cores de Borda */
-            --color-border: #e2e8f0;
-            --color-border-light: #f1f5f9;
-            
-            /* Cores Funcionais */
-            --color-success: #10b981;
-            --color-warning: #f59e0b;
-            --color-error: #ef4444;
-            --color-info: #3b82f6;
-            
-            /* Tipografia */
-            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            --font-size-xs: 0.75rem;
-            --font-size-sm: 0.875rem;
-            --font-size-base: 1rem;
-            --font-size-lg: 1.125rem;
-            --font-size-xl: 1.25rem;
-            --font-size-2xl: 1.5rem;
-            --font-size-3xl: 1.875rem;
-            --font-size-4xl: 2.25rem;
-            
-            /* Espaçamentos */
-            --spacing-xs: 0.25rem;
-            --spacing-sm: 0.5rem;
-            --spacing-md: 1rem;
-            --spacing-lg: 1.5rem;
-            --spacing-xl: 2rem;
-            --spacing-2xl: 3rem;
-            
-            /* Bordas */
-            --radius-sm: 0.375rem;
-            --radius-md: 0.5rem;
-            --radius-lg: 0.75rem;
-            --radius-xl: 1rem;
-            --radius-full: 9999px;
-            
-            /* Sombras */
-            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            
-            /* Transições */
-            --transition-fast: 150ms ease;
-            --transition-base: 200ms ease;
-            --transition-slow: 300ms ease;
-            
-            /* Layout */
-            --max-width: 720px;
-            --header-height: 60px;
-        }
-
-        /* ===================================================
-           RESET E BASE
-           =================================================== */
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            -webkit-text-size-adjust: 100%;
-        }
-
-        body {
-            font-family: var(--font-family);
-            font-size: var(--font-size-lg);
-            line-height: 1.8;
-            color: var(--color-text);
-            background: var(--color-bg);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        /* ===================================================
-           BARRA DE PROGRESSO
-           =================================================== */
-        .progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
-            z-index: 1000;
-            transition: width 100ms ease-out;
-        }
-
-        /* ===================================================
-           HEADER
-           =================================================== */
-        .header {
-            background: var(--color-bg);
-            border-bottom: 1px solid var(--color-border);
-            padding: var(--spacing-md) var(--spacing-lg);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.95);
-        }
-
-        .header-content {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: var(--spacing-md);
-        }
-
-        .logo {
-            font-size: var(--font-size-lg);
-            font-weight: 700;
-            color: var(--color-primary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-sm);
-            transition: color var(--transition-fast);
-        }
-
-        .logo:hover {
-            color: var(--color-primary-dark);
-        }
-
-        .logo-icon {
-            width: 32px;
-            height: 32px;
-            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: var(--font-size-sm);
-        }
-
-        .reading-time {
-            font-size: var(--font-size-sm);
-            color: var(--color-text-muted);
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-xs);
-        }
-
-        /* ===================================================
-           CONTAINER PRINCIPAL
-           =================================================== */
-        .container {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: var(--spacing-xl) var(--spacing-lg);
-        }
-
-        /* ===================================================
-           HERO / CABEÇALHO DO ARTIGO
-           =================================================== */
-        .article-hero {
-            text-align: center;
-            margin-bottom: var(--spacing-2xl);
-            padding-bottom: var(--spacing-xl);
-            border-bottom: 1px solid var(--color-border);
-        }
-
-        .article-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--spacing-xs);
-            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
-            color: white;
-            padding: var(--spacing-sm) var(--spacing-md);
-            border-radius: var(--radius-full);
-            font-size: var(--font-size-xs);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: var(--spacing-lg);
-        }
-
-        .article-title {
-            font-size: clamp(var(--font-size-2xl), 5vw, var(--font-size-4xl));
-            font-weight: 800;
-            line-height: 1.2;
-            color: var(--color-text);
-            margin-bottom: var(--spacing-md);
-        }
-
-        .article-subtitle {
-            font-size: var(--font-size-lg);
-            color: var(--color-text-light);
-            font-weight: 400;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .article-meta {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: var(--spacing-lg);
-            margin-top: var(--spacing-lg);
-            font-size: var(--font-size-sm);
-            color: var(--color-text-muted);
-            flex-wrap: wrap;
-        }
-
-        .article-meta span {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-xs);
-        }
-
-        /* ===================================================
-           ÍNDICE DE NAVEGAÇÃO
-           =================================================== */
-        .toc {
-            background: var(--color-bg-alt);
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-lg);
-            padding: var(--spacing-lg);
-            margin-bottom: var(--spacing-2xl);
-        }
-
-        .toc-header {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-sm);
-            font-weight: 700;
-            color: var(--color-text);
-            margin-bottom: var(--spacing-md);
-            font-size: var(--font-size-base);
-        }
-
-        .toc-list {
-            list-style: none;
-            display: grid;
-            gap: var(--spacing-sm);
-        }
-
-        .toc-item a {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-sm);
-            color: var(--color-text-light);
-            text-decoration: none;
-            padding: var(--spacing-sm) var(--spacing-md);
-            border-radius: var(--radius-md);
-            font-size: var(--font-size-sm);
-            transition: all var(--transition-fast);
-            border-left: 3px solid transparent;
-        }
-
-        .toc-item a:hover,
-        .toc-item a:focus {
-            background: var(--color-bg);
-            color: var(--color-primary);
-            border-left-color: var(--color-primary);
-            outline: none;
-        }
-
-        .toc-number {
-            background: var(--color-primary);
-            color: white;
-            width: 24px;
-            height: 24px;
-            border-radius: var(--radius-full);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: var(--font-size-xs);
-            font-weight: 600;
-            flex-shrink: 0;
-        }
-
-        /* ===================================================
-           SEÇÕES / CAPÍTULOS
-           =================================================== */
-        .chapter {
-            margin-bottom: var(--spacing-2xl);
-            scroll-margin-top: calc(var(--header-height) + var(--spacing-lg));
-        }
-
-        .chapter-header {
-            display: flex;
-            align-items: flex-start;
-            gap: var(--spacing-md);
-            margin-bottom: var(--spacing-lg);
-            padding-bottom: var(--spacing-md);
-            border-bottom: 2px solid var(--color-border);
-        }
-
-        .chapter-number {
-            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: var(--radius-full);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: var(--font-size-lg);
-            flex-shrink: 0;
-        }
-
-        .chapter-title-group {
-            flex: 1;
-        }
-
-        .chapter-title {
-            font-size: var(--font-size-xl);
-            font-weight: 700;
-            color: var(--color-text);
-            line-height: 1.3;
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .chapter-subtitle {
-            font-size: var(--font-size-sm);
-            color: var(--color-text-muted);
-        }
-
-        /* ===================================================
-           TIPOGRAFIA DO CONTEÚDO
-           =================================================== */
-        .content p {
-            margin-bottom: var(--spacing-lg);
-            text-align: justify;
-            hyphens: auto;
-        }
-
-        .content h3 {
-            font-size: var(--font-size-lg);
-            font-weight: 700;
-            color: var(--color-text);
-            margin: var(--spacing-xl) 0 var(--spacing-md);
-        }
-
-        .content h4 {
-            font-size: var(--font-size-base);
-            font-weight: 600;
-            color: var(--color-text);
-            margin: var(--spacing-lg) 0 var(--spacing-sm);
-        }
-
-        .content strong {
-            color: var(--color-text);
-            font-weight: 600;
-        }
-
-        .content em {
-            font-style: italic;
-            color: var(--color-text-light);
-        }
-
-        /* ===================================================
-           LISTAS
-           =================================================== */
-        .content ul,
-        .content ol {
-            margin: var(--spacing-lg) 0;
-            padding-left: var(--spacing-lg);
-        }
-
-        .content li {
-            margin-bottom: var(--spacing-sm);
-            padding-left: var(--spacing-sm);
-        }
-
-        .content ul li::marker {
-            color: var(--color-primary);
-        }
-
-        .content ol li::marker {
-            color: var(--color-primary);
-            font-weight: 600;
-        }
-
-        /* Lista com ícones (check) */
-        .check-list {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .check-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: var(--spacing-sm);
-            padding: var(--spacing-sm) 0;
-        }
-
-        .check-list li::before {
-            content: "✓";
-            color: var(--color-success);
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-
-        /* ===================================================
-           BOXES DE DESTAQUE
-           =================================================== */
-        .highlight-box {
-            background: var(--color-bg-alt);
-            border-left: 4px solid var(--color-primary);
-            border-radius: 0 var(--radius-md) var(--radius-md) 0;
-            padding: var(--spacing-lg);
-            margin: var(--spacing-xl) 0;
-        }
-
-        .highlight-box.success {
-            background: #ecfdf5;
-            border-left-color: var(--color-success);
-        }
-
-        .highlight-box.warning {
-            background: #fffbeb;
-            border-left-color: var(--color-warning);
-        }
-
-        .highlight-box.info {
-            background: #eff6ff;
-            border-left-color: var(--color-info);
-        }
-
-        .highlight-box-title {
-            font-weight: 700;
-            margin-bottom: var(--spacing-sm);
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-sm);
-        }
-
-        /* Box de dica */
-        .tip-box {
-            background: linear-gradient(135deg, #fef3c7, #fde68a);
-            border-radius: var(--radius-lg);
-            padding: var(--spacing-lg);
-            margin: var(--spacing-xl) 0;
-            position: relative;
-        }
-
-        .tip-box::before {
-            content: "💡";
-            position: absolute;
-            top: -12px;
-            left: var(--spacing-md);
-            font-size: var(--font-size-xl);
-        }
-
-        .tip-box-title {
-            font-weight: 700;
-            color: var(--color-accent-dark);
-            margin-bottom: var(--spacing-sm);
-        }
-
-        /* ===================================================
-           BOTÃO DE COMPARTILHAR
-           =================================================== */
-        .share-section {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-sm);
-            margin-top: var(--spacing-lg);
-            padding-top: var(--spacing-md);
-            border-top: 1px dashed var(--color-border);
-        }
-
-        .share-label {
-            font-size: var(--font-size-sm);
-            color: var(--color-text-muted);
-        }
-
-        .share-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            border-radius: var(--radius-full);
-            border: none;
-            cursor: pointer;
-            transition: all var(--transition-fast);
-            font-size: var(--font-size-base);
-        }
-
-        .share-btn.whatsapp {
-            background: #25d366;
-            color: white;
-        }
-
-        .share-btn.twitter {
-            background: #1da1f2;
-            color: white;
-        }
-
-        .share-btn.linkedin {
-            background: #0077b5;
-            color: white;
-        }
-
-        .share-btn.copy {
-            background: var(--color-bg-dark);
-            color: var(--color-text-light);
-        }
-
-        .share-btn:hover {
-            transform: scale(1.1);
-            box-shadow: var(--shadow-md);
-        }
-
-        .share-btn:focus {
-            outline: 2px solid var(--color-primary);
-            outline-offset: 2px;
-        }
-
-        /* ===================================================
-           CTA FINAL - GENÉRICO E REUTILIZÁVEL
-           =================================================== */
-        .cta-final {
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-            border-radius: var(--radius-xl);
-            padding: var(--spacing-2xl);
-            margin: var(--spacing-2xl) 0;
-            text-align: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-final::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .cta-icon {
-            font-size: 3rem;
-            margin-bottom: var(--spacing-md);
-            display: block;
-        }
-
-        .cta-title {
-            font-size: var(--font-size-2xl);
-            font-weight: 800;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .cta-subtitle {
-            font-size: var(--font-size-base);
-            opacity: 0.9;
-            margin-bottom: var(--spacing-xl);
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-md);
-            align-items: center;
-        }
-
-        .cta-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: var(--spacing-sm);
-            padding: var(--spacing-md) var(--spacing-xl);
-            border-radius: var(--radius-full);
-            font-weight: 600;
-            font-size: var(--font-size-base);
-            text-decoration: none;
-            transition: all var(--transition-fast);
-            min-width: 220px;
-        }
-
-        .cta-btn.primary {
-            background: white;
-            color: var(--color-primary);
-        }
-
-        .cta-btn.primary:hover {
-            background: var(--color-bg-alt);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .cta-btn.secondary {
-            background: rgba(255, 255, 255, 0.15);
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .cta-btn.secondary:hover {
-            background: rgba(255, 255, 255, 0.25);
-            border-color: rgba(255, 255, 255, 0.5);
-        }
-
-        .cta-btn.instagram {
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            color: white;
-            border: none;
-        }
-
-        .cta-btn.instagram:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .cta-social {
-            margin-top: var(--spacing-lg);
-            padding-top: var(--spacing-lg);
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .cta-social-label {
-            font-size: var(--font-size-sm);
-            opacity: 0.8;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        /* ===================================================
-           FOOTER
-           =================================================== */
-        .footer {
-            background: var(--color-bg-alt);
-            border-top: 1px solid var(--color-border);
-            padding: var(--spacing-xl) var(--spacing-lg);
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: var(--max-width);
-            margin: 0 auto;
-        }
-
-        .footer-logo {
-            font-weight: 700;
-            color: var(--color-primary);
-            font-size: var(--font-size-lg);
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .footer-tagline {
-            color: var(--color-text-muted);
-            font-size: var(--font-size-sm);
-            margin-bottom: var(--spacing-md);
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: var(--spacing-lg);
-            flex-wrap: wrap;
-            margin-bottom: var(--spacing-md);
-        }
-
-        .footer-links a {
-            color: var(--color-text-light);
-            text-decoration: none;
-            font-size: var(--font-size-sm);
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-xs);
-            transition: color var(--transition-fast);
-        }
-
-        .footer-links a:hover {
-            color: var(--color-primary);
-        }
-
-        .footer-copy {
-            font-size: var(--font-size-xs);
-            color: var(--color-text-muted);
-        }
-
-        /* ===================================================
-           BOTÃO VOLTAR AO TOPO
-           =================================================== */
-        .back-to-top {
-            position: fixed;
-            bottom: var(--spacing-lg);
-            right: var(--spacing-lg);
-            width: 48px;
-            height: 48px;
-            background: var(--color-primary);
-            color: white;
-            border: none;
-            border-radius: var(--radius-full);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: var(--font-size-xl);
-            box-shadow: var(--shadow-lg);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px);
-            transition: all var(--transition-base);
-            z-index: 99;
-        }
-
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .back-to-top:hover {
-            background: var(--color-primary-dark);
-            transform: translateY(-3px);
-        }
-
-        .back-to-top:focus {
-            outline: 2px solid var(--color-primary-light);
-            outline-offset: 2px;
-        }
-
-        /* ===================================================
-           RESPONSIVO
-           =================================================== */
-        @media (max-width: 640px) {
-            :root {
-                --spacing-lg: 1.25rem;
-                --spacing-xl: 1.5rem;
-                --spacing-2xl: 2rem;
-            }
-
-            body {
-                font-size: var(--font-size-base);
-            }
-
-            .header-content {
-                flex-direction: column;
-                gap: var(--spacing-sm);
-            }
-
-            .article-meta {
-                flex-direction: column;
-                gap: var(--spacing-sm);
-            }
-
-            .chapter-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .cta-btn {
-                width: 100%;
-            }
-
-            .back-to-top {
-                width: 44px;
-                height: 44px;
-                bottom: var(--spacing-md);
-                right: var(--spacing-md);
-            }
-        }
-
-        @media (min-width: 641px) and (max-width: 1024px) {
-            .container {
-                padding: var(--spacing-xl) var(--spacing-xl);
-            }
-        }
-
-        /* ===================================================
-           MODO ESCURO (OPCIONAL - DESCOMENTE SE QUISER)
-           =================================================== */
-        /*
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --color-text: #f1f5f9;
-                --color-text-light: #cbd5e1;
-                --color-text-muted: #94a3b8;
-                --color-bg: #0f172a;
-                --color-bg-alt: #1e293b;
-                --color-bg-dark: #334155;
-                --color-border: #334155;
-                --color-border-light: #1e293b;
-            }
-            
-            .header {
-                background: rgba(15, 23, 42, 0.95);
-            }
-        }
-        */
-
-        /* ===================================================
-           UTILITÁRIOS
-           =================================================== */
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-
-        .text-center { text-align: center; }
-        .text-left { text-align: left; }
-        .text-right { text-align: right; }
-        
-        .mt-sm { margin-top: var(--spacing-sm); }
-        .mt-md { margin-top: var(--spacing-md); }
-        .mt-lg { margin-top: var(--spacing-lg); }
-        .mb-sm { margin-bottom: var(--spacing-sm); }
-        .mb-md { margin-bottom: var(--spacing-md); }
-        .mb-lg { margin-bottom: var(--spacing-lg); }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#1C1A17" />
+<title>10 Benefícios Garantidos por CCT · Sindicato</title>
+<meta name="description" content="A empresa paga R$ 32,90 por mês e você tem 10 benefícios garantidos: plano odontológico, seguro de vida, auxílio funeral e mais." />
+
+<!-- Open Graph -->
+<meta property="og:title" content="A empresa paga R$ 32,90 por mês. Você tem 10 benefícios garantidos." />
+<meta property="og:description" content="Convenção Coletiva 2026/2027 garante odontológico, seguro de vida, auxílio funeral e mais 7 benefícios — custeados pela empresa." />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="URL_DA_IMAGEM_OG" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+/* ==========================================
+   CSS VARIABLES - PALETA DO SINDICATO
+   ========================================== */
+:root {
+  /* Fundos */
+  --bg: #F7F5F0;
+  --bg-alt: #EFEDE6;
+  --bg-card: #FFFFFF;
+  --bg-dark: #1C1A17;
+  
+  /* Textos */
+  --text: #1C1A17;
+  --text-soft: #5A5650;
+  --text-muted: #8C8880;
+  --text-inverse: #FFFFFF;
+  
+  /* Dourado (cor principal) */
+  --gold: #A67C3B;
+  --gold-light: #C9A96E;
+  --gold-bg: #FBF4E8;
+  --gold-border: #E8D5B0;
+  
+  /* Auxiliares */
+  --green: #2E7D52;
+  --green-bg: #EBF5EF;
+  --green-border: #A8D5BC;
+  --whatsapp: #25D366;
+  --danger: #C53030;
+  --danger-bg: #FED7D7;
+  
+  /* Sombras */
+  --shadow-sm: 0 1px 3px rgba(28,26,23,.06);
+  --shadow-md: 0 4px 12px rgba(28,26,23,.10);
+  --shadow-lg: 0 8px 24px rgba(28,26,23,.15);
+  
+  /* Bordas */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+  
+  /* Fontes */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  
+  /* Layout Mobile-First */
+  --max-w: 100%;
+  --padding-x: 16px;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@media (min-width: 640px) {
+  :root {
+    --max-w: 600px;
+    --padding-x: 24px;
+  }
+}
+
+/* ==========================================
+   RESET & BASE
+   ========================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ==========================================
+   BARRA DE PROGRESSO
+   ========================================== */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  z-index: 1000;
+  transition: width 0.15s ease-out;
+}
+
+/* ==========================================
+   HEADER / TOPBAR - Otimizado Mobile
+   ========================================== */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(28, 26, 23, 0.98);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(166, 124, 59, 0.25);
+  padding: 10px var(--padding-x);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.topbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.topbar-logo img {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+}
+
+.topbar-share {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--whatsapp);
+  color: #fff;
+  border-radius: var(--radius-full);
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s, opacity 0.2s;
+  white-space: nowrap;
+}
+
+.topbar-share:active {
+  transform: scale(0.96);
+  opacity: 0.9;
+}
+
+.topbar-share svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+/* ==========================================
+   CONTAINER PRINCIPAL
+   ========================================== */
+.article {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--padding-x);
+  padding-bottom: calc(100px + var(--safe-bottom));
+}
+
+/* ==========================================
+   REVEAL ANIMATION
+   ========================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ==========================================
+   HERO - Mobile Optimizado
+   ========================================== */
+.hero {
+  padding: 28px 0 24px;
+  border-bottom: 1px solid var(--gold-border);
+  margin-bottom: 24px;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--gold-bg);
+  border: 1px solid var(--gold-border);
+  color: var(--gold);
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.hero-tag svg {
+  width: 10px;
+  height: 10px;
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-weight: 900;
+  font-size: clamp(24px, 7vw, 36px);
+  line-height: 1.15;
+  margin-bottom: 14px;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.hero-title em {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.hero-subtitle {
+  font-size: 15px;
+  color: var(--text-soft);
+  line-height: 1.55;
+  margin-bottom: 18px;
+}
+
+.hero-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.hero-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+@media (min-width: 480px) {
+  .hero-meta {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4px 0;
+  }
+  .hero-meta span:not(:last-child)::after {
+    content: '•';
+    margin: 0 10px;
+    color: var(--gold-light);
+  }
+}
+
+/* ==========================================
+   PRICE CARD - Mobile Stack
+   ========================================== */
+.price-card {
+  background: var(--bg-dark);
+  padding: 24px 20px;
+  margin-bottom: 20px;
+  border-radius: var(--radius-lg);
+  color: var(--text-inverse);
+  position: relative;
+  overflow: hidden;
+}
+
+.price-card::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(201,169,110,0.2), transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.price-card-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  color: var(--gold-light);
+  position: relative;
+}
+
+.price-value {
+  font-family: var(--font-serif);
+  font-size: clamp(40px, 12vw, 56px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  position: relative;
+}
+
+.price-value sup {
+  font-size: 0.4em;
+  color: var(--gold-light);
+  vertical-align: super;
+  font-weight: 700;
+}
+
+.price-period {
+  display: block;
+  color: rgba(255,255,255,0.65);
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 4px;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.price-card-info {
+  border-top: 1px solid rgba(201,169,110,0.25);
+  padding-top: 16px;
+  font-size: 14px;
+  line-height: 1.5;
+  position: relative;
+}
+
+.price-card-info strong {
+  color: var(--gold-light);
+}
+
+/* ==========================================
+   BANNER CCT
+   ========================================== */
+.cct-banner {
+  background: var(--bg-dark);
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--gold);
+  padding: 16px;
+  margin-bottom: 28px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.cct-banner .emoji {
+  font-size: 24px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.cct-banner h3 {
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.cct-banner p {
+  color: var(--text-inverse);
+  font-size: 13px;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+/* ==========================================
+   MINI CARDS - Grid Mobile Otimizado
+   ========================================== */
+.benefits-overview {
+  margin-bottom: 32px;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  text-align: center;
+  color: var(--text);
+}
+
+.section-subtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.mini-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.mini-card {
+  background: var(--bg-card);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius-md);
+  padding: 14px 10px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 80px;
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.mini-card:active {
+  transform: scale(0.97);
+  border-color: var(--gold);
+  box-shadow: var(--shadow-md);
+}
+
+.mini-card-num {
+  position: absolute;
+  top: 6px;
+  left: 8px;
+  font-family: var(--font-serif);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--gold);
+  opacity: 0.5;
+}
+
+.mini-card-emoji {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.mini-card-name {
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+@media (min-width: 500px) {
+  .mini-cards {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .mini-card {
+    min-height: 90px;
+  }
+}
+
+/* ==========================================
+   CHAPTERS / CAPÍTULOS
+   ========================================== */
+.chapter {
+  margin-bottom: 24px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  scroll-margin-top: 70px;
+}
+
+.chapter-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 18px 16px;
+  background: var(--bg-dark);
+}
+
+.chapter-header .emoji {
+  font-size: 28px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.chapter-header-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.chapter-eyebrow {
+  color: var(--gold);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.chapter-title {
+  font-family: var(--font-serif);
+  font-size: clamp(18px, 5vw, 22px);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-inverse);
+}
+
+.chapter-share {
+  flex-shrink: 0;
+  background: var(--whatsapp);
+  border: none;
+  color: #fff;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.chapter-share:active {
+  transform: scale(0.92);
+  background: #1ebe5d;
+}
+
+.chapter-share svg {
+  width: 16px;
+  height: 16px;
+}
+
+.chapter-body {
+  padding: 16px;
+  background: var(--bg-card);
+}
+
+/* ==========================================
+   BENEFIT BLOCKS - Card Individual
+   ========================================== */
+.benefit-block {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: var(--bg);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin-bottom: 10px;
+  scroll-margin-top: 70px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.benefit-block:last-child {
+  margin-bottom: 0;
+}
+
+.benefit-block:active {
+  border-color: var(--gold);
+  box-shadow: var(--shadow-sm);
+}
+
+.benefit-num {
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 9vw, 42px);
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+  flex-shrink: 0;
+  min-width: 40px;
+}
+
+.benefit-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.benefit-emoji {
+  font-size: 20px;
+  margin-bottom: 2px;
+  display: inline-block;
+}
+
+.benefit-name {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+.benefit-desc {
+  font-size: 13px;
+  color: var(--text-soft);
+  line-height: 1.55;
+}
+
+.benefit-desc strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.benefit-tag {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: var(--gold-bg);
+  color: var(--gold);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border: 1px solid var(--gold-border);
+}
+
+/* ==========================================
+   ALERT / AVISO
+   ========================================== */
+.alert {
+  display: flex;
+  gap: 10px;
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  margin: 24px 0;
+  font-size: 13px;
+  line-height: 1.5;
+  border: 1px solid;
+}
+
+.alert svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+  width: 18px;
+  height: 18px;
+}
+
+.alert.success {
+  background: var(--green-bg);
+  border-color: var(--green-border);
+  color: #1A4D32;
+}
+
+.alert.success svg {
+  color: var(--green);
+}
+
+.alert strong {
+  font-weight: 700;
+}
+
+/* ==========================================
+   SINDICATO CARD
+   ========================================== */
+.sindicato-card {
+  background: var(--bg-card);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius-md);
+  padding: 20px 16px;
+  margin: 28px 0 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.sindicato-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.sindicato-title {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.sindicato-text {
+  font-size: 13px;
+  color: var(--text-soft);
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+
+.sindicato-info {
+  background: var(--gold-bg);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.sindicato-info strong {
+  display: block;
+  font-size: 14px;
+  color: var(--gold);
+  margin-bottom: 4px;
+  font-weight: 700;
+}
+
+/* ==========================================
+   CTA FINAL - Mobile Centered
+   ========================================== */
+.cta-section {
+  background: var(--bg-dark);
+  border-radius: var(--radius-lg);
+  padding: 28px 20px;
+  margin-top: 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before,
+.cta-section::after {
+  content: '';
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(201,169,110,0.12), transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.cta-section::before {
+  top: -60px;
+  left: -60px;
+}
+
+.cta-section::after {
+  bottom: -60px;
+  right: -60px;
+}
+
+.cta-eyebrow {
+  position: relative;
+  z-index: 1;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.cta-title {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 6vw, 28px);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-inverse);
+  margin-bottom: 12px;
+}
+
+.cta-title em {
+  color: var(--gold-light);
+  font-style: italic;
+}
+
+.cta-text {
+  position: relative;
+  z-index: 1;
+  font-size: 14px;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.55;
+  margin-bottom: 20px;
+}
+
+.cta-btn {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--whatsapp);
+  color: #fff;
+  padding: 14px 24px;
+  border-radius: var(--radius-full);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s, opacity 0.2s;
+  width: 100%;
+  max-width: 280px;
+}
+
+.cta-btn:active {
+  transform: scale(0.97);
+  opacity: 0.92;
+}
+
+.cta-btn svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.cta-share-link {
+  position: relative;
+  z-index: 1;
+  display: block;
+  color: rgba(255,255,255,0.65);
+  font-size: 12px;
+  text-decoration: none;
+  margin-top: 14px;
+  padding: 8px;
+  transition: color 0.2s;
+}
+
+.cta-share-link:active {
+  color: var(--gold-light);
+}
+
+.cta-footer {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid rgba(166,124,59,0.2);
+  margin-top: 24px;
+  padding-top: 20px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.8;
+}
+
+.cta-footer strong {
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.cta-footer a {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+}
+
+.cta-footer a:active {
+  color: var(--gold-light);
+}
+
+/* ==========================================
+   FAB - BOTÃO VOLTAR AO TOPO
+   ========================================== */
+.fab-top {
+  position: fixed;
+  bottom: calc(20px + var(--safe-bottom));
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--bg-dark);
+  color: var(--gold-light);
+  border: 1px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.2s;
+  z-index: 90;
+  box-shadow: var(--shadow-lg);
+}
+
+.fab-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.fab-top:active {
+  transform: scale(0.92);
+  background: var(--gold);
+  color: #fff;
+}
+
+.fab-top svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ==========================================
+   DISCLAIMER
+   ========================================== */
+.disclaimer {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.5;
+  padding: 20px 0 0;
+  border-top: 1px dashed var(--gold-border);
+  margin-top: 24px;
+}
+
+/* ==========================================
+   UTILITÁRIOS
+   ========================================== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+</style>
 </head>
 <body>
-    <!-- Barra de Progresso -->
-    <div class="progress-bar" id="progressBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 
-    <!-- Header -->
-    <header class="header">
-        <div class="header-content">
-            <a href="https://dominiofarma.com" class="logo" aria-label="Ir para página inicial da Domínio Farma">
-                <span class="logo-icon">DF</span>
-                <span>Domínio Farma</span>
-            </a>
-            <span class="reading-time">
-                <span aria-hidden="true">📖</span>
-                <span id="readingTime">X min de leitura</span>
-            </span>
-        </div>
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- HEADER -->
+<header class="topbar">
+  <a href="#" class="topbar-logo" aria-label="Logo do Sindicato">
+    <img src="logo.png" alt="Sindicato" />
+  </a>
+  <a href="#" id="topbarShare" class="topbar-share" aria-label="Compartilhar no WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.2-.2-.5-.3z"/></svg>
+    <span>Compartilhar</span>
+  </a>
+</header>
+
+<main class="article">
+
+  <!-- HERO -->
+  <section class="hero">
+    <span class="hero-tag">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Direito Trabalhista · Garantido por CCT
+    </span>
+    <h1 class="hero-title">A empresa paga R$ 32,90 por mês. Você tem <em>10 benefícios</em> garantidos.</h1>
+    <p class="hero-subtitle">Convenção Coletiva 2026/2027 garante odontológico, seguro de vida, auxílio funeral e mais 7 benefícios — custeados integralmente pela empresa.</p>
+    <div class="hero-meta">
+      <span id="publishDate">📅 Publicado em maio de 2026</span>
+      <span>📖 4 min de leitura</span>
+      <span>📍 Jacobina e Região / BA</span>
+    </div>
+  </section>
+
+  <!-- PRICE CARD -->
+  <section class="price-card reveal">
+    <div class="price-card-eyebrow">A empresa contribui mensalmente</div>
+    <div class="price-value"><sup>R$</sup>32,90</div>
+    <span class="price-period">por empregado · pago pela empresa</span>
+    <div class="price-card-info">
+      <strong>Você não paga nada.</strong> O valor é integralmente custeado pela empresa para garantir os 10 benefícios deste plano, conforme acordado na CCT.
+    </div>
+  </section>
+
+  <!-- CCT BANNER -->
+  <div class="cct-banner reveal">
+    <span class="emoji" aria-hidden="true">📜</span>
+    <div>
+      <h3>Instituído por CCT</h3>
+      <p>Por meio da Convenção Coletiva de Trabalho, sua empresa contribui com R$ 32,90/mês para oferecer os benefícios garantidos na negociação sindical da categoria.</p>
+    </div>
+  </div>
+
+  <!-- MINI CARDS -->
+  <section class="benefits-overview reveal">
+    <h2 class="section-title">Os 10 benefícios em um olhar</h2>
+    <p class="section-subtitle">Toque para ver detalhes</p>
+    <div class="mini-cards">
+      <a href="#b1" class="mini-card"><span class="mini-card-num">01</span><span class="mini-card-emoji">🦷</span><span class="mini-card-name">Odontológico</span></a>
+      <a href="#b2" class="mini-card"><span class="mini-card-num">02</span><span class="mini-card-emoji">💰</span><span class="mini-card-name">Seguro de Vida</span></a>
+      <a href="#b3" class="mini-card"><span class="mini-card-num">03</span><span class="mini-card-emoji">⚱️</span><span class="mini-card-name">Auxílio Funeral</span></a>
+      <a href="#b4" class="mini-card"><span class="mini-card-num">04</span><span class="mini-card-emoji">👶</span><span class="mini-card-name">Natalidade</span></a>
+      <a href="#b5" class="mini-card"><span class="mini-card-num">05</span><span class="mini-card-emoji">🔧</span><span class="mini-card-name">Pessoal Domiciliar</span></a>
+      <a href="#b6" class="mini-card"><span class="mini-card-num">06</span><span class="mini-card-emoji">🚗</span><span class="mini-card-name">Automóvel</span></a>
+      <a href="#b7" class="mini-card"><span class="mini-card-num">07</span><span class="mini-card-emoji">💻</span><span class="mini-card-name">Telemedicina</span></a>
+      <a href="#b8" class="mini-card"><span class="mini-card-num">08</span><span class="mini-card-emoji">🧠</span><span class="mini-card-name">Saúde Mental</span></a>
+      <a href="#b9" class="mini-card"><span class="mini-card-num">09</span><span class="mini-card-emoji">💊</span><span class="mini-card-name">Desconto Farmácia</span></a>
+      <a href="#b10" class="mini-card"><span class="mini-card-num">10</span><span class="mini-card-emoji">🎁</span><span class="mini-card-name">Clube Vantagens</span></a>
+    </div>
+  </section>
+
+  <!-- CAPÍTULO 1 -->
+  <section class="chapter reveal" id="cap1">
+    <header class="chapter-header">
+      <span class="emoji">💊</span>
+      <div class="chapter-header-content">
+        <div class="chapter-eyebrow">Capítulo 1 · Benefícios 1 a 3</div>
+        <h2 class="chapter-title">Saúde, proteção e amparo familiar</h2>
+      </div>
+      <a href="#" class="chapter-share" data-share-chapter="cap1" data-chapter-title="Saúde, proteção e amparo familiar" aria-label="Compartilhar capítulo">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.2-.2-.5-.3z"/></svg>
+      </a>
     </header>
-
-    <!-- Conteúdo Principal -->
-    <main class="container" role="main">
-        <!-- Hero do Artigo -->
-        <article>
-            <header class="article-hero">
-                <span class="article-badge">
-                    <span aria-hidden="true">📋</span>
-                    [CATEGORIA DO ARTIGO]
-                </span>
-                <h1 class="article-title">[TÍTULO DO ARTIGO]</h1>
-                <p class="article-subtitle">[SUBTÍTULO OU DESCRIÇÃO BREVE]</p>
-                <div class="article-meta">
-                    <span>
-                        <span aria-hidden="true">📅</span>
-                        <time datetime="2026-05-09">[DATA]</time>
-                    </span>
-                    <span>
-                        <span aria-hidden="true">✍️</span>
-                        Domínio Farma Contabilidade
-                    </span>
-                </div>
-            </header>
-
-            <!-- Índice -->
-            <nav class="toc" aria-label="Índice do artigo">
-                <div class="toc-header">
-                    <span aria-hidden="true">📑</span>
-                    Navegue pelo conteúdo
-                </div>
-                <ol class="toc-list">
-                    <li class="toc-item">
-                        <a href="#cap1">
-                            <span class="toc-number">1</span>
-                            [Título do Capítulo 1]
-                        </a>
-                    </li>
-                    <li class="toc-item">
-                        <a href="#cap2">
-                            <span class="toc-number">2</span>
-                            [Título do Capítulo 2]
-                        </a>
-                    </li>
-                    <!-- Adicione mais capítulos conforme necessário -->
-                </ol>
-            </nav>
-
-            <!-- Capítulo 1 -->
-            <section class="chapter" id="cap1">
-                <header class="chapter-header">
-                    <span class="chapter-number">1</span>
-                    <div class="chapter-title-group">
-                        <h2 class="chapter-title">[Título do Capítulo 1]</h2>
-                        <p class="chapter-subtitle">[Subtítulo opcional]</p>
-                    </div>
-                </header>
-                <div class="content">
-                    <p>[Conteúdo do capítulo aqui...]</p>
-                    
-                    <!-- Exemplo de box de destaque -->
-                    <div class="highlight-box info">
-                        <div class="highlight-box-title">
-                            <span aria-hidden="true">💡</span>
-                            Importante
-                        </div>
-                        <p>[Conteúdo em destaque]</p>
-                    </div>
-
-                    <!-- Exemplo de lista com checks -->
-                    <ul class="check-list">
-                        <li>Item da lista</li>
-                        <li>Outro item</li>
-                    </ul>
-                </div>
-
-                <!-- Compartilhar Capítulo -->
-                <div class="share-section">
-                    <span class="share-label">Compartilhar:</span>
-                    <button class="share-btn whatsapp" onclick="shareChapter('cap1', 'whatsapp')" aria-label="Compartilhar no WhatsApp">
-                        <span aria-hidden="true">📱</span>
-                    </button>
-                    <button class="share-btn twitter" onclick="shareChapter('cap1', 'twitter')" aria-label="Compartilhar no Twitter">
-                        <span aria-hidden="true">🐦</span>
-                    </button>
-                    <button class="share-btn linkedin" onclick="shareChapter('cap1', 'linkedin')" aria-label="Compartilhar no LinkedIn">
-                        <span aria-hidden="true">💼</span>
-                    </button>
-                    <button class="share-btn copy" onclick="copyLink('cap1')" aria-label="Copiar link">
-                        <span aria-hidden="true">🔗</span>
-                    </button>
-                </div>
-            </section>
-
-            <!-- Adicione mais capítulos seguindo o mesmo padrão -->
-
-        </article>
-
-        <!-- CTA Final - GENÉRICO -->
-        <aside class="cta-final" role="complementary" aria-label="Entre em contato">
-            <span class="cta-icon" aria-hidden="true">🚀</span>
-            <h2 class="cta-title">Pronto para transformar sua farmácia?</h2>
-            <p class="cta-subtitle">
-                Conte com especialistas que entendem o seu negócio. 
-                A Domínio Farma está pronta para ajudar você a crescer!
-            </p>
-            
-            <div class="cta-buttons">
-                <a href="https://dominiofarma.com" class="cta-btn primary" target="_blank" rel="noopener">
-                    <span aria-hidden="true">🌐</span>
-                    Acesse nosso site
-                </a>
-                
-                <a href="https://instagram.com/dominiofarmacontabilidade" class="cta-btn instagram" target="_blank" rel="noopener">
-                    <span aria-hidden="true">📸</span>
-                    Siga-nos no Instagram
-                </a>
-            </div>
-            
-            <div class="cta-social">
-                <p class="cta-social-label">@dominiofarmacontabilidade</p>
-            </div>
-        </aside>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-logo">Domínio Farma Contabilidade</div>
-            <p class="footer-tagline">Contabilidade especializada para farmácias e drogarias</p>
-            
-            <nav class="footer-links" aria-label="Links do rodapé">
-                <a href="https://dominiofarma.com" target="_blank" rel="noopener">
-                    <span aria-hidden="true">🌐</span>
-                    dominiofarma.com
-                </a>
-                <a href="https://instagram.com/dominiofarmacontabilidade" target="_blank" rel="noopener">
-                    <span aria-hidden="true">📸</span>
-                    @dominiofarmacontabilidade
-                </a>
-            </nav>
-            
-            <p class="footer-copy">
-                © <span id="currentYear"></span> Domínio Farma Contabilidade. Todos os direitos reservados.
-            </p>
+    <div class="chapter-body">
+      <div class="benefit-block" id="b1">
+        <div class="benefit-num">1</div>
+        <div class="benefit-content">
+          <span class="benefit-emoji">🦷</span>
+          <div class="benefit-name">Plano Odontológico Completo</div>
+          <div class="benefit-desc">Cobertura odontológica nacional sem carências, incluindo consultas, limpezas, restaurações, tratamento de canal, odontopediatria, radiologia e próteses.</div>
+          <span class="benefit-tag">Sem carência</span>
         </div>
-    </footer>
+      </div>
+      <div class="benefit-block" id="b2">
+        <div class="benefit-num">2</div>
+        <div class="benefit-content">
+          <span class="benefit-emoji">💰</span>
+          <div class="benefit-name">Seguro de Vida e Invalidez</div>
+          <div class="benefit-desc">Proteção financeira de até <strong>R$ 15.000,00</strong> para morte natural ou acidental, invalidez por acidente ou doença.</div>
+          <span class="benefit-tag">Cobertura até R$ 15 mil</span>
+        </div>
+      </div>
+      <div class="benefit-block" id="b3">
+        <div class="benefit-num">3</div>
+        <div class="benefit-content">
+          <span class="benefit-emoji">⚱️</span>
+          <div class="benefit-name">Auxílio Funeral</div>
+          <div class="benefit-desc">Cobertura de <strong>R$ 3.300,00</strong> para funeral, cesta básica de R$ 150 por 6 meses e cartão de R$ 600 para despesas imediatas.</div>
+          <span class="benefit-tag">Apoio à família</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Botão Voltar ao Topo -->
-    <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo da página">
-        <span aria-hidden="true">↑</span>
-    </button>
+  <!-- CAPÍTULO 2 -->
+  <section class="chapter reveal" id="cap2">
+    <header class="chapter-header">
+      <span class="emoji">👶</span>
+      <div class="chapter-header-content">
+        <div class="chapter-eyebrow">Capítulo 2 · Benefícios 4 e 5</div>
+        <h2 class="chapter-title">Família e momentos especiais</h2>
+      </div>
+      <a href="#" class="chapter-share" data-share-chapter="cap2" data-chapter-title="Família e momentos especiais" aria-label="Compartilhar capítulo">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.2-.2-.5-.3z"/></svg>
+      </a>
+    </header>
+    <div class="chapter-body">
+      <div class="benefit-block" id="b4">
+        <div class="benefit-num">4</div>
+        <div class="benefit-content">
+          <span class="benefit-emoji">👶</span>
+          <div class="benefit-name">Assistência Natalidade</div>
+          <div class="benefit-desc"><strong>R$ 600</strong> para enxoval, limite de uma vez por ano, com adicional de R$ 300 por gêmeo. Contato em até 60 dias após o nascimento.</div>
+          <span class="benefit-tag">R$ 600 + adicional</span>
+        </div>
+      </div>
+      <div class="benefit-block" id="b5">
+        <div class="benefit-num">5</div>
+        <div class="benefit-content">
+          <span class="benefit-emoji">🔧</span>
+          <div class="benefit-name">Assistência Pessoal Domiciliar</div>
+          <div class="benefit-desc">Chaveiro, encanador e faxineira hospitalar, com limites de R$ 100 ou R$ 80,90/dia. Até 2 acionamentos por ano, atendimento 24h.</div>
+          <span class="benefit-tag">Atendimento 24h</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- JavaScript -->
-    <script>
-        // ===================================================
-        // CONFIGURAÇÃO - ALTERE CONFORME NECESSÁRIO
-        // ===================================================
-        const CONFIG = {
-            siteUrl: 'https://dominiofarma.com',
-            siteName: 'Domínio Farma Contabilidade',
-            articleSlug: '[SLUG-DO-ARTIGO]', // Ex: 'guia-reforma-tributaria'
-            wordsPerMinute: 200
-        };
+  <!-- CAPÍTULO 3 -->
+  <section class="chapter reveal" id="cap3">
+    <header class="chapter-header">
+      <span class="emoji">🚗</span>
+      <div class="chapter-header-content">
+        <div class="chapter-eyebrow">Capítulo 3 · Benefícios 6 a 8</div>
+        <h2 class="chapter-title">Mobilidade e cuidado integral</h2>
+      </div>
+      <a href="#" class="chapter-share" data-share-chapter="cap3" data-chapter-title="Mobilidade e cuidado integral" aria-label="Compartilhar capítulo">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.2-.2-.5-.3z"/></svg>
+      </a>
+    </header>
+    <div class="chapter-body">
+      <div class="benefit-block" id="b6">
+        <div class="benefit-num">6</div>
+        <div class="benefit-content">
+          <span class="benefit-emoji">🚗</span>
+          <div class="benefit-name">Assistência Automóvel Completa</div>
+          <div class="benefit-desc">Socorro mecânico, reboque, troca de pneus e almoxarifado móvel. Até 1 acionamento por serviço/ano, atendimento 24h em dias úteis.</div>
+          <span class="benefit-tag">Cobertura 24h</span>
+        </div>
+      </div>
+      <div class="benefit-block" id="b7">
+        <div class="benefit-num">7</div>
+        <div class="benefit-content">
+          <span class="benefit-emoji">💻</span>
+          <div class="benefit-name">Telemedicina Individual</div>
+          <div class="benefit-desc">Consultas online com especialistas. Agendamento de segunda a sexta, até 19h, via app, e-mail ou WhatsApp.</div>
+          <span class="benefit-tag">Consulta remota</span>
+        </div>
+      </div>
+      <div class="benefit-block" id="b8">
+        <div class="benefit-num">8</div>
+        <div class="benefit-content">
+          <span class="benefit-emoji">🧠</span>
+          <div class="benefit-name">Programa de Saúde Mental</div>
+          <div class="benefit-desc">Atendimento psicológico e suporte emocional para o trabalhador, com sigilo profissional garantido.</div>
+          <span class="benefit-tag">Sigilo profissional</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        // ===================================================
-        // BARRA DE PROGRESSO
-        // ===================================================
-        function updateProgressBar() {
-            const scrollTop = window.scrollY;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-            
-            const progressBar = document.getElementById('progressBar');
-            progressBar.style.width = `${progress}%`;
-            progressBar.setAttribute('aria-valuenow', Math.round(progress));
-        }
+  <!-- CAPÍTULO 4 -->
+  <section class="chapter reveal" id="cap4">
+    <header class="chapter-header">
+      <span class="emoji">🎁</span>
+      <div class="chapter-header-content">
+        <div class="chapter-eyebrow">Capítulo 4 · Benefícios 9 e 10</div>
+        <h2 class="chapter-title">Vantagens digitais e economia</h2>
+      </div>
+      <a href="#" class="chapter-share" data-share-chapter="cap4" data-chapter-title="Vantagens digitais e economia" aria-label="Compartilhar capítulo">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.2-.2-.5-.3z"/></svg>
+      </a>
+    </header>
+    <div class="chapter-body">
+      <div class="benefit-block" id="b9">
+        <div class="benefit-num">9</div>
+        <div class="benefit-content">
+          <span class="benefit-emoji">💊</span>
+          <div class="benefit-name">Desconto em Farmácias</div>
+          <div class="benefit-desc">Economia na compra de medicamentos, suplementos e produtos OTC. Basta informar o CPF na compra para acessar os descontos.</div>
+          <span class="benefit-tag">Rede nacional</span>
+        </div>
+      </div>
+      <div class="benefit-block" id="b10">
+        <div class="benefit-num">10</div>
+        <div class="benefit-content">
+          <span class="benefit-emoji">🎁</span>
+          <div class="benefit-name">Clube Bem Mais Vantagens</div>
+          <div class="benefit-desc">Promoções em mais de <strong>200 parceiros</strong>, sorteios, cupons, cursos, revistas e entretenimento, tudo pelo aplicativo.</div>
+          <span class="benefit-tag">+200 parceiros</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        // ===================================================
-        // BOTÃO VOLTAR AO TOPO
-        // ===================================================
-        function toggleBackToTop() {
-            const btn = document.getElementById('backToTop');
-            if (window.scrollY > 400) {
-                btn.classList.add('visible');
-            } else {
-                btn.classList.remove('visible');
-            }
-        }
+  <!-- ALERT -->
+  <div class="alert success reveal">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+    <div><strong>Operacionalização:</strong> A Dominio Farma Contabilidade garante a execução e entrega de todos os benefícios previstos na CCT.</div>
+  </div>
 
-        document.getElementById('backToTop').addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+  <!-- SINDICATO -->
+  <section class="sindicato-card reveal">
+    <div class="sindicato-eyebrow">📍 Quer saber mais sobre seus direitos?</div>
+    <h3 class="sindicato-title">Procure o sindicato da sua categoria</h3>
+    <p class="sindicato-text">Para detalhes sobre a Convenção Coletiva, cláusulas, reajustes e direitos, busque informações diretamente com o sindicato:</p>
+    <div class="sindicato-info">
+      <strong>SINDPAT Jacobina e Região</strong>
+      📍 R. Artur Diniz Veloso, 56 — Centro, Jacobina/BA
+    </div>
+  </section>
 
-        // ===================================================
-        // TEMPO DE LEITURA
-        // ===================================================
-        function calculateReadingTime() {
-            const content = document.querySelector('main').textContent;
-            const words = content.trim().split(/\s+/).length;
-            const minutes = Math.ceil(words / CONFIG.wordsPerMinute);
-            document.getElementById('readingTime').textContent = `${minutes} min de leitura`;
-        }
+  <!-- CTA FINAL -->
+  <section class="cta-section reveal">
+    <div class="cta-eyebrow">Dominio Farma Contabilidade · CCT 2026/2027</div>
+    <h2 class="cta-title">Dúvidas e <em>esclarecimentos?</em></h2>
+    <p class="cta-text">Fale conosco. A equipe está à disposição para esclarecer dúvidas sobre os benefícios garantidos na CCT.</p>
+    <a href="https://wa.me/5574999963592?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20os%20benefícios%20garantidos%20pela%20CCT." class="cta-btn" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.2-.2-.5-.3z"/></svg>
+      Falar no WhatsApp
+    </a>
+    <a href="#" class="cta-share-link" id="ctaShare">📤 Compartilhar artigo</a>
+    <div class="cta-footer">
+      <strong>Dominio Farma Contabilidade</strong><br>
+      📍 Rua Betânia, 26 — Oliveira, Capim Grosso/BA<br>
+      📞 (74) 9 9996-3592 · (74) 3621-3239<br>
+      📧 contato@dominiofarma.com.br
+    </div>
+  </section>
 
-        // ===================================================
-        // COMPARTILHAMENTO
-        // ===================================================
-        function getArticleUrl(chapterId = null) {
-            const baseUrl = `${CONFIG.siteUrl}/artigos/${CONFIG.articleSlug}`;
-            return chapterId ? `${baseUrl}#${chapterId}` : baseUrl;
-        }
+  <!-- DISCLAIMER -->
+  <p class="disclaimer">
+    Este conteúdo é meramente informativo. Valores e condições conforme Convenção Coletiva de Trabalho vigente. Para casos específicos, consulte o sindicato responsável ou um contador.
+  </p>
 
-        function shareChapter(chapterId, platform) {
-            const url = encodeURIComponent(getArticleUrl(chapterId));
-            const title = encodeURIComponent(document.title);
-            
-            const shareUrls = {
-                whatsapp: `https://wa.me/?text=${title}%20${url}`,
-                twitter: `https://twitter.com/intent/tweet?url=${url}&text=${title}`,
-                linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${url}`
-            };
+</main>
 
-            if (shareUrls[platform]) {
-                window.open(shareUrls[platform], '_blank', 'width=600,height=400,noopener,noreferrer');
-            }
-        }
+<!-- FAB VOLTAR AO TOPO -->
+<button class="fab-top" id="fabTop" aria-label="Voltar ao topo">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+</button>
 
-        function copyLink(chapterId) {
-            const url = getArticleUrl(chapterId);
-            
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(url).then(() => {
-                    showToast('Link copiado!');
-                }).catch(() => {
-                    fallbackCopy(url);
-                });
-            } else {
-                fallbackCopy(url);
-            }
-        }
+<script>
+// Progress Bar + FAB
+const bar = document.getElementById('progressBar');
+const fabTop = document.getElementById('fabTop');
 
-        function fallbackCopy(text) {
-            const textarea = document.createElement('textarea');
-            textarea.value = text;
-            textarea.style.position = 'fixed';
-            textarea.style.opacity = '0';
-            document.body.appendChild(textarea);
-            textarea.select();
-            
-            try {
-                document.execCommand('copy');
-                showToast('Link copiado!');
-            } catch (err) {
-                showToast('Erro ao copiar');
-            }
-            
-            document.body.removeChild(textarea);
-        }
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  bar.style.width = Math.min(pct, 100) + '%';
+  fabTop.classList.toggle('visible', h.scrollTop > 400);
+}, { passive: true });
 
-        function showToast(message) {
-            // Remove toast existente
-            const existingToast = document.querySelector('.toast');
-            if (existingToast) existingToast.remove();
+fabTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
 
-            const toast = document.createElement('div');
-            toast.className = 'toast';
-            toast.textContent = message;
-            toast.setAttribute('role', 'alert');
-            toast.style.cssText = `
-                position: fixed;
-                bottom: 80px;
-                left: 50%;
-                transform: translateX(-50%);
-                background: var(--color-text);
-                color: white;
-                padding: var(--spacing-sm) var(--spacing-lg);
-                border-radius: var(--radius-full);
-                font-size: var(--font-size-sm);
-                font-weight: 500;
-                z-index: 1001;
-                animation: toastIn 0.3s ease, toastOut 0.3s ease 2s forwards;
-            `;
-            document.body.appendChild(toast);
+// Reveal on Scroll
+const reveals = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(e => io.observe(e));
 
-            setTimeout(() => toast.remove(), 2500);
-        }
+// Data dinâmica
+(function setPublishDate() {
+  const meses = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+  const d = new Date();
+  document.getElementById('publishDate').textContent = `📅 Publicado em ${d.getDate()} de ${meses[d.getMonth()]} de ${d.getFullYear()}`;
+})();
 
-        // Estilos do toast via JavaScript
-        const toastStyles = document.createElement('style');
-        toastStyles.textContent = `
-            @keyframes toastIn {
-                from { opacity: 0; transform: translateX(-50%) translateY(20px); }
-                to { opacity: 1; transform: translateX(-50%) translateY(0); }
-            }
-            @keyframes toastOut {
-                from { opacity: 1; }
-                to { opacity: 0; }
-            }
-        `;
-        document.head.appendChild(toastStyles);
+// Compartilhamento WhatsApp
+function getShareUrl(anchor) {
+  const base = window.location.origin + window.location.pathname;
+  return anchor ? `${base}#${anchor}` : base;
+}
 
-        // ===================================================
-        // ANO ATUAL NO FOOTER
-        // ===================================================
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
+function shareOnWhatsApp(e) {
+  e.preventDefault();
+  const url = getShareUrl();
+  const text = `👷‍♂️ Sua empresa paga R$ 32,90/mês para garantir 10 benefícios a você por meio da CCT. Conheça seus direitos: ${url}`;
+  window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+}
 
-        // ===================================================
-        // EVENT LISTENERS
-        // ===================================================
-        window.addEventListener('scroll', () => {
-            updateProgressBar();
-            toggleBackToTop();
-        }, { passive: true });
+function shareChapter(e) {
+  e.preventDefault();
+  const anchor = e.currentTarget.dataset.shareChapter;
+  const title = e.currentTarget.dataset.chapterTitle || '';
+  const url = getShareUrl(anchor);
+  const text = `📖 ${title} — 10 benefícios garantidos por CCT: ${url}`;
+  window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+}
 
-        // Inicialização
-        document.addEventListener('DOMContentLoaded', () => {
-            calculateReadingTime();
-            updateProgressBar();
-        });
-    </script>
+document.getElementById('topbarShare').addEventListener('click', shareOnWhatsApp);
+document.getElementById('ctaShare').addEventListener('click', shareOnWhatsApp);
+document.querySelectorAll('[data-share-chapter]').forEach(el => {
+  el.addEventListener('click', shareChapter);
+});
+</script>
+
 </body>
 </html>
