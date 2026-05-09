@@ -7,7 +7,7 @@
 <title>10 Benefícios Garantidos por CCT · Domínio Farma Contabilidade</title>
 <meta name="description" content="A empresa paga R$ 32,90 por mês e você tem 10 benefícios garantidos: plano odontológico, seguro de vida, auxílio funeral e mais." />
 
-<!-- Open Graph -->
+<!-- Open Graph / Twitter -->
 <meta property="og:title" content="A empresa paga R$ 32,90 por mês. Você tem 10 benefícios garantidos." />
 <meta property="og:description" content="Convenção Coletiva 2026/2027 garante odontológico, seguro de vida, auxílio funeral e mais 7 benefícios — custeados pela empresa." />
 <meta property="og:type" content="article" />
@@ -15,55 +15,42 @@
 <meta property="og:site_name" content="Domínio Farma Contabilidade" />
 <meta name="twitter:card" content="summary_large_image" />
 
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
 <style>
-/* ==========================================
-   CSS VARIABLES - PALETA DOMÍNIO FARMA
-   ========================================== */
 :root {
-  /* Fundos */
+  /* Cores da paleta Domínio Farma */
   --bg: #F7F5F0;
   --bg-alt: #EFEDE6;
   --bg-card: #FFFFFF;
   --bg-dark: #1C1A17;
-  
-  /* Textos */
   --text: #1C1A17;
   --text-soft: #5A5650;
   --text-muted: #8C8880;
   --text-inverse: #FFFFFF;
-  
-  /* Dourado (cor principal) */
   --gold: #A67C3B;
   --gold-light: #C9A96E;
   --gold-bg: #FBF4E8;
   --gold-border: #E8D5B0;
-  
-  /* Auxiliares */
   --green: #2E7D52;
   --green-bg: #EBF5EF;
   --green-border: #A8D5BC;
   --whatsapp: #25D366;
-  
-  /* Sombras */
+  --blue: #3B82F6;
+  --blue-bg: #EFF6FF;
+  --blue-border: #BFDBFE;
   --shadow-sm: 0 1px 3px rgba(28,26,23,.06);
   --shadow-md: 0 4px 12px rgba(28,26,23,.10);
   --shadow-lg: 0 8px 24px rgba(28,26,23,.15);
-  
-  /* Bordas */
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
   --radius-full: 9999px;
-  
-  /* Fontes */
   --font-serif: 'Playfair Display', Georgia, serif;
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  
-  /* Layout Mobile-First */
   --max-w: 100%;
   --padding-x: 16px;
   --safe-bottom: env(safe-area-inset-bottom, 0px);
@@ -76,20 +63,16 @@
   }
 }
 
-/* ==========================================
-   RESET & BASE
-   ========================================== */
+/* Reset & Base */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
 }
-
 body {
   font-family: var(--font-sans);
   background: var(--bg);
@@ -101,9 +84,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ==========================================
-   BARRA DE PROGRESSO
-   ========================================== */
+/* Barra de progresso */
 .progress-bar {
   position: fixed;
   top: 0;
@@ -115,9 +96,7 @@ body {
   transition: width 0.15s ease-out;
 }
 
-/* ==========================================
-   HEADER / TOPBAR
-   ========================================== */
+/* Topbar (Header) com logo centralizada */
 .topbar {
   position: sticky;
   top: 0;
@@ -127,76 +106,86 @@ body {
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(166, 124, 59, 0.25);
   padding: 10px var(--padding-x);
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
   gap: 12px;
 }
-
+.topbar-left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.topbar-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.topbar-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
 .topbar-logo {
   display: flex;
   align-items: center;
-  gap: 10px;
   text-decoration: none;
-  flex-shrink: 0;
 }
-
 .topbar-logo img {
   height: 36px;
   width: auto;
   object-fit: contain;
 }
-
-.topbar-share {
+.topbar-btn {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  background: var(--whatsapp);
-  color: #fff;
+  justify-content: center;
+  gap: 4px;
+  background: rgba(166, 124, 59, 0.2);
+  color: var(--gold-light);
+  border: 1px solid rgba(166, 124, 59, 0.3);
   border-radius: var(--radius-full);
-  padding: 8px 14px;
-  font-size: 13px;
+  padding: 8px;
+  font-size: 12px;
   font-weight: 600;
   text-decoration: none;
-  transition: transform 0.2s, opacity 0.2s;
-  white-space: nowrap;
+  transition: transform 0.2s, background 0.2s;
+  cursor: pointer;
 }
-
-.topbar-share:active {
+.topbar-btn:active {
   transform: scale(0.96);
-  opacity: 0.9;
+  background: rgba(166, 124, 59, 0.35);
 }
-
-.topbar-share svg {
+.topbar-btn svg {
   width: 16px;
   height: 16px;
   flex-shrink: 0;
 }
+.topbar-btn.active {
+  background: var(--gold);
+  color: #fff;
+  border-color: var(--gold);
+}
 
-/* ==========================================
-   CONTAINER PRINCIPAL
-   ========================================== */
+/* Conteúdo principal */
 .article {
   max-width: var(--max-w);
   margin: 0 auto;
   padding: 0 var(--padding-x);
-  padding-bottom: calc(100px + var(--safe-bottom));
+  padding-bottom: calc(140px + var(--safe-bottom));
 }
 
-/* ==========================================
-   REVEAL ANIMATION
-   ========================================== */
+/* Animação de revelação */
 .reveal {
   opacity: 0;
   transform: translateY(16px);
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
-
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
 }
-
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1 !important;
@@ -205,15 +194,12 @@ body {
   }
 }
 
-/* ==========================================
-   HERO
-   ========================================== */
+/* HERO - Área inicial */
 .hero {
   padding: 28px 0 24px;
   border-bottom: 1px solid var(--gold-border);
   margin-bottom: 24px;
 }
-
 .hero-tag {
   display: inline-flex;
   align-items: center;
@@ -229,12 +215,10 @@ body {
   text-transform: uppercase;
   margin-bottom: 16px;
 }
-
 .hero-tag svg {
   width: 10px;
   height: 10px;
 }
-
 .hero-title {
   font-family: var(--font-serif);
   font-weight: 900;
@@ -244,19 +228,16 @@ body {
   letter-spacing: -0.02em;
   color: var(--text);
 }
-
 .hero-title em {
   color: var(--gold);
   font-style: italic;
 }
-
 .hero-subtitle {
   font-size: 15px;
   color: var(--text-soft);
   line-height: 1.55;
   margin-bottom: 18px;
 }
-
 .hero-meta {
   display: flex;
   flex-direction: column;
@@ -265,29 +246,78 @@ body {
   color: var(--text-muted);
   font-weight: 500;
 }
-
 .hero-meta span {
   display: inline-flex;
   align-items: center;
   gap: 6px;
 }
-
-@media (min-width: 480px) {
+@media (min-width: 480px){
   .hero-meta {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 4px 0;
   }
   .hero-meta span:not(:last-child)::after {
-    content: '•';
+    content: "•";
     margin: 0 10px;
     color: var(--gold-light);
   }
 }
 
-/* ==========================================
-   PRICE CARD
-   ========================================== */
+/* Navegação por capítulos (âncoras) */
+.chapter-nav {
+  background: var(--bg-card);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-sm);
+}
+.chapter-nav-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.chapter-nav-title svg {
+  width: 14px;
+  height: 14px;
+}
+.chapter-nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.chapter-nav-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: var(--bg);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.chapter-nav-item:hover,
+.chapter-nav-item:active {
+  background: var(--gold-bg);
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.chapter-nav-item .emoji {
+  font-size: 14px;
+}
+
+/* Preço - Card em stacking para mobile */
 .price-card {
   background: var(--bg-dark);
   padding: 24px 20px;
@@ -297,9 +327,8 @@ body {
   position: relative;
   overflow: hidden;
 }
-
 .price-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -50px;
   right: -50px;
@@ -309,7 +338,6 @@ body {
   border-radius: 50%;
   pointer-events: none;
 }
-
 .price-card-eyebrow {
   font-size: 10px;
   font-weight: 700;
@@ -317,9 +345,7 @@ body {
   text-transform: uppercase;
   margin-bottom: 6px;
   color: var(--gold-light);
-  position: relative;
 }
-
 .price-value {
   font-family: var(--font-serif);
   font-size: clamp(40px, 12vw, 56px);
@@ -328,14 +354,12 @@ body {
   letter-spacing: -0.02em;
   position: relative;
 }
-
 .price-value sup {
   font-size: 0.4em;
   color: var(--gold-light);
   vertical-align: super;
   font-weight: 700;
 }
-
 .price-period {
   display: block;
   color: rgba(255,255,255,0.65);
@@ -345,7 +369,6 @@ body {
   margin-bottom: 16px;
   position: relative;
 }
-
 .price-card-info {
   border-top: 1px solid rgba(201,169,110,0.25);
   padding-top: 16px;
@@ -353,14 +376,11 @@ body {
   line-height: 1.5;
   position: relative;
 }
-
 .price-card-info strong {
   color: var(--gold-light);
 }
 
-/* ==========================================
-   BANNER CCT
-   ========================================== */
+/* Banner CCT */
 .cct-banner {
   background: var(--bg-dark);
   border-radius: var(--radius-md);
@@ -371,13 +391,11 @@ body {
   gap: 12px;
   align-items: flex-start;
 }
-
 .cct-banner .emoji {
   font-size: 24px;
   flex-shrink: 0;
   line-height: 1;
 }
-
 .cct-banner h3 {
   color: var(--gold);
   font-size: 11px;
@@ -386,7 +404,6 @@ body {
   text-transform: uppercase;
   margin-bottom: 4px;
 }
-
 .cct-banner p {
   color: var(--text-inverse);
   font-size: 13px;
@@ -394,13 +411,10 @@ body {
   opacity: 0.9;
 }
 
-/* ==========================================
-   MINI CARDS
-   ========================================== */
+/* Mini cards grid mobile */
 .benefits-overview {
   margin-bottom: 32px;
 }
-
 .section-title {
   font-family: var(--font-serif);
   font-size: 20px;
@@ -409,20 +423,17 @@ body {
   text-align: center;
   color: var(--text);
 }
-
 .section-subtitle {
   font-size: 12px;
   color: var(--text-muted);
   text-align: center;
   margin-bottom: 16px;
 }
-
 .mini-cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 8px;
 }
-
 .mini-card {
   background: var(--bg-card);
   border: 1px solid var(--gold-border);
@@ -440,13 +451,11 @@ body {
   position: relative;
   transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
 }
-
 .mini-card:active {
   transform: scale(0.97);
   border-color: var(--gold);
   box-shadow: var(--shadow-md);
 }
-
 .mini-card-num {
   position: absolute;
   top: 6px;
@@ -457,19 +466,46 @@ body {
   color: var(--gold);
   opacity: 0.5;
 }
-
+.mini-card-bookmark {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+.mini-card-bookmark:hover {
+  background: var(--gold-bg);
+  color: var(--gold);
+}
+.mini-card-bookmark.bookmarked {
+  color: var(--gold);
+}
+.mini-card-bookmark.bookmarked svg {
+  fill: var(--gold);
+}
+.mini-card-bookmark svg {
+  width: 14px;
+  height: 14px;
+}
 .mini-card-emoji {
   font-size: 24px;
   line-height: 1;
 }
-
 .mini-card-name {
   font-size: 11px;
   font-weight: 600;
   line-height: 1.25;
 }
-
-@media (min-width: 500px) {
+@media (min-width: 500px){
   .mini-cards {
     grid-template-columns: repeat(5, 1fr);
   }
@@ -478,9 +514,7 @@ body {
   }
 }
 
-/* ==========================================
-   CHAPTERS / CAPÍTULOS
-   ========================================== */
+/* Capítulos / Benefícios */
 .chapter {
   margin-bottom: 24px;
   border-radius: var(--radius-md);
@@ -488,7 +522,6 @@ body {
   box-shadow: var(--shadow-sm);
   scroll-margin-top: 70px;
 }
-
 .chapter-header {
   display: flex;
   align-items: flex-start;
@@ -496,18 +529,15 @@ body {
   padding: 18px 16px;
   background: var(--bg-dark);
 }
-
 .chapter-header .emoji {
   font-size: 28px;
   line-height: 1;
   flex-shrink: 0;
 }
-
 .chapter-header-content {
   flex: 1;
   min-width: 0;
 }
-
 .chapter-eyebrow {
   color: var(--gold);
   font-size: 10px;
@@ -516,7 +546,6 @@ body {
   text-transform: uppercase;
   margin-bottom: 4px;
 }
-
 .chapter-title {
   font-family: var(--font-serif);
   font-size: clamp(18px, 5vw, 22px);
@@ -524,12 +553,15 @@ body {
   line-height: 1.2;
   color: var(--text-inverse);
 }
-
-.chapter-share {
+.chapter-actions {
+  display: flex;
+  gap: 8px;
   flex-shrink: 0;
-  background: var(--whatsapp);
+}
+.chapter-btn {
+  background: rgba(255,255,255,0.1);
   border: none;
-  color: #fff;
+  color: var(--gold-light);
   width: 34px;
   height: 34px;
   border-radius: 50%;
@@ -540,25 +572,31 @@ body {
   text-decoration: none;
   transition: transform 0.2s, background 0.2s;
 }
-
-.chapter-share:active {
+.chapter-btn:active {
   transform: scale(0.92);
+  background: rgba(255,255,255,0.2);
+}
+.chapter-btn.bookmark-btn.bookmarked {
+  background: var(--gold);
+  color: #fff;
+}
+.chapter-btn.share-btn {
+  background: var(--whatsapp);
+  color: #fff;
+}
+.chapter-btn.share-btn:active {
   background: #1ebe5d;
 }
-
-.chapter-share svg {
+.chapter-btn svg {
   width: 16px;
   height: 16px;
 }
-
 .chapter-body {
   padding: 16px;
   background: var(--bg-card);
 }
 
-/* ==========================================
-   BENEFIT BLOCKS
-   ========================================== */
+/* Benefit blocks */
 .benefit-block {
   display: flex;
   gap: 14px;
@@ -570,17 +608,15 @@ body {
   margin-bottom: 10px;
   scroll-margin-top: 70px;
   transition: border-color 0.2s, box-shadow 0.2s;
+  position: relative;
 }
-
 .benefit-block:last-child {
   margin-bottom: 0;
 }
-
 .benefit-block:active {
   border-color: var(--gold);
   box-shadow: var(--shadow-sm);
 }
-
 .benefit-num {
   font-family: var(--font-serif);
   font-size: clamp(32px, 9vw, 42px);
@@ -590,18 +626,15 @@ body {
   flex-shrink: 0;
   min-width: 40px;
 }
-
 .benefit-content {
   flex: 1;
   min-width: 0;
 }
-
 .benefit-emoji {
   font-size: 20px;
   margin-bottom: 2px;
   display: inline-block;
 }
-
 .benefit-name {
   font-family: var(--font-serif);
   font-size: 16px;
@@ -610,18 +643,15 @@ body {
   margin-bottom: 6px;
   color: var(--text);
 }
-
 .benefit-desc {
   font-size: 13px;
   color: var(--text-soft);
   line-height: 1.55;
 }
-
 .benefit-desc strong {
   color: var(--text);
   font-weight: 600;
 }
-
 .benefit-tag {
   display: inline-block;
   margin-top: 10px;
@@ -636,9 +666,7 @@ body {
   border: 1px solid var(--gold-border);
 }
 
-/* ==========================================
-   ALERT / AVISO
-   ========================================== */
+/* Alert */
 .alert {
   display: flex;
   gap: 10px;
@@ -649,31 +677,25 @@ body {
   line-height: 1.5;
   border: 1px solid;
 }
-
 .alert svg {
   flex-shrink: 0;
   margin-top: 1px;
   width: 18px;
   height: 18px;
 }
-
 .alert.success {
   background: var(--green-bg);
   border-color: var(--green-border);
   color: #1A4D32;
 }
-
 .alert.success svg {
   color: var(--green);
 }
-
 .alert strong {
   font-weight: 700;
 }
 
-/* ==========================================
-   SINDICATO CARD
-   ========================================== */
+/* SIndicato card */
 .sindicato-card {
   background: var(--bg-card);
   border: 1px solid var(--gold-border);
@@ -682,7 +704,6 @@ body {
   margin: 28px 0 24px;
   box-shadow: var(--shadow-sm);
 }
-
 .sindicato-eyebrow {
   font-size: 10px;
   font-weight: 700;
@@ -691,7 +712,6 @@ body {
   color: var(--gold);
   margin-bottom: 6px;
 }
-
 .sindicato-title {
   font-family: var(--font-serif);
   font-size: 18px;
@@ -700,14 +720,12 @@ body {
   margin-bottom: 10px;
   color: var(--text);
 }
-
 .sindicato-text {
   font-size: 13px;
   color: var(--text-soft);
   line-height: 1.55;
   margin-bottom: 14px;
 }
-
 .sindicato-info {
   background: var(--gold-bg);
   border: 1px solid var(--gold-border);
@@ -717,7 +735,6 @@ body {
   line-height: 1.6;
   color: var(--text);
 }
-
 .sindicato-info strong {
   display: block;
   font-size: 14px;
@@ -726,9 +743,7 @@ body {
   font-weight: 700;
 }
 
-/* ==========================================
-   CTA FINAL
-   ========================================== */
+/* CTA Final - Genérico */
 .cta-section {
   background: var(--bg-dark);
   border-radius: var(--radius-lg);
@@ -738,10 +753,9 @@ body {
   position: relative;
   overflow: hidden;
 }
-
 .cta-section::before,
 .cta-section::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 180px;
   height: 180px;
@@ -749,17 +763,14 @@ body {
   border-radius: 50%;
   pointer-events: none;
 }
-
 .cta-section::before {
   top: -60px;
   left: -60px;
 }
-
 .cta-section::after {
   bottom: -60px;
   right: -60px;
 }
-
 .cta-eyebrow {
   position: relative;
   z-index: 1;
@@ -770,7 +781,6 @@ body {
   color: var(--gold);
   margin-bottom: 10px;
 }
-
 .cta-title {
   position: relative;
   z-index: 1;
@@ -781,12 +791,10 @@ body {
   color: var(--text-inverse);
   margin-bottom: 12px;
 }
-
 .cta-title em {
   color: var(--gold-light);
   font-style: italic;
 }
-
 .cta-text {
   position: relative;
   z-index: 1;
@@ -795,7 +803,6 @@ body {
   line-height: 1.55;
   margin-bottom: 20px;
 }
-
 .cta-btn {
   position: relative;
   z-index: 1;
@@ -814,18 +821,15 @@ body {
   width: 100%;
   max-width: 280px;
 }
-
 .cta-btn:active {
   transform: scale(0.97);
   opacity: 0.92;
 }
-
 .cta-btn svg {
   width: 18px;
   height: 18px;
   flex-shrink: 0;
 }
-
 .cta-footer {
   position: relative;
   z-index: 1;
@@ -834,69 +838,274 @@ body {
   padding-top: 20px;
   font-size: 12px;
   color: rgba(255,255,255,0.6);
-  line-height: 1.9;
+  line-height: 1.8;
 }
-
 .cta-footer strong {
   color: var(--gold);
   font-weight: 700;
   font-size: 13px;
 }
-
 .cta-footer a {
   color: rgba(255,255,255,0.85);
   text-decoration: none;
-  transition: color 0.2s;
 }
-
 .cta-footer a:hover,
 .cta-footer a:active {
   color: var(--gold-light);
 }
 
-/* ==========================================
-   FAB - BOTÃO VOLTAR AO TOPO
-   ========================================== */
-.fab-top {
+/* FAB Container - Botões flutuantes */
+.fab-container {
   position: fixed;
   bottom: calc(20px + var(--safe-bottom));
   right: 16px;
-  width: 44px;
-  height: 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 90;
+}
+.fab {
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background: var(--bg-dark);
-  color: var(--gold-light);
-  border: 1px solid var(--gold);
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s, transform 0.2s;
-  z-index: 90;
+  text-decoration: none;
+  transition: opacity 0.3s, transform 0.2s, box-shadow 0.2s;
   box-shadow: var(--shadow-lg);
 }
-
-.fab-top.visible {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.fab-top:active {
+.fab:active {
   transform: scale(0.92);
-  background: var(--gold);
-  color: #fff;
 }
-
-.fab-top svg {
+.fab svg {
   width: 20px;
   height: 20px;
 }
 
-/* ==========================================
-   DISCLAIMER
-   ========================================== */
+/* FAB - Voltar ao topo */
+.fab-top {
+  background: var(--bg-dark);
+  color: var(--gold-light);
+  border: 1px solid var(--gold);
+  opacity: 0;
+  pointer-events: none;
+}
+.fab-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.fab-top:active {
+  background: var(--gold);
+  color: #fff;
+}
+
+/* FAB - Pesquisar */
+.fab-search {
+  background: var(--blue);
+  color: #fff;
+  border: none;
+}
+.fab-search:active {
+  background: #2563EB;
+}
+
+/* FAB - Marcadores */
+.fab-bookmarks {
+  background: var(--gold);
+  color: #fff;
+  border: none;
+  position: relative;
+}
+.fab-bookmarks:active {
+  background: var(--gold-light);
+}
+.fab-bookmarks .badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 18px;
+  height: 18px;
+  background: #EF4444;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.2s;
+}
+.fab-bookmarks .badge.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Modal de Marcadores */
+.bookmarks-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(28, 26, 23, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.bookmarks-modal.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.bookmarks-modal-content {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  width: 100%;
+  max-width: 500px;
+  max-height: 70vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-out;
+}
+.bookmarks-modal.open .bookmarks-modal-content {
+  transform: translateY(0);
+}
+.bookmarks-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--gold-border);
+}
+.bookmarks-modal-title {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.bookmarks-modal-title svg {
+  width: 20px;
+  height: 20px;
+  color: var(--gold);
+}
+.bookmarks-modal-close {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: var(--bg);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: all 0.2s;
+}
+.bookmarks-modal-close:hover {
+  background: var(--gold-bg);
+  color: var(--gold);
+}
+.bookmarks-modal-close svg {
+  width: 18px;
+  height: 18px;
+}
+.bookmarks-modal-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 20px;
+}
+.bookmarks-empty {
+  text-align: center;
+  padding: 32px 16px;
+  color: var(--text-muted);
+}
+.bookmarks-empty svg {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 12px;
+  opacity: 0.5;
+}
+.bookmarks-empty p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+.bookmarks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.bookmark-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: var(--bg);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: var(--text);
+  transition: all 0.2s;
+}
+.bookmark-item:hover,
+.bookmark-item:active {
+  border-color: var(--gold);
+  background: var(--gold-bg);
+}
+.bookmark-item .emoji {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+.bookmark-item-content {
+  flex: 1;
+  min-width: 0;
+}
+.bookmark-item-title {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 2px;
+}
+.bookmark-item-type {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.bookmark-item-remove {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+.bookmark-item-remove:hover {
+  background: #FEE2E2;
+  color: #EF4444;
+}
+.bookmark-item-remove svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Disclaimer */
 .disclaimer {
   font-size: 11px;
   color: var(--text-muted);
@@ -912,17 +1121,26 @@ body {
 
 <div class="progress-bar" id="progressBar"></div>
 
-<!-- HEADER -->
+<!-- Topbar com logo centralizada -->
 <header class="topbar">
-  <a href="https://dominiofarma.com" class="topbar-logo" aria-label="Domínio Farma Contabilidade">
-    <img src="/logo.png" alt="Domínio Farma Contabilidade" />
-  </a>
-  <a href="#" id="topbarShare" class="topbar-share" aria-label="Compartilhar no WhatsApp">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.2-.2-.5-.3z"/></svg>
-    <span>Compartilhar</span>
-  </a>
+  <div class="topbar-left">
+    <button class="topbar-btn" id="bookmarkPageBtn" aria-label="Salvar página">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+    </button>
+  </div>
+  <div class="topbar-center">
+    <a href="https://dominiofarma.com" class="topbar-logo" aria-label="Logo do Escritório">
+      <img src="/logo.png" alt="Domínio Farma Contabilidade" />
+    </a>
+  </div>
+  <div class="topbar-right">
+    <a href="https://central-de-conteudo-tau.vercel.app/" class="topbar-btn" aria-label="Pesquisar outro assunto" target="_blank">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    </a>
+  </div>
 </header>
 
+<!-- Conteúdo Principal -->
 <main class="article">
 
   <!-- HERO -->
@@ -940,7 +1158,21 @@ body {
     </div>
   </section>
 
-  <!-- PRICE CARD -->
+  <!-- Navegação por capítulos -->
+  <nav class="chapter-nav reveal">
+    <div class="chapter-nav-title">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
+      Ir para capítulo
+    </div>
+    <div class="chapter-nav-list">
+      <a href="#cap1" class="chapter-nav-item"><span class="emoji">💊</span> Saúde e Proteção</a>
+      <a href="#cap2" class="chapter-nav-item"><span class="emoji">👶</span> Família</a>
+      <a href="#cap3" class="chapter-nav-item"><span class="emoji">🚗</span> Mobilidade</a>
+      <a href="#cap4" class="chapter-nav-item"><span class="emoji">🎁</span> Vantagens</a>
+    </div>
+  </nav>
+
+  <!-- PREÇO -->
   <section class="price-card reveal">
     <div class="price-card-eyebrow">A empresa contribui mensalmente</div>
     <div class="price-value"><sup>R$</sup>32,90</div>
@@ -950,7 +1182,7 @@ body {
     </div>
   </section>
 
-  <!-- CCT BANNER -->
+  <!-- Banner CCT -->
   <div class="cct-banner reveal">
     <span class="emoji" aria-hidden="true">📜</span>
     <div>
@@ -959,25 +1191,25 @@ body {
     </div>
   </div>
 
-  <!-- MINI CARDS -->
+  <!-- Benefícios em visão geral -->
   <section class="benefits-overview reveal">
     <h2 class="section-title">Os 10 benefícios em um olhar</h2>
-    <p class="section-subtitle">Toque para ver detalhes</p>
+    <p class="section-subtitle">Toque para ver detalhes · 🔖 para salvar</p>
     <div class="mini-cards">
-      <a href="#b1" class="mini-card"><span class="mini-card-num">01</span><span class="mini-card-emoji">🦷</span><span class="mini-card-name">Odontológico</span></a>
-      <a href="#b2" class="mini-card"><span class="mini-card-num">02</span><span class="mini-card-emoji">💰</span><span class="mini-card-name">Seguro de Vida</span></a>
-      <a href="#b3" class="mini-card"><span class="mini-card-num">03</span><span class="mini-card-emoji">⚱️</span><span class="mini-card-name">Auxílio Funeral</span></a>
-      <a href="#b4" class="mini-card"><span class="mini-card-num">04</span><span class="mini-card-emoji">👶</span><span class="mini-card-name">Natalidade</span></a>
-      <a href="#b5" class="mini-card"><span class="mini-card-num">05</span><span class="mini-card-emoji">🔧</span><span class="mini-card-name">Pessoal Domiciliar</span></a>
-      <a href="#b6" class="mini-card"><span class="mini-card-num">06</span><span class="mini-card-emoji">🚗</span><span class="mini-card-name">Automóvel</span></a>
-      <a href="#b7" class="mini-card"><span class="mini-card-num">07</span><span class="mini-card-emoji">💻</span><span class="mini-card-name">Telemedicina</span></a>
-      <a href="#b8" class="mini-card"><span class="mini-card-num">08</span><span class="mini-card-emoji">🧠</span><span class="mini-card-name">Saúde Mental</span></a>
-      <a href="#b9" class="mini-card"><span class="mini-card-num">09</span><span class="mini-card-emoji">💊</span><span class="mini-card-name">Desconto Farmácia</span></a>
-      <a href="#b10" class="mini-card"><span class="mini-card-num">10</span><span class="mini-card-emoji">🎁</span><span class="mini-card-name">Clube Vantagens</span></a>
+      <a href="#b1" class="mini-card"><span class="mini-card-num">01</span><button class="mini-card-bookmark" data-bookmark="b1" data-title="Plano Odontológico" data-emoji="🦷" aria-label="Salvar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button><span class="mini-card-emoji">🦷</span><span class="mini-card-name">Odontológico</span></a>
+      <a href="#b2" class="mini-card"><span class="mini-card-num">02</span><button class="mini-card-bookmark" data-bookmark="b2" data-title="Seguro de Vida" data-emoji="💰" aria-label="Salvar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button><span class="mini-card-emoji">💰</span><span class="mini-card-name">Seguro de Vida</span></a>
+      <a href="#b3" class="mini-card"><span class="mini-card-num">03</span><button class="mini-card-bookmark" data-bookmark="b3" data-title="Auxílio Funeral" data-emoji="⚱️" aria-label="Salvar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button><span class="mini-card-emoji">⚱️</span><span class="mini-card-name">Auxílio Funeral</span></a>
+      <a href="#b4" class="mini-card"><span class="mini-card-num">04</span><button class="mini-card-bookmark" data-bookmark="b4" data-title="Natalidade" data-emoji="👶" aria-label="Salvar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button><span class="mini-card-emoji">👶</span><span class="mini-card-name">Natalidade</span></a>
+      <a href="#b5" class="mini-card"><span class="mini-card-num">05</span><button class="mini-card-bookmark" data-bookmark="b5" data-title="Assistência Domiciliar" data-emoji="🔧" aria-label="Salvar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button><span class="mini-card-emoji">🔧</span><span class="mini-card-name">Pessoal Domiciliar</span></a>
+      <a href="#b6" class="mini-card"><span class="mini-card-num">06</span><button class="mini-card-bookmark" data-bookmark="b6" data-title="Assistência Automóvel" data-emoji="🚗" aria-label="Salvar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button><span class="mini-card-emoji">🚗</span><span class="mini-card-name">Automóvel</span></a>
+      <a href="#b7" class="mini-card"><span class="mini-card-num">07</span><button class="mini-card-bookmark" data-bookmark="b7" data-title="Telemedicina" data-emoji="💻" aria-label="Salvar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button><span class="mini-card-emoji">💻</span><span class="mini-card-name">Telemedicina</span></a>
+      <a href="#b8" class="mini-card"><span class="mini-card-num">08</span><button class="mini-card-bookmark" data-bookmark="b8" data-title="Saúde Mental" data-emoji="🧠" aria-label="Salvar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button><span class="mini-card-emoji">🧠</span><span class="mini-card-name">Saúde Mental</span></a>
+      <a href="#b9" class="mini-card"><span class="mini-card-num">09</span><button class="mini-card-bookmark" data-bookmark="b9" data-title="Desconto Farmácia" data-emoji="💊" aria-label="Salvar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button><span class="mini-card-emoji">💊</span><span class="mini-card-name">Desconto Farmácia</span></a>
+      <a href="#b10" class="mini-card"><span class="mini-card-num">10</span><button class="mini-card-bookmark" data-bookmark="b10" data-title="Clube Vantagens" data-emoji="🎁" aria-label="Salvar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button><span class="mini-card-emoji">🎁</span><span class="mini-card-name">Clube Vantagens</span></a>
     </div>
   </section>
 
-  <!-- CAPÍTULO 1 -->
+  <!-- Capítulo 1 -->
   <section class="chapter reveal" id="cap1">
     <header class="chapter-header">
       <span class="emoji">💊</span>
@@ -985,9 +1217,14 @@ body {
         <div class="chapter-eyebrow">Capítulo 1 · Benefícios 1 a 3</div>
         <h2 class="chapter-title">Saúde, proteção e amparo familiar</h2>
       </div>
-      <a href="#" class="chapter-share" data-share-chapter="cap1" data-chapter-title="Saúde, proteção e amparo familiar" aria-label="Compartilhar capítulo">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.2-.2-.5-.3z"/></svg>
-      </a>
+      <div class="chapter-actions">
+        <button class="chapter-btn bookmark-btn" data-bookmark="cap1" data-title="Saúde, proteção e amparo familiar" data-emoji="💊" data-type="chapter" aria-label="Salvar capítulo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        </button>
+        <a href="#" class="chapter-btn share-btn" data-share-chapter="cap1" data-chapter-title="Saúde, proteção e amparo familiar" aria-label="Compartilhar capítulo">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.2-.2-.5-.3z"/></svg>
+        </a>
+      </div>
     </header>
     <div class="chapter-body">
       <div class="benefit-block" id="b1">
@@ -1020,7 +1257,7 @@ body {
     </div>
   </section>
 
-  <!-- CAPÍTULO 2 -->
+  <!-- Capítulo 2 -->
   <section class="chapter reveal" id="cap2">
     <header class="chapter-header">
       <span class="emoji">👶</span>
@@ -1028,9 +1265,14 @@ body {
         <div class="chapter-eyebrow">Capítulo 2 · Benefícios 4 e 5</div>
         <h2 class="chapter-title">Família e momentos especiais</h2>
       </div>
-      <a href="#" class="chapter-share" data-share-chapter="cap2" data-chapter-title="Família e momentos especiais" aria-label="Compartilhar capítulo">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.2-.2-.5-.3z"/></svg>
-      </a>
+      <div class="chapter-actions">
+        <button class="chapter-btn bookmark-btn" data-bookmark="cap2" data-title="Família e momentos especiais" data-emoji="👶" data-type="chapter" aria-label="Salvar capítulo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        </button>
+        <a href="#" class="chapter-btn share-btn" data-share-chapter="cap2" data-chapter-title="Família e momentos especiais" aria-label="Compartilhar capítulo">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.2-.2-.5-.3z"/></svg>
+        </a>
+      </div>
     </header>
     <div class="chapter-body">
       <div class="benefit-block" id="b4">
@@ -1054,7 +1296,7 @@ body {
     </div>
   </section>
 
-  <!-- CAPÍTULO 3 -->
+  <!-- Capítulo 3 -->
   <section class="chapter reveal" id="cap3">
     <header class="chapter-header">
       <span class="emoji">🚗</span>
@@ -1062,9 +1304,14 @@ body {
         <div class="chapter-eyebrow">Capítulo 3 · Benefícios 6 a 8</div>
         <h2 class="chapter-title">Mobilidade e cuidado integral</h2>
       </div>
-      <a href="#" class="chapter-share" data-share-chapter="cap3" data-chapter-title="Mobilidade e cuidado integral" aria-label="Compartilhar capítulo">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.2-.2-.5-.3z"/></svg>
-      </a>
+      <div class="chapter-actions">
+        <button class="chapter-btn bookmark-btn" data-bookmark="cap3" data-title="Mobilidade e cuidado integral" data-emoji="🚗" data-type="chapter" aria-label="Salvar capítulo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        </button>
+        <a href="#" class="chapter-btn share-btn" data-share-chapter="cap3" data-chapter-title="Mobilidade e cuidado integral" aria-label="Compartilhar capítulo">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.2-.2-.5-.3z"/></svg>
+        </a>
+      </div>
     </header>
     <div class="chapter-body">
       <div class="benefit-block" id="b6">
@@ -1097,7 +1344,7 @@ body {
     </div>
   </section>
 
-  <!-- CAPÍTULO 4 -->
+  <!-- Capítulo 4 -->
   <section class="chapter reveal" id="cap4">
     <header class="chapter-header">
       <span class="emoji">🎁</span>
@@ -1105,9 +1352,14 @@ body {
         <div class="chapter-eyebrow">Capítulo 4 · Benefícios 9 e 10</div>
         <h2 class="chapter-title">Vantagens digitais e economia</h2>
       </div>
-      <a href="#" class="chapter-share" data-share-chapter="cap4" data-chapter-title="Vantagens digitais e economia" aria-label="Compartilhar capítulo">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.2-.2-.5-.3z"/></svg>
-      </a>
+      <div class="chapter-actions">
+        <button class="chapter-btn bookmark-btn" data-bookmark="cap4" data-title="Vantagens digitais e economia" data-emoji="🎁" data-type="chapter" aria-label="Salvar capítulo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        </button>
+        <a href="#" class="chapter-btn share-btn" data-share-chapter="cap4" data-chapter-title="Vantagens digitais e economia" aria-label="Compartilhar capítulo">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.2-.2-.5-.3z"/></svg>
+        </a>
+      </div>
     </header>
     <div class="chapter-body">
       <div class="benefit-block" id="b9">
@@ -1131,25 +1383,24 @@ body {
     </div>
   </section>
 
-  <!-- ALERT -->
+  <!-- Operacionalização -->
   <div class="alert success reveal">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
     <div><strong>Operacionalização:</strong> A Domínio Farma Contabilidade garante a execução e entrega de todos os benefícios previstos na CCT. Os benefícios podem ser estendidos a sócios e acionistas das empresas participantes.</div>
   </div>
 
-  <!-- SINDICATO -->
+  <!-- Syndicate info -->
   <section class="sindicato-card reveal">
     <div class="sindicato-eyebrow">📍 Quer saber mais sobre seus direitos?</div>
     <h3 class="sindicato-title">Procure o sindicato da sua categoria</h3>
     <p class="sindicato-text">Para detalhes sobre a Convenção Coletiva, cláusulas, reajustes e direitos, busque informações diretamente com o sindicato:</p>
     <div class="sindicato-info">
       <strong>SINDPAT Jacobina e Região</strong>
-      📍 R. Artur Diniz Veloso, 56 — Centro, Jacobina/BA<br />
-      📞 (74) 99811-3338
+      📍 R. Artur Diniz Veloso, 56 — Centro, Jacobina/BA
     </div>
   </section>
 
-  <!-- CTA FINAL -->
+  <!-- CTA Final genérico -->
   <section class="cta-section reveal">
     <div class="cta-eyebrow">Domínio Farma Contabilidade</div>
     <h2 class="cta-title">Dúvidas? <em>Fale conosco!</em></h2>
@@ -1167,36 +1418,56 @@ body {
     </div>
   </section>
 
-  <!-- DISCLAIMER -->
+  <!-- Disclaimer -->
   <p class="disclaimer">
     Este conteúdo é meramente informativo. Valores e condições conforme Convenção Coletiva de Trabalho vigente. Para casos específicos, consulte o sindicato responsável ou um contador.
   </p>
 
 </main>
 
-<!-- FAB VOLTAR AO TOPO -->
-<button class="fab-top" id="fabTop" aria-label="Voltar ao topo">
-  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
-</button>
+<!-- Botões Flutuantes (FABs) -->
+<div class="fab-container">
+  <!-- Botão voltar ao topo -->
+  <button class="fab fab-top" id="fabTop" aria-label="Voltar ao topo">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+  </button>
+  
+  <!-- Botão marcadores -->
+  <button class="fab fab-bookmarks" id="fabBookmarks" aria-label="Ver marcadores salvos">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2z"/></svg>
+    <span class="badge" id="bookmarksBadge">0</span>
+  </button>
+  
+  <!-- Botão pesquisar outro assunto -->
+  <a href="https://central-de-conteudo-tau.vercel.app/" class="fab fab-search" target="_blank" rel="noopener" aria-label="Pesquisar outro assunto">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+  </a>
+</div>
+
+<!-- Modal de Marcadores -->
+<div class="bookmarks-modal" id="bookmarksModal">
+  <div class="bookmarks-modal-content">
+    <header class="bookmarks-modal-header">
+      <h3 class="bookmarks-modal-title">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2z"/></svg>
+        Meus Marcadores
+      </h3>
+      <button class="bookmarks-modal-close" id="closeBookmarksModal" aria-label="Fechar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </header>
+    <div class="bookmarks-modal-body" id="bookmarksModalBody">
+      <!-- Conteúdo dinâmico -->
+    </div>
+  </div>
+</div>
 
 <script>
-// Progress Bar + FAB
-const bar = document.getElementById('progressBar');
-const fabTop = document.getElementById('fabTop');
-
-window.addEventListener('scroll', () => {
-  const h = document.documentElement;
-  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
-  bar.style.width = Math.min(pct, 100) + '%';
-  fabTop.classList.toggle('visible', h.scrollTop > 400);
-}, { passive: true });
-
-fabTop.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-// Reveal on Scroll
-const reveals = document.querySelectorAll('.reveal');
+// ========== Utilidades ==========
+const $ = (sel) => document.querySelector(sel);
+const $$
+= (sel) => document.querySelectorAll(sel); // ========== Progresso e Topo ========== const bar = $('#progressBar'); const fabTop = $('#fabTop'); window.addEventListener('scroll', () => { const h = document.documentElement; const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100; bar.style.width = Math.min(pct, 100) + '%'; fabTop.classList.toggle('visible', h.scrollTop > 400); }); fabTop.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); }); // ========== Revelar elementos ========== const reveals =
+$$('.reveal');
 const io = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
@@ -1207,24 +1478,155 @@ const io = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 reveals.forEach(e => io.observe(e));
 
-// Data dinâmica
+// ========== Data de publicação ==========
 (function setPublishDate() {
   const meses = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
   const d = new Date();
-  document.getElementById('publishDate').textContent = `📅 Publicado em ${d.getDate()} de ${meses[d.getMonth()]} de ${d.getFullYear()}`;
+  $('#publishDate').textContent = `📅 Publicado em ${d.getDate()} de ${meses[d.getMonth()]} de ${d.getFullYear()}`;
 })();
 
-// Compartilhamento WhatsApp
+// ========== Sistema de Marcadores (Bookmarks) ==========
+const BOOKMARKS_KEY = 'dominiofarma_bookmarks';
+
+function getBookmarks() {
+  try {
+    return JSON.parse(localStorage.getItem(BOOKMARKS_KEY)) || [];
+  } catch {
+    return [];
+  }
+}
+
+function saveBookmarks(bookmarks) {
+  localStorage.setItem(BOOKMARKS_KEY, JSON.stringify(bookmarks));
+  updateBookmarksBadge();
+  updateAllBookmarkButtons();
+}
+
+function addBookmark(id, title, emoji, type = 'benefit') {
+  const bookmarks = getBookmarks();
+  if (!bookmarks.find(b => b.id === id)) {
+    bookmarks.push({ id, title, emoji, type, addedAt: Date.now() });
+    saveBookmarks(bookmarks);
+  }
+}
+
+function removeBookmark(id) {
+  const bookmarks = getBookmarks().filter(b => b.id !== id);
+  saveBookmarks(bookmarks);
+}
+
+function isBookmarked(id) {
+  return getBookmarks().some(b => b.id === id);
+}
+
+function updateBookmarksBadge() {
+  const count = getBookmarks().length;
+  const badge = $('#bookmarksBadge');
+  badge.textContent = count;
+  badge.classList.toggle('visible', count > 0);
+}
+
+function updateAllBookmarkButtons() {
+  $$
+('[data-bookmark]').forEach(btn => { const id = btn.dataset.bookmark; const bookmarked = isBookmarked(id); btn.classList.toggle('bookmarked', bookmarked); if (bookmarked) { btn.querySelector('svg').setAttribute('fill', 'currentColor'); } else { btn.querySelector('svg').setAttribute('fill', 'none'); } }); } // Clique em botões de bookmark
+$$('[data-bookmark]').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const { bookmark: id, title, emoji, type = 'benefit' } = btn.dataset;
+    if (isBookmarked(id)) {
+      removeBookmark(id);
+    } else {
+      addBookmark(id, title, emoji, type);
+    }
+  });
+});
+
+// Botão salvar página no topbar
+$('#bookmarkPageBtn').addEventListener('click', () => {
+  const id = 'page-main';
+  const title = '10 Benefícios Garantidos por CCT';
+  const emoji = '📄';
+  if (isBookmarked(id)) {
+    removeBookmark(id);
+    $('#bookmarkPageBtn').classList.remove('active');
+  } else {
+    addBookmark(id, title, emoji, 'page');
+    $('#bookmarkPageBtn').classList.add('active');
+  }
+});
+
+// ========== Modal de Marcadores ==========
+const bookmarksModal = $('#bookmarksModal');
+const bookmarksModalBody = $('#bookmarksModalBody');
+
+function renderBookmarksModal() {
+  const bookmarks = getBookmarks();
+  
+  if (bookmarks.length === 0) {
+    bookmarksModalBody.innerHTML = `
+      <div class="bookmarks-empty">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        <p>Nenhum marcador salvo ainda.<br/>Toque no ícone 🔖 para salvar capítulos ou benefícios.</p>
+      </div>
+    `;
+    return;
+  }
+  
+  const typeLabels = {
+    page: 'Página',
+    chapter: 'Capítulo',
+    benefit: 'Benefício'
+  };
+  
+  bookmarksModalBody.innerHTML = `
+    <div class="bookmarks-list">
+      ${bookmarks.map(b => `
+        <a href="#${b.id}" class="bookmark-item" data-bookmark-link="${b.id}">
+          <span class="emoji">${b.emoji}</span>
+          <div class="bookmark-item-content">
+            <div class="bookmark-item-title">${b.title}</div>
+            <div class="bookmark-item-type">${typeLabels[b.type] || 'Item'}</div>
+          </div>
+          <button class="bookmark-item-remove" data-remove-bookmark="${b.id}" aria-label="Remover">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          </button>
+        </a>
+      `).join('')}
+    </div>
+  `;
+  
+  // Evento para remover bookmark
+  $$
+('[data-remove-bookmark]').forEach(btn => { btn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); removeBookmark(btn.dataset.removeBookmark); renderBookmarksModal(); }); }); // Fechar modal ao clicar em link
+$$('[data-bookmark-link]').forEach(link => {
+    link.addEventListener('click', () => {
+      closeBookmarksModal();
+    });
+  });
+}
+
+function openBookmarksModal() {
+  renderBookmarksModal();
+  bookmarksModal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeBookmarksModal() {
+  bookmarksModal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+$('#fabBookmarks').addEventListener('click', openBookmarksModal);
+$('#closeBookmarksModal').addEventListener('click', closeBookmarksModal);
+bookmarksModal.addEventListener('click', (e) => {
+  if (e.target === bookmarksModal) closeBookmarksModal();
+});
+
+// ========== Compartilhamento ==========
 function getShareUrl(anchor) {
   const base = window.location.origin + window.location.pathname;
   return anchor ? `${base}#${anchor}` : base;
-}
-
-function shareOnWhatsApp(e) {
-  e.preventDefault();
-  const url = getShareUrl();
-  const text = `👷‍♂️ Confira este conteúdo da Domínio Farma Contabilidade: ${url}`;
-  window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
 }
 
 function shareChapter(e) {
@@ -1236,11 +1638,18 @@ function shareChapter(e) {
   window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
 }
 
-document.getElementById('topbarShare').addEventListener('click', shareOnWhatsApp);
-document.querySelectorAll('[data-share-chapter]').forEach(el => {
+$$('[data-share-chapter]').forEach(el => {
   el.addEventListener('click', shareChapter);
 });
-</script>
 
+// ========== Inicialização ==========
+updateBookmarksBadge();
+updateAllBookmarkButtons();
+
+// Verificar se a página está salva
+if (isBookmarked('page-main')) {
+  $('#bookmarkPageBtn').classList.add('active');
+}
+</script>
 </body>
 </html>
