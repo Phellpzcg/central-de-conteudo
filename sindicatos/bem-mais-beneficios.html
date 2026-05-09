@@ -4,14 +4,15 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <meta name="theme-color" content="#1C1A17" />
-<title>10 Benefícios Garantidos por CCT · Sindicato</title>
+<title>10 Benefícios Garantidos por CCT · Domínio Farma Contabilidade</title>
 <meta name="description" content="A empresa paga R$ 32,90 por mês e você tem 10 benefícios garantidos: plano odontológico, seguro de vida, auxílio funeral e mais." />
 
 <!-- Open Graph -->
 <meta property="og:title" content="A empresa paga R$ 32,90 por mês. Você tem 10 benefícios garantidos." />
 <meta property="og:description" content="Convenção Coletiva 2026/2027 garante odontológico, seguro de vida, auxílio funeral e mais 7 benefícios — custeados pela empresa." />
 <meta property="og:type" content="article" />
-<meta property="og:image" content="URL_DA_IMAGEM_OG" />
+<meta property="og:image" content="https://dominiofarma.com/og-image.jpg" />
+<meta property="og:site_name" content="Domínio Farma Contabilidade" />
 <meta name="twitter:card" content="summary_large_image" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -20,7 +21,7 @@
 
 <style>
 /* ==========================================
-   CSS VARIABLES - PALETA DO SINDICATO
+   CSS VARIABLES - PALETA DOMÍNIO FARMA
    ========================================== */
 :root {
   /* Fundos */
@@ -46,8 +47,6 @@
   --green-bg: #EBF5EF;
   --green-border: #A8D5BC;
   --whatsapp: #25D366;
-  --danger: #C53030;
-  --danger-bg: #FED7D7;
   
   /* Sombras */
   --shadow-sm: 0 1px 3px rgba(28,26,23,.06);
@@ -117,7 +116,7 @@ body {
 }
 
 /* ==========================================
-   HEADER / TOPBAR - Otimizado Mobile
+   HEADER / TOPBAR
    ========================================== */
 .topbar {
   position: sticky;
@@ -207,7 +206,7 @@ body {
 }
 
 /* ==========================================
-   HERO - Mobile Optimizado
+   HERO
    ========================================== */
 .hero {
   padding: 28px 0 24px;
@@ -287,7 +286,7 @@ body {
 }
 
 /* ==========================================
-   PRICE CARD - Mobile Stack
+   PRICE CARD
    ========================================== */
 .price-card {
   background: var(--bg-dark);
@@ -396,7 +395,7 @@ body {
 }
 
 /* ==========================================
-   MINI CARDS - Grid Mobile Otimizado
+   MINI CARDS
    ========================================== */
 .benefits-overview {
   margin-bottom: 32px;
@@ -558,7 +557,7 @@ body {
 }
 
 /* ==========================================
-   BENEFIT BLOCKS - Card Individual
+   BENEFIT BLOCKS
    ========================================== */
 .benefit-block {
   display: flex;
@@ -728,7 +727,7 @@ body {
 }
 
 /* ==========================================
-   CTA FINAL - Mobile Centered
+   CTA FINAL
    ========================================== */
 .cta-section {
   background: var(--bg-dark);
@@ -827,22 +826,6 @@ body {
   flex-shrink: 0;
 }
 
-.cta-share-link {
-  position: relative;
-  z-index: 1;
-  display: block;
-  color: rgba(255,255,255,0.65);
-  font-size: 12px;
-  text-decoration: none;
-  margin-top: 14px;
-  padding: 8px;
-  transition: color 0.2s;
-}
-
-.cta-share-link:active {
-  color: var(--gold-light);
-}
-
 .cta-footer {
   position: relative;
   z-index: 1;
@@ -851,7 +834,7 @@ body {
   padding-top: 20px;
   font-size: 12px;
   color: rgba(255,255,255,0.6);
-  line-height: 1.8;
+  line-height: 1.9;
 }
 
 .cta-footer strong {
@@ -861,10 +844,12 @@ body {
 }
 
 .cta-footer a {
-  color: rgba(255,255,255,0.8);
+  color: rgba(255,255,255,0.85);
   text-decoration: none;
+  transition: color 0.2s;
 }
 
+.cta-footer a:hover,
 .cta-footer a:active {
   color: var(--gold-light);
 }
@@ -921,21 +906,6 @@ body {
   border-top: 1px dashed var(--gold-border);
   margin-top: 24px;
 }
-
-/* ==========================================
-   UTILITÁRIOS
-   ========================================== */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
 </style>
 </head>
 <body>
@@ -944,8 +914,8 @@ body {
 
 <!-- HEADER -->
 <header class="topbar">
-  <a href="#" class="topbar-logo" aria-label="Logo do Sindicato">
-    <img src="logo.png" alt="Sindicato" />
+  <a href="https://dominiofarma.com" class="topbar-logo" aria-label="Domínio Farma Contabilidade">
+    <img src="/logo.png" alt="Domínio Farma Contabilidade" />
   </a>
   <a href="#" id="topbarShare" class="topbar-share" aria-label="Compartilhar no WhatsApp">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.2-.2-.5-.3z"/></svg>
@@ -1120,8 +1090,8 @@ body {
         <div class="benefit-content">
           <span class="benefit-emoji">🧠</span>
           <div class="benefit-name">Programa de Saúde Mental</div>
-          <div class="benefit-desc">Atendimento psicológico e suporte emocional para o trabalhador, com sigilo profissional garantido.</div>
-          <span class="benefit-tag">Sigilo profissional</span>
+          <div class="benefit-desc">2 sessões mensais com psicólogo, acompanhamento via WhatsApp e telemedicina para avaliação urgente.</div>
+          <span class="benefit-tag">Lei 14.831/2024</span>
         </div>
       </div>
     </div>
@@ -1145,7 +1115,7 @@ body {
         <div class="benefit-content">
           <span class="benefit-emoji">💊</span>
           <div class="benefit-name">Desconto em Farmácias</div>
-          <div class="benefit-desc">Economia na compra de medicamentos, suplementos e produtos OTC. Basta informar o CPF na compra para acessar os descontos.</div>
+          <div class="benefit-desc">Economia na compra de medicamentos genéricos, de marca e manipulados. Basta informar o CPF nas farmácias conveniadas.</div>
           <span class="benefit-tag">Rede nacional</span>
         </div>
       </div>
@@ -1154,7 +1124,7 @@ body {
         <div class="benefit-content">
           <span class="benefit-emoji">🎁</span>
           <div class="benefit-name">Clube Bem Mais Vantagens</div>
-          <div class="benefit-desc">Promoções em mais de <strong>200 parceiros</strong>, sorteios, cupons, cursos, revistas e entretenimento, tudo pelo aplicativo.</div>
+          <div class="benefit-desc">Descontos em mais de <strong>200 parceiros</strong>: cinema, delivery, e-commerce, cursos, revistas e entretenimento.</div>
           <span class="benefit-tag">+200 parceiros</span>
         </div>
       </div>
@@ -1164,7 +1134,7 @@ body {
   <!-- ALERT -->
   <div class="alert success reveal">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-    <div><strong>Operacionalização:</strong> A Dominio Farma Contabilidade garante a execução e entrega de todos os benefícios previstos na CCT.</div>
+    <div><strong>Operacionalização:</strong> A Domínio Farma Contabilidade garante a execução e entrega de todos os benefícios previstos na CCT. Os benefícios podem ser estendidos a sócios e acionistas das empresas participantes.</div>
   </div>
 
   <!-- SINDICATO -->
@@ -1174,25 +1144,26 @@ body {
     <p class="sindicato-text">Para detalhes sobre a Convenção Coletiva, cláusulas, reajustes e direitos, busque informações diretamente com o sindicato:</p>
     <div class="sindicato-info">
       <strong>SINDPAT Jacobina e Região</strong>
-      📍 R. Artur Diniz Veloso, 56 — Centro, Jacobina/BA
+      📍 R. Artur Diniz Veloso, 56 — Centro, Jacobina/BA<br />
+      📞 (74) 99811-3338
     </div>
   </section>
 
   <!-- CTA FINAL -->
   <section class="cta-section reveal">
-    <div class="cta-eyebrow">Dominio Farma Contabilidade · CCT 2026/2027</div>
-    <h2 class="cta-title">Dúvidas e <em>esclarecimentos?</em></h2>
-    <p class="cta-text">Fale conosco. A equipe está à disposição para esclarecer dúvidas sobre os benefícios garantidos na CCT.</p>
-    <a href="https://wa.me/5574999963592?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20os%20benefícios%20garantidos%20pela%20CCT." class="cta-btn" target="_blank" rel="noopener">
+    <div class="cta-eyebrow">Domínio Farma Contabilidade</div>
+    <h2 class="cta-title">Dúvidas? <em>Fale conosco!</em></h2>
+    <p class="cta-text">Estamos à disposição para esclarecer qualquer dúvida sobre seus direitos trabalhistas, folha de pagamento ou benefícios.</p>
+    <a href="https://wa.me/5574999963592?text=Olá!%20Gostaria%20de%20mais%20informações." class="cta-btn" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.2-.2-.5-.3z"/></svg>
-      Falar no WhatsApp
+      Fale pelo WhatsApp
     </a>
-    <a href="#" class="cta-share-link" id="ctaShare">📤 Compartilhar artigo</a>
     <div class="cta-footer">
-      <strong>Dominio Farma Contabilidade</strong><br>
-      📍 Rua Betânia, 26 — Oliveira, Capim Grosso/BA<br>
-      📞 (74) 9 9996-3592 · (74) 3621-3239<br>
-      📧 contato@dominiofarma.com.br
+      <strong>Domínio Farma Contabilidade</strong><br />
+      📍 Rua Betânia, 26, Oliveira — Capim Grosso/BA<br />
+      📞 (74) 9 9996-3592<br />
+      🌐 <a href="https://dominiofarma.com" target="_blank" rel="noopener">dominiofarma.com</a><br />
+      📸 Siga-nos: <a href="https://www.instagram.com/dominiofarmacontabilidade" target="_blank" rel="noopener">@dominiofarmacontabilidade</a>
     </div>
   </section>
 
@@ -1252,7 +1223,7 @@ function getShareUrl(anchor) {
 function shareOnWhatsApp(e) {
   e.preventDefault();
   const url = getShareUrl();
-  const text = `👷‍♂️ Sua empresa paga R$ 32,90/mês para garantir 10 benefícios a você por meio da CCT. Conheça seus direitos: ${url}`;
+  const text = `👷‍♂️ Confira este conteúdo da Domínio Farma Contabilidade: ${url}`;
   window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
 }
 
@@ -1261,12 +1232,11 @@ function shareChapter(e) {
   const anchor = e.currentTarget.dataset.shareChapter;
   const title = e.currentTarget.dataset.chapterTitle || '';
   const url = getShareUrl(anchor);
-  const text = `📖 ${title} — 10 benefícios garantidos por CCT: ${url}`;
+  const text = `📖 ${title} — Confira: ${url}`;
   window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
 }
 
 document.getElementById('topbarShare').addEventListener('click', shareOnWhatsApp);
-document.getElementById('ctaShare').addEventListener('click', shareOnWhatsApp);
 document.querySelectorAll('[data-share-chapter]').forEach(el => {
   el.addEventListener('click', shareChapter);
 });
