@@ -1,1075 +1,842 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="theme-color" content="#1C1A17" />
-<title>10 Benefícios Garantidos por CCT · Dominio Farma Contabilidade</title>
-<meta name="description" content="A empresa paga R$ 32,90 por mês e você tem 10 benefícios garantidos: plano odontológico, seguro de vida, auxílio funeral e mais." />
-
-<!-- URL canônica (altere para URL do seu GitHub Pages) -->
-<link rel="canonical" href="https://dominiofarma.github.io/wiki/beneficios-cct" />
-
-<!-- Open Graph / Twitter -->
-<meta property="og:title" content="A empresa paga R$ 32,90 por mês. Você tem 10 benefícios garantidos." />
-<meta property="og:description" content="Convenção Coletiva 2026/2027 garante odontológico, seguro de vida, auxílio funeral e mais 7 benefícios — custeados pela empresa." />
-<meta property="og:type" content="article" />
-<meta property="og:locale" content="pt_BR" />
-<meta property="og:image" content="https://dominiofarma.github.io/wiki/logo.png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:site_name" content="Dominio Farma Contabilidade" />
-
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="A empresa paga R$ 32,90 por mês. Você tem 10 benefícios garantidos." />
-<meta name="twitter:description" content="Convenção Coletiva 2026/2027 — odontológico, seguro de vida, auxílio funeral e mais 7 benefícios custeados pela empresa." />
-<meta name="twitter:image" content="https://dominiofarma.github.io/wiki/logo.png" />
-
-<!-- Fontes -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
-<!-- Favicon -->
-<link rel="icon" type="image/png" href="logo.png" />
-
-<style>
-:root {
-  --bg: #F7F5F0;
-  --bg-alt: #EFEDE6;
-  --bg-card: #FFFFFF;
-  --text: #1C1A17;
-  --text-soft: #5A5650;
-  --text-muted: #6B6660;
-  --gold: #A67C3B;
-  --gold-light: #C9A96E;
-  --gold-bg: #FBF4E8;
-  --gold-border: #E8D5B0;
-  --green: #2E7D52;
-  --green-bg: #EBF5EF;
-  --green-border: #A8D5BC;
-  --whatsapp: #25D366;
-  --shadow-sm: 0 1px 4px rgba(28,26,23,.08);
-  --shadow-md: 0 4px 16px rgba(28,26,23,.10);
-  --shadow-lg: 0 8px 32px rgba(28,26,23,.18);
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 20px;
-  --font-serif: 'Playfair Display', Georgia, serif;
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --max-w: 680px;
-}
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; transition: none; }
-}
-
-body {
-  font-family: var(--font-sans);
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.65;
-}
-html { scroll-behavior: smooth; }
-
-a:focus-visible,
-button:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 2px;
-  border-radius: 4px;
-}
-
-#progress-bar {
-  position: fixed;
-  top: 0; left: 0;
-  height: 3px;
-  width: 0%;
-  background: linear-gradient(90deg, var(--gold), var(--gold-light));
-  z-index: 1000;
-  transition: width 0.1s linear;
-}
-
-.topbar {
-  position: sticky;
-  top: 0;
-  background: rgba(28, 26, 23, 0.97);
-  backdrop-filter: blur(12px);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 20px;
-  z-index: 100;
-}
-.topbar a {
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.topbar img {
-  height: 40px;
-}
-.topbar-logo-fallback {
-  display: none;
-  font-family: var(--font-serif);
-  font-weight: 700;
-  font-size: 16px;
-  color: var(--gold);
-}
-
-.topbar-share {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: var(--whatsapp);
-  color: #fff;
-  border-radius: 20px;
-  padding: 7px 14px;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  border: none;
-  transition: opacity 0.2s, transform 0.2s;
-}
-.topbar-share:hover {
-  opacity: 0.88;
-  transform: translateY(-1px);
-}
-
-.article {
-  max-width: var(--max-w);
-  margin: 0 auto;
-  padding: 0 24px 100px;
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.hero {
-  padding: 48px 0 40px;
-  border-bottom: 1px solid var(--gold-border);
-  margin-bottom: 32px;
-}
-.hero-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--gold-bg);
-  padding: 6px 14px;
-  border-radius: 999px;
-  border: 1px solid var(--gold-border);
-  color: var(--gold);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 24px;
-}
-.hero-title {
-  font-family: var(--font-serif);
-  font-weight: 900;
-  font-size: clamp(28px, 7vw, 44px);
-  margin-bottom: 18px;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-}
-.hero-title em {
-  color: var(--gold);
-  font-style: italic;
-}
-.hero-subtitle {
-  font-size: 17px;
-  color: var(--text-soft);
-  line-height: 1.55;
-  margin-bottom: 24px;
-}
-.hero-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 0;
-  font-size: 13px;
-  color: var(--text-muted);
-}
-.hero-meta span {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-.hero-meta span:not(:last-child)::after {
-  content: '•';
-  margin: 0 10px;
-  color: var(--gold-light);
-}
-
-.price-card {
-  background: #1C1A17;
-  padding: 28px 26px;
-  margin-bottom: 24px;
-  border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  gap: 22px;
-  overflow: hidden;
-  position: relative;
-  color: #fff;
-}
-.price-card::before {
-  content: '';
-  position: absolute;
-  top: -40px;
-  right: -40px;
-  width: 160px;
-  height: 160px;
-  background: radial-gradient(circle, rgba(201,169,110,.18), transparent 70%);
-  border-radius: 50%;
-}
-.price-card-left {
-  position: relative;
-  z-index: 1;
-}
-.price-card-eyebrow {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-bottom: 6px;
-  color: var(--gold-light);
-}
-.price-value {
-  font-family: var(--font-serif);
-  font-size: clamp(36px, 9vw, 52px);
-  font-weight: 900;
-  line-height: 1;
-  letter-spacing: -0.02em;
-}
-.price-value sup {
-  font-size: 0.5em;
-  color: var(--gold-light);
-  vertical-align: super;
-  font-weight: 700;
-}
-.price-period {
-  display: block;
-  margin-top: 6px;
-  font-size: 13px;
-  color: rgba(255,255,255,0.7);
-  font-weight: 500;
-}
-.price-card-right {
-  flex: 1;
-  border-left: 1px solid rgba(201,169,110,0.3);
-  padding-left: 22px;
-  font-size: 14px;
-  line-height: 1.5;
-  position: relative;
-  z-index: 1;
-}
-.price-card-right strong {
-  color: var(--gold-light);
-}
-
-.urgency-banner {
-  background: var(--text);
-  border-radius: var(--radius-md);
-  border-left: 4px solid var(--gold);
-  padding: 18px 20px;
-  margin-bottom: 40px;
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  color: #fff;
-}
-.emoji {
-  font-size: 28px;
-  flex-shrink: 0;
-}
-.urgency-banner h2 {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.10em;
-  text-transform: uppercase;
-  margin-bottom: 6px;
-  color: var(--gold);
-}
-.urgency-banner p {
-  font-size: 14px;
-  line-height: 1.5;
-  color: rgba(255,255,255,0.85);
-}
-
-.mini-cards-section {
-  margin-bottom: 56px;
-  text-align: center;
-}
-.mini-cards-title {
-  font-family: var(--font-serif);
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 18px;
-}
-.mini-cards-subtitle {
-  font-size: 13.5px;
-  color: var(--text-muted);
-  margin-bottom: 24px;
-}
-.mini-cards {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  padding: 0 10px;
-}
-.mini-card {
-  background: var(--bg-card);
-  border: 1px solid var(--gold-border);
-  border-radius: var(--radius-md);
-  padding: 14px 12px;
-  text-align: center;
-  text-decoration: none;
-  color: var(--text);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  min-height: 90px;
-  position: relative;
-  opacity: 0;
-  animation: miniCardIn 0.5s forwards;
-  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-}
-.mini-card:nth-child(1) { animation-delay: .05s; }
-.mini-card:nth-child(2) { animation-delay: .10s; }
-.mini-card:nth-child(3) { animation-delay: .15s; }
-.mini-card:nth-child(4) { animation-delay: .20s; }
-.mini-card:nth-child(5) { animation-delay: .25s; }
-.mini-card:nth-child(6) { animation-delay: .30s; }
-.mini-card:nth-child(7) { animation-delay: .35s; }
-.mini-card:nth-child(8) { animation-delay: .40s; }
-.mini-card:nth-child(9) { animation-delay: .45s; }
-.mini-card:nth-child(10){ animation-delay: .50s; }
-
-@keyframes miniCardIn {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.mini-card:hover,
-.mini-card:focus {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--gold);
-}
-
-.mini-card-num {
-  position: absolute;
-  top: 6px;
-  left: 8px;
-  font-family: var(--font-serif);
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--gold);
-  opacity: 0.6;
-}
-.mini-card-emoji {
-  font-size: 26px;
-  line-height: 1;
-  z-index: 1;
-}
-.mini-card-name {
-  font-size: 11.5px;
-  font-weight: 600;
-  line-height: 1.25;
-  z-index: 1;
-}
-
-.chapter {
-  margin-bottom: 32px;
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  overflow: hidden;
-  scroll-margin-top: 80px;
-}
-.chapter-header {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  padding: 24px 22px;
-  background: var(--text);
-}
-.chapter-header .emoji {
-  font-size: 32px;
-  flex-shrink: 0;
-}
-.chapter-header-content {
-  flex: 1;
-  min-width: 0;
-}
-.chapter-eyebrow {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-  color: var(--gold);
-}
-.chapter-title {
-  font-family: var(--font-serif);
-  font-size: clamp(20px, 5vw, 26px);
-  font-weight: 700;
-  line-height: 1.2;
-  color: #fff;
-  letter-spacing: -0.01em;
-}
-.chapter-share {
-  flex-shrink: 0;
-  background: var(--whatsapp);
-  border: none;
-  color: #fff;
-  width: 36px; height: 36px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center; justify-content: center;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
-  margin-top: 2px;
-}
-.chapter-share:hover,
-.chapter-share:focus {
-  background: #1ebe5d;
-  transform: scale(1.08);
-}
-.chapter-share svg {
-  width: 18px;
-  height: 18px;
-}
-.chapter-body {
-  padding: 24px 20px;
-  background: var(--bg-card);
-}
-
-.benefit-block {
-  display: flex;
-  gap: 18px;
-  align-items: flex-start;
-  background: var(--bg);
-  border: 1px solid var(--gold-border);
-  border-radius: var(--radius-md);
-  padding: 20px;
-  margin-bottom: 14px;
-  scroll-margin-top: 80px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-}
-.benefit-block:last-child { margin-bottom: 0; }
-.benefit-block:hover,
-.benefit-block:target {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--gold);
-}
-.benefit-num {
-  font-family: var(--font-serif);
-  font-size: clamp(38px, 8vw, 50px);
-  font-weight: 900;
-  color: var(--gold);
-  line-height: 1;
-  flex-shrink: 0;
-  min-width: 50px;
-}
-.benefit-content {
-  flex: 1;
-}
-.benefit-emoji {
-  font-size: 22px;
-  margin-bottom: 4px;
-  display: inline-block;
-}
-.benefit-name {
-  font-family: var(--font-serif);
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 1.25;
-  margin-bottom: 8px;
-  color: var(--text);
-}
-.benefit-desc {
-  font-size: 14px;
-  color: var(--text-soft);
-  line-height: 1.6;
-}
-.benefit-desc strong {
-  font-weight: 600;
-  color: var(--text);
-}
-.benefit-tag {
-  display: inline-block;
-  margin-top: 12px;
-  font-size: 10.5px;
-  font-weight: 700;
-  padding: 3px 9px;
-  border-radius: 6px;
-  background: var(--gold-bg);
-  color: var(--gold);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  border: 1px solid var(--gold-border);
-}
-
-.sindicato-ref {
-  background: var(--bg-card);
-  border: 1px solid var(--gold-border);
-  border-radius: var(--radius-md);
-  padding: 28px 24px;
-  margin: 40px 0 32px;
-  box-shadow: var(--shadow-sm);
-}
-.sindicato-ref-eyebrow {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.10em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 8px;
-}
-.sindicato-ref-title {
-  font-family: var(--font-serif);
-  font-size: 22px;
-  font-weight: 700;
-  line-height: 1.3;
-  margin-bottom: 12px;
-  color: var(--text);
-}
-.sindicato-ref-text {
-  font-size: 14.5px;
-  color: var(--text-soft);
-  line-height: 1.6;
-  margin-bottom: 18px;
-}
-.sindicato-ref-info {
-  background: var(--gold-bg);
-  border: 1px solid var(--gold-border);
-  border-radius: var(--radius-sm);
-  padding: 16px 18px;
-  font-size: 14px;
-  line-height: 1.7;
-  color: var(--text);
-}
-.sindicato-ref-info strong {
-  display: block;
-  font-size: 15px;
-  color: var(--gold);
-  margin-bottom: 4px;
-  font-weight: 700;
-}
-
-.cta-section {
-  background: #1C1A17;
-  border-radius: var(--radius-lg);
-  padding: 40px 28px;
-  margin-top: 32px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.cta-section::before {
-  content: '';
-  position: absolute;
-  top: -60px; left: -60px;
-  width: 220px; height: 220px;
-  background: radial-gradient(circle, rgba(201,169,110,0.15), transparent 70%);
-  border-radius: 50%;
-}
-.cta-section::after {
-  content: '';
-  position: absolute;
-  bottom: -60px; right: -60px;
-  width: 220px; height: 220px;
-  background: radial-gradient(circle, rgba(201,169,110,0.10), transparent 70%);
-  border-radius: 50%;
-}
-.cta-eyebrow {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 12px;
-  position: relative;
-  z-index: 1;
-}
-.cta-title {
-  font-family: var(--font-serif);
-  font-size: clamp(24px, 6vw, 32px);
-  font-weight: 700;
-  line-height: 1.2;
-  color: #fff;
-  margin-bottom: 14px;
-  letter-spacing: -0.01em;
-  position: relative;
-  z-index: 1;
-}
-.cta-title em {
-  color: var(--gold-light);
-  font-style: italic;
-}
-.cta-text {
-  font-size: 15px;
-  color: rgba(255,255,255,0.8);
-  line-height: 1.6;
-  margin-bottom: 24px;
-  max-width: 480px;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  z-index: 1;
-}
-.cta-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--whatsapp);
-  color: #fff;
-  padding: 14px 28px;
-  border-radius: 999px;
-  font-size: 15px;
-  font-weight: 700;
-  text-decoration: none;
-  cursor: pointer;
-  transition: opacity 0.2s, transform 0.2s;
-  margin-bottom: 14px;
-  position: relative;
-  z-index: 1;
-}
-.cta-btn:hover {
-  opacity: 0.92;
-  transform: translateY(-2px);
-}
-.cta-share-link {
-  display: inline-block;
-  margin-left: 14px;
-  font-size: 13px;
-  color: rgba(255,255,255,0.7);
-  cursor: pointer;
-  transition: color 0.2s;
-  text-decoration: underline;
-  position: relative;
-  z-index: 1;
-}
-.cta-share-link:hover {
-  color: var(--gold-light);
-}
-
-.fab-top {
-  position: fixed;
-  bottom: 24px; right: 24px;
-  width: 46px; height: 46px;
-  border-radius: 50%;
-  background: var(--text);
-  color: var(--gold-light);
-  border: 1px solid var(--gold);
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s, transform 0.3s, background 0.2s;
-  z-index: 90;
-  box-shadow: var(--shadow-lg);
-}
-.fab-top.visible {
-  opacity: 1;
-  pointer-events: auto;
-}
-.fab-top:hover {
-  background: var(--gold);
-  color: #fff;
-  transform: translateY(-2px);
-}
-
-.disclaimer {
-  font-size: 11.5px;
-  color: var(--text-muted);
-  text-align: center;
-  line-height: 1.55;
-  padding: 24px 8px 0;
-  border-top: 1px dashed var(--gold-border);
-  margin-top: 28px;
-}
-
-@media(max-width: 600px) {
-  .article { padding: 0 18px 80px; }
-  .hero { padding: 36px 0 32px; }
-  .price-card {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-    padding: 24px 20px;
-  }
-  .price-card-right {
-    border-left: none;
-    border-top: 1px solid rgba(201,169,110,0.3);
-    padding-left: 0;
-    padding-top: 16px;
-  }
-  .chapter-body { padding: 20px 16px; }
-  .benefit-block { padding: 16px; gap: 14px; }
-  .benefit-num { min-width: 40px; }
-  .cta-section { padding: 32px 20px; }
-  .cta-share-link { display: block; margin-left: 0; margin-top: 12px; }
-  .topbar { padding: 10px 16px; }
-  .topbar img { height: 34px; }
-  .fab-top { bottom: 16px; right: 16px; width: 42px; height: 42px; }
-}
-
-@media(max-width: 375px) {
-  .hero-meta span {
-    display: block;
-    width: 100%;
-    margin-bottom: 4px;
-  }
-  .hero-meta span:not(:last-child)::after {
-    display: none;
-  }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domínio Farma Contabilidade | Central de Conteúdo</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Central de Conteúdo da Domínio Farma Contabilidade. Acesse materiais, guias e recursos exclusivos para farmácias e drogarias.">
+    <meta name="keywords" content="contabilidade, farmácia, drogaria, gestão farmacêutica, contabilidade especializada">
+    <meta name="author" content="Domínio Farma Contabilidade">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://central-de-conteudo-tau.vercel.app/">
+    <meta property="og:title" content="Domínio Farma Contabilidade | Central de Conteúdo">
+    <meta property="og:description" content="Acesse materiais, guias e recursos exclusivos para farmácias e drogarias.">
+    <meta property="og:image" content="https://central-de-conteudo-tau.vercel.app/logo.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://central-de-conteudo-tau.vercel.app/">
+    <meta name="twitter:title" content="Domínio Farma Contabilidade | Central de Conteúdo">
+    <meta name="twitter:description" content="Acesse materiais, guias e recursos exclusivos para farmácias e drogarias.">
+    <meta name="twitter:image" content="https://central-de-conteudo-tau.vercel.app/logo.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/logo.png">
+    <link rel="apple-touch-icon" href="/logo.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reset e Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #0066CC;
+            --primary-dark: #004C99;
+            --secondary-color: #00A86B;
+            --accent-color: #FF6B35;
+            --text-dark: #1A1A2E;
+            --text-medium: #4A4A68;
+            --text-light: #7A7A8C;
+            --bg-light: #F8F9FC;
+            --bg-white: #FFFFFF;
+            --border-color: #E5E7EB;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        /* Header */
+        header {
+            background: var(--bg-white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+        
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .logo-text span {
+            color: var(--secondary-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--text-medium);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: var(--primary-color);
+        }
+        
+        .btn-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.65rem 1.5rem;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-header:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        .mobile-menu-btn span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: var(--text-dark);
+            margin: 5px 0;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            padding: 5rem 2rem;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></svg>');
+            background-size: 60px;
+            opacity: 0.5;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: var(--primary-color);
+            padding: 1rem 2rem;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: white;
+        }
+        
+        /* Stats Section */
+        .stats {
+            background: var(--bg-white);
+            padding: 3rem 2rem;
+            margin-top: -2rem;
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .stat-item h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-item p {
+            color: var(--text-medium);
+            font-size: 0.95rem;
+        }
+        
+        /* Content Section */
+        .content-section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+            color: var(--text-medium);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .card {
+            background: var(--bg-white);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+        }
+        
+        .card p {
+            color: var(--text-medium);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .card-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+        
+        .card-link:hover {
+            gap: 0.75rem;
+        }
+        
+        /* Features Section */
+        .features {
+            background: var(--bg-white);
+            padding: 5rem 2rem;
+        }
+        
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-item {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--bg-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+        }
+        
+        .feature-item h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        
+        .feature-item p {
+            color: var(--text-medium);
+            font-size: 0.9rem;
+        }
+        
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #008B57 100%);
+            padding: 5rem 2rem;
+            text-align: center;
+            color: white;
+        }
+        
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .cta h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .cta p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+        }
+        
+        .cta .btn-primary {
+            background: white;
+            color: var(--secondary-color);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-col h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-col a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-col a:hover {
+            color: white;
+        }
+        
+        .footer-col p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-logo img {
+            height: 40px;
+            width: auto;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul,
+            .btn-header {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero {
+                padding: 3rem 1.5rem;
+            }
+            
+            .stats {
+                margin: -1rem 1rem 0;
+                padding: 2rem 1.5rem;
+            }
+            
+            .content-section,
+            .features,
+            .cta,
+            footer {
+                padding: 3rem 1.5rem;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+    </style>
 </head>
 <body>
-
-<div id="progress-bar" role="progressbar" aria-label="Progresso de leitura"></div>
-
-<header class="topbar">
-  <a href="index.html" class="topbar-logo" aria-label="Voltar para Wiki Dominio Farma">
-    <img src="logo.png" alt="Dominio Farma Contabilidade" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';" />
-    <span class="topbar-logo-fallback">Dominio Farma</span>
-  </a>
-  <button class="topbar-share" id="topbarShare" aria-label="Compartilhar artigo no WhatsApp">
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.75.75 0 00.918.918l4.458-1.495A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.487 0-4.807-.798-6.694-2.152a.75.75 0 00-.598-.104l-3.019 1.012 1.012-3.019a.75.75 0 00-.104-.598A9.96 9.96 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
-    <span>Compartilhar</span>
-  </button>
-</header>
-
-<main class="article">
-
-<!-- HERO -->
-<section class="hero">
-  <span class="hero-tag">
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-    Direito Trabalhista · Garantido por CCT
-  </span>
-  <h1 class="hero-title">A empresa paga R$ 32,90 por mês. Você tem <em>10 benefícios</em> garantidos.</h1>
-  <p class="hero-subtitle">Convenção Coletiva 2026/2027 garante odontológico, seguro de vida, auxílio funeral e mais 7 benefícios — custeados integralmente pela empresa.</p>
-  <div class="hero-meta">
-    <span id="publishDate">📅 Publicado em maio de 2026</span>
-    <span>📖 4 min de leitura</span>
-    <span>📍 Jacobina e Região / BA</span>
-  </div>
-</section>
-
-<!-- Valor mensal -->
-<section class="price-card reveal">
-  <div class="price-card-left">
-    <div class="price-card-eyebrow">A empresa contribui mensalmente</div>
-    <div class="price-value"><sup>R$</sup>32,90</div>
-    <span class="price-period">por empregado · pago pela empresa</span>
-  </div>
-  <div class="price-card-right">
-    <strong>Você não paga nada.</strong> O valor é integralmente custeado pela empresa para garantir os 10 benefícios deste plano, conforme acordado na CCT.
-  </div>
-</section>
-
-<!-- Banner de CCT -->
-<div class="urgency-banner reveal">
-  <span class="emoji" aria-hidden="true">📜</span>
-  <div>
-    <h2>Instituído por CCT</h2>
-    <p>Por meio da Convenção Coletiva de Trabalho, sua empresa contribui com R$ 32,90 por mês para oferecer os benefícios garantidos na negociação sindical da categoria.</p>
-  </div>
-</div>
-
-<!-- Navegação rápida -->
-<nav class="mini-cards-section reveal" aria-label="Navegação rápida pelos benefícios">
-  <h2 class="mini-cards-title">Os 10 benefícios em um olhar</h2>
-  <p class="mini-cards-subtitle">Toque em qualquer card para ver detalhes</p>
-  <div class="mini-cards">
-    <a href="#b1" class="mini-card"><span class="mini-card-num">01</span><span class="mini-card-emoji" aria-hidden="true">🦷</span><span class="mini-card-name">Odontológico</span></a>
-    <a href="#b2" class="mini-card"><span class="mini-card-num">02</span><span class="mini-card-emoji" aria-hidden="true">💰</span><span class="mini-card-name">Seguro de Vida</span></a>
-    <a href="#b3" class="mini-card"><span class="mini-card-num">03</span><span class="mini-card-emoji" aria-hidden="true">⚱️</span><span class="mini-card-name">Auxílio Funeral</span></a>
-    <a href="#b4" class="mini-card"><span class="mini-card-num">04</span><span class="mini-card-emoji" aria-hidden="true">👶</span><span class="mini-card-name">Natalidade</span></a>
-    <a href="#b5" class="mini-card"><span class="mini-card-num">05</span><span class="mini-card-emoji" aria-hidden="true">🔧</span><span class="mini-card-name">Pessoal Domiciliar</span></a>
-    <a href="#b6" class="mini-card"><span class="mini-card-num">06</span><span class="mini-card-emoji" aria-hidden="true">🚗</span><span class="mini-card-name">Automóvel</span></a>
-    <a href="#b7" class="mini-card"><span class="mini-card-num">07</span><span class="mini-card-emoji" aria-hidden="true">💻</span><span class="mini-card-name">Telemedicina</span></a>
-    <a href="#b8" class="mini-card"><span class="mini-card-num">08</span><span class="mini-card-emoji" aria-hidden="true">🧠</span><span class="mini-card-name">Saúde Mental</span></a>
-    <a href="#b9" class="mini-card"><span class="mini-card-num">09</span><span class="mini-card-emoji" aria-hidden="true">💊</span><span class="mini-card-name">Desconto Farmácia</span></a>
-    <a href="#b10" class="mini-card"><span class="mini-card-num">10</span><span class="mini-card-emoji" aria-hidden="true">🎁</span><span class="mini-card-name">Clube Vantagens</span></a>
-  </div>
-</nav>
-
-<!-- Capítulo 1 -->
-<section class="chapter reveal" id="cap1">
-  <header class="chapter-header">
-    <span class="emoji" aria-hidden="true">💊</span>
-    <div class="chapter-header-content">
-      <div class="chapter-eyebrow">Capítulo 1 · Benefícios 1 a 3</div>
-      <h2 class="chapter-title">Saúde, proteção e amparo familiar</h2>
-    </div>
-    <button class="chapter-share" data-share-chapter="cap1" data-chapter-title="Saúde, proteção e amparo familiar" aria-label="Compartilhar este capítulo no WhatsApp">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
-    </button>
-  </header>
-  <div class="chapter-body">
-    <div class="benefit-block" id="b1" tabindex="-1">
-      <div class="benefit-num" aria-hidden="true">1</div>
-      <div class="benefit-content">
-        <span class="benefit-emoji" aria-hidden="true">🦷</span>
-        <h3 class="benefit-name">Plano Odontológico Completo</h3>
-        <p class="benefit-desc">Cobertura odontológica nacional sem carências, incluindo consultas, limpezas, restaurações, tratamento de canal, odontopediatria, radiologia e próteses.</p>
-        <span class="benefit-tag">Sem carência</span>
-      </div>
-    </div>
-    <div class="benefit-block" id="b2" tabindex="-1">
-      <div class="benefit-num" aria-hidden="true">2</div>
-      <div class="benefit-content">
-        <span class="benefit-emoji" aria-hidden="true">💰</span>
-        <h3 class="benefit-name">Seguro de Vida e Invalidez</h3>
-        <p class="benefit-desc">Proteção financeira de até <strong>R$ 15.000,00</strong> para morte natural ou acidental, invalidez por acidente ou doença.</p>
-        <span class="benefit-tag">Cobertura até R$ 15 mil</span>
-      </div>
-    </div>
-    <div class="benefit-block" id="b3" tabindex="-1">
-      <div class="benefit-num" aria-hidden="true">3</div>
-      <div class="benefit-content">
-        <span class="benefit-emoji" aria-hidden="true">⚱️</span>
-        <h3 class="benefit-name">Auxílio Funeral</h3>
-        <p class="benefit-desc">Cobertura de <strong>R$ 3.300,00</strong> para funeral, cesta básica de R$ 150 por 6 meses e cartão de R$ 600 para despesas imediatas. Ativado em até 60 dias após o óbito.</p>
-        <span class="benefit-tag">Apoio à família</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Capítulo 2 -->
-<section class="chapter reveal" id="cap2">
-  <header class="chapter-header">
-    <span class="emoji" aria-hidden="true">👶</span>
-    <div class="chapter-header-content">
-      <div class="chapter-eyebrow">Capítulo 2 · Benefícios 4 e 5</div>
-      <h2 class="chapter-title">Família e momentos especiais</h2>
-    </div>
-    <button class="chapter-share" data-share-chapter="cap2" data-chapter-title="Família e momentos especiais" aria-label="Compartilhar este capítulo no WhatsApp">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
-    </button>
-  </header>
-  <div class="chapter-body">
-    <div class="benefit-block" id="b4" tabindex="-1">
-      <div class="benefit-num" aria-hidden="true">4</div>
-      <div class="benefit-content">
-        <span class="benefit-emoji" aria-hidden="true">👶</span>
-        <h3 class="benefit-name">Assistência Natalidade</h3>
-        <p class="benefit-desc"><strong>R$ 600</strong> para enxoval, limite de uma vez por ano, com adicional de R$ 300 por gêmeo. Contato em até 60 dias após o nascimento.</p>
-        <span class="benefit-tag">R$ 600 + adicional</span>
-      </div>
-    </div>
-    <div class="benefit-block" id="b5" tabindex="-1">
-      <div class="benefit-num" aria-hidden="true">5</div>
-      <div class="benefit-content">
-        <span class="benefit-emoji" aria-hidden="true">🔧</span>
-        <h3 class="benefit-name">Assistência Pessoal Domiciliar</h3>
-        <p class="benefit-desc">Chaveiro, encanador e faxineira hospitalar, com limites de R$ 100 ou R$ 80,90/dia. Até 2 acionamentos por ano, atendimento 24h.</p>
-        <span class="benefit-tag">Atendimento 24h</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Capítulo 3 -->
-<section class="chapter reveal" id="cap3">
-  <header class="chapter-header">
-    <span class="emoji" aria-hidden="true">🚗</span>
-    <div class="chapter-header-content">
-      <div class="chapter-eyebrow">Capítulo 3 · Benefícios 6 a 8</div>
-      <h2 class="chapter-title">Mobilidade e cuidado integral</h2>
-    </div>
-    <button class="chapter-share" data-share-chapter="cap3" data-chapter-title="Mobilidade e cuidado integral" aria-label="Compartilhar este capítulo no WhatsApp">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
-    </button>
-  </header>
-  <div class="chapter-body">
-    <div class="benefit-block" id="b6" tabindex="-1">
-      <div class="benefit-num" aria-hidden="true">6</div>
-      <div class="benefit-content">
-        <span class="benefit-emoji" aria-hidden="true">🚗</span>
-        <h3 class="benefit-name">Assistência Automóvel Completa</h3>
-        <p class="benefit-desc">Socorro mecânico, reboque, troca de pneus e almoxarifado móvel. Até 1 acionamento por serviço/ano, atendimento 24h em dias úteis.</p>
-        <span class="benefit-tag">Cobertura 24h</span>
-      </div>
-    </div>
-    <div class="benefit-block" id="b7" tabindex="-1">
-      <div class="benefit-num" aria-hidden="true">7</div>
-      <div class="benefit-content">
-        <span class="benefit-emoji" aria-hidden="true">💻</span>
-        <h3 class="benefit-name">Telemedicina Individual</h3>
-        <p class="benefit-desc">Consultas online com especialistas. Agendamento de segunda a sexta, até 19h, via app, e-mail ou WhatsApp.</p>
-        <span class="benefit-tag">Consulta remota</span>
-      </div>
-    </div>
-    <div class="benefit-block" id="b8" tabindex="-1">
-      <div class="benefit-num" aria-hidden="true">8</div>
-      <div class="benefit-content">
-        <span class="benefit-emoji" aria-hidden="true">🧠</span>
-        <h3 class="benefit-name">Programa de Saúde Mental</h3>
-        <p class="benefit-desc">Atendimento psicológico e suporte emocional para o trabalhador, com sigilo profissional garantido.</p>
-        <span class="benefit-tag">Sigilo profissional</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Capítulo 4 -->
-<section class="chapter reveal" id="cap4">
-  <header class="chapter-header">
-    <span class="emoji" aria-hidden="true">🎁</span>
-    <div class="chapter-header-content">
-      <div class="chapter-eyebrow">Capítulo 4 · Benefícios 9 e 10</div>
-      <h2 class="chapter-title">Vantagens digitais e economia</h2>
-    </div>
-    <button class="chapter-share" data-share-chapter="cap4" data-chapter-title="Vantagens digitais e economia" aria-label="Compartilhar este capítulo no WhatsApp">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
-    </button>
-  </header>
-  <div class="chapter-body">
-    <div class="benefit-block" id="b9" tabindex="-1">
-      <div class="benefit-num" aria-hidden="true">9</div>
-      <div class="benefit-content">
-        <span class="benefit-emoji" aria-hidden="true">💊</span>
-        <h3 class="benefit-name">Desconto em Farmácias</h3>
-        <p class="benefit-desc">Economia na compra de medicamentos, suplementos e produtos OTC. Basta informar o CPF na compra para acessar os descontos.</p>
-        <span class="benefit-tag">Rede nacional</span>
-      </div>
-    </div>
-    <div class="benefit-block" id="b10" tabindex="-1">
-      <div class="benefit-num" aria-hidden="true">10</div>
-      <div class="benefit-content">
-        <span class="benefit-emoji" aria-hidden="true">🎁</span>
-        <h3 class="benefit-name">Clube Bem Mais Vantagens</h3>
-        <p class="benefit-desc">Promoções em mais de <strong>200 parceiros</strong>, sorteios, cupons, cursos, revistas e entretenimento, tudo pelo aplicativo.</p>
-        <span class="benefit-tag">+200 parceiros</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Referência ao sindicato -->
-<section class="sindicato-ref reveal">
-  <div class="sindicato-ref-eyebrow">Fonte oficial</div>
-  <h2 class="sindicato-ref-title">Sindicato dos Empregados no Comércio de Jacobina e Região</h2>
-  <p class="sindicato-ref-text">Estes benefícios estão garantidos pela Convenção Coletiva de Trabalho 2026/2027, firmada entre o sindicato patronal e o sindicato dos trabalhadores.</p>
-  <div class="sindicato-ref-info">
-    <strong>📍 Contato do Sindicato</strong>
-    Rua São Félix, 123 – Centro, Jacobina/BA<br>
-    Tel: (74) 3621-XXXX · WhatsApp: (74) 99XXX-XXXX
-  </div>
-</section>
-
-<!-- CTA Final -->
-<section class="cta-section reveal">
-  <div class="cta-eyebrow">Dúvidas sobre seus benefícios?</div>
-  <h2 class="cta-title">Fale com a <em>Dominio Farma</em></h2>
-  <p class="cta-text">Nossa equipe está pronta para esclarecer suas dúvidas sobre a CCT e os benefícios garantidos ao trabalhador do comércio farmacêutico.</p>
-  <a href="https://wa.me/5574999999999?text=Olá!%20Vim%20pelo%20artigo%20dos%2010%20benefícios%20e%20gostaria%20de%20mais%20informações." class="cta-btn" target="_blank" rel="noopener">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
-    Falar no WhatsApp
-  </a>
-  <span class="cta-share-link" id="ctaShare">ou compartilhe este artigo</span>
-</section>
-
-<!-- Disclaimer -->
-<p class="disclaimer">
-  Este conteúdo é informativo e baseado na CCT 2026/2027. Para informações oficiais, consulte o sindicato da categoria ou a empresa administradora dos benefícios.
-</p>
-
-</main>
-
-<!-- Botão voltar ao topo -->
-<button id="fabTop" class="fab-top" aria-label="Voltar ao topo">
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
-</button>
-
-<script>
-(function() {
-  'use strict';
-
-  const $ = (sel) => document.querySelector(sel);
-  const $$
-= (sel) => document.querySelectorAll(sel); const bar = $('#progress-bar'); const btnTop = $('#fabTop'); // Barra de progresso e botão voltar ao topo let ticking = false; const updateScroll = () => { const { scrollTop, scrollHeight, clientHeight } = document.documentElement; const pct = (scrollTop / (scrollHeight - clientHeight)) * 100; if (bar) bar.style.width = `${Math.min(pct, 100)}%`; if (btnTop) btnTop.classList.toggle('visible', scrollTop > 600); ticking = false; }; window.addEventListener('scroll', () => { if (!ticking) { requestAnimationFrame(updateScroll); ticking = true; } }, { passive: true }); if (btnTop) { btnTop.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); }); } // Reveal on scroll const reveals =
-$$('.reveal');
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.05, rootMargin: '100px 0px' });
-    reveals.forEach(el => observer.observe(el));
-  } else {
-    reveals.forEach(el => el.classList.add('visible'));
-  }
-
-  // Data de publicação dinâmica
-  const publishEl = $('#publishDate');
-  if (publishEl) {
-    const meses = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
-    const d = new Date();
-    publishEl.textContent = `📅 Publicado em ${d.getDate()} de ${meses[d.getMonth()]} de ${d.getFullYear()}`;
-  }
-
-  // Compartilhamento WhatsApp
-  const getShareUrl = (anchor) => {
-    const base = window.location.href.split('#')[0];
-    return anchor ? `${base}#${anchor}` : base;
-  };
-
-  const shareArticle = () => {
-    const url = getShareUrl();
-    const text = `👷‍♂️ Você sabia? Sua empresa paga R$ 32,90/mês para garantir 10 benefícios a você por meio da CCT. Conheça seus direitos:\n\n${url}`;
-    window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
-  };
-
-  const shareChapter = (e) => {
-    const btn = e.currentTarget;
-    const anchor = btn.dataset.shareChapter;
-    const title = btn.dataset.chapterTitle || '';
-    const url = getShareUrl(anchor);
-    const text = `📖 ${title}\n\nCapítulo do artigo "10 benefícios garantidos por CCT":\n${url}`;
-    window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
-  };
-
-  $('#topbarShare')?.addEventListener('click', shareArticle);
-  $('#ctaShare')?.addEventListener('click', shareArticle);
-  $$
-('[data-share-chapter]').forEach(b => b.addEventListener('click', shareChapter)); // Navegação suave nos mini cartões
-$$('.mini-card').forEach(card => {
-    card.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetId = card.getAttribute('href');
-      const target = document.querySelector(targetId);
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        setTimeout(() => target.focus({ preventScroll: true }), 500);
-      }
-    });
-  });
-
-})();
-</script>
-
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo">
+                <img src="/logo.png" alt="Domínio Farma Contabilidade">
+                <span class="logo-text">Domínio<span>Farma</span></span>
+            </a>
+            
+            <nav>
+                <ul>
+                    <li><a href="#conteudos">Conteúdos</a></li>
+                    <li><a href="#recursos">Recursos</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+            
+            <a href="#contato" class="btn-header">Fale Conosco</a>
+            
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Central de Conteúdo para Farmácias e Drogarias</h1>
+            <p>Acesse materiais exclusivos, guias práticos e recursos especializados para otimizar a gestão contábil da sua farmácia.</p>
+            <div class="hero-buttons">
+                <a href="#conteudos" class="btn-primary">
+                    📚 Explorar Conteúdos
+                </a>
+                <a href="#contato" class="btn-secondary">
+                    Falar com Especialista
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stat-item">
+            <h3>500+</h3>
+            <p>Farmácias Atendidas</p>
+        </div>
+        <div class="stat-item">
+            <h3>15+</h3>
+            <p>Anos de Experiência</p>
+        </div>
+        <div class="stat-item">
+            <h3>100%</h3>
+            <p>Especializado em Farmácias</p>
+        </div>
+        <div class="stat-item">
+            <h3>24h</h3>
+            <p>Suporte Disponível</p>
+        </div>
+    </section>
+    
+    <!-- Content Section -->
+    <section id="conteudos" class="content-section">
+        <div class="section-header">
+            <h2>Nossos Conteúdos</h2>
+            <p>Materiais desenvolvidos especialmente para o segmento farmacêutico, com foco em resultados e conformidade.</p>
+        </div>
+        
+        <div class="cards-grid">
+            <article class="card">
+                <div class="card-icon">📊</div>
+                <h3>Guia de Gestão Fiscal</h3>
+                <p>Entenda todas as obrigações fiscais específicas para farmácias e evite problemas com o fisco.</p>
+                <a href="#" class="card-link">Acessar Guia →</a>
+            </article>
+            
+            <article class="card">
+                <div class="card-icon">💰</div>
+                <h3>Planejamento Tributário</h3>
+                <p>Estratégias legais para reduzir a carga tributária da sua drogaria de forma segura.</p>
+                <a href="#" class="card-link">Saiba Mais →</a>
+            </article>
+            
+            <article class="card">
+                <div class="card-icon">📋</div>
+                <h3>Controle de Estoque</h3>
+                <p>Melhores práticas para gestão de estoque com impacto direto na sua contabilidade.</p>
+                <a href="#" class="card-link">Ver Conteúdo →</a>
+            </article>
+            
+            <article class="card">
+                <div class="card-icon">🏥</div>
+                <h3>Regulamentações ANVISA</h3>
+                <p>Atualizações sobre normas e regulamentações que afetam o setor farmacêutico.</p>
+                <a href="#" class="card-link">Conferir →</a>
+            </article>
+            
+            <article class="card">
+                <div class="card-icon">📈</div>
+                <h3>Indicadores de Desempenho</h3>
+                <p>KPIs essenciais para monitorar a saúde financeira da sua farmácia.</p>
+                <a href="#" class="card-link">Explorar →</a>
+            </article>
+            
+            <article class="card">
+                <div class="card-icon">🔄</div>
+                <h3>Fluxo de Caixa</h3>
+                <p>Como manter um fluxo de caixa saudável mesmo com as particularidades do setor.</p>
+                <a href="#" class="card-link">Acessar →</a>
+            </article>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section id="recursos" class="features">
+        <div class="features-container">
+            <div class="section-header">
+                <h2>Por que escolher a Domínio Farma?</h2>
+                <p>Somos especialistas no que fazemos: contabilidade para farmácias e drogarias.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Especialização Total</h3>
+                    <p>Focamos 100% no segmento farmacêutico, conhecendo todas as particularidades do setor.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Agilidade</h3>
+                    <p>Processos otimizados para entregar resultados rápidos sem perder a qualidade.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Segurança</h3>
+                    <p>Conformidade total com a legislação vigente e proteção dos seus dados.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Parceria</h3>
+                    <p>Mais que contadores, somos parceiros estratégicos do seu negócio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-content">
+            <h2>Pronto para transformar a gestão da sua farmácia?</h2>
+            <p>Entre em contato conosco e descubra como podemos ajudar sua farmácia a crescer com segurança e eficiência.</p>
+            <a href="#contato" class="btn-primary">
+                📞 Agendar Conversa
+            </a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer id="contato">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="/logo.png" alt="Domínio Farma Contabilidade">
+                    </div>
+                    <p>Contabilidade especializada para farmácias e drogarias. Há mais de 15 anos ajudando o setor farmacêutico a crescer.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">f</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="LinkedIn">in</a>
+                        <a href="#" aria-label="WhatsApp">📱</a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#conteudos">Conteúdos</a></li>
+                        <li><a href="#recursos">Recursos</a></li>
+                        <li><a href="#">Serviços</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Serviços</h4>
+                    <ul>
+                        <li><a href="#">Contabilidade</a></li>
+                        <li><a href="#">Fiscal</a></li>
+                        <li><a href="#">Folha de Pagamento</a></li>
+                        <li><a href="#">Consultoria</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contato</h4>
+                    <p>
+                        📧 contato@dominiofarma.com.br<br>
+                        📞 (11) 9999-9999<br>
+                        📍 São Paulo, SP
+                    </p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Domínio Farma Contabilidade. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Simple Mobile Menu Script -->
+    <script>
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const nav = document.querySelector('nav ul');
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+            nav.style.position = 'absolute';
+            nav.style.top = '100%';
+            nav.style.left = '0';
+            nav.style.right = '0';
+            nav.style.background = 'white';
+            nav.style.flexDirection = 'column';
+            nav.style.padding = '1rem';
+            nav.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+            nav.style.gap = '1rem';
+        });
+    </script>
 </body>
 </html>
