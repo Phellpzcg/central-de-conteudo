@@ -37,6 +37,7 @@
     line-height:1.65;
     overflow:hidden;
     height:100vh;
+    width:100%;
     -webkit-font-smoothing:antialiased;
   }
 
@@ -61,7 +62,7 @@
     100%{background-position:200% 50%}
   }
 
-  /* TOPBAR PRETA */
+  /* TOPBAR */
   .topbar{
     position:fixed;
     top:4px;left:0;right:0;
@@ -112,25 +113,23 @@
     background:#fff;
     color:var(--topbar);
     border-color:#fff;
-    transform:translateX(-2px);
   }
 
-  /* DECK */
+  /* DECK CORRIGIDO */
   .deck{
-    position:relative;
-    height:100vh;
-    width:100%;
+    position:fixed;
+    top:66px;
+    left:0;right:0;bottom:0;
     overflow:hidden;
-    padding-top:66px;
   }
   .slides{
     position:relative;
-    height:100%;
+    width:100%;
     transition:transform .8s cubic-bezier(.65,.05,.35,1);
   }
   .slide{
-    position:absolute;
-    top:0;left:0;right:0;
+    position:relative;
+    width:100%;
     height:calc(100vh - 66px);
     padding:30px 24px 90px;
     overflow-y:auto;
@@ -165,7 +164,6 @@
     font-size:15px;
     font-weight:700;
     color:var(--ink);
-    letter-spacing:-.01em;
   }
   p{font-size:15.5px;color:var(--ink-soft);line-height:1.7}
 
@@ -175,7 +173,6 @@
     font-weight:900;
     color:var(--primary);
     background:linear-gradient(120deg,transparent 0%,transparent 60%,rgba(201,123,60,.25) 60%,rgba(201,123,60,.25) 95%,transparent 95%);
-    background-size:100% 100%;
     padding:0 4px;
   }
 
@@ -211,7 +208,7 @@
     margin-top:14px;
   }
 
-  /* SLIDE 1 — CAPA */
+  /* SLIDE 1 CAPA */
   .cover{text-align:center}
   .orbital{
     position:relative;
@@ -286,7 +283,6 @@
   }
   .info-text{font-size:15px;font-weight:600;color:var(--ink)}
 
-  /* CHIP NUMERADO */
   .chip{
     display:inline-flex;
     align-items:center;
@@ -301,7 +297,6 @@
     margin-bottom:14px;
   }
 
-  /* CARDS */
   .card{
     background:var(--card);
     border:1px solid var(--border);
@@ -311,7 +306,6 @@
     box-shadow:0 4px 16px rgba(0,0,0,.04);
   }
 
-  /* ALERT */
   .alert{
     display:flex;
     gap:14px;
@@ -328,7 +322,6 @@
   .alert.success{background:#E8F1EB;border-color:var(--success);color:#1F4A36}
   .alert-ic{font-size:20px;flex-shrink:0;line-height:1}
 
-  /* CHECKLIST */
   .checklist{margin-top:22px;display:flex;flex-direction:column;gap:12px}
   .check-item{
     display:flex;
@@ -354,7 +347,6 @@
   .check-text{font-size:14.5px;color:var(--ink-soft);line-height:1.55;flex:1}
   .check-text strong{color:var(--ink);font-weight:700}
 
-  /* LISTA SIMPLES */
   .doc-list{
     margin-top:20px;
     display:flex;
@@ -377,7 +369,6 @@
   .doc-title{font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:2px}
   .doc-desc{font-size:13px;color:var(--muted);line-height:1.5}
 
-  /* GRID DE BLOCOS */
   .block-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -403,7 +394,6 @@
   }
   .block-desc{font-size:12.5px;color:var(--muted);line-height:1.5}
 
-  /* CTA BUTTONS */
   .cta-stack{
     display:flex;
     flex-direction:column;
@@ -436,7 +426,6 @@
   .cta-primary:hover{
     background:#B66B30;
     transform:translateY(-2px);
-    box-shadow:0 10px 28px rgba(201,123,60,.4);
   }
   .cta-secondary{
     background:transparent;
@@ -476,7 +465,6 @@
     font-weight:600;
   }
 
-  /* SLIDE FINAL ORBITAL PEQUENO */
   .orb-sm{
     position:relative;
     width:140px;height:140px;
@@ -494,7 +482,6 @@
     box-shadow:0 8px 24px rgba(15,61,46,.25);
   }
 
-  /* EXEMPLO BOX */
   .example{
     margin-top:18px;
     padding:16px 18px;
@@ -548,6 +535,9 @@
     display:flex;
     gap:6px;
     z-index:80;
+    max-width:60%;
+    flex-wrap:wrap;
+    justify-content:center;
   }
   .dots button{
     width:8px;height:8px;
@@ -590,7 +580,7 @@
   .nav-arrows button:disabled{opacity:.4;cursor:not-allowed}
   .nav-arrows svg{stroke:var(--ink);transition:stroke .3s}
 
-  /* ANIMAÇÕES FADE */
+  /* ANIMAÇÕES */
   .au{opacity:0;transform:translateY(20px);animation:fadeUp .8s ease forwards}
   .as{opacity:0;transform:scale(.92);animation:fadeScale .8s ease forwards}
   @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
@@ -599,7 +589,6 @@
   .d4{animation-delay:.4s}.d5{animation-delay:.5s}.d6{animation-delay:.6s}
   .d7{animation-delay:.7s}
 
-  /* RESPONSIVE */
   @media(max-width:768px){
     .slide{padding:20px 18px 100px}
     .block-grid{grid-template-columns:1fr;gap:10px}
@@ -611,6 +600,7 @@
     .topbar{padding:0 16px}
     .nav-arrows{bottom:14px;right:14px}
     .counter{bottom:18px;left:14px}
+    .dots{max-width:50%}
   }
   @media(max-width:480px){
     h1{font-size:32px}
@@ -622,10 +612,8 @@
 </head>
 <body>
 
-<!-- PROGRESS BAR -->
 <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
 
-<!-- TOPBAR PRETA -->
 <header class="topbar">
   <div class="brand">
     <img src="../logo.png" alt="Domínio Farma" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
@@ -640,7 +628,6 @@
   </button>
 </header>
 
-<!-- DECK -->
 <div class="deck">
   <div class="slides" id="slides">
 
@@ -662,7 +649,7 @@
         <div class="eyebrow au d1">Manual do Empreendedor · 2026</div>
         <h1 class="au d2">Abertura de <span class="gt">Empresa</span></h1>
         <div class="divider center au d3"></div>
-        <p class="lead au d4">Um guia <strong>claro e direto</strong> para você separar tudo o que precisa e tirar sua empresa do papel — com tranquilidade.</p>
+        <p class="lead au d4">Um guia <strong>claro e direto</strong> para você separar tudo o que precisa e tirar sua empresa do papel.</p>
 
         <div class="info-list au d5">
           <div class="info-row">
@@ -765,7 +752,7 @@
           <div class="block au d5">
             <div class="block-emoji">👤</div>
             <div class="block-title">Sócio</div>
-            <div class="block-desc">RG, CPF, CNH, gov.br e comprovante de residência</div>
+            <div class="block-desc">RG, CPF, CNH, gov.br e comprovante</div>
           </div>
           <div class="block au d6">
             <div class="block-emoji">🏪</div>
@@ -820,7 +807,7 @@
       </div>
     </section>
 
-    <!-- SLIDE 7 — DOCUMENTOS DE IDENTIDADE -->
+    <!-- SLIDE 7 — IDENTIDADE -->
     <section class="slide">
       <div class="slide-inner">
         <div class="chip au d1">4</div>
@@ -858,7 +845,7 @@
         <div class="chip au d1">5</div>
         <h2 class="au d2">Escolha <span class="gt">3 nomes</span></h2>
         <div class="divider au d3"></div>
-        <p class="lead au d4">A Junta Comercial pode recusar nomes semelhantes a outros já registrados. Por isso, liste opções em ordem de prioridade.</p>
+        <p class="lead au d4">A Junta Comercial pode recusar nomes semelhantes a outros já registrados. Liste opções em ordem de prioridade.</p>
 
         <div class="doc-list">
           <div class="doc-item au d5">
@@ -885,7 +872,7 @@
       </div>
     </section>
 
-    <!-- SLIDE 9 — CONTATO DA EMPRESA -->
+    <!-- SLIDE 9 — CONTATO -->
     <section class="slide">
       <div class="slide-inner">
         <div class="chip au d1">6</div>
@@ -917,7 +904,7 @@
       </div>
     </section>
 
-    <!-- SLIDE 10 — TIPO DE ATIVIDADE -->
+    <!-- SLIDE 10 — ATIVIDADE -->
     <section class="slide">
       <div class="slide-inner">
         <div class="chip au d1">7</div>
@@ -1108,12 +1095,10 @@
   </div>
 </div>
 
-<!-- WHATSAPP FLOAT -->
 <a class="wa-float" target="_blank" href="https://wa.me/5574999263592?text=Ol%C3%A1!%20Quero%20abrir%20minha%20empresa%20com%20a%20Dom%C3%ADnio%20Farma.">
   <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.4c1.4.8 3 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
 </a>
 
-<!-- NAVEGAÇÃO -->
 <div class="counter"><span id="cur">01</span> / <span id="tot">15</span></div>
 <div class="dots" id="dots"></div>
 <div class="nav-arrows">
@@ -1148,18 +1133,19 @@
   });
 
   function updateSlide(){
-    slidesContainer.style.transform = `translateY(-${current * 100}%)`;
+    const slideHeight = window.innerHeight - 66;
+    slidesContainer.style.transform = `translateY(-${current * slideHeight}px)`;
     [...dots.children].forEach((d,i) => d.classList.toggle('active', i === current));
     counterCurr.textContent = String(current + 1).padStart(2,'0');
     btnPrev.disabled = current === 0;
     btnNext.disabled = current === total - 1;
     progressBar.style.width = `${((current + 1) / total) * 100}%`;
 
-    // Reinicia animações do slide ativo
     const activeSlide = slides[current];
+    activeSlide.scrollTop = 0;
     activeSlide.querySelectorAll('.au, .as').forEach(el => {
       el.style.animation = 'none';
-      el.offsetHeight; // trigger reflow
+      void el.offsetHeight;
       el.style.animation = '';
     });
   }
@@ -1169,73 +1155,76 @@
     updateSlide();
   }
 
-  btnPrev.onclick = () => goToSlide(current - 1);
-  btnNext.onclick = () => goToSlide(current + 1);
+  btnNext.onclick = () => { if(current < total - 1){ current++; updateSlide(); } };
+  btnPrev.onclick = () => { if(current > 0){ current--; updateSlide(); } };
 
   // Teclado
   document.addEventListener('keydown', e => {
-    if(['ArrowDown','PageDown',' '].includes(e.key)){ e.preventDefault(); goToSlide(current + 1); }
-    if(['ArrowUp','PageUp'].includes(e.key)){ e.preventDefault(); goToSlide(current - 1); }
-    if(e.key === 'Home') goToSlide(0);
-    if(e.key === 'End') goToSlide(total - 1);
+    if(e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' '){
+      e.preventDefault();
+      if(current < total - 1){ current++; updateSlide(); }
+    }
+    if(e.key === 'ArrowUp' || e.key === 'ArrowLeft'){
+      e.preventDefault();
+      if(current > 0){ current--; updateSlide(); }
+    }
   });
 
-  // Touch swipe (com detecção de scroll interno)
-  let startY = 0, startTime = 0, scrollTopAtStart = 0;
-  slidesContainer.addEventListener('touchstart', e => {
-    startY = e.touches[0].clientY;
-    startTime = Date.now();
-    scrollTopAtStart = slides[current].scrollTop;
+  // Touch swipe vertical
+  let touchStartY = 0;
+  let touchStartX = 0;
+  let touchStartTime = 0;
+
+  document.addEventListener('touchstart', e => {
+    touchStartY = e.touches[0].clientY;
+    touchStartX = e.touches[0].clientX;
+    touchStartTime = Date.now();
   }, {passive:true});
 
-  slidesContainer.addEventListener('touchend', e => {
-    const dy = e.changedTouches[0].clientY - startY;
-    const dt = Date.now() - startTime;
-    const slideEl = slides[current];
-    const maxScroll = slideEl.scrollHeight - slideEl.clientHeight;
-    const currentScroll = slideEl.scrollTop;
+  document.addEventListener('touchend', e => {
+    const dy = e.changedTouches[0].clientY - touchStartY;
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    const dt = Date.now() - touchStartTime;
+    const activeSlide = slides[current];
 
-    if(Math.abs(dy) < 60 || dt > 600) return;
+    if(Math.abs(dy) < 60 || Math.abs(dx) > Math.abs(dy) || dt > 600) return;
 
-    // Swipe up (próximo) — só se estiver no fim do scroll
-    if(dy < 0 && currentScroll >= maxScroll - 5){
-      goToSlide(current + 1);
-    }
-    // Swipe down (anterior) — só se estiver no topo
-    else if(dy > 0 && currentScroll <= 5){
-      goToSlide(current - 1);
-    }
+    // Detecção de scroll interno
+    if(dy < 0 && activeSlide.scrollTop + activeSlide.clientHeight < activeSlide.scrollHeight - 5) return;
+    if(dy > 0 && activeSlide.scrollTop > 5) return;
+
+    if(dy < 0 && current < total - 1){ current++; updateSlide(); }
+    if(dy > 0 && current > 0){ current--; updateSlide(); }
   }, {passive:true});
 
-  // Scroll wheel (desktop)
+  // Wheel desktop com debounce
   let wheelLock = false;
-  slidesContainer.addEventListener('wheel', e => {
-    const slideEl = slides[current];
-    const maxScroll = slideEl.scrollHeight - slideEl.clientHeight;
-    const atBottom = slideEl.scrollTop >= maxScroll - 5;
-    const atTop = slideEl.scrollTop <= 5;
-
+  document.addEventListener('wheel', e => {
     if(wheelLock) return;
+    const activeSlide = slides[current];
+    if(e.deltaY > 0 && activeSlide.scrollTop + activeSlide.clientHeight < activeSlide.scrollHeight - 5) return;
+    if(e.deltaY < 0 && activeSlide.scrollTop > 5) return;
 
-    if(e.deltaY > 30 && atBottom){
-      wheelLock = true;
-      goToSlide(current + 1);
-      setTimeout(() => wheelLock = false, 900);
-    } else if(e.deltaY < -30 && atTop){
-      wheelLock = true;
-      goToSlide(current - 1);
-      setTimeout(() => wheelLock = false, 900);
-    }
+    if(Math.abs(e.deltaY) < 30) return;
+    wheelLock = true;
+    if(e.deltaY > 0 && current < total - 1){ current++; updateSlide(); }
+    else if(e.deltaY < 0 && current > 0){ current--; updateSlide(); }
+    setTimeout(() => wheelLock = false, 900);
   }, {passive:true});
 
-  // Compartilhar
+  // Resize
+  window.addEventListener('resize', updateSlide);
+
+  // Compartilhar WhatsApp
   function shareWhats(){
     const url = window.location.href;
-    const text = encodeURIComponent(`📚 Manual de Abertura de Empresa — Domínio Farma\n\n${url}`);
-    window.open(`https://wa.me/?text=${text}`, '_blank');
+    const text = `Confira este Manual de Abertura de Empresa da Domínio Farma: ${url}`;
+    window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
   }
 
+  // Inicializar
   updateSlide();
 </script>
+
 </body>
 </html>
