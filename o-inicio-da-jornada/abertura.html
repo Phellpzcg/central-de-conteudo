@@ -1,1230 +1,285 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Manual de Abertura de Empresa | Domínio Farma</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fraunces:ital,wght@0,400;0,600;0,700;0,900;1,700;1,900&display=swap" rel="stylesheet" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Documentos para Abertura de Empresa | Domínio Farma</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
-  :root {
-    --bg:#F4F6F2;
-    --bg-soft:#EAEEE6;
-    --card:#FFFFFF;
-    --border:#D8DDD4;
-    --border-soft:#E8ECE4;
-    --ink:#1F2421;
-    --ink-soft:#3A4540;
-    --muted:#6B7670;
-    --primary:#0F3D2E;
-    --primary-soft:#1A5C46;
-    --secondary:#5C8374;
-    --accent:#C97B3C;
-    --accent-soft:#E8A56B;
-    --topbar:#0A0A0A;
-    --success:#3F7D5C;
-    --warning:#B8843A;
-  }
-
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',sans-serif;background:#f5f5f5;color:#1a1a1a;font-size:15px;line-height:1.6}
 
-  html,body{
-    background:var(--bg);
-    color:var(--ink);
-    font-family:'Inter',sans-serif;
-    font-weight:400;
-    line-height:1.65;
-    overflow:hidden;
-    height:100vh;
-    width:100%;
-    -webkit-font-smoothing:antialiased;
-  }
+  /* HEADER */
+  .header{background:#0a0a0a;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .header img{height:40px;width:auto}
+  .header-info{text-align:right}
+  .header-info p{color:rgba(255,255,255,.55);font-size:11px;line-height:1.7}
+  .header-info a{color:#C97B3C;text-decoration:none;font-weight:600;font-size:12px}
 
-  /* PROGRESS BAR */
-  .progress{
-    position:fixed;
-    top:0;left:0;right:0;
-    height:4px;
-    background:var(--topbar);
-    z-index:100;
-  }
-  .progress-bar{
-    height:100%;
-    width:0;
-    background:linear-gradient(90deg,#C97B3C,#E8A56B,#C97B3C);
-    background-size:200% 100%;
-    transition:width .6s cubic-bezier(.4,0,.2,1);
-    animation:slide 4s linear infinite;
-  }
-  @keyframes slide{
-    0%{background-position:0% 50%}
-    100%{background-position:200% 50%}
-  }
+  /* HERO SIMPLES */
+  .hero{background:#0F3D2E;padding:28px 20px;text-align:center}
+  .hero h1{color:#fff;font-size:22px;font-weight:800;line-height:1.25;margin-bottom:8px}
+  .hero h1 span{color:#C97B3C}
+  .hero p{color:rgba(255,255,255,.75);font-size:14px;max-width:360px;margin:0 auto}
 
-  /* TOPBAR */
-  .topbar{
-    position:fixed;
-    top:4px;left:0;right:0;
-    height:62px;
-    background:var(--topbar);
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 22px;
-    z-index:90;
-    box-shadow:0 2px 12px rgba(0,0,0,.15);
-    border-bottom:1px solid #1a1a1a;
-  }
-  .brand{display:flex;align-items:center;gap:10px}
-  .brand img{height:32px;width:auto;object-fit:contain}
-  .logo-fallback{
-    font-family:'Fraunces',serif;
-    font-weight:900;
-    font-size:18px;
-    color:#fff;
-    letter-spacing:-.02em;
-  }
-  .brand-tag{
-    font-size:10px;
-    color:rgba(255,255,255,.55);
-    letter-spacing:1.5px;
-    text-transform:uppercase;
-    font-weight:600;
-    border-left:1px solid rgba(255,255,255,.15);
-    padding-left:10px;
-  }
-  .back-btn{
-    background:transparent;
-    border:1px solid rgba(255,255,255,.25);
-    color:#fff;
-    padding:9px 16px;
-    border-radius:30px;
-    font-size:12px;
-    font-weight:600;
-    cursor:pointer;
-    display:flex;
-    align-items:center;
-    gap:6px;
-    transition:all .3s;
-    font-family:inherit;
-  }
-  .back-btn:hover{
-    background:#fff;
-    color:var(--topbar);
-    border-color:#fff;
-  }
+  /* CONTENT */
+  .content{max-width:520px;margin:0 auto;padding:24px 16px 40px}
 
-  /* DECK CORRIGIDO */
-  .deck{
-    position:fixed;
-    top:66px;
-    left:0;right:0;bottom:0;
-    overflow:hidden;
-  }
-  .slides{
-    position:relative;
-    width:100%;
-    transition:transform .8s cubic-bezier(.65,.05,.35,1);
-  }
-  .slide{
-    position:relative;
-    width:100%;
-    height:calc(100vh - 66px);
-    padding:30px 24px 90px;
-    overflow-y:auto;
-    overflow-x:hidden;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    scrollbar-width:thin;
-    scrollbar-color:var(--border) transparent;
-  }
-  .slide::-webkit-scrollbar{width:6px}
-  .slide::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+  /* AVISO TOPO */
+  .tip{background:#fff7ed;border-left:4px solid #C97B3C;border-radius:0 10px 10px 0;padding:12px 14px;margin-bottom:24px;font-size:13.5px;color:#7a4010;line-height:1.6}
+  .tip strong{display:block;margin-bottom:2px;font-size:14px}
 
-  .slide-inner{
-    width:100%;
-    max-width:720px;
-    margin:0 auto;
-  }
+  /* BLOCO */
+  .block{background:#fff;border-radius:12px;border:1px solid #e0e0e0;margin-bottom:16px;overflow:hidden}
+  .block-head{background:#0F3D2E;padding:12px 16px;display:flex;align-items:center;gap:10px}
+  .block-head .ic{font-size:18px}
+  .block-head h2{color:#fff;font-size:14px;font-weight:700;letter-spacing:.2px}
+  .block-body{padding:4px 0}
 
-  /* TIPOGRAFIA */
-  h1,h2{
-    font-family:'Fraunces',serif;
-    color:var(--primary);
-    font-weight:900;
-    letter-spacing:-.02em;
-    line-height:1.1;
-  }
-  h1{font-size:clamp(34px,5.5vw,52px)}
-  h2{font-size:clamp(26px,4.2vw,40px);margin-bottom:6px}
-  h3{
-    font-family:'Inter',sans-serif;
-    font-size:15px;
-    font-weight:700;
-    color:var(--ink);
-  }
-  p{font-size:15.5px;color:var(--ink-soft);line-height:1.7}
+  /* ITEM */
+  .item{display:flex;align-items:flex-start;gap:12px;padding:13px 16px;border-bottom:1px solid #f0f0f0}
+  .item:last-child{border-bottom:none}
+  .item-emoji{font-size:20px;flex-shrink:0;margin-top:1px}
+  .item-text{}
+  .item-title{font-weight:700;font-size:14px;color:#111;margin-bottom:1px}
+  .item-desc{font-size:12.5px;color:#666;line-height:1.5}
 
-  .gt{
-    font-family:'Fraunces',serif;
-    font-style:italic;
-    font-weight:900;
-    color:var(--primary);
-    background:linear-gradient(120deg,transparent 0%,transparent 60%,rgba(201,123,60,.25) 60%,rgba(201,123,60,.25) 95%,transparent 95%);
-    padding:0 4px;
-  }
+  /* NOTA DENTRO DO BLOCO */
+  .block-note{margin:0 14px 12px;background:#f0f5f0;border-radius:8px;padding:10px 12px;font-size:12.5px;color:#2d5a3d;line-height:1.6}
 
-  .eyebrow{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    font-size:11px;
-    font-weight:700;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    color:var(--secondary);
-    margin-bottom:14px;
-  }
-  .eyebrow::before{
-    content:"";
-    width:24px;height:1px;
-    background:var(--secondary);
-  }
+  /* SEÇÃO ATIVIDADES */
+  .activities{background:#fff;border-radius:12px;border:1px solid #e0e0e0;margin-bottom:16px;overflow:hidden}
+  .activities .block-head{background:#5C8374}
+  .act-list{padding:12px 16px;display:flex;flex-direction:column;gap:8px}
+  .act-tag{background:#f0f5f2;border:1px solid #c8ddd3;border-radius:8px;padding:9px 12px;font-size:13.5px;font-weight:600;color:#0F3D2E;display:flex;align-items:center;gap:8px}
+  .act-sub{font-size:12px;font-weight:400;color:#5C8374;margin-top:2px}
 
-  .divider{
-    width:60px;height:3px;
-    background:var(--accent);
-    border-radius:2px;
-    margin:18px 0;
-  }
-  .divider.center{margin:18px auto}
+  /* CHECKLIST FINAL */
+  .checklist-box{background:#fff;border-radius:12px;border:1px solid #e0e0e0;margin-bottom:16px;overflow:hidden}
+  .checklist-box .block-head{background:#1a1a1a}
+  .cl-item{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid #f0f0f0;font-size:13.5px}
+  .cl-item:last-child{border-bottom:none}
+  .cl-check{width:22px;height:22px;border-radius:50%;border:2px solid #0F3D2E;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#0F3D2E;font-size:11px;font-weight:800}
 
-  .lead{
-    font-size:17px;
-    color:var(--ink-soft);
-    line-height:1.7;
-    margin-top:14px;
-  }
+  /* CTA */
+  .cta{background:#0F3D2E;border-radius:12px;padding:22px 18px;text-align:center;margin-bottom:16px}
+  .cta p{color:rgba(255,255,255,.8);font-size:13.5px;margin-bottom:16px;line-height:1.6}
+  .cta a{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;font-weight:700;font-size:14.5px;padding:13px 24px;border-radius:10px;text-decoration:none}
+  .cta a svg{width:20px;height:20px;fill:#fff;flex-shrink:0}
 
-  /* SLIDE 1 CAPA */
-  .cover{text-align:center}
-  .orbital{
-    position:relative;
-    width:280px;height:280px;
-    margin:0 auto 24px;
-  }
-  .orbital svg{position:absolute;inset:0;width:100%;height:100%}
-  .orbital .ring{
-    fill:none;
-    stroke:var(--secondary);
-    stroke-width:1;
-    opacity:.4;
-  }
-  .orbital .ring.dash{stroke-dasharray:3 5;opacity:.5}
-  .orbital .node{
-    fill:var(--accent);
-    animation:orbit 8s linear infinite;
-    transform-origin:140px 140px;
-  }
-  .orbital .node.n2{fill:var(--secondary);animation-duration:12s;animation-direction:reverse}
-  .orbital .node.n3{fill:var(--primary);animation-duration:10s}
-  @keyframes orbit{from{transform:rotate(0)}to{transform:rotate(360deg)}}
-  .orbital .core{
-    position:absolute;
-    top:50%;left:50%;
-    transform:translate(-50%,-50%);
-    width:120px;height:120px;
-    background:var(--primary);
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:54px;
-    box-shadow:0 12px 40px rgba(15,61,46,.25);
-  }
-
-  .info-list{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:18px;
-    padding:6px 20px;
-    margin-top:28px;
-    text-align:left;
-    box-shadow:0 4px 20px rgba(0,0,0,.04);
-  }
-  .info-row{
-    display:flex;
-    align-items:center;
-    gap:16px;
-    padding:16px 0;
-    border-bottom:1px solid var(--border-soft);
-  }
-  .info-row:last-child{border-bottom:none}
-  .info-ic{
-    flex-shrink:0;
-    width:44px;height:44px;
-    border-radius:12px;
-    display:flex;align-items:center;justify-content:center;
-    font-size:22px;
-    background:var(--bg-soft);
-  }
-  .info-ic.gold{background:rgba(201,123,60,.12)}
-  .info-ic.green{background:rgba(15,61,46,.08)}
-  .info-content{flex:1}
-  .info-label{
-    font-size:10px;
-    font-weight:700;
-    letter-spacing:1.5px;
-    text-transform:uppercase;
-    color:var(--muted);
-    margin-bottom:2px;
-  }
-  .info-text{font-size:15px;font-weight:600;color:var(--ink)}
-
-  .chip{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    width:42px;height:42px;
-    border-radius:12px;
-    background:var(--primary);
-    color:#fff;
-    font-family:'Fraunces',serif;
-    font-weight:900;
-    font-size:18px;
-    margin-bottom:14px;
-  }
-
-  .card{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:16px;
-    padding:22px;
-    margin-top:18px;
-    box-shadow:0 4px 16px rgba(0,0,0,.04);
-  }
-
-  .alert{
-    display:flex;
-    gap:14px;
-    align-items:flex-start;
-    padding:18px 20px;
-    border-radius:14px;
-    margin-top:20px;
-    border-left:4px solid;
-    font-size:14.5px;
-    line-height:1.6;
-  }
-  .alert.info{background:#EEF3EB;border-color:var(--secondary);color:var(--primary)}
-  .alert.warn{background:#FBF1E4;border-color:var(--warning);color:#6F4F1F}
-  .alert.success{background:#E8F1EB;border-color:var(--success);color:#1F4A36}
-  .alert-ic{font-size:20px;flex-shrink:0;line-height:1}
-
-  .checklist{margin-top:22px;display:flex;flex-direction:column;gap:12px}
-  .check-item{
-    display:flex;
-    gap:14px;
-    align-items:flex-start;
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:12px;
-    padding:14px 16px;
-    transition:all .3s;
-  }
-  .check-item:hover{border-color:var(--secondary);transform:translateX(4px)}
-  .check-num{
-    flex-shrink:0;
-    width:28px;height:28px;
-    background:var(--primary);
-    color:#fff;
-    border-radius:50%;
-    display:flex;align-items:center;justify-content:center;
-    font-weight:800;
-    font-size:12px;
-  }
-  .check-text{font-size:14.5px;color:var(--ink-soft);line-height:1.55;flex:1}
-  .check-text strong{color:var(--ink);font-weight:700}
-
-  .doc-list{
-    margin-top:20px;
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-  }
-  .doc-item{
-    display:flex;
-    align-items:center;
-    gap:14px;
-    padding:14px 18px;
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:12px;
-    transition:all .3s;
-  }
-  .doc-item:hover{border-color:var(--accent);box-shadow:0 4px 12px rgba(201,123,60,.1)}
-  .doc-emoji{font-size:22px;flex-shrink:0}
-  .doc-content{flex:1}
-  .doc-title{font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:2px}
-  .doc-desc{font-size:13px;color:var(--muted);line-height:1.5}
-
-  .block-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:14px;
-    margin-top:22px;
-  }
-  .block{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:14px;
-    padding:20px 16px;
-    text-align:center;
-    transition:all .3s;
-  }
-  .block:hover{transform:translateY(-3px);border-color:var(--primary);box-shadow:0 8px 20px rgba(0,0,0,.06)}
-  .block-emoji{font-size:32px;margin-bottom:10px}
-  .block-title{
-    font-family:'Fraunces',serif;
-    font-size:17px;
-    font-weight:700;
-    color:var(--primary);
-    margin-bottom:6px;
-  }
-  .block-desc{font-size:12.5px;color:var(--muted);line-height:1.5}
-
-  .cta-stack{
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-    margin-top:28px;
-    align-items:center;
-  }
-  .cta-btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-    padding:16px 28px;
-    border-radius:14px;
-    font-size:15px;
-    font-weight:700;
-    cursor:pointer;
-    text-decoration:none;
-    border:none;
-    transition:all .3s;
-    width:100%;
-    max-width:340px;
-    font-family:inherit;
-  }
-  .cta-primary{
-    background:var(--accent);
-    color:#fff;
-    box-shadow:0 6px 20px rgba(201,123,60,.3);
-  }
-  .cta-primary:hover{
-    background:#B66B30;
-    transform:translateY(-2px);
-  }
-  .cta-secondary{
-    background:transparent;
-    color:var(--primary);
-    border:1.5px solid var(--primary);
-  }
-  .cta-secondary:hover{
-    background:var(--primary);
-    color:#fff;
-  }
-  .cta-btn svg{width:18px;height:18px}
-
-  .footer-contact{
-    margin-top:32px;
-    padding-top:24px;
-    border-top:1px solid var(--border);
-    text-align:center;
-  }
-  .footer-contact .name{
-    font-family:'Fraunces',serif;
-    font-weight:900;
-    font-size:18px;
-    color:var(--primary);
-  }
-  .footer-contact .phone{
-    font-size:15px;
-    color:var(--ink-soft);
-    margin-top:6px;
-    font-weight:600;
-  }
-  .footer-contact .tag{
-    font-size:10px;
-    color:var(--muted);
-    margin-top:8px;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    font-weight:600;
-  }
-
-  .orb-sm{
-    position:relative;
-    width:140px;height:140px;
-    margin:0 auto 20px;
-  }
-  .orb-sm svg{position:absolute;inset:0}
-  .orb-sm .core-sm{
-    position:absolute;top:50%;left:50%;
-    transform:translate(-50%,-50%);
-    width:70px;height:70px;
-    background:var(--primary);
-    border-radius:50%;
-    display:flex;align-items:center;justify-content:center;
-    font-size:32px;
-    box-shadow:0 8px 24px rgba(15,61,46,.25);
-  }
-
-  .example{
-    margin-top:18px;
-    padding:16px 18px;
-    background:var(--bg-soft);
-    border-radius:12px;
-    font-size:14px;
-    color:var(--ink-soft);
-    line-height:1.7;
-  }
-  .example strong{color:var(--primary);font-family:'Fraunces',serif}
+  /* FOOTER */
+  .footer{text-align:center;padding:20px 16px;border-top:1px solid #e0e0e0}
+  .footer p{font-size:11.5px;color:#999;line-height:1.8}
+  .footer strong{color:#555}
 
   /* WHATSAPP FLOAT */
-  .wa-float{
-    position:fixed;
-    bottom:90px;right:22px;
-    width:52px;height:52px;
-    background:#25D366;
-    border-radius:50%;
-    display:flex;align-items:center;justify-content:center;
-    cursor:pointer;
-    box-shadow:0 6px 22px rgba(37,211,98,.4);
-    z-index:85;
-    text-decoration:none;
-    animation:pulse 2.5s infinite;
-    transition:transform .3s;
-  }
-  .wa-float:hover{transform:scale(1.1)}
-  @keyframes pulse{
-    0%,100%{box-shadow:0 6px 22px rgba(37,211,98,.4)}
-    50%{box-shadow:0 6px 35px rgba(37,211,98,.7)}
-  }
-  .wa-float svg{width:26px;height:26px;fill:#fff}
-
-  /* NAVEGAÇÃO */
-  .counter{
-    position:fixed;
-    bottom:22px;left:22px;
-    font-size:13px;
-    font-weight:700;
-    color:var(--muted);
-    letter-spacing:1px;
-    z-index:80;
-    font-variant-numeric:tabular-nums;
-  }
-  .counter #cur{color:var(--primary);font-size:16px}
-
-  .dots{
-    position:fixed;
-    bottom:22px;left:50%;
-    transform:translateX(-50%);
-    display:flex;
-    gap:6px;
-    z-index:80;
-    max-width:60%;
-    flex-wrap:wrap;
-    justify-content:center;
-  }
-  .dots button{
-    width:8px;height:8px;
-    border-radius:50%;
-    border:none;
-    background:var(--border);
-    cursor:pointer;
-    padding:0;
-    transition:all .3s;
-  }
-  .dots button.active{
-    width:24px;
-    border-radius:4px;
-    background:var(--primary);
-  }
-
-  .nav-arrows{
-    position:fixed;
-    bottom:18px;right:22px;
-    display:flex;
-    flex-direction:column;
-    gap:6px;
-    z-index:80;
-  }
-  .nav-arrows button{
-    width:38px;height:30px;
-    border:1px solid var(--border);
-    background:var(--card);
-    border-radius:8px;
-    cursor:pointer;
-    display:flex;align-items:center;justify-content:center;
-    transition:all .3s;
-    padding:0;
-  }
-  .nav-arrows button:hover:not(:disabled){
-    background:var(--primary);
-    border-color:var(--primary);
-  }
-  .nav-arrows button:hover:not(:disabled) svg{stroke:#fff}
-  .nav-arrows button:disabled{opacity:.4;cursor:not-allowed}
-  .nav-arrows svg{stroke:var(--ink);transition:stroke .3s}
-
-  /* ANIMAÇÕES */
-  .au{opacity:0;transform:translateY(20px);animation:fadeUp .8s ease forwards}
-  .as{opacity:0;transform:scale(.92);animation:fadeScale .8s ease forwards}
-  @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
-  @keyframes fadeScale{to{opacity:1;transform:scale(1)}}
-  .d1{animation-delay:.1s}.d2{animation-delay:.2s}.d3{animation-delay:.3s}
-  .d4{animation-delay:.4s}.d5{animation-delay:.5s}.d6{animation-delay:.6s}
-  .d7{animation-delay:.7s}
-
-  @media(max-width:768px){
-    .slide{padding:20px 18px 100px}
-    .block-grid{grid-template-columns:1fr;gap:10px}
-    .orbital{width:220px;height:220px}
-    .orbital .core{width:96px;height:96px;font-size:42px}
-    .info-row{padding:14px 0;gap:12px}
-    .info-ic{width:38px;height:38px;font-size:18px}
-    .brand-tag{display:none}
-    .topbar{padding:0 16px}
-    .nav-arrows{bottom:14px;right:14px}
-    .counter{bottom:18px;left:14px}
-    .dots{max-width:50%}
-  }
-  @media(max-width:480px){
-    h1{font-size:32px}
-    h2{font-size:24px}
-    .orbital{width:180px;height:180px}
-    .orbital .core{width:80px;height:80px;font-size:36px}
-  }
+  .wa{position:fixed;bottom:20px;right:16px;width:50px;height:50px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.45);z-index:99;text-decoration:none}
+  .wa svg{width:26px;height:26px;fill:#fff}
 </style>
 </head>
 <body>
 
-<div class="progress"><div class="progress-bar" id="progressBar"></div></div>
-
-<header class="topbar">
-  <div class="brand">
-    <img src="../logo.png" alt="Domínio Farma" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-    <span class="logo-fallback" style="display:none">Domínio Farma</span>
-    <span class="brand-tag">Contabilidade</span>
+<!-- CABEÇALHO -->
+<header class="header">
+  <img src="https://static.wixstatic.com/media/268b2a_7058143e8300494790d974cf6c3c31ae~mv2.jpg/v1/crop/x_81,y_14,w_1514,h_407/fill/w_203,h_55,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo_edited.jpg" alt="Domínio Farma Contabilidade"/>
+  <div class="header-info">
+    <p>CNPJ 38.149.535/0001-00<br>Capim Grosso – BA</p>
+    <a href="https://wa.me/5574999263592">📲 (74) 99926-3592</a>
   </div>
-  <button class="back-btn" onclick="history.back()">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M19 12H5M12 19l-7-7 7-7"/>
-    </svg>
-    Voltar
-  </button>
 </header>
 
-<div class="deck">
-  <div class="slides" id="slides">
-
-    <!-- SLIDE 1 — CAPA -->
-    <section class="slide">
-      <div class="slide-inner cover">
-        <div class="orbital as">
-          <svg viewBox="0 0 280 280">
-            <circle class="ring dash" cx="140" cy="140" r="135"/>
-            <circle class="ring" cx="140" cy="140" r="105"/>
-            <circle class="ring dash" cx="140" cy="140" r="75"/>
-            <circle class="node" cx="140" cy="5" r="6"/>
-            <circle class="node n2" cx="245" cy="140" r="5"/>
-            <circle class="node n3" cx="140" cy="275" r="4"/>
-            <circle class="node n2" cx="35" cy="140" r="5"/>
-          </svg>
-          <div class="core">🏢</div>
-        </div>
-        <div class="eyebrow au d1">Manual do Empreendedor · 2026</div>
-        <h1 class="au d2">Abertura de <span class="gt">Empresa</span></h1>
-        <div class="divider center au d3"></div>
-        <p class="lead au d4">Um guia <strong>claro e direto</strong> para você separar tudo o que precisa e tirar sua empresa do papel.</p>
-
-        <div class="info-list au d5">
-          <div class="info-row">
-            <div class="info-ic gold">⏱️</div>
-            <div class="info-content">
-              <div class="info-label">Leitura</div>
-              <div class="info-text">~4 minutos</div>
-            </div>
-          </div>
-          <div class="info-row">
-            <div class="info-ic green">📚</div>
-            <div class="info-content">
-              <div class="info-label">Você vai aprender</div>
-              <div class="info-text">Quais documentos separar para abrir sua empresa</div>
-            </div>
-          </div>
-          <div class="info-row">
-            <div class="info-ic gold">🎯</div>
-            <div class="info-content">
-              <div class="info-label">Benefício</div>
-              <div class="info-text">Processo mais rápido, sem retrabalho</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 2 — LGPD -->
-    <section class="slide">
-      <div class="slide-inner">
-        <div class="eyebrow au d1">Privacidade & LGPD</div>
-        <h2 class="au d2">Sua privacidade <span class="gt">em primeiro lugar</span></h2>
-        <div class="divider au d3"></div>
-        <p class="lead au d4">Antes de começar, queremos ser transparentes sobre como tratamos seus dados.</p>
-
-        <div class="card au d5">
-          <h3 style="margin-bottom:10px;color:var(--primary);font-family:'Fraunces',serif;font-size:17px">🔒 Política de Privacidade</h3>
-          <p style="font-size:14px;line-height:1.7">Ao fornecer seus dados, você consente com o tratamento pela <strong>Domínio Farma Contabilidade</strong> (CNPJ 38.149.535/0001-00) para cadastro, análise, conferência, elaboração e envio de documentos a órgãos públicos.</p>
-          <p style="font-size:14px;line-height:1.7;margin-top:10px">Seus direitos (acesso, correção, exclusão) podem ser exercidos a qualquer momento.</p>
-        </div>
-
-        <div class="alert info au d6">
-          <span class="alert-ic">📜</span>
-          <div>Baseada na <strong>LGPD — Lei nº 13.709/2018</strong>. Tratamos seus dados com responsabilidade e segurança.</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 3 — PARABÉNS -->
-    <section class="slide">
-      <div class="slide-inner cover">
-        <div class="as" style="font-size:84px;margin-bottom:18px">🎉</div>
-        <div class="eyebrow au d1" style="justify-content:center">Boas-vindas</div>
-        <h1 class="au d2">Parabéns, <span class="gt">empreendedor!</span></h1>
-        <div class="divider center au d3"></div>
-        <p class="lead au d4">Decidir abrir sua empresa é um passo de <strong>coragem, propósito e ambição</strong>.</p>
-        <p class="lead au d5">Estamos juntos nesta jornada para fazer seu negócio começar <strong>forte e legalizado</strong>. 🚀</p>
-      </div>
-    </section>
-
-    <!-- SLIDE 4 — COMO FUNCIONA -->
-    <section class="slide">
-      <div class="slide-inner">
-        <div class="chip au d1">1</div>
-        <h2 class="au d2">O caminho até seu <span class="gt">CNPJ</span></h2>
-        <div class="divider au d3"></div>
-        <p class="lead au d4">Para facilitar, dividimos o processo em 3 etapas simples:</p>
-
-        <div class="checklist">
-          <div class="check-item au d5">
-            <div class="check-num">1</div>
-            <div class="check-text">📋 <strong>Separe os documentos</strong> — sem enviar agora, só organizar.</div>
-          </div>
-          <div class="check-item au d6">
-            <div class="check-num">2</div>
-            <div class="check-text">📨 <strong>Receba o formulário</strong> para anexar tudo de forma segura.</div>
-          </div>
-          <div class="check-item au d7">
-            <div class="check-num">3</div>
-            <div class="check-text">⚙️ <strong>Nós cuidamos do resto</strong>, protocolando e mantendo você informado.</div>
-          </div>
-        </div>
-
-        <div class="alert info au d7">
-          <span class="alert-ic">💡</span>
-          <div><strong>Não envie nada ainda.</strong> Organize seus documentos primeiro — isso acelera todo o processo.</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 5 — 3 BLOCOS -->
-    <section class="slide">
-      <div class="slide-inner">
-        <div class="chip au d1">2</div>
-        <h2 class="au d2">Documentos em <span class="gt">3 blocos</span></h2>
-        <div class="divider au d3"></div>
-        <p class="lead au d4">Para ficar mais fácil, organizamos tudo em três categorias:</p>
-
-        <div class="block-grid">
-          <div class="block au d5">
-            <div class="block-emoji">👤</div>
-            <div class="block-title">Sócio</div>
-            <div class="block-desc">RG, CPF, CNH, gov.br e comprovante</div>
-          </div>
-          <div class="block au d6">
-            <div class="block-emoji">🏪</div>
-            <div class="block-title">Empresa</div>
-            <div class="block-desc">Nomes, atividade, capital e contato</div>
-          </div>
-          <div class="block au d7">
-            <div class="block-emoji">📍</div>
-            <div class="block-title">Endereço</div>
-            <div class="block-desc">Comprovante e IPTU do imóvel</div>
-          </div>
-        </div>
-
-        <div class="alert warn au d7">
-          <span class="alert-ic">⚠️</span>
-          <div>Se houver <strong>mais de um sócio</strong>, organize os documentos separadamente por pessoa.</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 6 — DADOS DO SÓCIO -->
-    <section class="slide">
-      <div class="slide-inner">
-        <div class="chip au d1">3</div>
-        <h2 class="au d2">Dados pessoais do <span class="gt">Sócio</span></h2>
-        <div class="divider au d3"></div>
-        <p class="lead au d4">Comece reunindo estas informações de contato e acesso:</p>
-
-        <div class="doc-list">
-          <div class="doc-item au d5">
-            <div class="doc-emoji">🔑</div>
-            <div class="doc-content">
-              <div class="doc-title">Conta gov.br</div>
-              <div class="doc-desc">Senha de nível prata ou ouro</div>
-            </div>
-          </div>
-          <div class="doc-item au d6">
-            <div class="doc-emoji">📱</div>
-            <div class="doc-content">
-              <div class="doc-title">WhatsApp e telefone</div>
-              <div class="doc-desc">Contatos ativos para comunicação</div>
-            </div>
-          </div>
-          <div class="doc-item au d7">
-            <div class="doc-emoji">✉️</div>
-            <div class="doc-content">
-              <div class="doc-title">E-mail</div>
-              <div class="doc-desc">Será usado para acessos e notificações oficiais</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 7 — IDENTIDADE -->
-    <section class="slide">
-      <div class="slide-inner">
-        <div class="chip au d1">4</div>
-        <h2 class="au d2">Documentos de <span class="gt">identidade</span></h2>
-        <div class="divider au d3"></div>
-        <p class="lead au d4">Você precisará de:</p>
-
-        <div class="doc-list">
-          <div class="doc-item au d5">
-            <div class="doc-emoji">🪪</div>
-            <div class="doc-content">
-              <div class="doc-title">RG, CPF ou CNH</div>
-              <div class="doc-desc">Um documento oficial com foto</div>
-            </div>
-          </div>
-          <div class="doc-item au d6">
-            <div class="doc-emoji">📄</div>
-            <div class="doc-content">
-              <div class="doc-title">Comprovante de residência</div>
-              <div class="doc-desc">Recente (últimos 3 meses)</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="alert success au d7">
-          <span class="alert-ic">📸</span>
-          <div>Envie arquivos em <strong>alta qualidade</strong>, bem iluminados e sem cortes ou borrões.</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 8 — NOMES -->
-    <section class="slide">
-      <div class="slide-inner">
-        <div class="chip au d1">5</div>
-        <h2 class="au d2">Escolha <span class="gt">3 nomes</span></h2>
-        <div class="divider au d3"></div>
-        <p class="lead au d4">A Junta Comercial pode recusar nomes semelhantes a outros já registrados. Liste opções em ordem de prioridade.</p>
-
-        <div class="doc-list">
-          <div class="doc-item au d5">
-            <div class="doc-emoji">📝</div>
-            <div class="doc-content">
-              <div class="doc-title">Nome empresarial</div>
-              <div class="doc-desc">3 opções em ordem de preferência</div>
-            </div>
-          </div>
-          <div class="doc-item au d6">
-            <div class="doc-emoji">✨</div>
-            <div class="doc-content">
-              <div class="doc-title">Nome fantasia</div>
-              <div class="doc-desc">A marca que aparecerá para o público</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="example au d7">
-          <strong>Exemplo:</strong><br>
-          <strong>Empresarial:</strong> Silva &amp; Souza Ltda<br>
-          <strong>Fantasia:</strong> Farmácia Bem-Estar
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 9 — CONTATO -->
-    <section class="slide">
-      <div class="slide-inner">
-        <div class="chip au d1">6</div>
-        <h2 class="au d2">Contato <span class="gt">da empresa</span></h2>
-        <div class="divider au d3"></div>
-        <p class="lead au d4">Defina os canais oficiais que serão vinculados ao CNPJ:</p>
-
-        <div class="doc-list">
-          <div class="doc-item au d5">
-            <div class="doc-emoji">📧</div>
-            <div class="doc-content">
-              <div class="doc-title">E-mail corporativo</div>
-              <div class="doc-desc">Receberá notificações e comunicações oficiais</div>
-            </div>
-          </div>
-          <div class="doc-item au d6">
-            <div class="doc-emoji">☎️</div>
-            <div class="doc-content">
-              <div class="doc-title">Telefone / WhatsApp</div>
-              <div class="doc-desc">Usado para atendimento ao cliente</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="alert info au d7">
-          <span class="alert-ic">💼</span>
-          <div>Use contatos <strong>ativos e profissionais</strong> — eles representarão sua empresa.</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 10 — ATIVIDADE -->
-    <section class="slide">
-      <div class="slide-inner">
-        <div class="chip au d1">7</div>
-        <h2 class="au d2">Declare o <span class="gt">tipo de atividade</span></h2>
-        <div class="divider au d3"></div>
-        <p class="lead au d4">Escolha a atividade principal da sua empresa:</p>
-
-        <div class="doc-list">
-          <div class="doc-item au d5">
-            <div class="doc-emoji">💊</div>
-            <div class="doc-content">
-              <div class="doc-title">Farmácia / Drogaria</div>
-              <div class="doc-desc">Comércio de medicamentos e produtos de saúde</div>
-            </div>
-          </div>
-          <div class="doc-item au d6">
-            <div class="doc-emoji">🛠️</div>
-            <div class="doc-content">
-              <div class="doc-title">Prestador de Serviço</div>
-              <div class="doc-desc">Consultorias, serviços técnicos e profissionais</div>
-            </div>
-          </div>
-          <div class="doc-item au d7">
-            <div class="doc-emoji">🛒</div>
-            <div class="doc-content">
-              <div class="doc-title">Mercearia / Supermercado</div>
-              <div class="doc-desc">Comércio varejista de alimentos</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="alert warn au d7">
-          <span class="alert-ic">💬</span>
-          <div>Outra atividade? <strong>Fale com nossa equipe</strong> pelo WhatsApp para orientação personalizada.</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 11 — CAPITAL SOCIAL -->
-    <section class="slide">
-      <div class="slide-inner">
-        <div class="chip au d1">8</div>
-        <h2 class="au d2">Defina o <span class="gt">Capital Social</span></h2>
-        <div class="divider au d3"></div>
-        <p class="lead au d4">É o valor total de investimento inicial declarado para a empresa.</p>
-
-        <div class="doc-list">
-          <div class="doc-item au d5">
-            <div class="doc-emoji">💵</div>
-            <div class="doc-content">
-              <div class="doc-title">Valor total</div>
-              <div class="doc-desc">Quanto será investido inicialmente</div>
-            </div>
-          </div>
-          <div class="doc-item au d6">
-            <div class="doc-emoji">📊</div>
-            <div class="doc-content">
-              <div class="doc-title">Divisão entre sócios</div>
-              <div class="doc-desc">Percentual de cada um (se houver mais de um)</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="alert success au d7">
-          <span class="alert-ic">🤝</span>
-          <div>Não se preocupe se tiver dúvidas — <strong>seu contador te orienta</strong> na hora de definir o valor ideal.</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 12 — ENDEREÇO -->
-    <section class="slide">
-      <div class="slide-inner">
-        <div class="chip au d1">9</div>
-        <h2 class="au d2">Documentos do <span class="gt">endereço</span></h2>
-        <div class="divider au d3"></div>
-        <p class="lead au d4">Tenha em mãos os documentos do imóvel onde a empresa funcionará:</p>
-
-        <div class="doc-list">
-          <div class="doc-item au d5">
-            <div class="doc-emoji">📄</div>
-            <div class="doc-content">
-              <div class="doc-title">Comprovante de endereço</div>
-              <div class="doc-desc">Conta de luz, água ou telefone (recente)</div>
-            </div>
-          </div>
-          <div class="doc-item au d6">
-            <div class="doc-emoji">🏛️</div>
-            <div class="doc-content">
-              <div class="doc-title">IPTU do imóvel</div>
-              <div class="doc-desc">Carnê do ano atual</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="alert info au d7">
-          <span class="alert-ic">📍</span>
-          <div>Os documentos devem ser do <strong>endereço de funcionamento</strong> da empresa.</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 13 — PRAZO -->
-    <section class="slide">
-      <div class="slide-inner cover">
-        <div class="chip au d1" style="margin:0 auto 14px">10</div>
-        <h2 class="au d2">Prazo <span class="gt">médio</span></h2>
-        <div class="divider center au d3"></div>
-        <div class="as d4" style="font-size:64px;margin:24px 0 10px;font-family:'Fraunces',serif;font-weight:900;color:var(--accent);line-height:1">10</div>
-        <p class="lead au d5" style="margin-top:0"><strong>dias úteis</strong></p>
-        <p class="lead au d6" style="max-width:480px;margin:18px auto 0">Após o envio correto de todos os documentos, sua empresa pode estar oficialmente registrada em até <strong>10 dias úteis</strong>.</p>
-
-        <div class="alert warn au d7" style="text-align:left;max-width:520px;margin:24px auto 0">
-          <span class="alert-ic">⏳</span>
-          <div>O prazo pode variar caso haja <strong>análises adicionais</strong> dos órgãos públicos.</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 14 — CHECKLIST FINAL -->
-    <section class="slide">
-      <div class="slide-inner">
-        <div class="chip au d1">11</div>
-        <h2 class="au d2">Revise antes <span class="gt">de enviar</span></h2>
-        <div class="divider au d3"></div>
-        <p class="lead au d4">Confira se tem tudo organizado:</p>
-
-        <div class="checklist">
-          <div class="check-item au d5">
-            <div class="check-num">✓</div>
-            <div class="check-text">👤 <strong>Sócio:</strong> gov.br, telefone, e-mail, RG/CPF/CNH e comprovante de residência</div>
-          </div>
-          <div class="check-item au d6">
-            <div class="check-num">✓</div>
-            <div class="check-text">🏪 <strong>Empresa:</strong> 3 nomes, contato, atividade e capital social</div>
-          </div>
-          <div class="check-item au d7">
-            <div class="check-num">✓</div>
-            <div class="check-text">📍 <strong>Endereço:</strong> comprovante e IPTU</div>
-          </div>
-        </div>
-
-        <div class="alert success au d7">
-          <span class="alert-ic">✅</span>
-          <div>Marcou tudo? <strong>Aguarde nosso contato</strong> com o formulário para anexar os arquivos.</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 15 — CTA FINAL -->
-    <section class="slide">
-      <div class="slide-inner cover">
-        <div class="orb-sm as">
-          <svg viewBox="0 0 140 140">
-            <circle cx="70" cy="70" r="65" fill="none" stroke="#5C8374" stroke-width="1" stroke-dasharray="3 4" opacity=".5"/>
-            <circle cx="70" cy="70" r="50" fill="none" stroke="#C97B3C" stroke-width="1" opacity=".6"/>
-          </svg>
-          <div class="core-sm">🤝</div>
-        </div>
-        <div class="eyebrow au d1" style="justify-content:center">Vamos juntos</div>
-        <h1 class="au d2">Conte com a <span class="gt">Domínio Farma</span></h1>
-        <div class="divider center au d3"></div>
-        <p class="lead au d4">Ficou com alguma dúvida? Fale agora mesmo com nossa equipe pelo WhatsApp.</p>
-
-        <div class="cta-stack">
-          <a href="https://wa.me/5574999263592?text=Ol%C3%A1!%20Quero%20abrir%20minha%20empresa%20com%20a%20Dom%C3%ADnio%20Farma." target="_blank" class="cta-btn cta-primary au d5">
-            <svg viewBox="0 0 24 24" fill="#fff"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.4c1.4.8 3 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
-            Falar no WhatsApp
-          </a>
-          <button class="cta-btn cta-secondary au d6" onclick="shareWhats()">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
-            Compartilhar no WhatsApp
-          </button>
-          <a href="../index.html" class="cta-btn cta-secondary au d7">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            Voltar para Home
-          </a>
-        </div>
-
-        <div class="footer-contact au d7">
-          <div class="name">Domínio Farma Contabilidade</div>
-          <div class="phone">📞 (74) 99926-3592</div>
-          <div class="tag">Contabilidade 100% Digital</div>
-        </div>
-      </div>
-    </section>
-
-  </div>
+<!-- HERO -->
+<div class="hero">
+  <h1>Separe seus documentos<br>e <span>abra sua empresa</span></h1>
+  <p>Veja tudo o que você precisa reunir antes de preencher o formulário.</p>
 </div>
 
-<a class="wa-float" target="_blank" href="https://wa.me/5574999263592?text=Ol%C3%A1!%20Quero%20abrir%20minha%20empresa%20com%20a%20Dom%C3%ADnio%20Farma.">
+<!-- CONTEÚDO -->
+<div class="content">
+
+  <!-- AVISO -->
+  <div class="tip">
+    <strong>📌 Como funciona?</strong>
+    Reúna todos os documentos abaixo, depois preencha o formulário que nossa equipe vai te enviar. Nós cuidamos de todo o processo de abertura!
+  </div>
+
+  <!-- BLOCO 1: SÓCIO -->
+  <div class="block">
+    <div class="block-head">
+      <span class="ic">👤</span>
+      <h2>Dados do Sócio — por cada pessoa</h2>
+    </div>
+    <div class="block-body">
+      <div class="item">
+        <div class="item-emoji">🔑</div>
+        <div class="item-text">
+          <div class="item-title">Senha do GOV.BR</div>
+          <div class="item-desc">Nível prata ou ouro — necessária para assinar documentos digitalmente</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-emoji">📱</div>
+        <div class="item-text">
+          <div class="item-title">Telefone / WhatsApp</div>
+          <div class="item-desc">Número ativo para contato</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-emoji">✉️</div>
+        <div class="item-text">
+          <div class="item-title">E-mail pessoal</div>
+          <div class="item-desc">Será usado para acessos e notificações oficiais</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-emoji">🪪</div>
+        <div class="item-text">
+          <div class="item-title">RG / CPF / CNH</div>
+          <div class="item-desc">Documento oficial com foto — foto legível, bem iluminada, sem cortes</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-emoji">🏠</div>
+        <div class="item-text">
+          <div class="item-title">Comprovante de residência</div>
+          <div class="item-desc">Conta de luz, água ou telefone — emitido nos últimos 3 meses</div>
+        </div>
+      </div>
+    </div>
+    <div class="block-note">⚠️ Se houver mais de um sócio, reúna esses documentos para <strong>cada pessoa</strong>.</div>
+  </div>
+
+  <!-- BLOCO 2: EMPRESA -->
+  <div class="block">
+    <div class="block-head">
+      <span class="ic">🏪</span>
+      <h2>Dados da Empresa</h2>
+    </div>
+    <div class="block-body">
+      <div class="item">
+        <div class="item-emoji">📝</div>
+        <div class="item-text">
+          <div class="item-title">3 opções de nome empresarial</div>
+          <div class="item-desc">Em ordem de preferência — a Junta pode recusar nomes já registrados</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-emoji">✨</div>
+        <div class="item-text">
+          <div class="item-title">Nome fantasia</div>
+          <div class="item-desc">A marca que aparecerá para o público (ex.: Farmácia Bem-Estar)</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-emoji">📧</div>
+        <div class="item-text">
+          <div class="item-title">E-mail da empresa</div>
+          <div class="item-desc">Receberá notificações e comunicações oficiais</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-emoji">☎️</div>
+        <div class="item-text">
+          <div class="item-title">Telefone / WhatsApp da empresa</div>
+          <div class="item-desc">Número que ficará registrado no CNPJ</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-emoji">💼</div>
+        <div class="item-text">
+          <div class="item-title">Tipo de atividade</div>
+          <div class="item-desc">Veja as opções disponíveis abaixo</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-emoji">💵</div>
+        <div class="item-text">
+          <div class="item-title">Capital social</div>
+          <div class="item-desc">Valor total investido e percentual de cada sócio — dúvidas? pergunte à nossa equipe</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ATIVIDADES -->
+  <div class="activities">
+    <div class="block-head">
+      <span class="ic">💊</span>
+      <h2>Qual o tipo de atividade?</h2>
+    </div>
+    <div class="act-list">
+      <div class="act-tag">
+        💊 Farmácia / Drogaria
+        <div class="act-sub">4771-7/01 · 4772-5/00 · 4773-3/00 e outros CNAEs do setor</div>
+      </div>
+      <div class="act-tag">🛠️ Prestador de Serviço</div>
+      <div class="act-tag">🛒 Mercearia / Supermercado</div>
+      <div class="act-tag" style="background:#fff8f0;border-color:#e8c89a;color:#7a4010">
+        💬 Outra atividade? Fale com a gente pelo WhatsApp
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOCO 3: ENDEREÇO -->
+  <div class="block">
+    <div class="block-head">
+      <span class="ic">📍</span>
+      <h2>Dados do Imóvel comercial</h2>
+    </div>
+    <div class="block-body">
+      <div class="item">
+        <div class="item-emoji">📄</div>
+        <div class="item-text">
+          <div class="item-title">Comprovante do endereço comercial</div>
+          <div class="item-desc">Conta de luz, água ou telefone do imóvel onde vai funcionar a empresa</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-emoji">🏛️</div>
+        <div class="item-text">
+          <div class="item-title">IPTU do imóvel</div>
+          <div class="item-desc">Foto ou PDF do carnê do ano atual</div>
+        </div>
+      </div>
+    </div>
+    <div class="block-note">📍 Esses documentos devem ser do <strong>local de funcionamento da empresa</strong>, não da residência do sócio.</div>
+  </div>
+
+  <!-- CHECKLIST RÁPIDA -->
+  <div class="checklist-box">
+    <div class="block-head">
+      <span class="ic">✅</span>
+      <h2>Confira antes de enviar</h2>
+    </div>
+    <div class="cl-item"><div class="cl-check">1</div>Senha GOV.BR, RG/CPF/CNH, comprovante de residência e contatos do sócio</div>
+    <div class="cl-item"><div class="cl-check">2</div>3 nomes, nome fantasia, atividade, capital social e contatos da empresa</div>
+    <div class="cl-item"><div class="cl-check">3</div>Comprovante de endereço comercial e IPTU do imóvel</div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <p>Tudo separado? Fale com nossa equipe — vamos te enviar o formulário para anexar os documentos com segurança.</p>
+    <a href="https://wa.me/5574999263592?text=Ol%C3%A1!%20Separei%20os%20documentos%20e%20quero%20abrir%20minha%20empresa." target="_blank">
+      <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.4c1.4.8 3 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>
+    <strong>Domínio Farma Contabilidade</strong><br>
+    CNPJ 38.149.535/0001-00 · Rua Betânia, 26 – Oliveira · Capim Grosso – BA<br>
+    (74) 99926-3592 · Contabilidade 100% Digital
+  </p>
+</footer>
+
+<!-- FLOAT WHATSAPP -->
+<a class="wa" href="https://wa.me/5574999263592" target="_blank" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.4c1.4.8 3 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
 </a>
-
-<div class="counter"><span id="cur">01</span> / <span id="tot">15</span></div>
-<div class="dots" id="dots"></div>
-<div class="nav-arrows">
-  <button id="prev" aria-label="Anterior">
-    <svg width="16" height="16" fill="none" stroke-width="2.2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
-  </button>
-  <button id="next" aria-label="Próximo">
-    <svg width="16" height="16" fill="none" stroke-width="2.2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-  </button>
-</div>
-
-<script>
-  const slides = document.querySelectorAll('.slide');
-  const slidesContainer = document.getElementById('slides');
-  const total = slides.length;
-  let current = 0;
-
-  const dots = document.getElementById('dots');
-  const counterCurr = document.getElementById('cur');
-  const counterTotal = document.getElementById('tot');
-  const btnPrev = document.getElementById('prev');
-  const btnNext = document.getElementById('next');
-  const progressBar = document.getElementById('progressBar');
-
-  counterTotal.textContent = String(total).padStart(2,'0');
-
-  // Cria dots
-  slides.forEach((_,i) => {
-    const btn = document.createElement('button');
-    btn.onclick = () => goToSlide(i);
-    dots.appendChild(btn);
-  });
-
-  function updateSlide(){
-    const slideHeight = window.innerHeight - 66;
-    slidesContainer.style.transform = `translateY(-${current * slideHeight}px)`;
-    [...dots.children].forEach((d,i) => d.classList.toggle('active', i === current));
-    counterCurr.textContent = String(current + 1).padStart(2,'0');
-    btnPrev.disabled = current === 0;
-    btnNext.disabled = current === total - 1;
-    progressBar.style.width = `${((current + 1) / total) * 100}%`;
-
-    const activeSlide = slides[current];
-    activeSlide.scrollTop = 0;
-    activeSlide.querySelectorAll('.au, .as').forEach(el => {
-      el.style.animation = 'none';
-      void el.offsetHeight;
-      el.style.animation = '';
-    });
-  }
-
-  function goToSlide(i){
-    current = Math.max(0, Math.min(i, total - 1));
-    updateSlide();
-  }
-
-  btnNext.onclick = () => { if(current < total - 1){ current++; updateSlide(); } };
-  btnPrev.onclick = () => { if(current > 0){ current--; updateSlide(); } };
-
-  // Teclado
-  document.addEventListener('keydown', e => {
-    if(e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' '){
-      e.preventDefault();
-      if(current < total - 1){ current++; updateSlide(); }
-    }
-    if(e.key === 'ArrowUp' || e.key === 'ArrowLeft'){
-      e.preventDefault();
-      if(current > 0){ current--; updateSlide(); }
-    }
-  });
-
-  // Touch swipe vertical
-  let touchStartY = 0;
-  let touchStartX = 0;
-  let touchStartTime = 0;
-
-  document.addEventListener('touchstart', e => {
-    touchStartY = e.touches[0].clientY;
-    touchStartX = e.touches[0].clientX;
-    touchStartTime = Date.now();
-  }, {passive:true});
-
-  document.addEventListener('touchend', e => {
-    const dy = e.changedTouches[0].clientY - touchStartY;
-    const dx = e.changedTouches[0].clientX - touchStartX;
-    const dt = Date.now() - touchStartTime;
-    const activeSlide = slides[current];
-
-    if(Math.abs(dy) < 60 || Math.abs(dx) > Math.abs(dy) || dt > 600) return;
-
-    // Detecção de scroll interno
-    if(dy < 0 && activeSlide.scrollTop + activeSlide.clientHeight < activeSlide.scrollHeight - 5) return;
-    if(dy > 0 && activeSlide.scrollTop > 5) return;
-
-    if(dy < 0 && current < total - 1){ current++; updateSlide(); }
-    if(dy > 0 && current > 0){ current--; updateSlide(); }
-  }, {passive:true});
-
-  // Wheel desktop com debounce
-  let wheelLock = false;
-  document.addEventListener('wheel', e => {
-    if(wheelLock) return;
-    const activeSlide = slides[current];
-    if(e.deltaY > 0 && activeSlide.scrollTop + activeSlide.clientHeight < activeSlide.scrollHeight - 5) return;
-    if(e.deltaY < 0 && activeSlide.scrollTop > 5) return;
-
-    if(Math.abs(e.deltaY) < 30) return;
-    wheelLock = true;
-    if(e.deltaY > 0 && current < total - 1){ current++; updateSlide(); }
-    else if(e.deltaY < 0 && current > 0){ current--; updateSlide(); }
-    setTimeout(() => wheelLock = false, 900);
-  }, {passive:true});
-
-  // Resize
-  window.addEventListener('resize', updateSlide);
-
-  // Compartilhar WhatsApp
-  function shareWhats(){
-    const url = window.location.href;
-    const text = `Confira este Manual de Abertura de Empresa da Domínio Farma: ${url}`;
-    window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
-  }
-
-  // Inicializar
-  updateSlide();
-</script>
 
 </body>
 </html>
